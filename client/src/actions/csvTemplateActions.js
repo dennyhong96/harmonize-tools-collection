@@ -1,7 +1,11 @@
 import axios from "axios";
 import fileDownload from "js-file-download";
 
-import { TEMPLATE_DOWNLOADED, TEMPLATE_ERROR } from "./actionTypes";
+import {
+  TEMPLATE_DOWNLOADED,
+  TEMPLATE_ERROR,
+  ORG_DATA_FETCHED,
+} from "./actionTypes";
 
 export const getTemplate = () => async (dispatch) => {
   try {
@@ -26,9 +30,11 @@ export const uploadTemplate = (file) => async (dispatch) => {
   const formData = new FormData();
   formData.append("csv", file);
   try {
-    console.log("dsfjls", file);
     const res = await axios.post("/api/v1/csv", formData, config);
-    console.log(res.data);
+    dispatch({
+      type: ORG_DATA_FETCHED,
+      payload: res.data.data,
+    });
   } catch (error) {
     console.log(error);
   }

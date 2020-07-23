@@ -11,7 +11,6 @@ exports.uploadCsvTemplate = async (req, res, next) => {
     req.files.csv.mv(filePath);
 
     const source = await CSVToJSON().fromFile(filePath);
-
     const transformedData = source
       .map((employee) => {
         // Add in 'children' field which is required by OrgChart
