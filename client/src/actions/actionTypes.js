@@ -1,0 +1,2 @@
+export const ORG_DATA_FETCHED = "ORG_DATA_FETCHED";
+export const ORG_DATA_ERROR = "ORG_DATA_ERROR";
