@@ -10,6 +10,6 @@ export default (state = INITIAL_STATE, action) => {
     case ORG_DATA_ERROR:
       return INITIAL_STATE;
     default:
-      return;
+      return state;
   }
 };
