@@ -1,3 +1,6 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+import template from "./csvTemplateReducer";
+import orgData from "./orgChartReducer";
+
+export default combineReducers({ template, orgData });

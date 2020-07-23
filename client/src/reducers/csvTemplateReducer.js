@@ -10,6 +10,6 @@ export default (state = INITIAL_STATE, action) => {
     case TEMPLATE_ERROR:
       return false;
     default:
-      state;
+      return state;
   }
 };
