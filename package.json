@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/hyhong-code/org-chart-demo/issues"
   },
-  "homepage": "https://github.com/hyhong-code/org-chart-demo#readme"
+  "homepage": "https://github.com/hyhong-code/org-chart-demo#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.4",
+    "jsontocsv": "^0.3.0",
+    "mongoose": "^5.9.25",
+    "morgan": "^1.10.0"
+  }
 }
