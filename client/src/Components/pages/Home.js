@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import ControlPanel from "../controls/ControlPanel";
-import OrgChart from "../OrgChart";
+import OrgChart from "../charts/OrgChart";
 
 const Home = () => {
   return (

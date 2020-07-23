@@ -1,8 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
 import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
 
-const DefaultChart = ({ orgData }) => {
+const OrgChart = ({ orgData }) => {
+  // Get reference to the chart DOM node
+  const orgChartRef = useRef(null);
+
+  // Download the chart as png
+  const handleDownLoadChart = () => {
+    orgChartRef.current.exportTo("orgchart", "pdf");
+  };
+
   const ds = {
     id: "n1",
     name: "Lao Lao",
@@ -40,11 +49,19 @@ const DefaultChart = ({ orgData }) => {
   return (
     <Fragment>
       {!orgData && <h1>Example Chart</h1>}
-      <OrganizationChart datasource={orgData || ds} />
+      <OrganizationChart
+        datasource={orgData || ds}
+        draggable={true}
+        collapsible={true}
+        ref={orgChartRef}
+        // pan={true}
+        // zoom={true}
+      />
+      {orgData && <Button onClick={handleDownLoadChart}>Download Chart</Button>}
     </Fragment>
   );
 };
 
 const mapStateToProps = ({ orgData }) => ({ orgData });
 
-export default connect(mapStateToProps)(DefaultChart);
+export default connect(mapStateToProps)(OrgChart);

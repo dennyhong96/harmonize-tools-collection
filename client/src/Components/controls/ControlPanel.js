@@ -1,13 +1,14 @@
 import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
 
-import { getTemplate, uploadTemplate } from "../../actions/csvTemplateActions";
+import { getTemplate } from "../../actions/csvTemplateActions";
+import { uploadOrgData } from "../../actions/orgChartActions";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 
-const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
+const ControlPanel = ({ getTemplate, uploadOrgData }) => {
   const [step, setStep] = useState(1);
 
   const handleDownload = async () => {
@@ -17,8 +18,8 @@ const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
   };
 
   const handleUpload = async (file) => {
-    if (await uploadTemplate(file)) {
-      uploadTemplate(file);
+    console.log(file);
+    if (await uploadOrgData(file)) {
       setStep(4);
     }
   };
@@ -33,8 +34,4 @@ const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
   );
 };
 
-const mapStateToProps = ({ template }) => ({ template });
-
-export default connect(mapStateToProps, { getTemplate, uploadTemplate })(
-  ControlPanel
-);
+export default connect(null, { getTemplate, uploadOrgData })(ControlPanel);

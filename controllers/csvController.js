@@ -1,5 +1,5 @@
 const path = require("path");
-const parseCsv = "../utils/parseCsv.js";
+const parseCsv = require("../utils/parseCsv");
 
 // @desc    Send csv template to client
 // @route   GET /api/v1/csv
@@ -20,7 +20,7 @@ exports.uploadCsvTemplate = async (req, res, next) => {
     req.files.csv.mv(filePath);
 
     // Parse hierarchical data from flat csv
-    const hierarchicalData = parseCsv(filePath);
+    const hierarchicalData = await parseCsv(filePath);
     res.status(200).json({ data: hierarchicalData });
   } catch (error) {
     console.error(error);
