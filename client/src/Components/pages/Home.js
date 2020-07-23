@@ -1,15 +1,21 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 
+import ControlPanel from "../controls/ControlPanel";
 import OrgChart from "../OrgChart";
 
 const Home = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={OrgChart} />
-      </Switch>
-    </BrowserRouter>
+    <Container>
+      <Row>
+        <Col md={{ span: 2 }}>
+          <ControlPanel />
+        </Col>
+        <Col md={{ span: 10 }}>
+          <OrgChart />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

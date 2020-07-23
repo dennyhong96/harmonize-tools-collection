@@ -1,19 +1,16 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import Home from "./Components/pages/Home";
 import "./App.scss";
 
 const App = () => {
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 2 }}></Col>
-        <Col md={{ span: 10 }}>
-          <Home />
-        </Col>
-      </Row>
-    </Container>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
