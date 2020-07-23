@@ -8,7 +8,9 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "prepare-backend": "npm install",
+    "prepare-frontend": "npm install --prefix client"
   },
   "repository": {
     "type": "git",
@@ -26,12 +28,11 @@
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.4",
-    "json2csv": "^5.0.1",
-    "jsonexport": "^3.0.1",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
   }
 }

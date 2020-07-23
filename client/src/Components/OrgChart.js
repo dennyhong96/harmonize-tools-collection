@@ -39,7 +39,7 @@ const DefaultChart = ({ orgData }) => {
 
   return (
     <Fragment>
-      {!orgData && <h1 className="display-4">Example Chart</h1>}
+      {!orgData && <h1>Example Chart</h1>}
       <OrganizationChart datasource={orgData || ds} />
     </Fragment>
   );

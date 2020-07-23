@@ -7,6 +7,10 @@ import {
   ORG_DATA_FETCHED,
 } from "./actionTypes";
 
+/**
+ * @function getTemplate
+ * Downloads csv template from server
+ */
 export const getTemplate = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/v1/csv");
@@ -17,10 +21,17 @@ export const getTemplate = () => async (dispatch) => {
     return true;
   } catch (error) {
     console.error(error);
+    dispatch({
+      type: TEMPLATE_ERROR,
+    });
     return false;
   }
 };
 
+/**
+ * @param {object} file - csv file to be uploaded to server
+ * Uploads user modified csv file to server
+ */
 export const uploadTemplate = (file) => async (dispatch) => {
   const config = {
     headers: {
@@ -38,6 +49,9 @@ export const uploadTemplate = (file) => async (dispatch) => {
     return true;
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: TEMPLATE_ERROR,
+    });
     return false;
   }
 };
