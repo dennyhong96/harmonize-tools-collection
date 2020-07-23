@@ -35,7 +35,9 @@ export const uploadTemplate = (file) => async (dispatch) => {
       type: ORG_DATA_FETCHED,
       payload: res.data.data,
     });
+    return true;
   } catch (error) {
     console.log(error);
+    return false;
   }
 };

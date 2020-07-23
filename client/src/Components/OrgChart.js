@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
+import { connect } from "react-redux";
 
-const DefaultChart = () => {
+const DefaultChart = ({ orgData }) => {
   const ds = {
     id: "n1",
     name: "Lao Lao",
@@ -36,7 +37,14 @@ const DefaultChart = () => {
     ],
   };
 
-  return <OrganizationChart datasource={ds} />;
+  return (
+    <Fragment>
+      {!orgData && <h1 className="display-4">Example Chart</h1>}
+      <OrganizationChart datasource={orgData || ds} />
+    </Fragment>
+  );
 };
 
-export default DefaultChart;
+const mapStateToProps = ({ orgData }) => ({ orgData });
+
+export default connect(mapStateToProps)(DefaultChart);

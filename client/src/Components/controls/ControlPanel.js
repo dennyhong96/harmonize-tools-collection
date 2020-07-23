@@ -5,6 +5,7 @@ import { getTemplate, uploadTemplate } from "../../actions/csvTemplateActions";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
+import StepFour from "./StepFour";
 
 const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
   const [step, setStep] = useState(1);
@@ -15,9 +16,11 @@ const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
     }
   };
 
-  const handleUpload = (file) => {
-    console.log(file);
-    uploadTemplate(file);
+  const handleUpload = async (file) => {
+    if (await uploadTemplate(file)) {
+      uploadTemplate(file);
+      setStep(4);
+    }
   };
 
   return (
@@ -25,6 +28,7 @@ const ControlPanel = ({ template, getTemplate, uploadTemplate }) => {
       {step === 1 && <StepOne handleDownload={handleDownload} />}
       {step === 2 && <StepTwo setStep={setStep} />}
       {step === 3 && <StepThree handleUpload={handleUpload} />}
+      {step === 4 && <StepFour setStep={setStep} />}
     </Fragment>
   );
 };
