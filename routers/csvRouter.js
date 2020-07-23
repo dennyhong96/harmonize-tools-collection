@@ -1,8 +1,11 @@
 const express = require("express");
 
-const { getCsvTemplate } = require("../controllers/csvController");
+const {
+  getCsvTemplate,
+  uploadCsvTemplate,
+} = require("../controllers/csvController");
 
 const router = express.Router();
-router.route("/").get(getCsvTemplate);
+router.route("/").get(getCsvTemplate).post(uploadCsvTemplate);
 
 module.exports = router;

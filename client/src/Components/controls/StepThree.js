@@ -4,8 +4,8 @@ import { Button, Form } from "react-bootstrap";
 
 import "./StepThree.scss";
 
-const StepThree = ({ setStep }) => {
-  const [file, setFile] = useState("");
+const StepThree = ({ setStep, handleUpload }) => {
+  const [file, setFile] = useState({});
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -26,19 +26,19 @@ const StepThree = ({ setStep }) => {
       <Form>
         <Form.File
           id="custom-file"
-          label="Upload"
+          label={file.name || "Upload"}
           custom
           onChange={handleFileChange}
         />
       </Form>
       <div {...getRootProps()} className="drop-file-box">
         <input {...getInputProps()} />
-        <p>Drop Zone</p>
+        <p>{file.name || "Drop File"}</p>
       </div>
       <Button variant="secondary" onClick={() => setStep(1)}>
         Back
       </Button>
-      <Button variant="primary" onClick={() => setStep(3)}>
+      <Button variant="primary" onClick={() => handleUpload(file)}>
         Submit
       </Button>
     </div>
