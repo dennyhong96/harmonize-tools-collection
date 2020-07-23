@@ -1,17 +1,21 @@
 {
   "name": "org-chart-explore",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "explore app for org-chart product",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hyhong-code/org-chart-demo.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Haiyang Hong",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hyhong-code/org-chart-demo/issues"
@@ -25,5 +29,8 @@
     "jsonexport": "^3.0.1",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }
