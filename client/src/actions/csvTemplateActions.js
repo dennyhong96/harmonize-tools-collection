@@ -10,7 +10,9 @@ export const getTemplate = () => async (dispatch) => {
     dispatch({
       type: TEMPLATE_DOWNLOADED,
     });
+    return true;
   } catch (error) {
     console.error(error);
+    return false;
   }
 };
