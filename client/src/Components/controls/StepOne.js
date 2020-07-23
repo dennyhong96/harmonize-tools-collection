@@ -3,12 +3,11 @@ import { Button } from "react-bootstrap";
 
 const StepOne = () => {
   return (
-    <Fragment>
-      <div className="py-5">
-        <p>Download our .CSV template</p>
-        <Button variant="primary">Download</Button>
-      </div>
-    </Fragment>
+    <div className="py-5">
+      <h2>Step 1</h2>
+      <p>Download our .CSV template</p>
+      <Button variant="primary">Download</Button>
+    </div>
   );
 };
 
