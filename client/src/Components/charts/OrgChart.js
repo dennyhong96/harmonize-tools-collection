@@ -31,6 +31,7 @@ const OrgChart = ({ orgData }) => {
         id: "n3",
         name: "Su Miao",
         title: "department manager",
+        email: "example@gmail.com",
         children: [
           {
             id: "n4",
@@ -76,6 +77,7 @@ const OrgChart = ({ orgData }) => {
         id: "n10",
         name: "Chun Miao",
         title: "department manager",
+        email: "example@gmail.com",
         children: [
           {
             id: "n11",
