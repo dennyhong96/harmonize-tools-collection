@@ -1,17 +1,17 @@
 @import "../../App.scss";
 
 .oc-node {
-  width: 12.4rem;
-  // height: 12.4rem;
-  border-radius: 4.8px;
-  box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
-  background-color: $check-mark-white;
   margin: 1rem 1rem;
 
   .oc-node-inner {
+    width: 12.4rem;
+    border-radius: 4.8px;
+    box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
+    background-color: $check-mark-white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: -5px 0;
 
     .profile-card {
       width: 4rem;
@@ -26,7 +26,7 @@
       margin-bottom: 0.8rem;
 
       .far {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         color: $main-color;
       }
     }
