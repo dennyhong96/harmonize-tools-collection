@@ -1,0 +1,19 @@
+@import "../../App.scss";
+
+.topbar {
+  height: 9.4rem;
+  background-color: $main-color;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem 2.4rem;
+
+  .heading {
+    font-size: 2.75rem;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    color: $check-mark-white;
+  }
+}
