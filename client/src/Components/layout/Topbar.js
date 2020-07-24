@@ -19,7 +19,12 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
   return (
     <div className="topbar">
       <div className="toggler-btn" onClick={toggleSideDrawer}>
-        <i className="fas fa-bars"></i>
+        {/* <i className="fas fa-bars"></i> */}
+        {!sideDrawer ? (
+          <i class="fas fa-chevron-right"></i>
+        ) : (
+          <i class="fas fa-chevron-left"></i>
+        )}
       </div>
       <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
     </div>

@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    transition: background, transform, 0.2s ease-out;
+    transition: background, scale, 0.2s ease-out;
 
     &:hover {
       transform: scale(1.05);
