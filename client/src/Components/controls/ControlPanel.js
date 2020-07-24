@@ -19,7 +19,7 @@ const ControlPanel = ({ getTemplate, uploadOrgData }) => {
   };
 
   return (
-    <div className="side-drawer">
+    <div className="control-panel side-drawer-close">
       {step === 1 && <StepOne handleDownload={handleDownload} />}
       {step === 2 && <StepTwo setStep={setStep} />}
       {step === 3 && (

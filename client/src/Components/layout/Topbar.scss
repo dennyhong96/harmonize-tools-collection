@@ -7,6 +7,18 @@
   align-items: flex-end;
   padding: 1rem 2.4rem;
 
+  .toggler-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+
+    .fas {
+      font-size: 1.5rem;
+      color: $check-mark-white;
+    }
+  }
+
   .heading {
     font-size: 2.75rem;
     font-weight: 900;

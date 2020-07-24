@@ -1,6 +1,6 @@
 @import "../../App.scss";
 
-.side-drawer {
+.control-panel {
   position: absolute;
   z-index: 1000;
   background-color: lighten($divider-grey, 40%);
@@ -8,4 +8,8 @@
   width: 25rem;
   left: 0;
   height: calc(100vh - 9.4rem);
+
+  &.side-drawer-close {
+    margin-left: -25rem;
+  }
 }
