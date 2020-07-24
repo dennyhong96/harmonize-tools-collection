@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.side-drawer {
+  position: absolute;
+  z-index: 1000;
+  background-color: lighten($divider-grey, 40%);
+  border-right: 1px solid lighten(#000, 80%);
+  width: 25rem;
+  left: 0;
+  height: calc(100vh - 9.4rem);
+}
