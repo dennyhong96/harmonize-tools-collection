@@ -9,13 +9,21 @@
 
   .toggler-btn {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
     cursor: pointer;
-    transition: transform 0.2s ease-out;
+    height: 2.8rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: background, transform, 0.2s ease-out;
 
     &:hover {
       transform: scale(1.05);
+      background-color: lighten($main-color, 5%);
     }
 
     .fas {
