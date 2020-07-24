@@ -1,13 +1,13 @@
-id,name,title,report_to
-n1,Tamzin Wilkinson,general manager,
-n2,Federico Reyna,department manager,n1
-n3,Gregg Giles,department manager,n1
-n4,Mikolaj Hastings,senior engineer,n1
-n5,Willa Arellano,senior engineer,n3
-n6,Denny Cameron,engineer,n5
-n7,Marilyn Woodard,engineer,n3
-n8,Tonya Rees,senior engineer,n3
-n9,Mahira Herrera,department manager,n2
-n10,Burhan Stevens,department manager,n2
-n11,Anaya Carr,senior engineer,n10
-n12,Hadi Aguilar,intern dev,n5
+email,name,title,manager
+ejay.gharat.79z@gmaiil.us,Tamzin Wilkinson,general manager,
+lsashiniiddamalgm@lccweb.org,Federico Reyna,department manager,Tamzin Wilkinson
+tillipyme-2031@yopmail.com,Gregg Giles,department manager,Tamzin Wilkinson
+lsashiniiddamalgm@lccweb.org,Mikolaj Hastings,senior engineer,Tamzin Wilkinson
+prahulwala1@froknowsphoto.org,Willa Arellano,senior engineer,Gregg Giles
+gmirzasaqibmi@hallsulrics.tk,Denny Cameron,engineer,Willa Arellano
+2joseane8h@gmaiil.us,Marilyn Woodard,engineer,Gregg Giles
+6hocine.mistak@xedoiutret.cf,Tonya Rees,senior engineer,Gregg Giles
+msraviteja990@bellaserababy.com,Mahira Herrera,department manager,Federico Reyna
+hjeffreysoanj@guiwoallam.cf,Burhan Stevens,department manager,Federico Reyna
+hmohamed@360.band,Anaya Carr,senior engineer,Mahira Herrera
+jacheb.noureddins@llotfourco.tk,Hadi Aguilar,intern dev,Willa Arellano

@@ -17,18 +17,13 @@ const ControlPanel = ({ getTemplate, uploadOrgData }) => {
     }
   };
 
-  const handleUpload = async (file) => {
-    console.log(file);
-    if (await uploadOrgData(file)) {
-      setStep(4);
-    }
-  };
-
   return (
     <Fragment>
       {step === 1 && <StepOne handleDownload={handleDownload} />}
       {step === 2 && <StepTwo setStep={setStep} />}
-      {step === 3 && <StepThree handleUpload={handleUpload} />}
+      {step === 3 && (
+        <StepThree setStep={setStep} uploadOrgData={uploadOrgData} />
+      )}
       {step === 4 && <StepFour setStep={setStep} />}
     </Fragment>
   );
