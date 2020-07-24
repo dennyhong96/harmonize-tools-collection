@@ -100,6 +100,7 @@ const OrgChart = ({ orgData }) => {
         ref={orgChartRef}
         pan={true}
         zoom={true}
+        zoominLimit={3}
         chartClass="customOrgChart"
         NodeTemplate={OrgChartNode}
       />
