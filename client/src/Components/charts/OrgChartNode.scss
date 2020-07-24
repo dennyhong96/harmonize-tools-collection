@@ -1,0 +1,28 @@
+@import "../../App.scss";
+
+.oc-node {
+  width: 198.5px;
+  height: 198.5px;
+  border-radius: 4.8px;
+  box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
+  background-color: $check-mark-white;
+
+  .position {
+    box-sizing: border-box;
+    background-color: #215a88;
+    color: #fff;
+    width: 130px;
+    height: 65px;
+    padding: 2px;
+  }
+
+  .fullname {
+    box-sizing: border-box;
+    color: #215a88;
+    background-color: #fff;
+    width: 130px;
+    height: 65px;
+    padding: 2px;
+    border: 1px solid #215a88;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../App.scss";
+
+.orgchart.customOrgChart {
+  // Chart background
+  background: $white-bg;
+}
+
+.orgchart.customOrgChart > ul > li > ul li::before {
+  // Horizontal Connector
+  border-top-color: $main-color;
+}
+
+.orgchart.customOrgChart > ul > li > ul li .oc-node::before,
+.orgchart.customOrgChart ul li .oc-node:not(:only-child)::after {
+  // Vertical Connector
+  background-color: $main-color;
+}

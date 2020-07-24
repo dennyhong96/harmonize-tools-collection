@@ -23,7 +23,7 @@ exports.uploadCsvTemplate = async (req, res, next) => {
     // Parse hierarchical data from flat csv
     const hierarchicalData = await parseCsv(filePath);
 
-    console.log(hierarchicalData);
+    console.log(JSON.stringify(hierarchicalData));
     res.status(200).json({ data: hierarchicalData });
   } catch (error) {
     console.error(error);
