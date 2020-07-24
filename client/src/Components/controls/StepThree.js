@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 
 import "./StepThree.scss";
 
-const StepThree = ({ setStep, handleUpload }) => {
+const StepThree = ({ setStep, uploadOrgData }) => {
   const [file, setFile] = useState("");
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -17,6 +17,12 @@ const StepThree = ({ setStep, handleUpload }) => {
     console.log(evt.target.files[0]);
     setFile(evt.target.files[0]);
     console.log(file);
+  };
+
+  const handleUpload = async (file) => {
+    if (await uploadOrgData(file)) {
+      setStep(4);
+    }
   };
 
   return (
@@ -35,7 +41,7 @@ const StepThree = ({ setStep, handleUpload }) => {
         <input {...getInputProps()} />
         <p>{file.name || "Drop File"}</p>
       </div>
-      <Button variant="secondary" onClick={() => setStep(1)}>
+      <Button variant="secondary" onClick={() => setStep(2)}>
         Back
       </Button>
       {file ? (
