@@ -11,13 +11,13 @@ module.exports = async (filePath) => {
     .map((employee) => {
       // Add in 'children' field which is required by OrgChart
       employee.children = source.filter(
-        (child) => child.report_to === employee.id
+        (child) => child.manager === employee.name
       );
       return employee;
     })
     .map((employee) => {
-      // Get rid of 'report_to' field
-      delete employee.report_to;
+      // Get rid of 'manager' field
+      delete employee.manager;
       return employee;
     });
 
@@ -26,9 +26,9 @@ module.exports = async (filePath) => {
     (employee) =>
       !transformedData
         // Get all ids from whom is a child of other
-        .map((employee) => employee.children.map((child) => child.id))
+        .map((employee) => employee.children.map((child) => child.name))
         .reduce((acc, cur) => [...acc, ...cur], [])
         // Filter out those children, only the 'CEO' is left
-        .includes(employee.id)
+        .includes(employee.name)
   )[0];
 };
