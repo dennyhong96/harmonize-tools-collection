@@ -92,7 +92,6 @@ const OrgChart = ({ orgData }) => {
 
   return (
     <Fragment>
-      {!orgData && <h1>Example Chart</h1>}
       <OrganizationChart
         datasource={orgData || ds}
         draggable={true}

@@ -9,7 +9,7 @@ import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import "./ControlPanel.scss";
 
-const ControlPanel = ({ getTemplate, uploadOrgData }) => {
+const ControlPanel = ({ sideDrawer, getTemplate, uploadOrgData }) => {
   const [step, setStep] = useState(1);
 
   const handleDownload = async () => {
@@ -19,7 +19,7 @@ const ControlPanel = ({ getTemplate, uploadOrgData }) => {
   };
 
   return (
-    <div className="control-panel side-drawer-close">
+    <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       {step === 1 && <StepOne handleDownload={handleDownload} />}
       {step === 2 && <StepTwo setStep={setStep} />}
       {step === 3 && (
@@ -30,4 +30,8 @@ const ControlPanel = ({ getTemplate, uploadOrgData }) => {
   );
 };
 
-export default connect(null, { getTemplate, uploadOrgData })(ControlPanel);
+const mapStateToProps = ({ sideDrawer }) => ({ sideDrawer });
+
+export default connect(mapStateToProps, { getTemplate, uploadOrgData })(
+  ControlPanel
+);

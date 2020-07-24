@@ -12,6 +12,11 @@
     top: 1rem;
     left: 1rem;
     cursor: pointer;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     .fas {
       font-size: 1.5rem;

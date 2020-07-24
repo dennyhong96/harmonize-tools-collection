@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import ControlPanel from "../controls/ControlPanel";
@@ -6,10 +6,12 @@ import OrgChart from "../charts/OrgChart";
 
 const Home = () => {
   return (
-    <Container fluid>
+    <Fragment>
       <ControlPanel />
-      <OrgChart />
-    </Container>
+      <Container fluid>
+        <OrgChart />
+      </Container>
+    </Fragment>
   );
 };
 

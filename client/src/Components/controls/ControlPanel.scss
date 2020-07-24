@@ -8,6 +8,7 @@
   width: 25rem;
   left: 0;
   height: calc(100vh - 9.4rem);
+  transition: margin 0.3s ease-out;
 
   &.side-drawer-close {
     margin-left: -25rem;
