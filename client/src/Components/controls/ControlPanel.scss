@@ -5,11 +5,12 @@
   z-index: 1000;
   background-color: lighten($divider-grey, 40%);
   // border-right: 1px solid lighten(#000, 80%);
-  width: 25rem;
+  width: 35rem;
   left: 0;
   height: calc(100vh - 9.4rem);
   box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
   transition: margin, box-shadow, 0.3s ease-out;
+  padding: 0 2rem;
 
   .toggler-btn {
     position: absolute;
@@ -37,7 +38,7 @@
   }
 
   &.side-drawer-close {
-    margin-left: -25rem;
+    margin-left: -35rem;
     box-shadow: 0 0 0 0 rgba(47, 83, 151, 0);
   }
 }

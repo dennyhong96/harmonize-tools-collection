@@ -1,0 +1,140 @@
+@import "../../App.scss";
+
+.step-one {
+  padding-top: 3.1rem;
+  display: flex;
+  flex-direction: column;
+
+  .step-one-progress {
+    height: 3rem;
+    position: relative;
+    .line {
+      margin-top: 0.6rem;
+      width: 30rem;
+      height: 1px;
+      border: 1px solid $progress-circle-light-blue-bg;
+    }
+
+    .milestone {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 4.25rem;
+      background-color: $progress-circle-light-blue-bg;
+      position: absolute;
+      top: 0;
+
+      &.active {
+        border: solid 3px $main-color;
+        background-color: $progress-circle-light-blue-bg;
+      }
+
+      &.ms-1 {
+        left: 0;
+      }
+
+      &.ms-2 {
+        left: 9.4rem;
+      }
+
+      &.ms-3 {
+        left: 19.4rem;
+      }
+
+      &.ms-4 {
+        left: 28.8rem;
+      }
+    }
+  }
+
+  .step-one-heading {
+    font-size: 2.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-text;
+    margin-bottom: 1.6rem;
+  }
+
+  .step-one-msg {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $light-grey-text-body;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .step-one-csv {
+    width: 100%;
+    box-shadow: 0 4px 6px 0 rgba(#000, 0.3);
+    border-radius: 5px;
+    margin-bottom: 2.2rem;
+  }
+
+  .step-one-download {
+    width: 11rem;
+    height: 2.4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2.4px 5.6px 0 rgba($greyed-out-chart-content, 0.9);
+    border: solid 0.8px $main-color;
+    background-color: $check-mark-white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $main-color;
+    margin-bottom: 4rem;
+    outline: none;
+    transition: translateY, box-shadow, 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+
+  hr {
+    border-top: 1px solid $dark-divider-line;
+    margin: 0 0 4rem 0;
+  }
+
+  .step-one-continue {
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $check-mark-white;
+    background-color: $main-color;
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 3rem;
+    box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
+    align-self: flex-end;
+    outline: none;
+    transition: translateY, box-shadow, 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+}

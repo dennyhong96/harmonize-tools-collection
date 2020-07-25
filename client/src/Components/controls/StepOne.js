@@ -1,14 +1,29 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
+import csv from "../../assets/csv.png";
+import "./StepOne.scss";
+
 const StepOne = ({ handleDownload }) => {
   return (
-    <div className="py-5">
-      <h2>Step 1</h2>
-      <p>Download our .CSV template</p>
-      <Button variant="primary" onClick={handleDownload}>
-        Download
-      </Button>
+    <div className="step-one">
+      <div className="step-one-progress">
+        <div className="line"></div>
+        <div className="milestone active ms-1"></div>
+        <div className="milestone ms-2"></div>
+        <div className="milestone ms-3"></div>
+        <div className="milestone ms-4"></div>
+      </div>
+      <h2 className="step-one-heading">STEP 1</h2>
+      <p className="step-one-msg">
+        Download our <span>.CSV</span> template
+      </p>
+      <img src={csv} className="step-one-csv" alt="" />
+      <button className="step-one-download" onClick={handleDownload}>
+        Download file <i class="fas fa-download"></i>
+      </button>
+      <hr />
+      <button className="step-one-continue">Continue</button>
     </div>
   );
 };
