@@ -16,7 +16,7 @@ const OrgChartNode = ({ nodeData }) => {
         <p className="email">{nodeData.email}</p>
         <hr />
         <p className="manager">Team Manager</p>
-        <p className="manager-name">Amy Adams</p>
+        <p className="manager-name">{nodeData.manager}</p>
       </div>
       {/* <div className="position">{nodeData.email}</div>
       <div className="fullname">{nodeData.name}</div> */}

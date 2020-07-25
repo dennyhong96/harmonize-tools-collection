@@ -6,6 +6,8 @@ const CSVToJSON = require("csvtojson");
  * @returns {object} hierarchicalData for org chart visualization
  */
 module.exports = async (filePath) => {
+  let id = 0;
+
   const source = await CSVToJSON().fromFile(filePath);
   const transformedData = source
     .map((employee) => {
@@ -17,7 +19,8 @@ module.exports = async (filePath) => {
     })
     .map((employee) => {
       // Get rid of 'manager' field
-      delete employee.manager;
+      employee.id = `n${id}`;
+      id++;
       return employee;
     });
 

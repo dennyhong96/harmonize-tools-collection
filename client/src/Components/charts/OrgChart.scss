@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
   border: 2px solid lighten($main-color, 25%);
+  min-height: 80vh;
+  overflow: hidden;
 }
 
 .orgchart.customOrgChart {
