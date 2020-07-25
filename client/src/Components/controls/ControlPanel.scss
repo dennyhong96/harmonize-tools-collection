@@ -3,12 +3,12 @@
 .control-panel {
   position: absolute;
   z-index: 1;
-  background-color: lighten($divider-grey, 40%);
+  background-color: lighten($profile-cards-role-extra-light-grey, 45%);
   // border-right: 1px solid lighten(#000, 80%);
   width: 35rem;
   left: 0;
   height: calc(100% - 9.4rem);
-  box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
+  box-shadow: 2px 2px 6px 0 rgba(47, 83, 151, 0.2);
   transition: margin, box-shadow, 0.3s ease-out;
   padding: 0 2rem;
 

@@ -11,6 +11,7 @@ import StepFour from "./StepFour";
 import "./ControlPanel.scss";
 
 const ControlPanel = ({
+  template,
   sideDrawer,
   getTemplate,
   uploadOrgData,
@@ -18,18 +19,18 @@ const ControlPanel = ({
 }) => {
   const [step, setStep] = useState(1);
 
-  const handleDownload = async () => {
-    if (await getTemplate()) {
-      setStep(2);
-    }
-  };
-
   return (
     <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       <div className="toggler-btn" onClick={closeSideDrawer}>
         <i class="fas fa-chevron-left"></i>
       </div>
-      {step === 1 && <StepOne handleDownload={handleDownload} />}
+      {step === 1 && (
+        <StepOne
+          template={template}
+          getTemplate={getTemplate}
+          setStep={setStep}
+        />
+      )}
       {step === 2 && <StepTwo setStep={setStep} />}
       {step === 3 && (
         <StepThree setStep={setStep} uploadOrgData={uploadOrgData} />
@@ -39,7 +40,10 @@ const ControlPanel = ({
   );
 };
 
-const mapStateToProps = ({ sideDrawer }) => ({ sideDrawer });
+const mapStateToProps = ({ template, sideDrawer }) => ({
+  template,
+  sideDrawer,
+});
 
 export default connect(mapStateToProps, {
   getTemplate,

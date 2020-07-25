@@ -1,10 +1,9 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 
 import csv from "../../assets/csv.png";
 import "./StepOne.scss";
 
-const StepOne = ({ handleDownload }) => {
+const StepOne = ({ template, getTemplate, setStep }) => {
   return (
     <div className="step-one">
       <div className="step-one-progress-text">
@@ -24,12 +23,20 @@ const StepOne = ({ handleDownload }) => {
       <p className="step-one-msg">
         Download our <span>.CSV</span> template
       </p>
-      <img src={csv} className="step-one-csv" alt="" />
-      <button className="step-one-download" onClick={handleDownload}>
+      <img src={csv} className="step-one-csv" alt="csv-screenshot" />
+      <button className="step-one-download" onClick={getTemplate}>
         Download file <i class="fas fa-download"></i>
       </button>
       <hr />
-      <button className="step-one-continue">Continue</button>
+      {template ? (
+        <button className="step-one-continue" onClick={() => setStep(2)}>
+          Continue
+        </button>
+      ) : (
+        <button className="step-one-continue" disabled>
+          Continue
+        </button>
+      )}
     </div>
   );
 };
