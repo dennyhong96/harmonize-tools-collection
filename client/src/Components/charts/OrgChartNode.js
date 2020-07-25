@@ -1,12 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./OrgChartNode.scss";
 
-const propTypes = {
-  nodeData: PropTypes.object.isRequired,
-};
-
-const MyNode = ({ nodeData }) => {
+const OrgChartNode = ({ nodeData }) => {
   const selectNode = () => {
     alert("Hi All. I'm " + nodeData.name + ". I'm a " + nodeData.title + ".");
   };
@@ -20,13 +15,11 @@ const MyNode = ({ nodeData }) => {
         <div className="name">{nodeData.name}</div>
         <div className="email">{nodeData.email}</div>
         <hr />
-        <div className="manager">{"Team Manger"}</div>
-        <div className="manager-name">{"Sam Wang"}</div>
+        <div className="manager">Team Manger</div>
+        <div className="manager-name">{nodeData.manager}</div>
       </div>
     </div>
   );
 };
 
-MyNode.propTypes = propTypes;
-
-export default MyNode;
+export default OrgChartNode;
