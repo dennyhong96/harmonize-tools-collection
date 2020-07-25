@@ -4,6 +4,7 @@ export const ORG_DATA_ERROR = "ORG_DATA_ERROR";
 
 // Csv Template actions
 export const TEMPLATE_DOWNLOADED = "TEMPLATE_DOWNLOADED";
+export const RESET_TEMPLATE = "RESET_TEMPLATE";
 export const TEMPLATE_ERROR = "TEMPLATE_ERROR";
 
 // Side drawer actions

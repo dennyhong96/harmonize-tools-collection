@@ -1,7 +1,11 @@
 import axios from "axios";
 import fileDownload from "js-file-download";
 
-import { TEMPLATE_DOWNLOADED, TEMPLATE_ERROR } from "./actionTypes";
+import {
+  TEMPLATE_DOWNLOADED,
+  TEMPLATE_ERROR,
+  RESET_TEMPLATE,
+} from "./actionTypes";
 
 /**
  * @function getTemplate
@@ -22,4 +26,14 @@ export const getTemplate = () => async (dispatch) => {
     });
     return false;
   }
+};
+
+/**
+ * @function
+ * Reset the template piece of state
+ */
+export const resetTemplate = () => (dispatch) => {
+  dispatch({
+    type: RESET_TEMPLATE,
+  });
 };

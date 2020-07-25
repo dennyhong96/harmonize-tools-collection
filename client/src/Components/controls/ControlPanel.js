@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { getTemplate } from "../../actions/csvTemplateActions";
+import { getTemplate, resetTemplate } from "../../actions/csvTemplateActions";
 import { uploadOrgData } from "../../actions/orgChartActions";
 import { closeSideDrawer } from "../../actions/sideDrawerAction";
 import StepOne from "./StepOne";
@@ -14,6 +14,7 @@ const ControlPanel = ({
   template,
   sideDrawer,
   getTemplate,
+  resetTemplate,
   uploadOrgData,
   closeSideDrawer,
 }) => {
@@ -28,6 +29,7 @@ const ControlPanel = ({
         <StepOne
           template={template}
           getTemplate={getTemplate}
+          resetTemplate={resetTemplate}
           setStep={setStep}
         />
       )}
@@ -47,6 +49,7 @@ const mapStateToProps = ({ template, sideDrawer }) => ({
 
 export default connect(mapStateToProps, {
   getTemplate,
+  resetTemplate,
   uploadOrgData,
   closeSideDrawer,
 })(ControlPanel);

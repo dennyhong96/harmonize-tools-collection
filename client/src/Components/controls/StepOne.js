@@ -3,7 +3,12 @@ import React from "react";
 import csvEmpty from "../../assets/csv-empty.png";
 import "./StepOne.scss";
 
-const StepOne = ({ template, getTemplate, setStep }) => {
+const StepOne = ({ template, getTemplate, resetTemplate, setStep }) => {
+  const handleNextStep = () => {
+    resetTemplate();
+    setStep(2);
+  };
+
   return (
     <div className="step-one">
       <div className="step-one-progress-text">
@@ -29,7 +34,7 @@ const StepOne = ({ template, getTemplate, setStep }) => {
       </button>
       <hr />
       {template ? (
-        <button className="step-one-continue" onClick={() => setStep(2)}>
+        <button className="step-one-continue" onClick={handleNextStep}>
           Continue
         </button>
       ) : (
