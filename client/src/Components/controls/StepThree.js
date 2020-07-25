@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from "react";
 import { useDropzone } from "react-dropzone";
-import { Button } from "react-bootstrap";
 
 import StepThreeDropFile from "./StepThreeDropFile";
 import "./StepThree.scss";
@@ -10,7 +9,6 @@ const StepThree = ({ setStep, uploadOrgData }) => {
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
-      console.log(acceptedFiles[0]);
       setFile(acceptedFiles[0]);
     },
   });
@@ -53,24 +51,38 @@ const StepThree = ({ setStep, uploadOrgData }) => {
       />
       {file &&
         (file.type !== "text/csv" ? (
-          <p className="response-failed">Please upload valid csv file only.</p>
-        ) : (
-          <p className="response-success">
-            Your data was uploaded successfully!
+          <p className="response-failed">
+            Oops! The file you have uploaded was not accepted.
           </p>
+        ) : (
+          <Fragment>
+            <p className="response-success">
+              Your data was uploaded successfully!
+            </p>
+            <p className="response-submit">
+              Click <strong>'Submit'</strong> below to view your organization
+              chart.
+            </p>
+          </Fragment>
         ))}
-      <Button variant="secondary" onClick={() => setStep(2)}>
-        Back
-      </Button>
-      {file && file.type === "text/csv" ? (
-        <Button variant="primary" onClick={() => handleUpload(file)}>
-          Submit
-        </Button>
-      ) : (
-        <Button variant="primary" disabled>
-          Submit
-        </Button>
-      )}
+      <hr />
+      <div className="step-three-actions">
+        <button className="step-three-action-back" onClick={() => setStep(2)}>
+          Back
+        </button>
+        {file && file.type === "text/csv" ? (
+          <button
+            className="step-three-action-submit"
+            onClick={() => handleUpload(file)}
+          >
+            Submit
+          </button>
+        ) : (
+          <button className="step-three-action-submit" disabled>
+            Submit
+          </button>
+        )}
+      </div>
     </div>
   );
 };

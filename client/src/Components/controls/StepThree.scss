@@ -173,18 +173,20 @@
         border: 1px solid $main-color;
         border-radius: 0.75rem;
         background-color: $white;
+        transition: background-color, color, 0.3s ease-out;
       }
     }
   }
 
   .response {
     text-align: center;
-    font-size: 1.44rem;
+    font-size: 1.25rem;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
+    margin-bottom: 2.2rem;
 
     &-success {
       @extend .response;
@@ -194,6 +196,17 @@
     &-failed {
       @extend .response;
       color: $delete-red;
+    }
+
+    &-submit {
+      @extend .response;
+      font-size: 1.25rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $dark-text;
     }
   }
 
@@ -217,7 +230,7 @@
       color: $check-mark-white;
       background-color: $main-color;
       border: none;
-      padding: 0.5rem 2rem;
+      padding: 0.5rem 2.2rem;
       border-radius: 3rem;
       box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
       align-self: flex-end;
@@ -245,7 +258,7 @@
         padding: 0.5rem 3rem;
       }
 
-      &-continue {
+      &-submit {
         @extend .step-three-action;
       }
     }
