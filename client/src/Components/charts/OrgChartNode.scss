@@ -7,11 +7,11 @@
 
 .orgchart.myChart {
   background: $white !important;
-
   // transform: scale(0.9);
   // transform: scale(1);
   // transform: scale(0.7);
-  transform: scale(0.8);
+  // transform: scale(0.8);
+  transition: transform 0.3s ease-out;
 }
 
 .orgchart.myChart > ul > li > ul li::before {
