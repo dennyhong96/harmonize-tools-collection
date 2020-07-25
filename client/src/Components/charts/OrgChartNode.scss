@@ -1,84 +1,107 @@
 @import "../../App.scss";
 
-.oc-node {
-  margin: 1rem 1rem;
+.orgchart-container {
+  min-height: 75vh;
+  border: 1px solid lighten($light-grey-text-body, 40%);
+}
 
-  .oc-node-inner {
-    width: 12.4rem;
-    border-radius: 4.8px;
-    box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
+.orgchart.myChart {
+  background: $white !important;
+
+  // transform: scale(0.8);
+  // transform: scale(0.9);
+  // transform: scale(1);
+  // transform: scale(0.7);
+}
+
+.orgchart.myChart > ul > li > ul li::before {
+  border-top-color: $main-color;
+}
+
+.orgchart.myChart > ul > li > ul li .oc-node::before,
+.orgchart.myChart ul li .oc-node:not(:only-child)::after {
+  background-color: $main-color;
+}
+
+.orgchart.myChart .oc-node .oc-inner {
+  width: 12rem;
+  // height: 12rem;
+  border-radius: 4.8px;
+  box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
+  border: 1px solid rgba(47, 83, 151, 0.2);
+  background-color: $check-mark-white;
+  padding: 1.5rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .user {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4.5rem;
+    border: solid 1.5px $main-color;
     background-color: $check-mark-white;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: -5px 0;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 
-    .profile-card {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 5rem;
-      border: solid 1.5px $main-color;
-      background-color: $check-mark-white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1.6rem;
-      margin-bottom: 0.8rem;
-
-      .far {
-        font-size: 1.5rem;
-        color: $main-color;
-      }
+    .far {
+      color: $main-color;
+      font-size: 1.2rem;
     }
+  }
 
-    .name {
-      font-size: 0.875rem;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: $dark-text;
-      margin-bottom: 0.4rem;
-    }
+  .name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-text;
+    margin-bottom: 0.5rem;
+  }
 
-    .email {
-      font-size: 0.625rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: $light-grey-text-profile-cards;
-      margin-bottom: 0.4rem;
-    }
+  .email {
+    font-size: 0.625rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $light-grey-text-profile-cards;
+    margin-bottom: 0.5rem;
+  }
 
-    hr {
-      width: 9.4rem;
-      border-top: 1px solid $dark-text;
-      margin: 0.4rem 0;
-    }
+  hr {
+    width: 7rem;
+    height: 1px;
+    background-color: $dark-text;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
 
-    .manager {
-      font-size: 0.5rem;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: $dark-text;
-      margin-bottom: 0.2rem;
-    }
+  .manager {
+    font-size: 0.5rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-text;
+    margin-bottom: 0.5rem;
+  }
 
-    .manager-name {
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: $light-grey-text-profile-cards;
-      margin-bottom: 1.6rem;
-    }
+  .manager-name {
+    font-size: 0.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $light-grey-text-profile-cards;
   }
 }

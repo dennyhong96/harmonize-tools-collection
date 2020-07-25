@@ -1,27 +1,32 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import "./OrgChartNode.scss";
 
-const OrgChartNode = ({ nodeData }) => {
+const propTypes = {
+  nodeData: PropTypes.object.isRequired,
+};
+
+const MyNode = ({ nodeData }) => {
   const selectNode = () => {
     alert("Hi All. I'm " + nodeData.name + ". I'm a " + nodeData.title + ".");
   };
+
   return (
     <div onClick={selectNode}>
-      <div className="oc-node-inner">
-        <div className="profile-card">
+      <div className="oc-inner">
+        <div className="user">
           <i class="far fa-user"></i>
         </div>
-        <p className="name">{nodeData.title}</p>
-        <p className="email">{nodeData.email}</p>
+        <div className="name">{nodeData.name}</div>
+        <div className="email">{nodeData.email}</div>
         <hr />
-        <p className="manager">Team Manager</p>
-        <p className="manager-name">{nodeData.manager}</p>
+        <div className="manager">{"Team Manger"}</div>
+        <div className="manager-name">{"Sam Wang"}</div>
       </div>
-      {/* <div className="position">{nodeData.email}</div>
-      <div className="fullname">{nodeData.name}</div> */}
     </div>
   );
 };
 
-export default OrgChartNode;
+MyNode.propTypes = propTypes;
+
+export default MyNode;
