@@ -2,6 +2,7 @@ import React, { Fragment, useRef, useEffect, useState } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 
+import ZoomControl from "./ZoomControl";
 import "./OrgChart.scss";
 
 const OrgChart = () => {
@@ -18,22 +19,6 @@ const OrgChart = () => {
     // Change chart scale when zoom leverl is changed
     orgChartElRef.current.style.transform = `scale(${zoomLevel})`;
   }, [zoomLevel]);
-
-  const zoomIn = () => {
-    setZoomLevel((prev) => (prev + 0.1 <= 3 ? prev + 0.2 : 3));
-  };
-
-  const zoomInMost = () => {
-    setZoomLevel(3);
-  };
-
-  const zoomOut = () => {
-    setZoomLevel((prev) => (prev - 0.1 >= 0.3 ? prev - 0.2 : 0.3));
-  };
-
-  const zoomOutMost = () => {
-    setZoomLevel(0.3);
-  };
 
   const ds = {
     id: "n1",
@@ -112,16 +97,7 @@ const OrgChart = () => {
 
   return (
     <Fragment>
-      <d className="zoom">
-        <button onClick={zoomOutMost}>-</button>
-        <button className="zoom-out-btn" onClick={zoomOut}>
-          <i class="fas fa-search-minus"></i>
-        </button>
-        <button className="zoom-in-btn" onClick={zoomIn}>
-          <i class="fas fa-search-plus"></i>
-        </button>
-        <button onClick={zoomInMost}>+</button>
-      </d>
+      <ZoomControl setZoomLevel={setZoomLevel} />
       <OrganizationChart
         ref={orgChartRef}
         datasource={ds}
