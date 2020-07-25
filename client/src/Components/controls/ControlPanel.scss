@@ -6,7 +6,7 @@
   background-color: lighten($profile-cards-role-extra-light-grey, 45%);
   width: 35rem;
   left: 0;
-  height: calc(100% - 9.4rem);
+  min-height: 100vh;
   box-shadow: 2px 2px 6px 0 rgba(47, 83, 151, 0.2);
   transition: margin, box-shadow, 0.3s ease-out;
   padding: 0 2rem;

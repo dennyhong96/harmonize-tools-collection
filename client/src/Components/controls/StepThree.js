@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { useDropzone } from "react-dropzone";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
+import StepThreeDropFile from "./StepThreeDropFile";
 import "./StepThree.scss";
 
 const StepThree = ({ setStep, uploadOrgData }) => {
@@ -9,15 +10,10 @@ const StepThree = ({ setStep, uploadOrgData }) => {
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
+      console.log(acceptedFiles[0]);
       setFile(acceptedFiles[0]);
     },
   });
-
-  const handleFileChange = (evt) => {
-    console.log(evt.target.files[0]);
-    setFile(evt.target.files[0]);
-    console.log(file);
-  };
 
   const handleUpload = async (file) => {
     if (await uploadOrgData(file)) {
@@ -25,26 +21,48 @@ const StepThree = ({ setStep, uploadOrgData }) => {
     }
   };
 
+  const handleDeleteFile = (evt) => {
+    evt.stopPropagation();
+    setFile("");
+  };
+
   return (
-    <div className="py-5">
-      <h2>Step 3</h2>
-      <p>Upload your .CSV file below to populate your organizational chart.</p>
-      <Form>
-        <Form.File
-          id="custom-file"
-          label={file.name || "Upload"}
-          custom
-          onChange={handleFileChange}
-        />
-      </Form>
-      <div {...getRootProps()} className="drop-file-box">
-        <input {...getInputProps()} />
-        <p>{file.name || "Drop File"}</p>
+    <div className="step-three">
+      <div className="step-three-progress-text">
+        <span className="st-1 text-center">1. Download Template</span>
+        <span className="st-2 ">2. Edit & Save</span>
+        <span className="st-3">3. Upload File</span>
+        <span className="st-4">4. Generate Chart</span>
       </div>
+      <div className="step-three-progress">
+        <div className="line"></div>
+        <div className="milestone finished ms-1"></div>
+        <div className="milestone finished ms-2"></div>
+        <div className="milestone active ms-3"></div>
+        <div className="milestone ms-4"></div>
+      </div>
+      <h2 className="step-three-heading">STEP 3</h2>
+      <p className="step-three-msg">
+        Upload your .CSV file below to populate your organizational chart.
+      </p>
+      <StepThreeDropFile
+        getInputProps={getInputProps}
+        getRootProps={getRootProps}
+        file={file}
+        handleDeleteFile={handleDeleteFile}
+      />
+      {file &&
+        (file.type !== "text/csv" ? (
+          <p className="response-failed">Please upload valid csv file only.</p>
+        ) : (
+          <p className="response-success">
+            Your data was uploaded successfully!
+          </p>
+        ))}
       <Button variant="secondary" onClick={() => setStep(2)}>
         Back
       </Button>
-      {file ? (
+      {file && file.type === "text/csv" ? (
         <Button variant="primary" onClick={() => handleUpload(file)}>
           Submit
         </Button>
