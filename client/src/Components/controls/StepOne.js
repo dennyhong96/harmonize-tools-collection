@@ -7,6 +7,12 @@ import "./StepOne.scss";
 const StepOne = ({ handleDownload }) => {
   return (
     <div className="step-one">
+      <div className="step-one-progress-text">
+        <span className="st-1">1. Download Template</span>
+        <span className="st-2">2. Edit & Save</span>
+        <span className="st-3">3. Upload File</span>
+        <span className="st-4">4. Generate Chart</span>
+      </div>
       <div className="step-one-progress">
         <div className="line"></div>
         <div className="milestone active ms-1"></div>
