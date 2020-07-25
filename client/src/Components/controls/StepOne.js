@@ -1,14 +1,14 @@
 import React from "react";
 
-import csv from "../../assets/csv.png";
+import csvEmpty from "../../assets/csv-empty.png";
 import "./StepOne.scss";
 
 const StepOne = ({ template, getTemplate, setStep }) => {
   return (
     <div className="step-one">
       <div className="step-one-progress-text">
-        <span className="st-1">1. Download Template</span>
-        <span className="st-2">2. Edit & Save</span>
+        <span className="st-1 text-center">1. Download Template</span>
+        <span className="st-2 ">2. Edit & Save</span>
         <span className="st-3">3. Upload File</span>
         <span className="st-4">4. Generate Chart</span>
       </div>
@@ -23,7 +23,7 @@ const StepOne = ({ template, getTemplate, setStep }) => {
       <p className="step-one-msg">
         Download our <span>.CSV</span> template
       </p>
-      <img src={csv} className="step-one-csv" alt="csv-screenshot" />
+      <img src={csvEmpty} className="step-one-csv" alt="empty-csv-screenshot" />
       <button className="step-one-download" onClick={getTemplate}>
         Download file <i class="fas fa-download"></i>
       </button>

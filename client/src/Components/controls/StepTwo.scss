@@ -1,11 +1,11 @@
 @import "../../App.scss";
 
-.step-one {
+.step-two {
   padding-top: 5rem;
   display: flex;
   flex-direction: column;
 
-  .step-one-progress-text {
+  .step-two-progress-text {
     font-size: 0.8rem;
     font-weight: 500;
     font-stretch: normal;
@@ -19,7 +19,7 @@
     margin-bottom: 0.8rem;
   }
 
-  .step-one-progress {
+  .step-two-progress {
     height: 3rem;
     position: relative;
     margin-left: 3rem;
@@ -45,6 +45,11 @@
         background-color: $progress-circle-light-blue-bg;
       }
 
+      &.finished {
+        border-radius: 4.3rem;
+        background-color: $main-color;
+      }
+
       &.ms-1 {
         left: 0;
       }
@@ -63,7 +68,7 @@
     }
   }
 
-  .step-one-heading {
+  .step-two-heading {
     font-size: 2.8rem;
     font-weight: bold;
     font-stretch: normal;
@@ -74,7 +79,7 @@
     margin-bottom: 2.2rem;
   }
 
-  .step-one-msg {
+  .step-two-msg {
     font-size: 1.4rem;
     font-weight: normal;
     font-stretch: normal;
@@ -87,9 +92,14 @@
     span {
       font-weight: bold;
     }
+
+    &-2 {
+      @extend .step-two-msg;
+      margin-bottom: 4.7rem;
+    }
   }
 
-  .step-one-csv {
+  .step-two-csv {
     width: 100%;
     box-shadow: 0 4px 6px 0 rgba(#000, 0.3);
     border-radius: 5px;
@@ -129,35 +139,52 @@
     margin: 0 0 4rem 0;
   }
 
-  .step-one-continue {
-    font-size: 1.1rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: $check-mark-white;
-    background-color: $main-color;
-    border: none;
-    padding: 0.5rem 2rem;
-    border-radius: 3rem;
-    box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
-    align-self: flex-end;
-    outline: none;
-    transition: translateY, box-shadow, 0.2s ease-out;
+  .step-two-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
-    }
+    .step-two-action {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $check-mark-white;
+      background-color: $main-color;
+      border: none;
+      padding: 0.5rem 2rem;
+      border-radius: 3rem;
+      box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
+      align-self: flex-end;
+      outline: none;
+      transition: translateY, box-shadow, 0.2s ease-out;
 
-    &:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
-    }
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+      }
 
-    &:disabled {
-      background-color: $inactive-button-bg;
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+      }
+
+      &:disabled {
+        background-color: $inactive-button-bg;
+      }
+
+      &-back {
+        @extend .step-two-action;
+        background-color: $progress-circle-light-blue-bg;
+        color: $main-color;
+        padding: 0.5rem 3rem;
+      }
+
+      &-continue {
+        @extend .step-two-action;
+      }
     }
   }
 }
