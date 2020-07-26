@@ -70,8 +70,12 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
         </Col>
         <Col>
           <div className="action">
-            <button onClick={handleDownload}>Download JPG</button>
-            <button onClick={handlePDF}>Download PDF</button>
+            <button className="mb-2" onClick={handleDownload}>
+              Download JPG
+            </button>
+            <button className="mb-2" onClick={handlePDF}>
+              Download PDF
+            </button>
             <button className="mb-2" onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
@@ -105,7 +109,6 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
             <button onClick={() => setDeletePopupShow(true)}>
               Delete Employee
             </button>
-            {/* <button onClick={handleDelete}>Delete Employee</button> */}
           </div>
         </Col>
       </Row>
