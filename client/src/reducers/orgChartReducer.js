@@ -1,9 +1,11 @@
 import findNode from "../utils/findNode";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   ORG_DATA_FETCHED,
   ORG_DATA_ERROR,
   NODE_MODIFIED,
+  NODE_ADDED,
 } from "../actions/actionTypes";
 
 const INITIAL_STATE = null;
@@ -17,15 +19,21 @@ export default (state = INITIAL_STATE, action) => {
       return INITIAL_STATE;
     case NODE_MODIFIED:
       const { name, title, email } = payload.formData;
-      console.log(name, title, email);
-      const newState = { ...state };
-      console.log(newState);
-      const node = findNode(payload.id, newState);
-      console.log(node);
-      node.name = name;
-      node.title = title;
-      node.email = email;
-      return newState;
+      const stateAfterModified = { ...state };
+      const selectedNode = findNode(payload.id, stateAfterModified);
+      selectedNode.name = name;
+      selectedNode.title = title;
+      selectedNode.email = email;
+      return stateAfterModified;
+    case NODE_ADDED:
+      const stateAfterAdded = { ...state };
+      const parentNode = findNode(payload.id, stateAfterAdded);
+      parentNode.children.push({
+        ...payload.formData,
+        id: uuidv4(),
+        children: [],
+      });
+      return stateAfterAdded;
     default:
       return state;
   }

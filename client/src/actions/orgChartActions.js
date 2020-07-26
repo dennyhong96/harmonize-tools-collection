@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { ORG_DATA_FETCHED, ORG_DATA_ERROR, NODE_MODIFIED } from "./actionTypes";
+import {
+  ORG_DATA_FETCHED,
+  ORG_DATA_ERROR,
+  NODE_MODIFIED,
+  NODE_ADDED,
+} from "./actionTypes";
 
 /**
  * @param {object} file - csv file to be uploaded to server
@@ -38,6 +43,18 @@ export const uploadOrgData = (file) => async (dispatch) => {
 export const updateNode = (id, formData) => (dispatch) => {
   dispatch({
     type: NODE_MODIFIED,
+    payload: { id, formData },
+  });
+};
+
+/**
+ * @function addNode
+ * Dispath action to modify state according to formData
+ * @param {object} formData - formData collected from the form
+ */
+export const addNode = (id, formData) => (dispatch) => {
+  dispatch({
+    type: NODE_ADDED,
     payload: { id, formData },
   });
 };
