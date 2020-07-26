@@ -1,7 +1,10 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useRef, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
+import html2canvas from "html2canvas";
 
+import canvasToPdf from "../../utils/canvasToPdf";
+import canvasToImg from "../../utils/canvasToImg";
 import { deleteNode } from "../../actions/orgChartActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import AddEmployeeModal from "./AddEmployeeModal";
@@ -9,14 +12,32 @@ import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import "./ChartSelectedEmployee.scss";
 
 const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
+  const orgChartContainerRef = useRef();
+
   const [editModalShow, setEditModalShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addMode, setAddMode] = useState("DIRECT_REPORT");
 
+  useEffect(() => {
+    orgChartContainerRef.current = document.querySelector(".orgchart.myChart");
+  }, []);
+
   const handleDelete = () => {
     deleteNode(selectedNode.id);
     setDeletePopupShow(false);
+  };
+
+  const handleDownload = () => {
+    html2canvas(orgChartContainerRef.current).then((canvas) => {
+      canvasToImg(canvas.toDataURL(), `orgchart.jpg`);
+    });
+  };
+
+  const handlePDF = () => {
+    html2canvas(orgChartContainerRef.current).then((canvas) => {
+      canvasToPdf(canvas);
+    });
   };
 
   return (
@@ -49,6 +70,8 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
         </Col>
         <Col>
           <div className="action">
+            <button onClick={handleDownload}>Download JPG</button>
+            <button onClick={handlePDF}>Download PDF</button>
             <button className="mb-2" onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>

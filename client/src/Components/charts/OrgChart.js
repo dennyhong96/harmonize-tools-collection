@@ -11,7 +11,7 @@ import "./OrgChart.scss";
 const OrgChart = ({ orgData }) => {
   const orgChartRef = useRef(null);
 
-  const handleDownload = async () => {
+  const handleDownload = () => {
     orgChartRef.current.exportTo("chart", "png");
   };
 
