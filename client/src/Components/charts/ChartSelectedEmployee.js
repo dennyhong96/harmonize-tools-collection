@@ -5,7 +5,7 @@ import EditEmployeeModal from "./EditEmployeeModal";
 import "./ChartSelectedEmployee.scss";
 
 const ChartEmployeePanel = ({ selectedNode }) => {
-  const [modalShow, setModalShow] = useState(false);
+  const [editModalShow, setEditModalShow] = useState(false);
   return (
     <Fragment>
       <Row>
@@ -36,15 +36,18 @@ const ChartEmployeePanel = ({ selectedNode }) => {
         </Col>
         <Col>
           <div className="action">
-            <button onClick={() => setModalShow(true)}>Edit Employee</button>
-            <button>Edit Employee</button>
+            <button className="mb-2" onClick={() => setEditModalShow(true)}>
+              Edit Employee
+            </button>
+            <button>Add Employee</button>
           </div>
         </Col>
       </Row>
       <EditEmployeeModal
         selectedNode={selectedNode}
-        show={modalShow}
-        onHide={() => setModalShow(false)}
+        show={editModalShow}
+        setEditModalShow={setEditModalShow}
+        onHide={() => setEditModalShow(false)}
       />
     </Fragment>
   );

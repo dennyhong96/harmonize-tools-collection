@@ -22,12 +22,11 @@
 
 .orgchart.myChart .oc-node .oc-inner {
   width: 12rem;
-  // height: 12rem;
   border-radius: 4.8px;
   box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
   border: 1px solid rgba(47, 83, 151, 0.2);
   background-color: $check-mark-white;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 
   display: flex;
   flex-direction: column;
@@ -62,6 +61,17 @@
     margin-bottom: 0.5rem;
   }
 
+  .title {
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-text;
+    margin-bottom: 0.4rem;
+  }
+
   .email {
     font-size: 0.625rem;
     font-weight: normal;
@@ -70,7 +80,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: $light-grey-text-profile-cards;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   hr {
@@ -78,7 +88,7 @@
     height: 1px;
     background-color: $dark-text;
     margin: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .manager {
