@@ -10,6 +10,7 @@ import "./ChartSelectedEmployee.scss";
 const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
+  const [addMode, setAddMode] = useState("DIRECT_REPORT");
 
   const handleDelete = () => {
     deleteNode(selectedNode.id);
@@ -48,8 +49,23 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
             <button className="mb-2" onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
-            <button className="mb-2" onClick={() => setAddModalShow(true)}>
+            <button
+              className="mb-2"
+              onClick={() => {
+                setAddMode("DIRECT_REPORT");
+                setAddModalShow(true);
+              }}
+            >
               Add Employee
+            </button>
+            <button
+              className="mb-2"
+              onClick={() => {
+                setAddMode("COLLEAGUE");
+                setAddModalShow(true);
+              }}
+            >
+              Add Colleague
             </button>
             <button onClick={handleDelete}>Delete Employee</button>
           </div>
@@ -66,6 +82,7 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
         show={addModalShow}
         setAddModalShow={setAddModalShow}
         onHide={() => setAddModalShow(false)}
+        addMode={addMode}
       />
     </Fragment>
   );

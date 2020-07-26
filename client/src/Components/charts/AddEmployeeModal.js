@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import { addNode } from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
-const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
+const AddEmployeeModal = ({
+  addMode,
+  selectedNode,
+  addNode,
+  ...otherProps
+}) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
 
   const handleChange = (evt) => {
@@ -14,9 +19,9 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
   };
 
   const handleSubmit = () => {
-    console.log(selectedNode.id);
-    console.log(formData);
-    addNode(selectedNode.id, formData);
+    if (addMode === "DIRECT_REPORT") {
+      addNode(selectedNode.id, formData);
+    }
     otherProps.setAddModalShow(false);
   };
 
@@ -32,7 +37,8 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          ADD EMPLOYEE
+          {addMode === "DIRECT_REPORT" && "ADD DIRECT REPORT"}
+          {addMode === "COLLEAGUE" && "ADD COLLEAGUE"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -44,6 +50,7 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
               name="name"
               value={name}
               onChange={handleChange}
+              className="modal-input"
             />
           </Form.Group>
           <Form.Group>
@@ -53,6 +60,7 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
               name="title"
               value={title}
               onChange={handleChange}
+              className="modal-input"
             />
           </Form.Group>
           <Form.Group>
@@ -62,6 +70,7 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
               name="email"
               value={email}
               onChange={handleChange}
+              className="modal-input"
             />
           </Form.Group>
         </Form>
