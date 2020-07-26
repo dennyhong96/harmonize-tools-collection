@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { updateNode } from "../../actions/orgChartActions";
-import "./EditEmployeeModal.scss";
+import "./AddEmployeeModal.scss";
 
-const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
+const AddEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
-
-  useEffect(() => {
-    setFormData({
-      name: selectedNode ? selectedNode.name : "",
-      title: selectedNode ? selectedNode.title : "",
-      email: selectedNode ? selectedNode.email : "",
-    });
-  }, [selectedNode]);
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -24,7 +16,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   const handleSubmit = () => {
     console.log(formData);
     updateNode(selectedNode.id, formData);
-    otherProps.setEditModalShow(false);
+    otherProps.setAddModalShow(false);
   };
 
   const { name, title, email } = formData;
@@ -38,7 +30,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          EDIT EMPLOYEE
+          ADD EMPLOYEE
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -73,7 +65,10 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <button className="close-btn" onClick={otherProps.onHide}>
+        <button
+          className="close-btn"
+          onClick={() => otherProps.setAddModalShow(false)}
+        >
           Back
         </button>
         <button className="confirm-btn" onClick={handleSubmit}>
@@ -84,4 +79,4 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   );
 };
 
-export default connect(null, { updateNode })(EditEmployeeModal);
+export default connect(null, { updateNode })(AddEmployeeModal);

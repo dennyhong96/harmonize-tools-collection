@@ -2,10 +2,13 @@ import React, { useState, Fragment } from "react";
 import { Row, Col } from "react-bootstrap";
 
 import EditEmployeeModal from "./EditEmployeeModal";
+import AddEmployeeModal from "./AddEmployeeModal";
 import "./ChartSelectedEmployee.scss";
 
 const ChartEmployeePanel = ({ selectedNode }) => {
   const [editModalShow, setEditModalShow] = useState(false);
+  const [addModalShow, setAddModalShow] = useState(false);
+
   return (
     <Fragment>
       <Row>
@@ -39,7 +42,7 @@ const ChartEmployeePanel = ({ selectedNode }) => {
             <button className="mb-2" onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
-            <button>Add Employee</button>
+            <button onClick={() => setAddModalShow(true)}>Add Employee</button>
           </div>
         </Col>
       </Row>
@@ -48,6 +51,12 @@ const ChartEmployeePanel = ({ selectedNode }) => {
         show={editModalShow}
         setEditModalShow={setEditModalShow}
         onHide={() => setEditModalShow(false)}
+      />
+      <AddEmployeeModal
+        selectedNode={selectedNode}
+        show={addModalShow}
+        setAddModalShow={setAddModalShow}
+        onHide={() => setAddModalShow(false)}
       />
     </Fragment>
   );
