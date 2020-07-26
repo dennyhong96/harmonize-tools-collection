@@ -9,6 +9,8 @@ const OrgChart = () => {
   const orgChartRef = useRef(null);
   const orgChartElRef = useRef(null);
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [translateX, setTranslateX] = useState("0");
+  const [transformY, setTransformY] = useState("0");
 
   useEffect(() => {
     // Hook onto orgchart DOM element
@@ -16,9 +18,35 @@ const OrgChart = () => {
   }, []);
 
   useEffect(() => {
+    console.log(zoomLevel);
     // Change chart scale when zoom leverl is changed
-    orgChartElRef.current.style.transform = `scale(${zoomLevel})`;
+    const transformValue = orgChartElRef.current.style.transform;
+    console.log(transformValue);
+    if (transformValue.includes("scale")) {
+      orgChartElRef.current.style.transform = transformValue.replace(
+        /scale\([0-9\.]+\)/,
+        `scale(${zoomLevel})`
+      );
+      console.log("if");
+    } else {
+      orgChartElRef.current.style.transform = `scale(${zoomLevel})`;
+      console.log("else");
+    }
   }, [zoomLevel]);
+
+  useEffect(() => {
+    orgChartElRef.current.style.transform = translateX;
+  }, [translateX]);
+
+  const handleDownload = () => {
+    orgChartRef.current.exportTo("chart", "png");
+  };
+
+  const handlePan = () => {
+    setTranslateX(
+      (prev) => `translateX(${parseFloat(prev.match(/[\-0-9]+/)[0]) + 100}px)`
+    );
+  };
 
   const ds = {
     id: "n1",
@@ -104,10 +132,10 @@ const OrgChart = () => {
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}
+        // pan={true}
       />
-      <button onClick={() => orgChartRef.current.exportTo("chart", "png")}>
-        Download
-      </button>
+      <button onClick={handleDownload}>Download</button>
+      <button onClick={handlePan}>pan</button>
     </Fragment>
   );
 };

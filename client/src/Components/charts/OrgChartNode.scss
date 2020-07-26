@@ -3,6 +3,7 @@
 .orgchart-container {
   min-height: 75vh;
   border: 1px solid lighten($light-grey-text-body, 40%);
+  overflow: hidden;
 }
 
 .orgchart.myChart {
@@ -12,6 +13,8 @@
   // transform: scale(0.7);
   // transform: scale(0.8);
   transition: transform 0.3s ease-out;
+  // transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+  // transform: translateX(-200px);
 }
 
 .orgchart.myChart > ul > li > ul li::before {
