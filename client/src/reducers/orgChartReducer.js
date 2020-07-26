@@ -7,6 +7,7 @@ import {
   NODE_MODIFIED,
   NODE_ADDED,
   COLLEAGUE_ADDED,
+  NEW_HEAD_ADDED,
   NODE_DELETED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
@@ -50,6 +51,18 @@ export default (state = INITIAL_STATE, action) => {
         manager: commonManager.name,
       });
       return stateAfterColleagueAdded;
+    case NEW_HEAD_ADDED:
+      const newHeadId = uuidv4();
+      const oldHead = { ...state };
+      oldHead.manager = payload.name;
+      oldHead.managerId = newHeadId;
+      return {
+        name: payload.name,
+        title: payload.title,
+        email: payload.email,
+        id: newHeadId,
+        children: [oldHead],
+      };
     case NODE_DELETED:
       const stateAfterDeleted = { ...state };
       const { managerId } = findNode(payload, stateAfterDeleted);

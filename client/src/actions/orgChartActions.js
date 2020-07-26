@@ -84,7 +84,7 @@ export const addColleague = (id, formData) => (dispatch) => {
  */
 export const addNewHead = (formData) => (dispatch) => {
   dispatch({
-    type: COLLEAGUE_ADDED,
+    type: NEW_HEAD_ADDED,
     payload: formData,
   });
 };

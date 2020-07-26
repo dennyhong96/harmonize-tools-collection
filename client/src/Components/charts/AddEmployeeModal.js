@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { addNode, addColleague } from "../../actions/orgChartActions";
+import {
+  addNode,
+  addColleague,
+  addNewHead,
+} from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
 const AddEmployeeModal = ({
@@ -10,6 +14,7 @@ const AddEmployeeModal = ({
   selectedNode,
   addNode,
   addColleague,
+  addNewHead,
   ...otherProps
 }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
@@ -17,6 +22,7 @@ const AddEmployeeModal = ({
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    console.log(addMode);
   };
 
   const handleSubmit = () => {
@@ -25,6 +31,7 @@ const AddEmployeeModal = ({
     } else if (addMode === "COLLEAGUE") {
       addColleague(selectedNode.id, formData);
     } else if (addMode === "HEAD") {
+      addNewHead(formData);
     }
     otherProps.setAddModalShow(false);
   };
@@ -43,6 +50,7 @@ const AddEmployeeModal = ({
         <Modal.Title id="contained-modal-title-vcenter">
           {addMode === "DIRECT_REPORT" && "ADD DIRECT REPORT"}
           {addMode === "COLLEAGUE" && "ADD COLLEAGUE"}
+          {addMode === "HEAD" && "ADD NEW HEAD"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -94,4 +102,6 @@ const AddEmployeeModal = ({
   );
 };
 
-export default connect(null, { addNode, addColleague })(AddEmployeeModal);
+export default connect(null, { addNode, addColleague, addNewHead })(
+  AddEmployeeModal
+);
