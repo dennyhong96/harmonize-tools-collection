@@ -30,7 +30,7 @@ export default (state = INITIAL_STATE, action) => {
       const parentNode = findNode(payload.id, stateAfterAdded);
       parentNode.children.push({
         ...payload.formData,
-        id: uuidv4(),
+        id: `oc-${uuidv4()}`,
         children: [],
       });
       return stateAfterAdded;
