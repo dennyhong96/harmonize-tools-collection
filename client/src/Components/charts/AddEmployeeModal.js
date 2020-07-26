@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { addNode } from "../../actions/orgChartActions";
+import { addNode, addColleague } from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
 const AddEmployeeModal = ({
   addMode,
   selectedNode,
   addNode,
+  addColleague,
   ...otherProps
 }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
@@ -21,6 +22,8 @@ const AddEmployeeModal = ({
   const handleSubmit = () => {
     if (addMode === "DIRECT_REPORT") {
       addNode(selectedNode.id, formData);
+    } else if (addMode === "COLLEAGUE") {
+      addColleague(selectedNode.id, formData);
     }
     otherProps.setAddModalShow(false);
   };
@@ -90,4 +93,4 @@ const AddEmployeeModal = ({
   );
 };
 
-export default connect(null, { addNode })(AddEmployeeModal);
+export default connect(null, { addNode, addColleague })(AddEmployeeModal);

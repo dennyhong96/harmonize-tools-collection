@@ -40,12 +40,14 @@ export default (state = INITIAL_STATE, action) => {
       return stateAfterAdded;
     case COLLEAGUE_ADDED:
       const stateAfterColleagueAdded = { ...state };
-      const commonManager = findNode(payload.id, stateAfterModified);
+      const commonManagerId = findNode(payload.id, stateAfterColleagueAdded)
+        .managerId;
+      const commonManager = findNode(commonManagerId, stateAfterColleagueAdded);
       commonManager.children.push({
         ...payload.formData,
         id: `oc-${uuidv4()}`,
         children: [],
-        manager: parentNode.name,
+        manager: commonManager.name,
       });
       return stateAfterColleagueAdded;
     case NODE_DELETED:
