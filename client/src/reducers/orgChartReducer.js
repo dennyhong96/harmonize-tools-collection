@@ -40,6 +40,10 @@ export default (state = INITIAL_STATE, action) => {
     case NODE_DELETED:
       const stateAfterDeleted = { ...state };
       const { managerId } = findNode(payload, stateAfterDeleted);
+      if (!managerId) {
+        // Deleting the root node
+        return {};
+      }
       let manager = findNode(managerId, stateAfterDeleted);
       manager.children = manager.children.filter((ch) => ch.id !== payload);
       return stateAfterDeleted;
