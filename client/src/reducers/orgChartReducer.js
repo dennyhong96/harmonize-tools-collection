@@ -63,7 +63,6 @@ export default (state = INITIAL_STATE, action) => {
         id: newHeadId,
         children: [oldHead],
       };
-
     case NODE_DELETED:
       const stateAfterDeleted = { ...state };
       const { managerId } = findNode(payload, stateAfterDeleted);
