@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 
+import useChartPan from "../../hooks/useChartPan";
 import "./PanControl.scss";
 
-const PanControl = ({ setTranslateX, setTranslateY }) => {
+const PanControl = () => {
+  const { setTranslateX, setTranslateY } = useChartPan("0", "0");
+
   useEffect(() => {
     document.body.addEventListener("keydown", (evt) => {
       // Arrow keys to pan the chart
