@@ -7,9 +7,8 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
   return (
     <div className="selected-employee">
       <h6>SELECTED EMPLOYEE</h6>
-
-      {selectedNode && (
-        <div className="employee-info">
+      <div className="employee-info">
+        {selectedNode ? (
           <Row>
             <Col>
               <p>
@@ -52,8 +51,12 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
               </p>
             </Col>
           </Row>
-        </div>
-      )}
+        ) : (
+          <p className="none-selected">
+            Select an employee to start exploring!
+          </p>
+        )}
+      </div>
     </div>
   );
 };

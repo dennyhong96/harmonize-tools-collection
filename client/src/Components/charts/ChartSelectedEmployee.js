@@ -42,26 +42,16 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   return (
     <Fragment>
       <div className="action">
-        <button className="mb-2" onClick={handleDownload}>
-          Download JPG
-        </button>
-        <button className="mb-2" onClick={handlePDF}>
-          Download PDF
-        </button>
-        <button className="mb-2" onClick={() => setEditModalShow(true)}>
-          Edit Employee
-        </button>
+        <button onClick={() => setEditModalShow(true)}>Edit Employee</button>
         <button
-          className="mb-2"
           onClick={() => {
             setAddMode("DIRECT_REPORT");
             setAddModalShow(true);
           }}
         >
-          Add Employee
+          Add Subordinate
         </button>
         <button
-          className="mb-2"
           onClick={() => {
             setAddMode("COLLEAGUE");
             setAddModalShow(true);
@@ -70,7 +60,6 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
           Add Colleague
         </button>
         <button
-          className="mb-2"
           onClick={() => {
             setAddMode("HEAD");
             setAddModalShow(true);
@@ -81,6 +70,8 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
         <button onClick={() => setDeletePopupShow(true)}>
           Delete Employee
         </button>
+        <button onClick={handleDownload}>Download JPG</button>
+        <button onClick={handlePDF}>Download PDF</button>
       </div>
       <EditEmployeeModal
         selectedNode={selectedNode}

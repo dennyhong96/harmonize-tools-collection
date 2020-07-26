@@ -7,6 +7,7 @@
   align-items: center;
   align-content: space-around;
   height: 100%;
+  min-height: 6rem;
 
   %btn {
     transition: translateY, box-shadow, 0.2s ease;
@@ -38,6 +39,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: $check-mark-white;
+    margin: 0.3rem 1rem;
 
     &:focus {
       outline: none;
