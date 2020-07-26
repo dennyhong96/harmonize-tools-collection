@@ -67,6 +67,15 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
             >
               Add Colleague
             </button>
+            <button
+              className="mb-2"
+              onClick={() => {
+                setAddMode("HEAD");
+                setAddModalShow(true);
+              }}
+            >
+              Add New Head
+            </button>
             <button onClick={handleDelete}>Delete Employee</button>
           </div>
         </Col>

@@ -4,6 +4,7 @@ export const ORG_DATA_ERROR = "ORG_DATA_ERROR";
 export const NODE_MODIFIED = "NODE_MODIFIED";
 export const NODE_ADDED = "NODE_ADDED";
 export const COLLEAGUE_ADDED = "COLLEAGUE_ADDED";
+export const NEW_HEAD_ADDED = "NEW_HEAD_ADDED";
 export const NODE_DELETED = "NODE_DELETED";
 
 // Csv Template actions

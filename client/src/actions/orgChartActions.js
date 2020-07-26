@@ -6,6 +6,7 @@ import {
   NODE_MODIFIED,
   NODE_ADDED,
   COLLEAGUE_ADDED,
+  NEW_HEAD_ADDED,
   NODE_DELETED,
 } from "./actionTypes";
 
@@ -73,6 +74,18 @@ export const addColleague = (id, formData) => (dispatch) => {
   dispatch({
     type: COLLEAGUE_ADDED,
     payload: { id, formData },
+  });
+};
+
+/**
+ * @function addNewHead
+ * Dispath action to modify state according to formData
+ * @param {object} formData - formData collected from the form
+ */
+export const addNewHead = (formData) => (dispatch) => {
+  dispatch({
+    type: COLLEAGUE_ADDED,
+    payload: formData,
   });
 };
 

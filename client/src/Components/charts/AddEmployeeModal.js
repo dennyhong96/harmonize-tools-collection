@@ -24,6 +24,7 @@ const AddEmployeeModal = ({
       addNode(selectedNode.id, formData);
     } else if (addMode === "COLLEAGUE") {
       addColleague(selectedNode.id, formData);
+    } else if (addMode === "HEAD") {
     }
     otherProps.setAddModalShow(false);
   };
