@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 
 import SelectedEmployeeInfo from "./SelectedEmployeeInfo";
 import ChartSelectedEmployee from "./ChartSelectedEmployee";
+
 import "./ChartControl.scss";
 
 const ChartControl = ({ selectedNode }) => {

@@ -4,7 +4,8 @@
   box-sizing: border-box;
   position: relative;
   margin: 10px;
-  padding: 10px;
-  border: 1px solid #dddddd;
+  padding: 2rem;
   border-radius: 5px;
+  border: 1px solid rgba($light-grey-text-body, 0.15);
+  box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
 }

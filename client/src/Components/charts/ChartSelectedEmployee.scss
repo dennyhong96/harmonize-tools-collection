@@ -1,6 +1,13 @@
 @import "../../App.scss";
 
 .action {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  height: 100%;
+
   %btn {
     transition: translateY, box-shadow, 0.2s ease;
 
