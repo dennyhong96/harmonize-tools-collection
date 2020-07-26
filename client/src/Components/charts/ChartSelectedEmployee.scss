@@ -1,0 +1,51 @@
+@import "../../App.scss";
+
+.selected-employee {
+  h6 {
+    color: $dark-text;
+  }
+  .employee-info {
+    p {
+      margin-bottom: 0;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.action {
+  %btn {
+    transition: translateY, box-shadow, 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+
+  button {
+    @extend %btn;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 93.3px;
+    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+    background-color: $main-color;
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $check-mark-white;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,6 +1,12 @@
 import axios from "axios";
 
-import { ORG_DATA_FETCHED, ORG_DATA_ERROR } from "./actionTypes";
+import {
+  ORG_DATA_FETCHED,
+  ORG_DATA_ERROR,
+  NODE_MODIFIED,
+  NODE_ADDED,
+  NODE_DELETED,
+} from "./actionTypes";
 
 /**
  * @param {object} file - csv file to be uploaded to server
@@ -22,10 +28,49 @@ export const uploadOrgData = (file) => async (dispatch) => {
     });
     return true;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     dispatch({
       type: ORG_DATA_ERROR,
     });
     return false;
   }
+};
+
+/**
+ * @function updateNode
+ * Dispath action to modify state according to formData
+ * @param {string} id - identifier of the node selected
+ * @param {object} formData - formData collected from the form
+ */
+export const updateNode = (id, formData) => (dispatch) => {
+  dispatch({
+    type: NODE_MODIFIED,
+    payload: { id, formData },
+  });
+};
+
+/**
+ * @function addNode
+ * Dispath action to modify state according to formData
+ * @param {string} id - identifier of the node selected
+ * @param {object} formData - formData collected from the form
+ */
+export const addNode = (id, formData) => (dispatch) => {
+  dispatch({
+    type: NODE_ADDED,
+    payload: { id, formData },
+  });
+};
+
+/**
+ * @function deleteNode
+ * Dispath action to modify state according to formData
+ * @param {string} id - identifier of the node selected
+ * @param {object} formData - formData collected from the form
+ */
+export const deleteNode = (id) => (dispatch) => {
+  dispatch({
+    type: NODE_DELETED,
+    payload: id,
+  });
 };

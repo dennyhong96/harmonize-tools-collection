@@ -1,6 +1,9 @@
 // Org Chart actions
 export const ORG_DATA_FETCHED = "ORG_DATA_FETCHED";
 export const ORG_DATA_ERROR = "ORG_DATA_ERROR";
+export const NODE_MODIFIED = "NODE_MODIFIED";
+export const NODE_ADDED = "NODE_ADDED";
+export const NODE_DELETED = "NODE_DELETED";
 
 // Csv Template actions
 export const TEMPLATE_DOWNLOADED = "TEMPLATE_DOWNLOADED";
