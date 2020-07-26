@@ -1,9 +1,7 @@
-import React, { useState, Fragment, useRef, useEffect } from "react";
+import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
-import html2canvas from "html2canvas";
 
-import canvasToPdf from "../../utils/canvasToPdf";
-import canvasToImg from "../../utils/canvasToImg";
+import useDownload from "../../hooks/useDownload";
 import { deleteNode } from "../../actions/orgChartActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import AddEmployeeModal from "./AddEmployeeModal";
@@ -11,33 +9,17 @@ import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import "./ChartSelectedEmployee.scss";
 
 const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
-  const orgChartContainerRef = useRef();
-
   const [editModalShow, setEditModalShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addMode, setAddMode] = useState("DIRECT_REPORT");
-
-  useEffect(() => {
-    orgChartContainerRef.current = document.querySelector(".orgchart.myChart");
-  }, []);
 
   const handleDelete = () => {
     deleteNode(selectedNode.id);
     setDeletePopupShow(false);
   };
 
-  const handleDownload = () => {
-    html2canvas(orgChartContainerRef.current).then((canvas) => {
-      canvasToImg(canvas.toDataURL(), `orgchart.jpg`);
-    });
-  };
-
-  const handlePDF = () => {
-    html2canvas(orgChartContainerRef.current).then((canvas) => {
-      canvasToPdf(canvas);
-    });
-  };
+  const { handleDownload } = useDownload();
 
   return (
     <Fragment>
@@ -98,8 +80,8 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
             </button>
           </Fragment>
         )}
-        <button onClick={handleDownload}>Download JPG</button>
-        <button onClick={handlePDF}>Download PDF</button>
+        <button onClick={() => handleDownload("JPG")}>Download JPG</button>
+        <button onClick={() => handleDownload("PDF")}>Download PDF</button>
       </div>
       <EditEmployeeModal
         selectedNode={selectedNode}
