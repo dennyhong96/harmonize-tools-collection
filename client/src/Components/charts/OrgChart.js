@@ -3,6 +3,7 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 
 import ZoomControl from "./ZoomControl";
+import PanControl from "./PanControl";
 import "./OrgChart.scss";
 
 const OrgChart = () => {
@@ -10,7 +11,7 @@ const OrgChart = () => {
   const orgChartElRef = useRef(null);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [translateX, setTranslateX] = useState("0");
-  const [transformY, setTransformY] = useState("0");
+  const [translateY, setTranslateY] = useState("0");
 
   useEffect(() => {
     // Hook onto orgchart DOM element
@@ -18,34 +19,54 @@ const OrgChart = () => {
   }, []);
 
   useEffect(() => {
-    console.log(zoomLevel);
-    // Change chart scale when zoom leverl is changed
+    // Change chart scale when zoom level is changed
     const transformValue = orgChartElRef.current.style.transform;
-    console.log(transformValue);
     if (transformValue.includes("scale")) {
+      // Update current scale
       orgChartElRef.current.style.transform = transformValue.replace(
         /scale\([0-9\.]+\)/,
         `scale(${zoomLevel})`
       );
-      console.log("if");
     } else {
-      orgChartElRef.current.style.transform = `scale(${zoomLevel})`;
-      console.log("else");
+      // Append scale into current transform styles
+      orgChartElRef.current.style.transform = `${transformValue} scale(${zoomLevel})`;
     }
   }, [zoomLevel]);
 
   useEffect(() => {
-    orgChartElRef.current.style.transform = translateX;
+    const transformValue = orgChartElRef.current.style.transform;
+    if (transformValue.includes("translateX")) {
+      orgChartElRef.current.style.transform = transformValue.replace(
+        /translateX\([0-9\.px]+\)/,
+        translateX
+      );
+    } else {
+      orgChartElRef.current.style.transform = `${transformValue} ${translateX}`;
+    }
   }, [translateX]);
 
-  const handleDownload = () => {
-    orgChartRef.current.exportTo("chart", "png");
-  };
+  useEffect(() => {
+    const transformValue = orgChartElRef.current.style.transform;
+    if (transformValue.includes("translateY")) {
+      orgChartElRef.current.style.transform = transformValue.replace(
+        /translateY\([0-9\.px]+\)/,
+        translateY
+      );
+    } else {
+      orgChartElRef.current.style.transform = `${transformValue} ${translateY}`;
+    }
+  }, [translateY]);
 
-  const handlePan = () => {
-    setTranslateX(
-      (prev) => `translateX(${parseFloat(prev.match(/[\-0-9]+/)[0]) + 100}px)`
-    );
+  const handleDownload = async () => {
+    orgChartRef.current.exportTo("chart", "png");
+    // const transformValue = orgChartElRef.current.style.transform;
+    // orgChartElRef.current.style.transform = "initial";
+    // setTimeout(() => {
+    //   orgChartRef.current.exportTo("chart", "png");
+    // }, 300);
+    // setTimeout(() => {
+    //   orgChartElRef.current.style.transform = transformValue;
+    // }, 900);
   };
 
   const ds = {
@@ -126,16 +147,15 @@ const OrgChart = () => {
   return (
     <Fragment>
       <ZoomControl setZoomLevel={setZoomLevel} />
+      <PanControl setTranslateX={setTranslateX} setTranslateY={setTranslateY} />
       <OrganizationChart
         ref={orgChartRef}
         datasource={ds}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}
-        // pan={true}
       />
       <button onClick={handleDownload}>Download</button>
-      <button onClick={handlePan}>pan</button>
     </Fragment>
   );
 };
