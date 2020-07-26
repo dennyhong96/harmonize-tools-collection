@@ -1,5 +1,4 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import html2canvas from "html2canvas";
 
@@ -11,7 +10,7 @@ import AddEmployeeModal from "./AddEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import "./ChartSelectedEmployee.scss";
 
-const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
+const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
   const orgChartContainerRef = useRef();
 
   const [editModalShow, setEditModalShow] = useState(false);
@@ -42,54 +41,22 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
 
   return (
     <Fragment>
-      <Row>
-        <Col>
-          <div className="selected-employee">
-            <h6>Selected Employee:</h6>
-            {selectedNode && (
-              <div className="employee-info">
-                <p>
-                  <strong>Name: </strong>
-                  {selectedNode.name}
-                </p>
-                <p>
-                  <strong>Title: </strong>
-                  {selectedNode.title}
-                </p>
-                <p>
-                  <strong>Email: </strong>
-                  {selectedNode.email}
-                </p>
-                <p>
-                  <strong>Manager: </strong>
-                  {selectedNode.manager}
-                </p>
-              </div>
-            )}
-          </div>
-        </Col>
-        <Col>
-          <div className="action">
-            <button className="mb-2" onClick={handleDownload}>
-              Download JPG
-            </button>
-            <button className="mb-2" onClick={handlePDF}>
-              Download PDF
-            </button>
-            <button className="mb-2" onClick={() => setEditModalShow(true)}>
+      <div className="action">
+        {selectedNode ? (
+          <Fragment>
+            <button onClick={() => setSelectedNode(null)}>Cancel Select</button>
+            <button onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
             <button
-              className="mb-2"
               onClick={() => {
                 setAddMode("DIRECT_REPORT");
                 setAddModalShow(true);
               }}
             >
-              Add Employee
+              Add Subordinate
             </button>
             <button
-              className="mb-2"
               onClick={() => {
                 setAddMode("COLLEAGUE");
                 setAddModalShow(true);
@@ -98,7 +65,6 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
               Add Colleague
             </button>
             <button
-              className="mb-2"
               onClick={() => {
                 setAddMode("HEAD");
                 setAddModalShow(true);
@@ -109,9 +75,32 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
             <button onClick={() => setDeletePopupShow(true)}>
               Delete Employee
             </button>
-          </div>
-        </Col>
-      </Row>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <button disabled className="inactive-btn">
+              Cancel Select
+            </button>
+            <button disabled className="inactive-btn">
+              Edit Employee
+            </button>
+            <button disabled className="inactive-btn">
+              Add Subordinate
+            </button>
+            <button disabled className="inactive-btn">
+              Add Colleague
+            </button>
+            <button disabled className="inactive-btn">
+              Add New Head
+            </button>
+            <button disabled className="inactive-btn">
+              Delete Employee
+            </button>
+          </Fragment>
+        )}
+        <button onClick={handleDownload}>Download JPG</button>
+        <button onClick={handlePDF}>Download PDF</button>
+      </div>
       <EditEmployeeModal
         selectedNode={selectedNode}
         show={editModalShow}

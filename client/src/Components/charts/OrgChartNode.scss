@@ -1,9 +1,10 @@
 @import "../../App.scss";
 
 .orgchart-container {
-  min-height: 75vh;
-  border: 1px solid lighten($light-grey-text-body, 40%);
+  min-height: 70vh;
+  border: 1px solid rgba($light-grey-text-body, 0.15);
   overflow: hidden;
+  box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
 }
 
 .orgchart.myChart {
@@ -47,6 +48,8 @@
     .far {
       color: $main-color;
       font-size: 1.2rem;
+      width: 2rem;
+      height: 2rem;
     }
   }
 

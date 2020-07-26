@@ -1,0 +1,46 @@
+@import "../../App.scss";
+
+.selected-employee {
+  h6 {
+    font-size: 1.3rem;
+    color: $dark-text;
+    border-bottom: 2px solid $main-color;
+    display: block;
+    width: 14rem;
+    text-align: center;
+    padding: 0 0 0.2rem 0;
+    margin: 0 auto 1rem auto;
+    font-weight: bold;
+  }
+
+  .employee-info {
+    p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.96;
+      letter-spacing: normal;
+      color: $dark-text;
+
+      strong {
+        font-size: 0.8rem;
+        color: $dark-text-80;
+        padding-bottom: 0.2rem;
+        border-bottom: 1.5px solid $main-color;
+      }
+    }
+
+    p.none-selected {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $main-color;
+    }
+  }
+}

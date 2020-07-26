@@ -11,10 +11,6 @@ import "./OrgChart.scss";
 const OrgChart = ({ orgData }) => {
   const orgChartRef = useRef(null);
 
-  const handleDownload = () => {
-    orgChartRef.current.exportTo("chart", "png");
-  };
-
   const [selectedNode, setSelectedNode] = useState(null);
 
   const readSelectedNode = (nodeData) => {
@@ -34,7 +30,10 @@ const OrgChart = ({ orgData }) => {
         onClickNode={readSelectedNode}
       />
       {/* <button onClick={handleDownload}>Download</button> */}
-      <ChartControl selectedNode={selectedNode} />
+      <ChartControl
+        selectedNode={selectedNode}
+        setSelectedNode={setSelectedNode}
+      />
     </Fragment>
   );
 };
