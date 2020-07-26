@@ -5,6 +5,7 @@ import "./PanControl.scss";
 const PanControl = ({ setTranslateX, setTranslateY }) => {
   useEffect(() => {
     document.body.addEventListener("keydown", (evt) => {
+      // Arrow keys to pan the chart
       if (evt.keyCode === 37) {
         handlePanLeft();
       } else if (evt.keyCode === 39) {

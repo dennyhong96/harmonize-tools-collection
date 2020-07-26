@@ -9,7 +9,7 @@ import "./OrgChart.scss";
 const OrgChart = () => {
   const orgChartRef = useRef(null);
   const orgChartElRef = useRef(null);
-  const [zoomLevel, setZoomLevel] = useState(1);
+
   const [translateX, setTranslateX] = useState("0");
   const [translateY, setTranslateY] = useState("0");
 
@@ -17,21 +17,6 @@ const OrgChart = () => {
     // Hook onto orgchart DOM element
     orgChartElRef.current = document.querySelector(".orgchart.myChart");
   }, []);
-
-  useEffect(() => {
-    // Change chart scale when zoom level is changed
-    const transformValue = orgChartElRef.current.style.transform;
-    if (transformValue.includes("scale")) {
-      // Update current scale
-      orgChartElRef.current.style.transform = transformValue.replace(
-        /scale\([0-9\.]+\)/,
-        `scale(${zoomLevel})`
-      );
-    } else {
-      // Append scale into current transform styles
-      orgChartElRef.current.style.transform = `${transformValue} scale(${zoomLevel})`;
-    }
-  }, [zoomLevel]);
 
   useEffect(() => {
     const transformValue = orgChartElRef.current.style.transform;
@@ -59,14 +44,6 @@ const OrgChart = () => {
 
   const handleDownload = async () => {
     orgChartRef.current.exportTo("chart", "png");
-    // const transformValue = orgChartElRef.current.style.transform;
-    // orgChartElRef.current.style.transform = "initial";
-    // setTimeout(() => {
-    //   orgChartRef.current.exportTo("chart", "png");
-    // }, 300);
-    // setTimeout(() => {
-    //   orgChartElRef.current.style.transform = transformValue;
-    // }, 900);
   };
 
   const ds = {
@@ -146,7 +123,7 @@ const OrgChart = () => {
 
   return (
     <Fragment>
-      <ZoomControl setZoomLevel={setZoomLevel} />
+      <ZoomControl />
       <PanControl setTranslateX={setTranslateX} setTranslateY={setTranslateY} />
       <OrganizationChart
         ref={orgChartRef}
