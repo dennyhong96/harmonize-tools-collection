@@ -14,6 +14,7 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
   };
 
   const handleSubmit = () => {
+    console.log(selectedNode.id);
     console.log(formData);
     addNode(selectedNode.id, formData);
     otherProps.setAddModalShow(false);

@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import ChartControl from "./ChartControl";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
-import exampleData from "../../utils/exampleData";
 import "./OrgChart.scss";
 
 const OrgChart = ({ orgData }) => {
@@ -28,7 +27,7 @@ const OrgChart = ({ orgData }) => {
       <PanControl />
       <OrganizationChart
         ref={orgChartRef}
-        datasource={orgData || exampleData}
+        datasource={orgData}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}

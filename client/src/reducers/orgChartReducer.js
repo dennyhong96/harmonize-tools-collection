@@ -7,8 +7,9 @@ import {
   NODE_MODIFIED,
   NODE_ADDED,
 } from "../actions/actionTypes";
+import exampleData from "../utils/exampleData";
 
-const INITIAL_STATE = null;
+const INITIAL_STATE = exampleData;
 
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
@@ -28,10 +29,12 @@ export default (state = INITIAL_STATE, action) => {
     case NODE_ADDED:
       const stateAfterAdded = { ...state };
       const parentNode = findNode(payload.id, stateAfterAdded);
+      console.log(payload.id, stateAfterAdded);
       parentNode.children.push({
         ...payload.formData,
-        id: `oc-${uuidv4()}`,
+        id: `oc-${uuidv4()}`, // html el id must start with letter
         children: [],
+        manager: parentNode.name,
       });
       return stateAfterAdded;
     default:

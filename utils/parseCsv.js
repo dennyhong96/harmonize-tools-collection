@@ -18,7 +18,7 @@ module.exports = async (filePath) => {
     })
     .map((employee) => {
       // Get rid of 'manager' field
-      employee.id = `oc-${uuidv4()}`;
+      employee.id = `oc-${uuidv4()}`; // html el id must start with letter
       return employee;
     });
 
