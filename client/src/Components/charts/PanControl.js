@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./PanControl.scss";
 
 const PanControl = ({ setTranslateX, setTranslateY }) => {
+  useEffect(() => {
+    document.body.addEventListener("keydown", (evt) => {
+      if (evt.keyCode === 37) {
+        handlePanLeft();
+      } else if (evt.keyCode === 39) {
+        handlePanRight();
+      } else if (evt.keyCode === 40) {
+        handlePanDown();
+      } else if (evt.keyCode === 38) {
+        handlePanUp();
+      }
+    });
+  }, []);
+
   const handlePanLeft = () => {
     setTranslateX(
       (prev) => `translateX(${parseFloat(prev.match(/[\-0-9]+/)[0]) - 100}px)`
@@ -32,7 +46,6 @@ const PanControl = ({ setTranslateX, setTranslateY }) => {
       <button className="pan-up" onClick={handlePanUp}>
         <i class="fas fa-arrow-up"></i>
       </button>
-
       <div>
         <button className="pan-left" onClick={handlePanLeft}>
           <i class="fas fa-arrow-left"></i>
