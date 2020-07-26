@@ -1,8 +1,9 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
+import ChartControl from "./ChartControl";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
 import exampleData from "../../utils/exampleData";
@@ -15,6 +16,12 @@ const OrgChart = ({ orgData }) => {
     orgChartRef.current.exportTo("chart", "png");
   };
 
+  const [selectedNode, setSelectedNode] = useState(null);
+
+  const readSelectedNode = (nodeData) => {
+    setSelectedNode(nodeData);
+  };
+
   return (
     <Fragment>
       <ZoomControl />
@@ -25,8 +32,10 @@ const OrgChart = ({ orgData }) => {
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}
+        onClickNode={readSelectedNode}
       />
-      <button onClick={handleDownload}>Download</button>
+      {/* <button onClick={handleDownload}>Download</button> */}
+      <ChartControl selectedNode={selectedNode} />
     </Fragment>
   );
 };

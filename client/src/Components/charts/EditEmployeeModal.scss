@@ -1,0 +1,78 @@
+@import "../../App.scss";
+
+// !important to overwrite bootstrap default modal style here
+.modal-header {
+  padding: 1rem 2rem 0.7rem 2rem !important;
+  border-bottom: 2px solid $main-color !important;
+
+  .modal-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $dark-text;
+  }
+}
+
+.close {
+  outline: none;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.modal-body {
+  padding: 0.7rem 2rem !important;
+}
+
+.modal-footer {
+  padding: 0.7rem 2rem 1rem 0.7rem !important;
+
+  .confirm-btn {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 93.3px;
+    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+    background-color: $main-color;
+    border: none;
+    outline: none;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $check-mark-white;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .close-btn {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 93.3px;
+    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+    background-color: $progress-circle-light-blue-bg;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $main-color;
+
+    outline: none;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
