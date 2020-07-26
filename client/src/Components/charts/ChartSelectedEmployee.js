@@ -5,15 +5,18 @@ import { connect } from "react-redux";
 import { deleteNode } from "../../actions/orgChartActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import AddEmployeeModal from "./AddEmployeeModal";
+import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import "./ChartSelectedEmployee.scss";
 
 const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
+  const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addMode, setAddMode] = useState("DIRECT_REPORT");
 
   const handleDelete = () => {
     deleteNode(selectedNode.id);
+    setDeletePopupShow(false);
   };
 
   return (
@@ -76,7 +79,10 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
             >
               Add New Head
             </button>
-            <button onClick={handleDelete}>Delete Employee</button>
+            <button onClick={() => setDeletePopupShow(true)}>
+              Delete Employee
+            </button>
+            {/* <button onClick={handleDelete}>Delete Employee</button> */}
           </div>
         </Col>
       </Row>
@@ -92,6 +98,12 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
         setAddModalShow={setAddModalShow}
         onHide={() => setAddModalShow(false)}
         addMode={addMode}
+      />
+      <ConfirmDeletePopup
+        deletePopupShow={deletePopupShow}
+        handleDelete={handleDelete}
+        onHide={() => setDeletePopupShow(false)}
+        deleteName={selectedNode ? selectedNode.name : ""}
       />
     </Fragment>
   );
