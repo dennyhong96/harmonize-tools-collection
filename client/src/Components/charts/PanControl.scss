@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+.pan-btn {
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  color: $white;
+  background-color: lighten($main-color, 3%);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.07);
+    background-color: $main-color;
+  }
+}
+
+.pan {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  right: 3rem;
+  top: 15.3rem;
+  padding: 0.5rem;
+  border-radius: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lighten($inactive-button-bg, 15%);
+
+  box-shadow: 0 2px 4px rgba(#000, 0.15);
+
+  .pan-up {
+    @extend .pan-btn;
+  }
+
+  .pan-left {
+    @extend .pan-btn;
+  }
+
+  .pan-right {
+    @extend .pan-btn;
+    margin-left: 1.5rem;
+  }
+
+  .pan-bottom {
+    @extend .pan-btn;
+  }
+}
