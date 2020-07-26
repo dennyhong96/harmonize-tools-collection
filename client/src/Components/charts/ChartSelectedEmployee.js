@@ -1,13 +1,19 @@
 import React, { useState, Fragment } from "react";
 import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
 
+import { deleteNode } from "../../actions/orgChartActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import AddEmployeeModal from "./AddEmployeeModal";
 import "./ChartSelectedEmployee.scss";
 
-const ChartEmployeePanel = ({ selectedNode }) => {
+const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
+
+  const handleDelete = () => {
+    deleteNode(selectedNode.id);
+  };
 
   return (
     <Fragment>
@@ -42,7 +48,10 @@ const ChartEmployeePanel = ({ selectedNode }) => {
             <button className="mb-2" onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
-            <button onClick={() => setAddModalShow(true)}>Add Employee</button>
+            <button className="mb-2" onClick={() => setAddModalShow(true)}>
+              Add Employee
+            </button>
+            <button onClick={handleDelete}>Delete Employee</button>
           </div>
         </Col>
       </Row>
@@ -62,4 +71,4 @@ const ChartEmployeePanel = ({ selectedNode }) => {
   );
 };
 
-export default ChartEmployeePanel;
+export default connect(null, { deleteNode })(ChartEmployeePanel);

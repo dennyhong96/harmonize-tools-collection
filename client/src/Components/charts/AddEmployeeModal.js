@@ -3,7 +3,7 @@ import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { addNode } from "../../actions/orgChartActions";
-import "./AddEmployeeModal.scss";
+import "./EditEmployeeModal.scss";
 
 const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
@@ -28,6 +28,7 @@ const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className="chart-control-modal"
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">

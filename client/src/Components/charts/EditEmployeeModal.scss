@@ -1,102 +1,108 @@
 @import "../../App.scss";
 
-// !important to overwrite bootstrap default modal style here
-.modal-header {
-  padding: 1rem 2rem 0.7rem 2rem !important;
-  border-bottom: 2px solid $main-color !important;
+.chart-control-modal {
+  // !important to overwrite bootstrap default modal style here
+  .modal-header {
+    padding: 1rem 2rem 0.7rem 2rem !important;
+    border-bottom: 2px solid $main-color !important;
 
-  .modal-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: $dark-text;
-  }
-}
-
-.modal-content {
-  border-radius: 1rem !important;
-}
-
-.close {
-  outline: none;
-  border: none;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.modal-body {
-  padding: 0.7rem 2rem !important;
-
-  form {
-    .form-group:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.modal-footer {
-  padding: 0.7rem 2rem 1rem 0.7rem !important;
-
-  %btn {
-    transition: translateY, box-shadow, 0.2s ease;
-
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
-    }
-
-    &:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $dark-text;
     }
   }
 
-  .confirm-btn {
-    @extend %btn;
-    width: 8rem;
-    height: 2rem;
-    border-radius: 93.3px;
-    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
-    background-color: $main-color;
-    border: none;
-    outline: none;
-    font-size: 0.8rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: $check-mark-white;
-
-    &:focus {
-      outline: none;
-    }
+  .modal-content {
+    border-radius: 1rem !important;
   }
 
-  .close-btn {
-    @extend %btn;
-    width: 8rem;
-    height: 2rem;
-    border-radius: 93.3px;
-    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
-    background-color: $progress-circle-light-blue-bg;
-    font-size: 0.8rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: $main-color;
+  .close {
     outline: none;
     border: none;
 
     &:focus {
       outline: none;
+    }
+  }
+
+  .modal-body {
+    padding: 0.7rem 2rem !important;
+
+    form {
+      .form-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .modal-input {
+        border-radius: 25px;
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 0.7rem 2rem 1rem 0.7rem !important;
+
+    %btn {
+      transition: translateY, box-shadow, 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+      }
+    }
+
+    .confirm-btn {
+      @extend %btn;
+      width: 8rem;
+      height: 2rem;
+      border-radius: 93.3px;
+      box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+      background-color: $main-color;
+      border: none;
+      outline: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $check-mark-white;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .close-btn {
+      @extend %btn;
+      width: 8rem;
+      height: 2rem;
+      border-radius: 93.3px;
+      box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+      background-color: $progress-circle-light-blue-bg;
+      font-size: 0.8rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $main-color;
+      outline: none;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import {
   ORG_DATA_ERROR,
   NODE_MODIFIED,
   NODE_ADDED,
+  NODE_DELETED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -29,7 +30,6 @@ export default (state = INITIAL_STATE, action) => {
     case NODE_ADDED:
       const stateAfterAdded = { ...state };
       const parentNode = findNode(payload.id, stateAfterAdded);
-      console.log(payload.id, stateAfterAdded);
       parentNode.children.push({
         ...payload.formData,
         id: `oc-${uuidv4()}`, // html el id must start with letter
@@ -37,6 +37,12 @@ export default (state = INITIAL_STATE, action) => {
         manager: parentNode.name,
       });
       return stateAfterAdded;
+    case NODE_DELETED:
+      const stateAfterDeleted = { ...state };
+      const { managerId } = findNode(payload, stateAfterDeleted);
+      let manager = findNode(managerId, stateAfterDeleted);
+      manager.children = manager.children.filter((ch) => ch.id !== payload);
+      return stateAfterDeleted;
     default:
       return state;
   }

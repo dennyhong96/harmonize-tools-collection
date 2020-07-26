@@ -35,6 +35,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className="chart-control-modal"
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
@@ -45,6 +46,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
         <Form>
           <Form.Group>
             <Form.Control
+              className="modal-input"
               type="text"
               placeholder="Name"
               name="name"
@@ -54,6 +56,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
           </Form.Group>
           <Form.Group>
             <Form.Control
+              className="modal-input"
               type="text"
               placeholder="Title"
               name="title"
@@ -63,6 +66,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
           </Form.Group>
           <Form.Group>
             <Form.Control
+              className="modal-input"
               type="email"
               placeholder="Email"
               name="email"
