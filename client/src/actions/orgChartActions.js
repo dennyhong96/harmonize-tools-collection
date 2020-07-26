@@ -5,6 +5,7 @@ import {
   ORG_DATA_ERROR,
   NODE_MODIFIED,
   NODE_ADDED,
+  COLLEAGUE_ADDED,
   NODE_DELETED,
 } from "./actionTypes";
 
@@ -58,6 +59,19 @@ export const updateNode = (id, formData) => (dispatch) => {
 export const addNode = (id, formData) => (dispatch) => {
   dispatch({
     type: NODE_ADDED,
+    payload: { id, formData },
+  });
+};
+
+/**
+ * @function addColleague
+ * Dispath action to modify state according to formData
+ * @param {string} id - identifier of the node selected
+ * @param {object} formData - formData collected from the form
+ */
+export const addColleague = (id, formData) => (dispatch) => {
+  dispatch({
+    type: COLLEAGUE_ADDED,
     payload: { id, formData },
   });
 };
