@@ -41,6 +41,7 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
               placeholder="Name"
               name="name"
               value={name}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group>
@@ -49,6 +50,7 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
               placeholder="Title"
               name="title"
               value={title}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group>
@@ -57,6 +59,7 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
               placeholder="Email"
               name="email"
               value={email}
+              onChange={handleChange}
             />
           </Form.Group>
         </Form>

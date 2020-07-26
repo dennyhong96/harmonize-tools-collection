@@ -27,12 +27,33 @@
 
 .modal-body {
   padding: 0.7rem 2rem !important;
+
+  form {
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .modal-footer {
   padding: 0.7rem 2rem 1rem 0.7rem !important;
 
+  %btn {
+    transition: translateY, box-shadow, 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+
   .confirm-btn {
+    @extend %btn;
     width: 8rem;
     height: 2rem;
     border-radius: 93.3px;
@@ -55,6 +76,7 @@
   }
 
   .close-btn {
+    @extend %btn;
     width: 8rem;
     height: 2rem;
     border-radius: 93.3px;

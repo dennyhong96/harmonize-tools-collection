@@ -13,7 +13,22 @@
 }
 
 .action {
+  %btn {
+    transition: translateY, box-shadow, 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+
   button {
+    @extend %btn;
     width: 8rem;
     height: 2rem;
     border-radius: 93.3px;
