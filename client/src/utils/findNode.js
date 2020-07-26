@@ -1,4 +1,4 @@
-export default (id, currentNode) => {
+const findNode = (id, currentNode) => {
   let i, currentChild, result;
   if (id == currentNode.id) {
     return currentNode;
@@ -15,3 +15,5 @@ export default (id, currentNode) => {
     return false;
   }
 };
+
+export default findNode;

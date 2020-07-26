@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
+import { connect } from "react-redux";
 
 import "./EditEmployeeModal.scss";
 
@@ -74,4 +75,4 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
   );
 };
 
-export default EditEmployeeModal;
+export default connect(null)(EditEmployeeModal);

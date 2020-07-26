@@ -16,6 +16,10 @@
   }
 }
 
+.modal-content {
+  border-radius: 1rem !important;
+}
+
 .close {
   outline: none;
   border: none;
@@ -61,7 +65,6 @@
     background-color: $main-color;
     border: none;
     outline: none;
-
     font-size: 0.8rem;
     font-weight: bold;
     font-stretch: normal;
@@ -89,7 +92,6 @@
     line-height: normal;
     letter-spacing: normal;
     color: $main-color;
-
     outline: none;
     border: none;
 
