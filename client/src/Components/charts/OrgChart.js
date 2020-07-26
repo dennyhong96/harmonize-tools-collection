@@ -11,10 +11,6 @@ import "./OrgChart.scss";
 const OrgChart = ({ orgData }) => {
   const orgChartRef = useRef(null);
 
-  const handleDownload = () => {
-    orgChartRef.current.exportTo("chart", "png");
-  };
-
   const [selectedNode, setSelectedNode] = useState(null);
 
   const readSelectedNode = (nodeData) => {

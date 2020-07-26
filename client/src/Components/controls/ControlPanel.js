@@ -21,8 +21,8 @@ const ControlPanel = ({
   const [step, setStep] = useState(1);
 
   return (
-    // <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
-    <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}>
+    <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
+      {/* <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}> */}
       <div className="toggler-btn" onClick={closeSideDrawer}>
         <i class="fas fa-chevron-left"></i>
       </div>

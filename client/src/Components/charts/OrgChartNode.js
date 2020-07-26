@@ -1,6 +1,8 @@
 import React from "react";
 import "./OrgChartNode.scss";
 
+import userIcon from "../../assets/user-icon.png";
+
 const OrgChartNode = ({ nodeData }) => {
   // const selectNode = () => {
   //   alert("Hi All. I'm " + nodeData.name + ". I'm a " + nodeData.title + ".");
@@ -10,7 +12,8 @@ const OrgChartNode = ({ nodeData }) => {
     <div>
       <div className="oc-inner">
         <div className="user">
-          <i class="far fa-user"></i>
+          {/* <i class="far fa-user"></i> */}
+          <img className="far" src={userIcon} alt="user icon" />
         </div>
         <div className="name">{nodeData.name}</div>
         <div className="title">{nodeData.title}</div>

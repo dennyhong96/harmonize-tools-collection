@@ -28,7 +28,10 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   };
 
   const handleDownload = () => {
-    html2canvas(orgChartContainerRef.current).then((canvas) => {
+    html2canvas(orgChartContainerRef.current, {
+      // proxy: "https://cdnjs.cloudflare.com",
+      useCORS: true,
+    }).then((canvas) => {
       canvasToImg(canvas.toDataURL(), `orgchart.jpg`);
     });
   };
