@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 
+import useChartZoom from "../../hooks/useChartZoom";
 import "./ZoomControl.scss";
 
-const ZoomControl = ({ setZoomLevel }) => {
+const ZoomControl = () => {
+  const { setZoomLevel } = useChartZoom(1);
+
   useEffect(() => {
     document.body.addEventListener("keydown", (evt) => {
       // + key to zoom in, - key to zoom out

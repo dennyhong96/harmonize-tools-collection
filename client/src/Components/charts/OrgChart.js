@@ -1,24 +1,17 @@
-import React, { Fragment, useRef, useEffect, useState } from "react";
+import React, { Fragment, useRef } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 
 import ZoomControl from "./ZoomControl";
+import PanControl from "./PanControl";
 import "./OrgChart.scss";
 
 const OrgChart = () => {
   const orgChartRef = useRef(null);
-  const orgChartElRef = useRef(null);
-  const [zoomLevel, setZoomLevel] = useState(1);
 
-  useEffect(() => {
-    // Hook onto orgchart DOM element
-    orgChartElRef.current = document.querySelector(".orgchart.myChart");
-  }, []);
-
-  useEffect(() => {
-    // Change chart scale when zoom leverl is changed
-    orgChartElRef.current.style.transform = `scale(${zoomLevel})`;
-  }, [zoomLevel]);
+  const handleDownload = async () => {
+    orgChartRef.current.exportTo("chart", "png");
+  };
 
   const ds = {
     id: "n1",
@@ -97,7 +90,8 @@ const OrgChart = () => {
 
   return (
     <Fragment>
-      <ZoomControl setZoomLevel={setZoomLevel} />
+      <ZoomControl />
+      <PanControl />
       <OrganizationChart
         ref={orgChartRef}
         datasource={ds}
@@ -105,9 +99,7 @@ const OrgChart = () => {
         NodeTemplate={OrgChartNode}
         draggable={true}
       />
-      <button onClick={() => orgChartRef.current.exportTo("chart", "png")}>
-        Download
-      </button>
+      <button onClick={handleDownload}>Download</button>
     </Fragment>
   );
 };
