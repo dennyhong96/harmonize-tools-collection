@@ -10,7 +10,7 @@ import AddEmployeeModal from "./AddEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import "./ChartSelectedEmployee.scss";
 
-const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
+const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
   const orgChartContainerRef = useRef();
 
   const [editModalShow, setEditModalShow] = useState(false);
@@ -28,10 +28,7 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   };
 
   const handleDownload = () => {
-    html2canvas(orgChartContainerRef.current, {
-      // proxy: "https://cdnjs.cloudflare.com",
-      useCORS: true,
-    }).then((canvas) => {
+    html2canvas(orgChartContainerRef.current).then((canvas) => {
       canvasToImg(canvas.toDataURL(), `orgchart.jpg`);
     });
   };
@@ -45,34 +42,62 @@ const ChartEmployeePanel = ({ selectedNode, deleteNode }) => {
   return (
     <Fragment>
       <div className="action">
-        <button onClick={() => setEditModalShow(true)}>Edit Employee</button>
-        <button
-          onClick={() => {
-            setAddMode("DIRECT_REPORT");
-            setAddModalShow(true);
-          }}
-        >
-          Add Subordinate
-        </button>
-        <button
-          onClick={() => {
-            setAddMode("COLLEAGUE");
-            setAddModalShow(true);
-          }}
-        >
-          Add Colleague
-        </button>
-        <button
-          onClick={() => {
-            setAddMode("HEAD");
-            setAddModalShow(true);
-          }}
-        >
-          Add New Head
-        </button>
-        <button onClick={() => setDeletePopupShow(true)}>
-          Delete Employee
-        </button>
+        {selectedNode ? (
+          <Fragment>
+            <button onClick={() => setSelectedNode(null)}>Cancel Select</button>
+            <button onClick={() => setEditModalShow(true)}>
+              Edit Employee
+            </button>
+            <button
+              onClick={() => {
+                setAddMode("DIRECT_REPORT");
+                setAddModalShow(true);
+              }}
+            >
+              Add Subordinate
+            </button>
+            <button
+              onClick={() => {
+                setAddMode("COLLEAGUE");
+                setAddModalShow(true);
+              }}
+            >
+              Add Colleague
+            </button>
+            <button
+              onClick={() => {
+                setAddMode("HEAD");
+                setAddModalShow(true);
+              }}
+            >
+              Add New Head
+            </button>
+            <button onClick={() => setDeletePopupShow(true)}>
+              Delete Employee
+            </button>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <button disabled className="inactive-btn">
+              Cancel Select
+            </button>
+            <button disabled className="inactive-btn">
+              Edit Employee
+            </button>
+            <button disabled className="inactive-btn">
+              Add Subordinate
+            </button>
+            <button disabled className="inactive-btn">
+              Add Colleague
+            </button>
+            <button disabled className="inactive-btn">
+              Add New Head
+            </button>
+            <button disabled className="inactive-btn">
+              Delete Employee
+            </button>
+          </Fragment>
+        )}
         <button onClick={handleDownload}>Download JPG</button>
         <button onClick={handlePDF}>Download PDF</button>
       </div>

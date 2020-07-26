@@ -6,7 +6,7 @@ import ChartSelectedEmployee from "./ChartSelectedEmployee";
 
 import "./ChartControl.scss";
 
-const ChartControl = ({ selectedNode }) => {
+const ChartControl = ({ selectedNode, setSelectedNode }) => {
   return (
     <div className="chart-control">
       <Row>
@@ -14,7 +14,10 @@ const ChartControl = ({ selectedNode }) => {
           <SelectedEmployeeInfo selectedNode={selectedNode} />
         </Col>
         <Col>
-          <ChartSelectedEmployee selectedNode={selectedNode} />
+          <ChartSelectedEmployee
+            selectedNode={selectedNode}
+            setSelectedNode={setSelectedNode}
+          />
         </Col>
       </Row>
     </div>

@@ -30,7 +30,10 @@ const OrgChart = ({ orgData }) => {
         onClickNode={readSelectedNode}
       />
       {/* <button onClick={handleDownload}>Download</button> */}
-      <ChartControl selectedNode={selectedNode} />
+      <ChartControl
+        selectedNode={selectedNode}
+        setSelectedNode={setSelectedNode}
+      />
     </Fragment>
   );
 };

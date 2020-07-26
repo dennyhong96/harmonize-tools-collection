@@ -44,5 +44,10 @@
     &:focus {
       outline: none;
     }
+
+    &.inactive-btn {
+      background-color: $inactive-button-bg;
+      color: $inactive-button-text;
+    }
   }
 }
