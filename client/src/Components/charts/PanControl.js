@@ -10,12 +10,16 @@ const PanControl = () => {
     document.body.addEventListener("keydown", (evt) => {
       // Arrow keys to pan the chart
       if (evt.keyCode === 37) {
+        evt.preventDefault();
         handlePanLeft();
       } else if (evt.keyCode === 39) {
+        evt.preventDefault();
         handlePanRight();
       } else if (evt.keyCode === 40) {
+        evt.preventDefault();
         handlePanDown();
       } else if (evt.keyCode === 38) {
+        evt.preventDefault();
         handlePanUp();
       }
     });

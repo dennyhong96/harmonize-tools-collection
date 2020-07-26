@@ -10,8 +10,10 @@ const ZoomControl = () => {
     document.body.addEventListener("keydown", (evt) => {
       // + key to zoom in, - key to zoom out
       if (evt.keyCode === 189) {
+        evt.preventDefault();
         setZoomLevel((prev) => (prev - 0.2 >= 0.3 ? prev - 0.2 : 0.3));
       } else if (evt.keyCode === 187) {
+        evt.preventDefault();
         setZoomLevel((prev) => (prev + 0.2 <= 2 ? prev + 0.2 : 2));
       }
     });

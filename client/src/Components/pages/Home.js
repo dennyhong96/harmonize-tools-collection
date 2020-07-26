@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import ControlPanel from "../controls/ControlPanel";
 import OrgChart from "../charts/OrgChart";
