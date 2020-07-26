@@ -1,4 +1,5 @@
 const CSVToJSON = require("csvtojson");
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * @function parseCsv
@@ -6,8 +7,6 @@ const CSVToJSON = require("csvtojson");
  * @returns {object} hierarchicalData for org chart visualization
  */
 module.exports = async (filePath) => {
-  let id = 0;
-
   const source = await CSVToJSON().fromFile(filePath);
   const transformedData = source
     .map((employee) => {
@@ -19,8 +18,7 @@ module.exports = async (filePath) => {
     })
     .map((employee) => {
       // Get rid of 'manager' field
-      employee.id = `n${id}`;
-      id++;
+      employee.id = uuidv4();
       return employee;
     });
 

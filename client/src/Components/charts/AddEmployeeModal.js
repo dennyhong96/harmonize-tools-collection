@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { updateNode } from "../../actions/orgChartActions";
+import { addNode } from "../../actions/orgChartActions";
 import "./AddEmployeeModal.scss";
 
-const AddEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
+const AddEmployeeModal = ({ selectedNode, addNode, ...otherProps }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
 
   const handleChange = (evt) => {
@@ -15,7 +15,7 @@ const AddEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
 
   const handleSubmit = () => {
     console.log(formData);
-    updateNode(selectedNode.id, formData);
+    addNode(selectedNode.id, formData);
     otherProps.setAddModalShow(false);
   };
 
@@ -79,4 +79,4 @@ const AddEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   );
 };
 
-export default connect(null, { updateNode })(AddEmployeeModal);
+export default connect(null, { addNode })(AddEmployeeModal);

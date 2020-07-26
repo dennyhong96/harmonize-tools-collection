@@ -27,7 +27,7 @@ export const uploadOrgData = (file) => async (dispatch) => {
     });
     return true;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     dispatch({
       type: ORG_DATA_ERROR,
     });
