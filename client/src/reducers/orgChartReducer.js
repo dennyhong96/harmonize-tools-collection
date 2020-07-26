@@ -52,7 +52,7 @@ export default (state = INITIAL_STATE, action) => {
       });
       return stateAfterColleagueAdded;
     case NEW_HEAD_ADDED:
-      const newHeadId = uuidv4();
+      const newHeadId = `oc-${uuidv4()}`;
       const oldHead = { ...state };
       oldHead.manager = payload.name;
       oldHead.managerId = newHeadId;
