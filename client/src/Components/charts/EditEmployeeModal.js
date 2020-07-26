@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import { updateNode } from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
-const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
+const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
 
   useEffect(() => {
@@ -17,7 +18,12 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-    setFormData((prev) => ({ [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+    updateNode(selectedNode.id, formData);
   };
 
   const { name, title, email } = formData;
@@ -69,10 +75,12 @@ const EditEmployeeModal = ({ selectedNode, ...otherProps }) => {
         <button className="close-btn" onClick={otherProps.onHide}>
           Back
         </button>
-        <button className="confirm-btn">Confirm</button>
+        <button className="confirm-btn" onClick={handleSubmit}>
+          Confirm
+        </button>
       </Modal.Footer>
     </Modal>
   );
 };
 
-export default connect(null)(EditEmployeeModal);
+export default connect(null, { updateNode })(EditEmployeeModal);

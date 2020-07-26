@@ -16,9 +16,12 @@ export default (state = INITIAL_STATE, action) => {
     case ORG_DATA_ERROR:
       return INITIAL_STATE;
     case NODE_MODIFIED:
-      const { name, title, email } = payload;
+      const { name, title, email } = payload.formData;
+      console.log(name, title, email);
       const newState = { ...state };
+      console.log(newState);
       const node = findNode(payload.id, newState);
+      console.log(node);
       node.name = name;
       node.title = title;
       node.email = email;

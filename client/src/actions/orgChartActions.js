@@ -35,9 +35,9 @@ export const uploadOrgData = (file) => async (dispatch) => {
  * Dispath action to modify state according to formData
  * @param {object} formData - formData collected from the form
  */
-export const updateNode = (formData) => (dispatch) => {
+export const updateNode = (id, formData) => (dispatch) => {
   dispatch({
     type: NODE_MODIFIED,
-    payload: formData,
+    payload: { id, formData },
   });
 };
