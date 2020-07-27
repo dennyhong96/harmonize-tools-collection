@@ -6,6 +6,8 @@
   border-radius: 50px;
   color: #fff;
   background-color: lighten($main-color, 3%);
+  width: 2rem;
+  height: 2rem;
   transition: transform 0.2s;
 
   &:hover {
@@ -16,10 +18,12 @@
 
 .pan {
   position: absolute;
+  height: 7.6rem;
+  width: 7.6rem;
   right: 0;
   z-index: 1;
   right: 3rem;
-  top: 15.3rem;
+  top: 15.5rem;
   padding: 0.5rem;
   border-radius: 50rem;
   display: flex;
@@ -32,18 +36,25 @@
 
   .pan-up {
     @extend .pan-btn;
+    margin-bottom: 0.3rem;
   }
 
   .pan-left {
     @extend .pan-btn;
   }
 
+  .reset {
+    @extend .pan-btn;
+    margin-left: 0.3rem;
+  }
+
   .pan-right {
     @extend .pan-btn;
-    margin-left: 1.5rem;
+    margin-left: 0.3rem;
   }
 
   .pan-bottom {
     @extend .pan-btn;
+    margin-top: 0.3rem;
   }
 }

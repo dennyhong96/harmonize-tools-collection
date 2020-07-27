@@ -10,7 +10,7 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
       <div className="employee-info">
         {selectedNode ? (
           <Row>
-            <Col>
+            <Col xs={{ span: 5 }}>
               <Row>
                 <Col xs={{ span: 3 }}>
                   <strong>NAME: </strong>
@@ -28,7 +28,7 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
                 </Col>
               </Row>
             </Col>
-            <Col>
+            <Col xs={{ span: 7 }}>
               <Row>
                 <Col xs={{ span: 3 }}>
                   <strong>EMAIL: </strong>

@@ -29,12 +29,14 @@ export const uploadOrgData = (file) => async (dispatch) => {
       type: ORG_DATA_FETCHED,
       payload: res.data.data,
     });
+    dispatchToast("Chart rendered!", "SUCCESS");
     return true;
   } catch (error) {
     console.error(error);
     dispatch({
       type: ORG_DATA_ERROR,
     });
+    dispatchToast("Something went wrong...");
     return false;
   }
 };

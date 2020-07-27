@@ -30,6 +30,11 @@ const PanControl = () => {
     );
   }, [setTranslateY]);
 
+  const handleReset = useCallback(() => {
+    setTranslateY("translateY(0)");
+    setTranslateX("translateX(0)");
+  }, []);
+
   useEffect(() => {
     function onKeyPan(evt) {
       // Arrow keys to pan the chart
@@ -59,6 +64,9 @@ const PanControl = () => {
       <div>
         <button className="pan-left" onClick={handlePanLeft}>
           <i className="fas fa-arrow-left"></i>
+        </button>
+        <button className="reset" onClick={handleReset}>
+          <i class="fas fa-street-view"></i>
         </button>
         <button className="pan-right" onClick={handlePanRight}>
           <i className="fas fa-arrow-right"></i>
