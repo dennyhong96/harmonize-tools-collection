@@ -11,10 +11,14 @@ const useDownload = () => {
   }, []);
 
   const handleDownload = (format) => {
+    // Get transform value before screenshot
     const transformValue = orgChartRef.current.style.transform;
+
+    // Reset transform value to get ready for screenshot
     orgChartRef.current.style.transform =
       "scale(1) translateX(0) translateY(0)";
     setTimeout(() => {
+      // Takes screenshot
       if (format === "JPG") {
         html2canvas(orgChartRef.current).then((canvas) => {
           canvasToImg(canvas.toDataURL(), `orgchart.jpg`);
@@ -26,6 +30,7 @@ const useDownload = () => {
       }
     }, 350);
     setTimeout(() => {
+      // Set transform value back to pre-screenshot
       orgChartRef.current.style.transform = transformValue;
     }, 1100);
   };
