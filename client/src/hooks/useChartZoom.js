@@ -15,7 +15,7 @@ const useChartZoom = (initialScale) => {
     if (transformValue.includes("scale")) {
       // Update current scale
       orgChartElRef.current.style.transform = transformValue.replace(
-        /scale\([0-9\.]+\)/,
+        /scale\([0-9.]+\)/,
         `scale(${zoomLevel})`
       );
     } else {

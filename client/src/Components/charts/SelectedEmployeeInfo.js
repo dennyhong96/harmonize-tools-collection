@@ -11,44 +11,40 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
         {selectedNode ? (
           <Row>
             <Col>
-              <p>
-                <Row>
-                  <Col xs={{ span: 3 }}>
-                    <strong>NAME: </strong>
-                  </Col>
-                  <Col xs={{ span: 9 }}>
-                    <span>{selectedNode.name}</span>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={{ span: 3 }}>
-                    <strong>TITLE: </strong>
-                  </Col>
-                  <Col xs={{ span: 9 }}>
-                    <span>{selectedNode.title}</span>
-                  </Col>
-                </Row>
-              </p>
+              <Row>
+                <Col xs={{ span: 3 }}>
+                  <strong>NAME: </strong>
+                </Col>
+                <Col xs={{ span: 9 }}>
+                  <span>{selectedNode.name}</span>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={{ span: 3 }}>
+                  <strong>TITLE: </strong>
+                </Col>
+                <Col xs={{ span: 9 }}>
+                  <span>{selectedNode.title}</span>
+                </Col>
+              </Row>
             </Col>
             <Col>
-              <p>
-                <Row>
-                  <Col xs={{ span: 3 }}>
-                    <strong>EMAIL: </strong>
-                  </Col>
-                  <Col xs={{ span: 9 }}>
-                    <span>{selectedNode.email}</span>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={{ span: 3 }}>
-                    <strong>MANAGER: </strong>
-                  </Col>
-                  <Col xs={{ span: 9 }}>
-                    <span>{selectedNode.title}</span>
-                  </Col>
-                </Row>
-              </p>
+              <Row>
+                <Col xs={{ span: 3 }}>
+                  <strong>EMAIL: </strong>
+                </Col>
+                <Col xs={{ span: 9 }}>
+                  <span>{selectedNode.email}</span>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={{ span: 3 }}>
+                  <strong>MANAGER: </strong>
+                </Col>
+                <Col xs={{ span: 9 }}>
+                  <span>{selectedNode.title}</span>
+                </Col>
+              </Row>
             </Col>
           </Row>
         ) : (

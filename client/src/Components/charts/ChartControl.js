@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 import SelectedEmployeeInfo from "./SelectedEmployeeInfo";

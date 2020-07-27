@@ -9,14 +9,13 @@ const useChartPan = (initialX, initialY) => {
   useEffect(() => {
     // Hook onto orgchart DOM element
     orgChartElRef.current = document.querySelector(".orgchart.myChart");
-    console.log(translateX, translateY);
   }, []);
 
   useEffect(() => {
     const transformValue = orgChartElRef.current.style.transform;
     if (transformValue.includes("translateX")) {
       orgChartElRef.current.style.transform = transformValue.replace(
-        /translateX\([0-9\.px\-]+\)/,
+        /translateX\([0-9.px-]+\)/,
         translateX
       );
     } else {
@@ -28,7 +27,7 @@ const useChartPan = (initialX, initialY) => {
     const transformValue = orgChartElRef.current.style.transform;
     if (transformValue.includes("translateY")) {
       orgChartElRef.current.style.transform = transformValue.replace(
-        /translateY\([0-9\.px\-]+\)/,
+        /translateY\([0-9.px-]+\)/,
         translateY
       );
     } else {

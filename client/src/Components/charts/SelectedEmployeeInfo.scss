@@ -14,22 +14,20 @@
   }
 
   .employee-info {
-    p {
-      margin-bottom: 0;
-      font-size: 1rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.96;
-      letter-spacing: normal;
-      color: $dark-text;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.96;
+    letter-spacing: normal;
+    color: $dark-text;
 
-      strong {
-        font-size: 0.8rem;
-        color: $dark-text-80;
-        padding-bottom: 0.2rem;
-        border-bottom: 1.5px solid $main-color;
-      }
+    strong {
+      font-size: 0.8rem;
+      color: $dark-text-80;
+      padding-bottom: 0.2rem;
+      border-bottom: 1.5px solid $main-color;
     }
 
     p.none-selected {

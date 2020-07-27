@@ -24,7 +24,7 @@ const ControlPanel = ({
     <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       {/* <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}> */}
       <div className="toggler-btn" onClick={closeSideDrawer}>
-        <i class="fas fa-chevron-left"></i>
+        <i className="fas fa-chevron-left"></i>
       </div>
       {step === 1 && (
         <StepOne

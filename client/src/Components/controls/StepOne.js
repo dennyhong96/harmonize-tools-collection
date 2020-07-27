@@ -30,7 +30,7 @@ const StepOne = ({ template, getTemplate, resetTemplate, setStep }) => {
       </p>
       <img src={csvEmpty} className="step-one-csv" alt="empty-csv-screenshot" />
       <button className="step-one-download" onClick={getTemplate}>
-        Download file <i class="fas fa-download"></i>
+        Download file <i className="fas fa-download"></i>
       </button>
       <hr />
       {template ? (
