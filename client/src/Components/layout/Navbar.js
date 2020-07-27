@@ -10,13 +10,16 @@ const _Navbar = () => {
 
   useEffect(() => {
     docRef.current = document.querySelector(".navbar");
-    document.addEventListener("scroll", function () {
+
+    function setNavbarBg() {
       if (window.scrollY > 80) {
         setDarkTheme(false);
       } else {
         setDarkTheme(true);
       }
-    });
+    }
+    document.addEventListener("scroll", setNavbarBg);
+    return () => document.removeEventListener("scroll", setNavbarBg);
   }, []);
 
   return (

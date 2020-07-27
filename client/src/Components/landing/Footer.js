@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="footer-content">
         <Container>
           <Row>
-            <Col>
+            <Col md={{ span: 6 }}>
               <div className="footer-section1">
                 <div>
                   <img
@@ -43,9 +43,9 @@ const Footer = () => {
                 </span>
               </div>
             </Col>
-            <Col>
+            <Col md={{ span: 4, offset: 2 }}>
               <Row>
-                <Col>
+                <Col md={{ span: 6 }}>
                   <div className="footer-section2">
                     <ul>
                       <li>
@@ -87,7 +87,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </Col>
-                <Col>
+                <Col md={{ span: 6 }}>
                   <div className="footer-section3">
                     <ul>
                       <li>
@@ -124,12 +124,12 @@ const Footer = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col md={{ span: 6 }}>
               <div className="footer-section4">
                 © 2020 Anaek Inc. All rights reserved.
               </div>
             </Col>
-            <Col>
+            <Col md={{ span: 4, offset: 2 }}>
               <div className="footer-section5">
                 <ul>
                   <li>

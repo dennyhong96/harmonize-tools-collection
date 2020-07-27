@@ -13,12 +13,12 @@ const Features = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, hic.
         </p>
         <Row>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
               NEED AN ILLUSTRATION HERE
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">CSV to Org Chart</h3>
               <p className="feature-text">
@@ -27,7 +27,7 @@ const Features = () => {
               </p>
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">Re-arrange Hierarchy</h3>
               <p className="feature-text">
@@ -37,18 +37,18 @@ const Features = () => {
               </p>
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
               NEED AN ILLUSTRATION HERE
             </div>
           </Col>
 
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
               NEED AN ILLUSTRATION HERE
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">Add / Remove Employees</h3>
               <p className="feature-text">
@@ -58,7 +58,7 @@ const Features = () => {
               </p>
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">One-click Export</h3>
               <p className="feature-text">
@@ -68,17 +68,17 @@ const Features = () => {
               </p>
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
               NEED AN ILLUSTRATION HERE
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
               NEED AN ILLUSTRATION HERE
             </div>
           </Col>
-          <Col xs={{ span: 6 }}>
+          <Col md={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">Free to Use!</h3>
               <p className="feature-text">

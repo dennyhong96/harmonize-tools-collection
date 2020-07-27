@@ -30,6 +30,18 @@
       }
     }
 
+    .navbar-toggler {
+      outline: none;
+      border: none;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
     .my-navlink {
       font-weight: 700;
       font-size: 0.85rem;
