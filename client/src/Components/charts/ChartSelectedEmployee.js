@@ -15,7 +15,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
   const [addMode, setAddMode] = useState("DIRECT_REPORT");
 
   const handleDelete = () => {
-    deleteNode(selectedNode.id);
+    deleteNode(selectedNode);
     setDeletePopupShow(false);
   };
 

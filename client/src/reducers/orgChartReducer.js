@@ -37,6 +37,7 @@ export default (state = INITIAL_STATE, action) => {
         id: `oc-${uuidv4()}`, // html el id must start with letter
         children: [],
         manager: parentNode.name,
+        managerId: parentNode.id,
       });
       return stateAfterAdded;
     case COLLEAGUE_ADDED:

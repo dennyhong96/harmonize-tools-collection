@@ -35,3 +35,31 @@ $delete-red: #f86d70;
 body {
   font-family: "Lato", sans-serif;
 }
+
+// Customize Toasts
+.Toastify__toast {
+  border-radius: 5px;
+  align-items: center;
+  &-body {
+    margin: 0;
+    margin-left: 1rem;
+  }
+}
+.Toastify__toast--rtl {
+}
+.Toastify__toast--dark {
+}
+.Toastify__toast--default {
+}
+.Toastify__toast--info {
+  background-color: darken($main-color, 5%);
+  box-shadow: 0 5px 7px rgba(#000, 0.2);
+}
+.Toastify__toast--success {
+  background-color: lighten($office-green, 10%);
+}
+.Toastify__toast--warning {
+}
+.Toastify__toast--error {
+  background-color: light($delete-red, 5%);
+}

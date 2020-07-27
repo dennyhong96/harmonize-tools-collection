@@ -1,4 +1,5 @@
 import axios from "axios";
+import dispatchToast from "../utils/toast";
 
 import {
   ORG_DATA_FETCHED,
@@ -49,6 +50,7 @@ export const updateNode = (id, formData) => (dispatch) => {
     type: NODE_MODIFIED,
     payload: { id, formData },
   });
+  dispatchToast(`${formData.name} updated!`, "SUCCESS");
 };
 
 /**
@@ -62,6 +64,7 @@ export const addNode = (id, formData) => (dispatch) => {
     type: NODE_ADDED,
     payload: { id, formData },
   });
+  dispatchToast(`${formData.name} added!`, "SUCCESS");
 };
 
 /**
@@ -75,6 +78,7 @@ export const addColleague = (id, formData) => (dispatch) => {
     type: COLLEAGUE_ADDED,
     payload: { id, formData },
   });
+  dispatchToast(`${formData.name} added!`, "SUCCESS");
 };
 
 /**
@@ -87,6 +91,7 @@ export const addNewHead = (formData) => (dispatch) => {
     type: NEW_HEAD_ADDED,
     payload: formData,
   });
+  dispatchToast(`${formData.name} added as new root!`, "SUCCESS");
 };
 
 /**
@@ -95,9 +100,11 @@ export const addNewHead = (formData) => (dispatch) => {
  * @param {string} id - identifier of the node selected
  * @param {object} formData - formData collected from the form
  */
-export const deleteNode = (id) => (dispatch) => {
+export const deleteNode = (selectedNode) => (dispatch) => {
+  console.log(selectedNode);
   dispatch({
     type: NODE_DELETED,
-    payload: id,
+    payload: selectedNode.id,
   });
+  dispatchToast(`${selectedNode.name} deleted!`, "SUCCESS");
 };
