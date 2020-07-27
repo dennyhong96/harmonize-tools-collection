@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 
 import ChartSVG from "../../assets/chart.svg";
+import ChartDemo from "../../assets/orgchart-demo.png";
 import Navbar from "../layout/Navbar";
 import "./Landing.scss";
 
@@ -12,7 +13,7 @@ const Landing = () => {
       <section className="landing-heading">
         <Container>
           <Row>
-            <Col>
+            <Col className="d-none d-md-block">
               <div className="img-box">
                 <img
                   className="chart-svg"
@@ -53,6 +54,12 @@ const Landing = () => {
               ></path>
             </svg>
           </div>
+        </Container>
+      </section>
+      <section className="showcase">
+        <Container>
+          <h2>See Org Chart in action</h2>
+          <img src={ChartDemo} alt="Chart Demo" />
         </Container>
       </section>
     </section>

@@ -32,6 +32,7 @@
       align-items: start;
       justify-content: center;
       line-height: 1.6;
+      padding-left: 3rem;
 
       h1 {
         font-size: 1.8rem;
@@ -120,6 +121,24 @@
 
     .custom-shape-divider-bottom-1595817112 .shape-fill {
       fill: #fff;
+    }
+  }
+}
+
+.showcase {
+  .container {
+    padding-top: 5rem;
+
+    h2 {
+      font-size: 1.88rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    img {
+      width: 75%;
+      display: block;
+      margin: 0 auto;
     }
   }
 }

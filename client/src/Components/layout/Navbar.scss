@@ -3,6 +3,13 @@
 .navbar {
   padding-top: 1rem !important;
   background-color: transparent;
+  height: auto;
+  transition: background-color 0.2s ease;
+
+  &.navbar-light {
+    background-color: $white;
+    box-shadow: 0 2px 3px rgba(#000, 0.15);
+  }
 
   .container {
     .navbar-brand {
@@ -21,7 +28,7 @@
       font-weight: 900;
       font-size: 0.85rem;
       text-transform: uppercase;
-      color: $white !important;
+      color: $white;
       margin-left: 2.5rem;
     }
   }
