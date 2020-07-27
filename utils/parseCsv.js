@@ -15,10 +15,12 @@ module.exports = async (filePath) => {
       return employee;
     })
     .map((employee) => {
-      // Add in id field, used to delete a node on cliet side
+      // Add in manager id field, used to delete a node on cliet side
       if (employee.manager) {
         employee.managerId = source.find(
-          (em) => em.name === employee.manager
+          (em) =>
+            em.name.trim().toLowerCase() ===
+            employee.manager.trim().toLowerCase()
         ).id;
       } else {
         // Root node gets empty string for managerId
@@ -29,7 +31,9 @@ module.exports = async (filePath) => {
     .map((employee) => {
       // Add in 'children' field, required by orgchart library
       employee.children = source.filter(
-        (child) => child.manager === employee.name
+        (child) =>
+          child.manager.trim().toLowerCase() ===
+          employee.name.trim().toLowerCase()
       );
       return employee;
     });
@@ -39,10 +43,12 @@ module.exports = async (filePath) => {
     (employee) =>
       !transformedData
         // Get all ids from whom is a child of other
-        .map((employee) => employee.children.map((child) => child.name))
+        .map((employee) =>
+          employee.children.map((child) => child.name.trim().toLowerCase())
+        )
         .reduce((acc, cur) => [...acc, ...cur], [])
         // Filter out those children, only the 'CEO' is left
-        .includes(employee.name)
+        .includes(employee.name.trim().toLowerCase())
   )[0];
 };
 
