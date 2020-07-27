@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .navbar {
   padding-top: 1rem !important;
@@ -7,7 +7,7 @@
   transition: background-color, color, 0.3s ease;
 
   &.navbar-light {
-    background-color: $white;
+    background-color: #fff;
     box-shadow: 0 2px 3px rgba(#000, 0.15);
 
     .container {
@@ -51,7 +51,7 @@
       font-weight: 700;
       font-size: 0.85rem;
       text-transform: uppercase;
-      color: $white;
+      color: #fff;
       margin-left: 2.5rem;
       text-decoration: none;
       transition: background-color, color, 0.3s ease;
@@ -59,7 +59,7 @@
       border-radius: 5px;
 
       &:hover {
-        background-color: $white;
+        background-color: #fff;
         color: #b347ef;
       }
     }
@@ -79,14 +79,14 @@
         color: #9941f1;
 
         &:hover {
-          color: $white;
+          color: #fff;
           background-color: #9941f1;
         }
       }
 
       .navbar-collapse {
         margin: 0 4.5rem;
-        background-color: $white;
+        background-color: #fff;
         padding: 1rem;
         border-radius: 10px;
       }

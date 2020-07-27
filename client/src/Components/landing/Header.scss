@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .landing-header {
   background-image: radial-gradient(
@@ -12,7 +12,7 @@
 
   height: 45rem;
   position: relative;
-  color: $white;
+  color: #fff;
 
   .img-box {
     height: 100%;

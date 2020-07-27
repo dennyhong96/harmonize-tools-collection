@@ -1,5 +1,5 @@
 // Inherits main scss
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .step-three {
   padding-top: 5rem;
@@ -172,7 +172,7 @@
         font-family: inherit;
         border: 1px solid $main-color;
         border-radius: 0.75rem;
-        background-color: $white;
+        background-color: #fff;
         transition: background-color, color, 0.3s ease-out;
       }
     }

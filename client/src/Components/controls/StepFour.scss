@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .step-four {
   padding-top: 5rem;
@@ -57,7 +57,7 @@
         justify-content: center;
 
         .fas {
-          color: $white;
+          color: #fff;
           font-size: 0.7rem;
         }
       }
@@ -129,7 +129,7 @@
 
     &:hover {
       background-color: $main-color;
-      color: $white;
+      color: #fff;
     }
   }
 

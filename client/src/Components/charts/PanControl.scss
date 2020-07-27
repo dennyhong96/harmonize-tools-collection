@@ -1,10 +1,10 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .pan-btn {
   border: none;
   outline: none;
   border-radius: 50px;
-  color: $white;
+  color: #fff;
   background-color: lighten($main-color, 3%);
   transition: transform 0.2s;
 

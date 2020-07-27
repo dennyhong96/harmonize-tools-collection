@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 // Custom Zoom Control
 .zoom {
@@ -14,7 +14,7 @@
 
 .zoom-btn {
   background-color: lighten($main-color, 3%);
-  color: $white;
+  color: #fff;
   border: none;
   outline: none;
 

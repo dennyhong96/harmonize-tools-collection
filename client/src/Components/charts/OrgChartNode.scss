@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .orgchart-container {
   min-height: 70vh;
@@ -8,7 +8,7 @@
 }
 
 .orgchart.myChart {
-  background: $white !important;
+  background: #fff !important;
   transition: transform 0.2s ease-in-out;
 }
 
