@@ -1,34 +1,4 @@
 @import "../../App.scss";
 
 .landing {
-  footer {
-    background-image: radial-gradient(
-      circle at 29.4% -6.59%,
-      #b347ef 0,
-      #9941f1 25%,
-      #783cf2 50%,
-      #4a39f3 75%,
-      #0038f4 100%
-    );
-    .custom-shape-divider-top-1595828527 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg);
-    }
-
-    .custom-shape-divider-top-1595828527 svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 150px;
-    }
-
-    .custom-shape-divider-top-1595828527 .shape-fill {
-      fill: #ffffff;
-    }
-  }
 }

@@ -1,0 +1,112 @@
+@import "../../App.scss";
+
+.landing-footer {
+  position: relative;
+  background-image: radial-gradient(
+    circle at 29.4% -6.59%,
+    #b347ef 0,
+    #9941f1 25%,
+    #783cf2 50%,
+    #4a39f3 75%,
+    #0038f4 100%
+  );
+
+  .custom-shape-divider-top-1595828527 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-top-1595828527 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+  }
+
+  .custom-shape-divider-top-1595828527 .shape-fill {
+    fill: #f8f8fd;
+  }
+
+  .footer-content {
+    padding-top: 12rem;
+    padding-bottom: 5rem;
+
+    .footer-section1 {
+      display: flex;
+      flex-direction: column;
+
+      & > div {
+        display: flex;
+        align-items: center;
+
+        h3 {
+          margin-left: 1rem;
+          font-weight: 700;
+          font-size: 1.375rem;
+        }
+      }
+
+      & > span {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    .footer-section2,
+    .footer-section3 {
+      ul {
+        list-style: none;
+
+        li {
+          a {
+            font-size: 0.75rem;
+            color: $white;
+            text-decoration: none;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+            transition: background-color, color, 0.2s ease;
+
+            &:hover {
+              background-color: $white;
+              color: #9941f1;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-section4 {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-section5 {
+      ul {
+        list-style: none;
+        display: flex;
+
+        li {
+          margin: 0 1rem 0 0;
+
+          a {
+            color: $white;
+            font-size: 1.2rem;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+            transition: background-color, color, 0.2s ease;
+
+            &:hover {
+              background-color: $white;
+              color: #9941f1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

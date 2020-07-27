@@ -5,7 +5,7 @@ import "./Features.scss";
 
 const Features = () => {
   return (
-    <section className="features text-center">
+    <section className="landing-features text-center">
       <Container>
         <h2>Features</h2>
         <p>
@@ -13,22 +13,17 @@ const Features = () => {
         </p>
         <Row>
           <Col xs={{ span: 6 }}>
+            <div className="mt-3 text-muted border py-5">
+              NEED AN ILLUSTRATION HERE
+            </div>
+          </Col>
+          <Col xs={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">CSV to Org Chart</h3>
               <p className="feature-text">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
                 similique repellat molestias fuga fugit esse, vitae ad nesciunt.
               </p>
-            </div>
-          </Col>
-          <Col xs={{ span: 6 }}>
-            <div className="mt-3 text-muted border py-5">
-              NEED AN ILLUSTRATION HERE
-            </div>
-          </Col>
-          <Col xs={{ span: 6 }}>
-            <div className="mt-3 text-muted border py-5">
-              NEED AN ILLUSTRATION HERE
             </div>
           </Col>
           <Col xs={{ span: 6 }}>
@@ -42,6 +37,17 @@ const Features = () => {
             </div>
           </Col>
           <Col xs={{ span: 6 }}>
+            <div className="mt-3 text-muted border py-5">
+              NEED AN ILLUSTRATION HERE
+            </div>
+          </Col>
+
+          <Col xs={{ span: 6 }}>
+            <div className="mt-3 text-muted border py-5">
+              NEED AN ILLUSTRATION HERE
+            </div>
+          </Col>
+          <Col xs={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">Add / Remove Employees</h3>
               <p className="feature-text">
@@ -49,16 +55,6 @@ const Features = () => {
                 ipsa quis quia qui? Quae adipisci soluta sapiente voluptatum,
                 quasi inventore.
               </p>
-            </div>
-          </Col>
-          <Col xs={{ span: 6 }}>
-            <div className="mt-3 text-muted border py-5">
-              NEED AN ILLUSTRATION HERE
-            </div>
-          </Col>
-          <Col xs={{ span: 6 }}>
-            <div className="mt-3 text-muted border py-5">
-              NEED AN ILLUSTRATION HERE
             </div>
           </Col>
           <Col xs={{ span: 6 }}>
@@ -72,6 +68,16 @@ const Features = () => {
             </div>
           </Col>
           <Col xs={{ span: 6 }}>
+            <div className="mt-3 text-muted border py-5">
+              NEED AN ILLUSTRATION HERE
+            </div>
+          </Col>
+          <Col xs={{ span: 6 }}>
+            <div className="mt-3 text-muted border py-5">
+              NEED AN ILLUSTRATION HERE
+            </div>
+          </Col>
+          <Col xs={{ span: 6 }}>
             <div className="feature-card">
               <h3 className="feature-title">Free to Use!</h3>
               <p className="feature-text">
@@ -79,11 +85,6 @@ const Features = () => {
                 alias dolorem consequuntur? Quaerat, corporis dolorum!
               </p>
               <a className="feature-btn">Try Now</a>
-            </div>
-          </Col>
-          <Col xs={{ span: 6 }}>
-            <div className="mt-3 text-muted border py-5">
-              NEED AN ILLUSTRATION HERE
             </div>
           </Col>
         </Row>

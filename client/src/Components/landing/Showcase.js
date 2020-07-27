@@ -6,7 +6,7 @@ import "./Showcase.scss";
 
 const Showcase = () => {
   return (
-    <section className="showcase text-center">
+    <section className="ladning-showcase text-center">
       <Container>
         <h2>See Org Chart in action</h2>
         <img src={ChartDemo} alt="Chart Demo" />

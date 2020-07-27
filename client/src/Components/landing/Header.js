@@ -6,7 +6,7 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <section className="header">
+    <section className="landing-header">
       <Container>
         <Row>
           <Col className="d-none d-md-block">
@@ -31,7 +31,7 @@ const Header = () => {
                 </p>
                 <div className="call-to-action">
                   <a>Try now</a>
-                  <a>Other HR tools</a>
+                  <a>More HR tools</a>
                 </div>
                 <small className="mt-2 d-block text-light">
                   Login not required !
