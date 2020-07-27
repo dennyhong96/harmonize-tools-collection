@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useState } from "react";
 import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
@@ -9,8 +9,6 @@ import PanControl from "./PanControl";
 import "./OrgChart.scss";
 
 const OrgChart = ({ orgData }) => {
-  const orgChartRef = useRef(null);
-
   const [selectedNode, setSelectedNode] = useState(null);
 
   const readSelectedNode = (nodeData) => {
@@ -22,14 +20,12 @@ const OrgChart = ({ orgData }) => {
       <ZoomControl />
       <PanControl />
       <OrganizationChart
-        ref={orgChartRef}
         datasource={orgData}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}
         onClickNode={readSelectedNode}
       />
-      {/* <button onClick={handleDownload}>Download</button> */}
       <ChartControl
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}

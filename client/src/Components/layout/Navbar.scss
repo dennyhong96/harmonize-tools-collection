@@ -1,0 +1,50 @@
+@import "../../App.scss";
+
+.navbar {
+  padding-top: 1rem !important;
+  background-color: transparent;
+  height: auto;
+  transition: background-color, color, 0.3s ease;
+
+  &.navbar-light {
+    background-color: $white;
+    box-shadow: 0 2px 3px rgba(#000, 0.15);
+
+    .container {
+      .my-navlink {
+        color: $dark-text;
+      }
+    }
+  }
+
+  .container {
+    .navbar-brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        display: inline;
+        font-size: 1.375rem;
+        font-weight: 700;
+        margin-left: 1rem;
+      }
+    }
+
+    .my-navlink {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: $white;
+      margin-left: 2.5rem;
+      text-decoration: none;
+      transition: background-color, color, 0.3s ease;
+      padding: 0.1rem 0.2rem;
+      border-radius: 3px;
+
+      &:hover {
+        background-color: $white;
+        color: #b347ef;
+      }
+    }
+  }
+}
