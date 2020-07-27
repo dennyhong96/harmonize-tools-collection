@@ -24,7 +24,6 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
     if (name && title && email) {
       updateNode(selectedNode.id, formData);
       otherProps.setEditModalShow(false);

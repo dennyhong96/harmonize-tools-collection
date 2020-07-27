@@ -9,7 +9,6 @@ import "./Topbar.scss";
 
 const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
   const toggleSideDrawer = () => {
-    console.log("click", sideDrawer);
     if (sideDrawer) {
       return closeSideDrawer();
     }

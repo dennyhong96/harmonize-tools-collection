@@ -103,7 +103,6 @@ export const addNewHead = (formData) => (dispatch) => {
  * @param {object} formData - formData collected from the form
  */
 export const deleteNode = (selectedNode) => (dispatch) => {
-  console.log(selectedNode);
   dispatch({
     type: NODE_DELETED,
     payload: selectedNode.id,
