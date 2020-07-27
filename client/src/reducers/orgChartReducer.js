@@ -50,6 +50,7 @@ export default (state = INITIAL_STATE, action) => {
         id: `oc-${uuidv4()}`,
         children: [],
         manager: commonManager.name,
+        managerId: commonManager.id,
       });
       return stateAfterColleagueAdded;
     case NEW_HEAD_ADDED:

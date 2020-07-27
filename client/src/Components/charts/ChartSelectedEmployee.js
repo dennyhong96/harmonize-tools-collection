@@ -72,7 +72,12 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
             <button disabled className="inactive-btn">
               Add Colleague
             </button>
-            <button disabled className="inactive-btn">
+            <button
+              onClick={() => {
+                setAddMode("HEAD");
+                setAddModalShow(true);
+              }}
+            >
               Add New Head
             </button>
             <button disabled className="inactive-btn">

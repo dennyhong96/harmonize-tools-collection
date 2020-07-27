@@ -7,7 +7,10 @@ import {
   addColleague,
   addNewHead,
 } from "../../actions/orgChartActions";
+import dispatchToast from "../../utils/toast";
 import "./EditEmployeeModal.scss";
+
+const INITIAL_STATE = { name: "", title: "", email: "" };
 
 const AddEmployeeModal = ({
   addMode,
@@ -17,26 +20,29 @@ const AddEmployeeModal = ({
   addNewHead,
   ...otherProps
 }) => {
-  const [formData, setFormData] = useState({ name: "", title: "", email: "" });
+  const [formData, setFormData] = useState(INITIAL_STATE);
+  const { name, title, email } = formData;
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    console.log(addMode);
   };
 
   const handleSubmit = () => {
-    if (addMode === "DIRECT_REPORT") {
-      addNode(selectedNode.id, formData);
-    } else if (addMode === "COLLEAGUE") {
-      addColleague(selectedNode.id, formData);
-    } else if (addMode === "HEAD") {
-      addNewHead(formData);
+    if (name && title && email) {
+      if (addMode === "DIRECT_REPORT") {
+        addNode(selectedNode.id, formData);
+      } else if (addMode === "COLLEAGUE") {
+        addColleague(selectedNode.id, formData);
+      } else if (addMode === "HEAD") {
+        addNewHead(formData);
+      }
+      otherProps.setAddModalShow(false);
+      setFormData(INITIAL_STATE);
+    } else {
+      dispatchToast("Missing fields!");
     }
-    otherProps.setAddModalShow(false);
   };
-
-  const { name, title, email } = formData;
 
   return (
     <Modal

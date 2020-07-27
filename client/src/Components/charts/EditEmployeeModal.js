@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import dispatchToast from "../../utils/toast";
 import { updateNode } from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
 const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   const [formData, setFormData] = useState({ name: "", title: "", email: "" });
+  const { name, title, email } = formData;
 
   useEffect(() => {
     setFormData({
@@ -23,11 +25,13 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
 
   const handleSubmit = () => {
     console.log(formData);
-    updateNode(selectedNode.id, formData);
-    otherProps.setEditModalShow(false);
+    if (name && title && email) {
+      updateNode(selectedNode.id, formData);
+      otherProps.setEditModalShow(false);
+    } else {
+      dispatchToast("Missing fields!");
+    }
   };
-
-  const { name, title, email } = formData;
 
   return (
     <Modal
