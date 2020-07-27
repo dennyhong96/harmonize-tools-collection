@@ -51,6 +51,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/about.html"
                         >
                           About
@@ -59,6 +60,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/contact.html"
                         >
                           Contact us
@@ -67,6 +69,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.attendancebot.com/blog/"
                         >
                           Blog
@@ -75,6 +78,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/tos.html"
                         >
                           Terms of Service
@@ -89,6 +93,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/attendancebot.html"
                         >
                           AttendanceBot
@@ -97,6 +102,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/officeamp.html"
                         >
                           OfficeAmp
@@ -105,6 +111,7 @@ const Footer = () => {
                       <li>
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/expensetron.html"
                         >
                           ExpenseTron
@@ -126,26 +133,36 @@ const Footer = () => {
               <div className="footer-section5">
                 <ul>
                   <li>
-                    <a target="_blank" href="https://twitter.com/harmonizehq">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://twitter.com/harmonizehq"
+                    >
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href="https://www.linkedin.com/company/harmonizehq/"
                     >
                       <i className="fab fa-linkedin"></i>
                     </a>
                   </li>
                   <li>
-                    <a target="_blank" href="mailto:hi@harmonizehq.com">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="mailto:hi@harmonizehq.com"
+                    >
                       <i className="far fa-envelope"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href="https://www.attendancebot.com/blog/"
                     >
                       <i className="fab fa-medium-m"></i>

@@ -17,7 +17,7 @@ const _Navbar = () => {
         setDarkTheme(true);
       }
     });
-  }, [window.scrollY]);
+  }, []);
 
   return (
     <Navbar

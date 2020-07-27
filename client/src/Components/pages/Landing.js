@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
 
 import Header from "../landing/Header";
 import Showcase from "../landing/Showcase";

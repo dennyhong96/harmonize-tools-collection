@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./Features.scss";
 
@@ -84,7 +85,9 @@ const Features = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
                 alias dolorem consequuntur? Quaerat, corporis dolorum!
               </p>
-              <a className="feature-btn">Try Now</a>
+              <Link to="/app" className="feature-btn">
+                Try Now
+              </Link>
             </div>
           </Col>
         </Row>

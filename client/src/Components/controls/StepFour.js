@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 
 import "./StepFour.scss";
 import finishLine from "../../assets/finishline.png";
@@ -29,6 +28,7 @@ const StepFour = ({ setStep }) => {
       </p>
       <a
         href="https://www.harmonizehq.com/"
+        rel="noopener noreferrer"
         target="_blank"
         className="harmonize-link"
       >

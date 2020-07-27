@@ -22,7 +22,7 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
         className={`toggler-btn ${sideDrawer ? "opened" : ""}`}
         onClick={toggleSideDrawer}
       >
-        <i class="fas fa-chevron-right"></i>
+        <i className="fas fa-chevron-right"></i>
       </div>
       <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
     </div>

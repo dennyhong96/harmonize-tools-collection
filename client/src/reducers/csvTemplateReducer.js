@@ -7,7 +7,7 @@ import {
 const INITIAL_STATE = false;
 
 export default (state = INITIAL_STATE, action) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case TEMPLATE_DOWNLOADED:
       return true;

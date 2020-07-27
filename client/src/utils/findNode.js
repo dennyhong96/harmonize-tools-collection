@@ -1,6 +1,6 @@
 const findNode = (id, currentNode) => {
   let i, currentChild, result;
-  if (id == currentNode.id) {
+  if (id === currentNode.id) {
     return currentNode;
   } else {
     if (currentNode.children) {
