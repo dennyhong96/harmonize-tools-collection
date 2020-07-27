@@ -1,7 +1,6 @@
 @import "../../App.scss";
 
 .landing-header {
-  // background-color: darken($main-color, 25%);
   background-image: radial-gradient(
     circle at 29.4% -6.59%,
     #b347ef 0,
@@ -31,25 +30,22 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    line-height: 1.6;
     padding-left: 3rem;
 
     h1 {
-      font-size: 1.8rem;
-      line-height: 1.7;
+      text-transform: uppercase;
       margin-bottom: 2rem;
 
       span {
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        display: block;
-        font-size: 2rem;
-        font-weight: 900;
+        margin-top: 1rem;
+        text-transform: none;
+        font-size: 1.5rem;
+        letter-spacing: 0;
       }
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
     }
 
@@ -81,7 +77,7 @@
 
         &:first-child {
           background-color: $main-color;
-          margin-right: 2rem;
+          margin-right: 1.5rem;
 
           &:hover {
             background-color: #b347ef;
@@ -99,10 +95,10 @@
   }
 
   .container {
-    padding-top: 10rem;
+    padding-top: 8rem;
   }
 
-  .custom-shape-divider-bottom-1595817112 {
+  .custom-shape-divider-bottom-1595838147 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -112,15 +108,44 @@
     transform: rotate(180deg);
   }
 
-  .custom-shape-divider-bottom-1595817112 svg {
+  .custom-shape-divider-bottom-1595838147 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 150px;
-    transform: rotateY(180deg);
+    height: 100px;
   }
 
-  .custom-shape-divider-bottom-1595817112 .shape-fill {
-    fill: #fff;
+  .custom-shape-divider-bottom-1595838147 .shape-fill {
+    fill: #ffffff;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .landing-header {
+    .text-box {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .call-to-action {
+        a {
+          &:first-child {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .landing-header {
+    .text-box {
+      padding: 0 1rem;
+    }
+
+    .container {
+      padding-top: 7rem;
+    }
   }
 }

@@ -17,13 +17,15 @@ const Header = () => {
           <Col>
             <div className="text-box">
               <div>
-                <h1>
-                  <span>Org Chart</span> - Visualize your organization
-                  structure.
+                <h1 className="display-4">
+                  Org Chart
+                  <span className="d-block">
+                    Visualize your organization structure.
+                  </span>
                 </h1>
                 <p>
-                  Org Chart is a free and open source organization structure
-                  visualization tool developed by Harmonize
+                  Developed by Harmonize, Org Chart aims to provide users with
+                  an easy way to visualize their organization structure.
                 </p>
                 <div className="call-to-action">
                   <Link to="/app">Try now</Link>
@@ -35,14 +37,18 @@ const Header = () => {
                     More HR tools
                   </a>
                 </div>
-                <small className="mt-2 d-block text-light">
-                  Login not required !
+                <small className="mt-4 d-block text-light">
+                  <i className="far fa-check-square mr-1"></i> Free !
+                </small>
+                <small className="d-block text-light">
+                  <i className="far fa-check-square mr-1"></i> Login not
+                  required !
                 </small>
               </div>
             </div>
           </Col>
         </Row>
-        <div className="custom-shape-divider-bottom-1595817112">
+        <div className="custom-shape-divider-bottom-1595838147">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +56,7 @@ const Header = () => {
             preserveAspectRatio="none"
           >
             <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
               className="shape-fill"
             ></path>
           </svg>
