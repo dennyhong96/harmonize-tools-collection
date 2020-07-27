@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 
-import ChartSVG from "../../assets/chart.svg";
+import Header from "../landing/Header";
 import ChartDemo from "../../assets/orgchart-demo.png";
 import Navbar from "../layout/Navbar";
 import "./Landing.scss";
@@ -10,55 +10,8 @@ const Landing = () => {
   return (
     <section className="landing">
       <Navbar />
-      <section className="landing-heading">
-        <Container>
-          <Row>
-            <Col className="d-none d-md-block">
-              <div className="img-box">
-                <img
-                  className="chart-svg"
-                  src={ChartSVG}
-                  alt="chart illustration"
-                />
-              </div>
-            </Col>
-            <Col>
-              <div className="text-box">
-                <div>
-                  <h1>
-                    <span>Org Chart</span> - Visualize your organization
-                    structure.
-                  </h1>
-                  <p>
-                    Org Chart is a free and open source organization structure
-                    visualization tool developed by Harmonize
-                  </p>
-                  <div className="call-to-action">
-                    <a>Try now</a>
-                    <a>Other HR tools</a>
-                  </div>
-                  <small className="mt-2 d-block text-light">
-                    Login not required !
-                  </small>
-                </div>
-              </div>
-            </Col>
-          </Row>
-          <div class="custom-shape-divider-bottom-1595817112">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill"
-              ></path>
-            </svg>
-          </div>
-        </Container>
-      </section>
+      <Header />
+
       <section className="showcase text-center">
         <Container>
           <h2>See Org Chart in action</h2>
@@ -88,8 +41,16 @@ const Landing = () => {
                 </p>
               </div>
             </Col>
-            <Col xs={{ span: 6 }}></Col>
-            <Col xs={{ span: 6 }}></Col>
+            <Col xs={{ span: 6 }}>
+              <div className="mt-3 text-muted border py-5">
+                NEED AN ILLUSTRATION HERE
+              </div>
+            </Col>
+            <Col xs={{ span: 6 }}>
+              <div className="mt-3 text-muted border py-5">
+                NEED AN ILLUSTRATION HERE
+              </div>
+            </Col>
             <Col xs={{ span: 6 }}>
               <div className="feature-card">
                 <h3 className="feature-title">Re-arrange Hierarchy</h3>
@@ -110,8 +71,16 @@ const Landing = () => {
                 </p>
               </div>
             </Col>
-            <Col xs={{ span: 6 }}></Col>
-            <Col xs={{ span: 6 }}></Col>
+            <Col xs={{ span: 6 }}>
+              <div className="mt-3 text-muted border py-5">
+                NEED AN ILLUSTRATION HERE
+              </div>
+            </Col>
+            <Col xs={{ span: 6 }}>
+              <div className="mt-3 text-muted border py-5">
+                NEED AN ILLUSTRATION HERE
+              </div>
+            </Col>
             <Col xs={{ span: 6 }}>
               <div className="feature-card">
                 <h3 className="feature-title">One-click Export</h3>
@@ -132,10 +101,30 @@ const Landing = () => {
                 <a className="feature-btn">Try Now</a>
               </div>
             </Col>
-            <Col xs={{ span: 6 }}></Col>
+            <Col xs={{ span: 6 }}>
+              <div className="mt-3 text-muted border py-5">
+                NEED AN ILLUSTRATION HERE
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>
+      <footer>
+        <div class="custom-shape-divider-top-1595828527">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
+        <div className="footer-content py-5"></div>
+      </footer>
     </section>
   );
 };

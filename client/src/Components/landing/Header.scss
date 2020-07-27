@@ -1,0 +1,124 @@
+@import "../../App.scss";
+
+.header {
+  // background-color: darken($main-color, 25%);
+  background-image: radial-gradient(
+    circle at 29.4% -6.59%,
+    #b347ef 0,
+    #9941f1 25%,
+    #783cf2 50%,
+    #4a39f3 75%,
+    #0038f4 100%
+  );
+  height: 45rem;
+  position: relative;
+  color: $white;
+
+  .img-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .chart-svg {
+      width: 85%;
+    }
+  }
+
+  .text-box {
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    line-height: 1.6;
+    padding-left: 3rem;
+
+    h1 {
+      font-size: 1.8rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+
+      span {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        display: block;
+        font-size: 2rem;
+        font-weight: 900;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .call-to-action {
+      a {
+        font: inherit;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        width: 10rem;
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $check-mark-white;
+        border: none;
+        outline: none;
+        padding: 0.8rem 0rem;
+        border-radius: 93.3px;
+        transition: transform, background-color, 0.2s;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &:first-child {
+          background-color: $main-color;
+          margin-right: 2rem;
+
+          &:hover {
+            background-color: #b347ef;
+          }
+        }
+        &:last-child {
+          background-color: darken($main-color, 15%);
+
+          &:hover {
+            background-color: #783cf2;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    padding-top: 10rem;
+  }
+
+  .custom-shape-divider-bottom-1595817112 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-bottom-1595817112 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+  }
+
+  .custom-shape-divider-bottom-1595817112 .shape-fill {
+    fill: #fff;
+  }
+}
