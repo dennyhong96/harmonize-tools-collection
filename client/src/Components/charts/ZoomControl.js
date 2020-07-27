@@ -7,7 +7,7 @@ const ZoomControl = () => {
   const { setZoomLevel } = useChartZoom(1);
 
   useEffect(() => {
-    document.body.addEventListener("keydown", (evt) => {
+    function onKeyZoom(evt) {
       // + key to zoom in, - key to zoom out
       if (evt.keyCode === 189) {
         evt.preventDefault();
@@ -16,7 +16,9 @@ const ZoomControl = () => {
         evt.preventDefault();
         setZoomLevel((prev) => (prev + 0.2 <= 2 ? prev + 0.2 : 2));
       }
-    });
+    }
+    document.body.addEventListener("keydown", onKeyZoom);
+    return () => document.removeEventListener("keydown", onKeyZoom);
   }, [setZoomLevel]);
 
   return (

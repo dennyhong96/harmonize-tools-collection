@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .landing-features {
   background-color: #f8f8fd;
@@ -52,6 +52,7 @@
       background-color: $main-color;
       box-shadow: 0 2px 5px rgba(#000, 0.3);
       transition: transform, background-color, box-shadow, 0.2s;
+      text-decoration: none;
 
       &:hover {
         transform: translateY(-2px);

@@ -7,7 +7,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <footer className="landing-footer text-light">
-      <div className="custom-shape-divider-top-1595828527">
+      <div className="custom-shape-divider-top-1595838197">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ const Footer = () => {
           preserveAspectRatio="none"
         >
           <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
             className="shape-fill"
           ></path>
         </svg>
@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="footer-content">
         <Container>
           <Row>
-            <Col>
+            <Col md={{ span: 6 }}>
               <div className="footer-section1">
                 <div>
                   <img
@@ -43,9 +43,9 @@ const Footer = () => {
                 </span>
               </div>
             </Col>
-            <Col>
+            <Col md={{ span: 4, offset: 2 }}>
               <Row>
-                <Col>
+                <Col md={{ span: 6 }}>
                   <div className="footer-section2">
                     <ul>
                       <li>
@@ -87,7 +87,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </Col>
-                <Col>
+                <Col md={{ span: 6 }}>
                   <div className="footer-section3">
                     <ul>
                       <li>
@@ -124,12 +124,12 @@ const Footer = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col md={{ span: 6 }}>
               <div className="footer-section4">
                 © 2020 Anaek Inc. All rights reserved.
               </div>
             </Col>
-            <Col>
+            <Col md={{ span: 4, offset: 2 }}>
               <div className="footer-section5">
                 <ul>
                   <li>

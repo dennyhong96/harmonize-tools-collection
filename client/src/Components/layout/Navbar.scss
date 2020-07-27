@@ -1,4 +1,4 @@
-@import "../../App.scss";
+@import "../../Custom.scss";
 
 .navbar {
   padding-top: 1rem !important;
@@ -7,7 +7,7 @@
   transition: background-color, color, 0.3s ease;
 
   &.navbar-light {
-    background-color: $white;
+    background-color: #fff;
     box-shadow: 0 2px 3px rgba(#000, 0.15);
 
     .container {
@@ -30,20 +30,65 @@
       }
     }
 
+    .navbar-toggler {
+      outline: none;
+      border: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
     .my-navlink {
       font-weight: 700;
       font-size: 0.85rem;
       text-transform: uppercase;
-      color: $white;
+      color: #fff;
       margin-left: 2.5rem;
       text-decoration: none;
       transition: background-color, color, 0.3s ease;
-      padding: 0.1rem 0.2rem;
-      border-radius: 3px;
+      padding: 0.1rem 0.3rem;
+      border-radius: 5px;
 
       &:hover {
-        background-color: $white;
+        background-color: #fff;
         color: #b347ef;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    .container {
+      position: relative;
+      .my-navlink {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: block;
+        text-align: center;
+        margin-left: 0;
+        color: #9941f1;
+
+        &:hover {
+          color: #fff;
+          background-color: #9941f1;
+        }
+      }
+
+      .navbar-collapse {
+        margin: 0 4.5rem;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
       }
     }
   }

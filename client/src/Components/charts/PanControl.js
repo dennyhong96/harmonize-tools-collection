@@ -31,7 +31,7 @@ const PanControl = () => {
   }, [setTranslateY]);
 
   useEffect(() => {
-    document.body.addEventListener("keydown", (evt) => {
+    function onKeyPan(evt) {
       // Arrow keys to pan the chart
       if (evt.keyCode === 37) {
         evt.preventDefault();
@@ -46,7 +46,9 @@ const PanControl = () => {
         evt.preventDefault();
         handlePanUp();
       }
-    });
+    }
+    document.addEventListener("keydown", onKeyPan);
+    return () => document.removeEventListener("keydown", onKeyPan);
   }, [handlePanLeft, handlePanRight, handlePanDown, handlePanUp]);
 
   return (
