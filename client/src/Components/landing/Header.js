@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 
-import { ChartSVG } from "../../assets/chart.svg";
 import "./Header.scss";
 
 const Header = () => {
@@ -10,12 +9,8 @@ const Header = () => {
       <Container>
         <Row>
           <Col className="d-none d-md-block">
-            <div className="img-box">
-              <img
-                className="chart-svg"
-                src={ChartSVG}
-                alt="chart illustration"
-              />
+            <div className="py-5 border text-center mt-5">
+              NEED AN ILLUSTRATION HERE
             </div>
           </Col>
           <Col>

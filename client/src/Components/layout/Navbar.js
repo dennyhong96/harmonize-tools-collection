@@ -40,9 +40,12 @@ const _Navbar = () => {
         <Navbar.Toggle aria-controls="main-navbar" />
         <Navbar.Collapse id="main-navbar">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Org Chart</Nav.Link>
-            <Nav.Link href="#pricing">Harmonize</Nav.Link>
+            <a className="my-navlink" href="#features">
+              Enter Org Chart
+            </a>
+            <a className="my-navlink" href="#pricing">
+              Explore Harmonize
+            </a>
           </Nav>
         </Navbar.Collapse>
       </Container>
