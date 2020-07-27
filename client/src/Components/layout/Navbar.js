@@ -31,7 +31,11 @@ const _Navbar = () => {
       expand="md"
     >
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand
+          href="https://www.harmonizehq.com/"
+          target="_blank"
+          rel="noopener noreferer"
+        >
           <img
             src={HarmonizeLogo}
             width="50"

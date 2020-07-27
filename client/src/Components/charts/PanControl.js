@@ -33,7 +33,7 @@ const PanControl = () => {
   const handleReset = useCallback(() => {
     setTranslateY("translateY(0)");
     setTranslateX("translateX(0)");
-  }, []);
+  }, [setTranslateX, setTranslateY]);
 
   useEffect(() => {
     function onKeyPan(evt) {
@@ -66,7 +66,7 @@ const PanControl = () => {
           <i className="fas fa-arrow-left"></i>
         </button>
         <button className="reset" onClick={handleReset}>
-          <i class="fas fa-street-view"></i>
+          <i className="fas fa-street-view"></i>
         </button>
         <button className="pan-right" onClick={handlePanRight}>
           <i className="fas fa-arrow-right"></i>
