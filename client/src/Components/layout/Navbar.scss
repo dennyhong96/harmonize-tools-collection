@@ -34,8 +34,13 @@
       outline: none;
       border: none;
       position: absolute;
-      right: 0.5rem;
-      top: 0.5rem;
+      right: 0;
+      top: 0;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
 
       span {
         font-size: 1.8rem;
@@ -56,6 +61,34 @@
       &:hover {
         background-color: $white;
         color: #b347ef;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    .container {
+      position: relative;
+      .my-navlink {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: block;
+        text-align: center;
+        margin-left: 0;
+        color: #9941f1;
+
+        &:hover {
+          color: $white;
+          background-color: #9941f1;
+        }
+      }
+
+      .navbar-collapse {
+        margin: 0 4.5rem;
+        background-color: $white;
+        padding: 1rem;
+        border-radius: 10px;
       }
     }
   }
