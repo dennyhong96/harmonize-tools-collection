@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./Navbar.scss";
 import HarmonizeLogo from "../../assets/logo.png";
@@ -43,10 +44,15 @@ const _Navbar = () => {
         <Navbar.Toggle aria-controls="main-navbar" />
         <Navbar.Collapse id="main-navbar">
           <Nav className="ml-auto">
-            <a className="my-navlink" href="#features">
+            <Link className="my-navlink" to="/app">
               Enter Org Chart
-            </a>
-            <a className="my-navlink" href="#pricing">
+            </Link>
+            <a
+              className="my-navlink"
+              href="https://www.harmonizehq.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Explore Harmonize
             </a>
           </Nav>
