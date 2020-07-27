@@ -1,5 +1,7 @@
 import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
 
+import ChartSVG from "../../assets/chart.svg";
 import Navbar from "../layout/Navbar";
 import "./Landing.scss";
 
@@ -8,19 +10,50 @@ const Landing = () => {
     <section className="landing">
       <Navbar />
       <section className="landing-heading">
-        <div class="custom-shape-divider-bottom-1595817112">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              class="shape-fill"
-            ></path>
-          </svg>
-        </div>
+        <Container>
+          <Row>
+            <Col>
+              <div className="img-box">
+                <img
+                  className="chart-svg"
+                  src={ChartSVG}
+                  alt="chart illustration"
+                />
+              </div>
+            </Col>
+            <Col>
+              <div className="text-box">
+                <div>
+                  <h1>
+                    <span>Org Chart</span> - Visualize your organization
+                    structure.
+                  </h1>
+                  <p>
+                    Org Chart is a free and open source organization structure
+                    visualization tool developed by Harmonize
+                  </p>
+                  <div className="call-to-action">
+                    <a>Try now</a>
+                    <a>Other HR tools</a>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <div class="custom-shape-divider-bottom-1595817112">
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill"
+              ></path>
+            </svg>
+          </div>
+        </Container>
       </section>
     </section>
   );

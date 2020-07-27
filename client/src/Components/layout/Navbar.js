@@ -6,13 +6,22 @@ import HarmonizeLogo from "../../assets/logo.png";
 
 const _Navbar = () => {
   return (
-    <Navbar fixed="top">
+    <Navbar fixed="top" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img
+            src={HarmonizeLogo}
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+            alt="Harmonize Logo"
+          />
+          <h3>Harmonize</h3>
+        </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="#features">Org Chart</Nav.Link>
+          <Nav.Link href="#pricing">Harmonize</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

@@ -1,5 +1,28 @@
 @import "../../App.scss";
 
 .navbar {
+  padding-top: 1rem !important;
   background-color: transparent;
+
+  .container {
+    .navbar-brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        display: inline;
+        font-size: 1.375rem;
+        font-weight: 700;
+        margin-left: 1rem;
+      }
+    }
+
+    .nav-link {
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: $white !important;
+      margin-left: 2.5rem;
+    }
+  }
 }
