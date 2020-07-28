@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import {
   openSideDrawer,
@@ -24,6 +25,7 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
         <i className="fas fa-chevron-right"></i>
       </div>
       <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
+      <Link to="/">Back</Link>
     </div>
   );
 };
