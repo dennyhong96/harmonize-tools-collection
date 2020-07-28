@@ -4,10 +4,6 @@ import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
 const OrgChartNode = ({ nodeData }) => {
-  // const selectNode = () => {
-  //   alert("Hi All. I'm " + nodeData.name + ". I'm a " + nodeData.title + ".");
-  // };
-
   return (
     <div>
       <div className="oc-inner">
@@ -19,7 +15,7 @@ const OrgChartNode = ({ nodeData }) => {
         <div className="title">{nodeData.title}</div>
         <div className="email">{nodeData.email}</div>
         <hr />
-        <div className="manager">Team Manger</div>
+        <div className="manager">Manger</div>
         <div className="manager-name">{nodeData.manager}</div>
       </div>
     </div>

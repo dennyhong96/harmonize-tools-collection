@@ -42,7 +42,7 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
                   <strong>MANAGER: </strong>
                 </Col>
                 <Col xs={{ span: 9 }}>
-                  <span>{selectedNode.title}</span>
+                  <span>{selectedNode.manager}</span>
                 </Col>
               </Row>
             </Col>
