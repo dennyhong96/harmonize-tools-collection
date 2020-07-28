@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 import useChartZoom from "../../hooks/useChartZoom";
 import "./ZoomControl.scss";
@@ -6,20 +6,29 @@ import "./ZoomControl.scss";
 const ZoomControl = () => {
   const { setZoomLevel } = useChartZoom(1);
 
-  useEffect(() => {
-    function onKeyZoom(evt) {
-      // + key to zoom in, - key to zoom out
+  const zoomAvailableRef = useRef(true);
+  const onKeyZoom = useCallback((evt) => {
+    // + key to zoom in, - key to zoom out
+    if (zoomAvailableRef.current) {
       if (evt.keyCode === 189) {
         evt.preventDefault();
+        zoomAvailableRef.current = false;
         setZoomLevel((prev) => (prev - 0.2 >= 0.3 ? prev - 0.2 : 0.3));
       } else if (evt.keyCode === 187) {
         evt.preventDefault();
+        zoomAvailableRef.current = false;
         setZoomLevel((prev) => (prev + 0.2 <= 2 ? prev + 0.2 : 2));
       }
+      setTimeout(() => {
+        zoomAvailableRef.current = true;
+      }, 200);
     }
+  }, []);
+
+  useEffect(() => {
     document.body.addEventListener("keydown", onKeyZoom);
     return () => document.removeEventListener("keydown", onKeyZoom);
-  }, [setZoomLevel]);
+  }, []);
 
   return (
     <div className="zoom">
