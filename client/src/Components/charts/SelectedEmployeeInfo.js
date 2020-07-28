@@ -1,11 +1,12 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
 
 import "./SelectedEmployeeInfo.scss";
 
-const SelectedEmployeeInfo = ({ selectedNode }) => {
+const SelectedEmployeeInfo = ({ selectedNode, sideDrawer }) => {
   return (
-    <div className="selected-employee">
+    <div className={`selected-employee ${sideDrawer ? "hide-panel" : ""}`}>
       <h6>SELECTED EMPLOYEE</h6>
       <div className="employee-info">
         {selectedNode ? (
@@ -57,4 +58,6 @@ const SelectedEmployeeInfo = ({ selectedNode }) => {
   );
 };
 
-export default SelectedEmployeeInfo;
+const mapStateToProps = ({ sideDrawer }) => ({ sideDrawer });
+
+export default connect(mapStateToProps)(SelectedEmployeeInfo);

@@ -1,6 +1,10 @@
 @import "../../Custom.scss";
 
 .selected-employee {
+  transition: opacity 0.3s ease-out;
+  &.hide-panel {
+    opacity: 0;
+  }
   h6 {
     font-size: 1.3rem;
     color: $dark-text;
