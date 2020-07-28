@@ -7,6 +7,7 @@
   box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
   transition: width, margin, 0.3s ease-out;
   width: 100%;
+  margin: 1rem 0 1rem 3rem;
 
   &.move-right {
     width: calc(100% - 30rem);
