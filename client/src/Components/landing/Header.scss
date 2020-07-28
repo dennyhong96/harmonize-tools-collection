@@ -86,13 +86,13 @@
             background-color: #b347ef;
           }
         }
-        &:last-child {
-          background-color: darken($main-color, 15%);
+        // &:last-child {
+        //   background-color: darken($main-color, 15%);
 
-          &:hover {
-            background-color: #783cf2;
-          }
-        }
+        //   &:hover {
+        //     background-color: #783cf2;
+        //   }
+        // }
       }
     }
   }
