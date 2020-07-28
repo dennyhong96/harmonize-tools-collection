@@ -9,6 +9,7 @@ import {
   COLLEAGUE_ADDED,
   NEW_HEAD_ADDED,
   NODE_DELETED,
+  MANAGER_ADDED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -64,7 +65,29 @@ export default (state = INITIAL_STATE, action) => {
         email: payload.email,
         id: newHeadId,
         children: [oldHead],
+        manager: "",
+        managerId: "",
       };
+    case MANAGER_ADDED:
+      const newMangerId = `oc-${uuidv4()}`;
+      const stateBeforeAddManager = { ...state };
+      const oldManager = findNode(
+        payload.selectedNode.managerId,
+        stateBeforeAddManager
+      );
+      oldManager.children = oldManager.children.filter((child) => {
+        return child.id !== payload.selectedNode.id;
+      });
+      oldManager.children.push({
+        id: newMangerId,
+        name: payload.formData.name,
+        title: payload.formData.title,
+        email: payload.formData.email,
+        manager: oldManager.name,
+        managerId: oldManager.id,
+        children: [payload.selectedNode],
+      });
+      return stateBeforeAddManager;
     case NODE_DELETED:
       const stateAfterDeleted = { ...state };
       const { managerId } = findNode(payload.id, stateAfterDeleted);

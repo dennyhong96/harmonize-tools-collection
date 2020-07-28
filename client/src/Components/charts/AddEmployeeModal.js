@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   addNode,
   addColleague,
-  addNewHead,
+  addManager,
 } from "../../actions/orgChartActions";
 import dispatchToast from "../../utils/toast";
 import "./EditEmployeeModal.scss";
@@ -17,7 +17,7 @@ const AddEmployeeModal = ({
   selectedNode,
   addNode,
   addColleague,
-  addNewHead,
+  addManager,
   ...otherProps
 }) => {
   const [formData, setFormData] = useState(INITIAL_STATE);
@@ -35,7 +35,7 @@ const AddEmployeeModal = ({
       } else if (addMode === "COLLEAGUE") {
         addColleague(selectedNode.id, formData);
       } else if (addMode === "HEAD") {
-        addNewHead(formData);
+        addManager(formData, selectedNode);
       }
       otherProps.setAddModalShow(false);
       setFormData(INITIAL_STATE);
@@ -108,6 +108,6 @@ const AddEmployeeModal = ({
   );
 };
 
-export default connect(null, { addNode, addColleague, addNewHead })(
+export default connect(null, { addNode, addColleague, addManager })(
   AddEmployeeModal
 );

@@ -9,6 +9,7 @@ import {
   COLLEAGUE_ADDED,
   NEW_HEAD_ADDED,
   NODE_DELETED,
+  MANAGER_ADDED,
 } from "./actionTypes";
 
 /**
@@ -84,17 +85,40 @@ export const addColleague = (id, formData) => (dispatch) => {
 };
 
 /**
- * @function addNewHead
+ * @function addManger
  * Dispath action to modify state according to formData
  * @param {object} formData - formData collected from the form
  */
-export const addNewHead = (formData) => (dispatch) => {
-  dispatch({
-    type: NEW_HEAD_ADDED,
-    payload: formData,
-  });
-  dispatchToast(`${formData.name} added as new root!`, "SUCCESS");
+export const addManager = (formData, selectedNode) => (dispatch) => {
+  if (selectedNode.managerId) {
+    dispatch({
+      type: MANAGER_ADDED,
+      payload: {
+        formData,
+        selectedNode,
+      },
+    });
+  } else {
+    dispatch({
+      type: NEW_HEAD_ADDED,
+      payload: formData,
+    });
+  }
+  dispatchToast(`${formData.name} added as new manager!`, "SUCCESS");
 };
+
+// /**
+//  * @function addNewHead
+//  * Dispath action to modify state according to formData
+//  * @param {object} formData - formData collected from the form
+//  */
+// export const addNewHead = (formData) => (dispatch) => {
+//   dispatch({
+//     type: NEW_HEAD_ADDED,
+//     payload: formData,
+//   });
+//   dispatchToast(`${formData.name} added as new root!`, "SUCCESS");
+// };
 
 /**
  * @function deleteNode
