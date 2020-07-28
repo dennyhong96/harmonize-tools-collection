@@ -126,15 +126,9 @@
 @media screen and (max-width: 992px) {
   .landing-header {
     .text-box {
-      h1 {
-        font-size: 3rem;
-      }
-
       .call-to-action {
         a {
-          &:first-child {
-            margin-bottom: 1rem;
-          }
+          margin-bottom: 1rem;
         }
       }
     }
