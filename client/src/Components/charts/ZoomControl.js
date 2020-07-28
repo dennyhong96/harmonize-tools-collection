@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 import useChartZoom from "../../hooks/useChartZoom";
 import "./ZoomControl.scss";

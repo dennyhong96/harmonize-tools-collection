@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 
 import useChartPan from "../../hooks/useChartPan";
 import "./PanControl.scss";
@@ -35,23 +35,38 @@ const PanControl = () => {
     setTranslateX("translateX(0)");
   }, [setTranslateX, setTranslateY]);
 
-  useEffect(() => {
-    function onKeyPan(evt) {
-      evt.preventDefault();
-      // Arrow keys to pan the chart
+  const panAvailableRef = useRef(true);
+
+  const onKeyPan = useCallback((evt) => {
+    // Arrow keys to pan the chart
+    if (panAvailableRef.current) {
       if (evt.keyCode === 37) {
+        evt.preventDefault();
+        panAvailableRef.current = false;
         handlePanLeft();
       } else if (evt.keyCode === 39) {
+        evt.preventDefault();
+        panAvailableRef.current = false;
         handlePanRight();
       } else if (evt.keyCode === 40) {
+        evt.preventDefault();
+        panAvailableRef.current = false;
         handlePanDown();
       } else if (evt.keyCode === 38) {
+        evt.preventDefault();
+        panAvailableRef.current = false;
         handlePanUp();
       }
+      setTimeout(() => {
+        panAvailableRef.current = true;
+      }, 200);
     }
+  });
+
+  useEffect(() => {
     document.addEventListener("keydown", onKeyPan);
     return () => document.removeEventListener("keydown", onKeyPan);
-  }, [handlePanLeft, handlePanRight, handlePanDown, handlePanUp]);
+  }, []);
 
   return (
     <div className="pan">
