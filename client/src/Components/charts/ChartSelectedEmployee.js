@@ -26,7 +26,6 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
       <div className="action">
         {selectedNode ? (
           <Fragment>
-            <button onClick={() => setSelectedNode(null)}>Cancel Select</button>
             <button onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
@@ -36,7 +35,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
                 setAddModalShow(true);
               }}
             >
-              Add Subordinate
+              Add Direct Report
             </button>
             <button
               onClick={() => {
@@ -61,13 +60,10 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
         ) : (
           <Fragment>
             <button disabled className="inactive-btn">
-              Cancel Select
-            </button>
-            <button disabled className="inactive-btn">
               Edit Employee
             </button>
             <button disabled className="inactive-btn">
-              Add Subordinate
+              Add Direct Report
             </button>
             <button disabled className="inactive-btn">
               Add Colleague
@@ -105,7 +101,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
         deletePopupShow={deletePopupShow}
         handleDelete={handleDelete}
         onHide={() => setDeletePopupShow(false)}
-        deleteName={selectedNode ? selectedNode.name : ""}
+        selectedNode={selectedNode}
       />
     </Fragment>
   );

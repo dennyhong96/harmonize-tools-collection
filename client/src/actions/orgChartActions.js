@@ -105,7 +105,7 @@ export const addNewHead = (formData) => (dispatch) => {
 export const deleteNode = (selectedNode) => (dispatch) => {
   dispatch({
     type: NODE_DELETED,
-    payload: selectedNode.id,
+    payload: selectedNode,
   });
   dispatchToast(`${selectedNode.name} deleted!`, "SUCCESS");
 };
