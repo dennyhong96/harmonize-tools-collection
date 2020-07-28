@@ -26,7 +26,6 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
       <div className="action">
         {selectedNode ? (
           <Fragment>
-            <button onClick={() => setSelectedNode(null)}>Cancel Select</button>
             <button onClick={() => setEditModalShow(true)}>
               Edit Employee
             </button>
@@ -60,9 +59,6 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
           </Fragment>
         ) : (
           <Fragment>
-            <button disabled className="inactive-btn">
-              Cancel Select
-            </button>
             <button disabled className="inactive-btn">
               Edit Employee
             </button>
