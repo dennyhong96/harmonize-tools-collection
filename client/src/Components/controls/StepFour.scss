@@ -17,17 +17,23 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 0.8rem;
+
+    .st-1 {
+      span {
+        margin-left: 0.6rem;
+      }
+    }
   }
 
   .step-four-progress {
     height: 3rem;
     position: relative;
-    margin-left: 3rem;
-    margin-bottom: 3rem;
+    margin-left: 2.25rem;
+    margin-bottom: 6.25rem;
 
     .line {
       margin-top: 0.6rem;
-      width: 24rem;
+      width: 21rem;
       height: 1px;
       border: 1px solid $progress-circle-light-blue-bg;
     }
@@ -67,15 +73,15 @@
       }
 
       &.ms-2 {
-        left: 7.4rem;
+        left: 6.4rem;
       }
 
       &.ms-3 {
-        left: 15.4rem;
+        left: 13.4rem;
       }
 
       &.ms-4 {
-        left: 22.8rem;
+        left: 19.8rem;
       }
     }
   }

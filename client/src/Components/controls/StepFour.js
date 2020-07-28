@@ -7,7 +7,9 @@ const StepFour = ({ setStep }) => {
   return (
     <div className="step-four">
       <div className="step-four-progress-text">
-        <span className="st-1 text-center">1. Download Template</span>
+        <span className="st-1 text-center">
+          1. Download <br /> <span>Template</span>
+        </span>
         <span className="st-2 ">2. Edit & Save</span>
         <span className="st-3">3. Upload File</span>
         <span className="st-4">4. Generate Chart</span>
