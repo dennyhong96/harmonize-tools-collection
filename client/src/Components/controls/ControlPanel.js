@@ -27,9 +27,13 @@ const ControlPanel = ({
   return (
     <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       {/* <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}> */}
-      {sideDrawer && (
+      {sideDrawer ? (
         <div className="toggler-btn" onClick={closeSideDrawer}>
           <i className="fas fa-chevron-left"></i>
+        </div>
+      ) : (
+        <div className="open-icon" onClick={openSideDrawer}>
+          <i class="fas fa-chevron-right"></i>
         </div>
       )}
       {sideDrawer && step === 1 && (
@@ -45,9 +49,6 @@ const ControlPanel = ({
         <StepThree setStep={setStep} uploadOrgData={uploadOrgData} />
       )}
       {sideDrawer && step === 4 && <StepFour setStep={setStep} />}
-      <div className="open-icon" onClick={openSideDrawer}>
-        <i class="fas fa-chevron-right"></i>
-      </div>
     </div>
   );
 };
