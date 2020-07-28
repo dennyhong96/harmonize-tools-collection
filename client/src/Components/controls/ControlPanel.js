@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 
 import { getTemplate, resetTemplate } from "../../actions/csvTemplateActions";
 import { uploadOrgData } from "../../actions/orgChartActions";
-import { closeSideDrawer } from "../../actions/sideDrawerAction";
+import {
+  closeSideDrawer,
+  openSideDrawer,
+} from "../../actions/sideDrawerAction";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
@@ -17,16 +20,23 @@ const ControlPanel = ({
   resetTemplate,
   uploadOrgData,
   closeSideDrawer,
+  openSideDrawer,
 }) => {
   const [step, setStep] = useState(1);
 
   return (
     <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       {/* <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}> */}
-      <div className="toggler-btn" onClick={closeSideDrawer}>
-        <i className="fas fa-chevron-left"></i>
-      </div>
-      {step === 1 && (
+      {sideDrawer ? (
+        <div className="toggler-btn" onClick={closeSideDrawer}>
+          <i className="fas fa-chevron-left"></i>
+        </div>
+      ) : (
+        <div className="open-icon" onClick={openSideDrawer}>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      )}
+      {sideDrawer && step === 1 && (
         <StepOne
           template={template}
           getTemplate={getTemplate}
@@ -34,11 +44,11 @@ const ControlPanel = ({
           setStep={setStep}
         />
       )}
-      {step === 2 && <StepTwo setStep={setStep} />}
-      {step === 3 && (
+      {sideDrawer && step === 2 && <StepTwo setStep={setStep} />}
+      {sideDrawer && step === 3 && (
         <StepThree setStep={setStep} uploadOrgData={uploadOrgData} />
       )}
-      {step === 4 && <StepFour setStep={setStep} />}
+      {sideDrawer && step === 4 && <StepFour setStep={setStep} />}
     </div>
   );
 };
@@ -53,4 +63,5 @@ export default connect(mapStateToProps, {
   resetTemplate,
   uploadOrgData,
   closeSideDrawer,
+  openSideDrawer,
 })(ControlPanel);

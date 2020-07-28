@@ -1,26 +1,5 @@
 @import "../../Custom.scss";
 
-.orgchart-container {
-  min-height: 70vh;
-  border: 1px solid rgba($light-grey-text-body, 0.15);
-  overflow: hidden;
-  box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
-}
-
-.orgchart.myChart {
-  background: #fff !important;
-  transition: transform 0.2s ease-in-out;
-}
-
-.orgchart.myChart > ul > li > ul li::before {
-  border-top-color: $main-color;
-}
-
-.orgchart.myChart > ul > li > ul li .oc-node::before,
-.orgchart.myChart ul li .oc-node:not(:only-child)::after {
-  background-color: $main-color;
-}
-
 .orgchart.myChart .oc-node .oc-inner {
   width: 12rem;
   border-radius: 4.8px;

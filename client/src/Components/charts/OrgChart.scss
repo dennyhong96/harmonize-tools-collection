@@ -1,1 +1,31 @@
 @import "../../Custom.scss";
+
+.orgchart-container {
+  min-height: 70vh;
+  border: 1px solid rgba($light-grey-text-body, 0.15);
+  overflow: hidden;
+  box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
+  transition: width, margin, 0.3s ease-out;
+  width: calc(100% - 3rem);
+  margin: 1rem 0 1rem 3rem;
+  background: lighten($profile-cards-role-extra-light-grey, 33%);
+
+  &.move-right {
+    width: calc(100% - 30rem);
+    margin-left: 30rem;
+  }
+}
+
+.orgchart.myChart {
+  background: lighten($profile-cards-role-extra-light-grey, 33%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.orgchart.myChart > ul > li > ul li::before {
+  border-top-color: $main-color;
+}
+
+.orgchart.myChart > ul > li > ul li .oc-node::before,
+.orgchart.myChart ul li .oc-node:not(:only-child)::after {
+  background-color: $main-color;
+}

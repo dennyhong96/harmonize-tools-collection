@@ -49,7 +49,7 @@ const _Navbar = () => {
         <Navbar.Collapse id="main-navbar">
           <Nav className="ml-auto">
             <Link className="my-navlink" to="/app">
-              Enter Org Chart
+              Create an org chart
             </Link>
             <a
               className="my-navlink"
@@ -57,7 +57,7 @@ const _Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Explore Harmonize
+              More HR Tools
             </a>
           </Nav>
         </Navbar.Collapse>

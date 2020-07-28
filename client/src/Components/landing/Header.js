@@ -17,32 +17,16 @@ const Header = () => {
           <Col>
             <div className="text-box">
               <div>
-                <h1 className="display-4">
-                  Org Chart
-                  <span className="d-block">
-                    Visualize your organization structure.
-                  </span>
-                </h1>
+                <h1>Meet the easiest org chart software on the planet</h1>
                 <p>
-                  Developed by Harmonize, Org Chart aims to provide users with
-                  an easy way to visualize their organization structure.
+                  Built for the modern HR. Our org chart software allows you to
+                  quickly and easily view your organization's structure.
                 </p>
                 <div className="call-to-action">
-                  <Link to="/app">Try now</Link>
-                  <a
-                    href="https://www.harmonizehq.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    More HR tools
-                  </a>
+                  <Link to="/app">Try for free</Link>
                 </div>
                 <small className="mt-4 d-block text-light">
-                  <i className="far fa-check-square mr-1"></i> Free !
-                </small>
-                <small className="d-block text-light">
-                  <i className="far fa-check-square mr-1"></i> Login not
-                  required !
+                  <i className="far fa-check-square mr-1"></i> No login required
                 </small>
               </div>
             </div>
