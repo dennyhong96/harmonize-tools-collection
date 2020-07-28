@@ -6,8 +6,9 @@
   overflow: hidden;
   box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);
   transition: width, margin, 0.3s ease-out;
-  width: 100%;
+  width: calc(100% - 3rem);
   margin: 1rem 0 1rem 3rem;
+  background: lighten($profile-cards-role-extra-light-grey, 33%);
 
   &.move-right {
     width: calc(100% - 30rem);
@@ -16,7 +17,7 @@
 }
 
 .orgchart.myChart {
-  background: #fff !important;
+  background: lighten($profile-cards-role-extra-light-grey, 33%);
   transition: transform 0.2s ease-in-out;
 }
 
