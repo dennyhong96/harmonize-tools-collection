@@ -35,7 +35,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
                 setAddModalShow(true);
               }}
             >
-              Add Subordinate
+              Add Direct Report
             </button>
             <button
               onClick={() => {
@@ -63,7 +63,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
               Edit Employee
             </button>
             <button disabled className="inactive-btn">
-              Add Subordinate
+              Add Direct Report
             </button>
             <button disabled className="inactive-btn">
               Add Colleague
@@ -101,7 +101,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
         deletePopupShow={deletePopupShow}
         handleDelete={handleDelete}
         onHide={() => setDeletePopupShow(false)}
-        deleteName={selectedNode ? selectedNode.name : ""}
+        selectedNode={selectedNode}
       />
     </Fragment>
   );
