@@ -51,7 +51,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
                 setAddModalShow(true);
               }}
             >
-              Add New Head
+              Add Manager
             </button>
             <button onClick={() => setDeletePopupShow(true)}>
               Delete Employee
@@ -74,7 +74,7 @@ const ChartEmployeePanel = ({ selectedNode, setSelectedNode, deleteNode }) => {
                 setAddModalShow(true);
               }}
             >
-              Add New Head
+              Add Manager
             </button>
             <button disabled className="inactive-btn">
               Delete Employee
