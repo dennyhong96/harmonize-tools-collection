@@ -7,6 +7,9 @@ const OrgChartNode = ({ nodeData }) => {
   return (
     <div>
       <div className="oc-inner">
+        <div className="more-options">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
         <div className="user">
           {/* <i class="far fa-user"></i> */}
           <img className="far" src={userIcon} alt="user icon" />
