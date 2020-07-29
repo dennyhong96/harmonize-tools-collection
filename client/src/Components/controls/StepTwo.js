@@ -21,7 +21,7 @@ const StepTwo = ({ setStep }) => {
         <div className="milestone ms-3"></div>
         <div className="milestone ms-4"></div>
       </div>
-      <h2 className="step-two-heading">Step 2</h2>
+      <h2 className="step-two-heading">STEP 2</h2>
       <p className="step-two-msg">Enter your employee information</p>
       <img src={csv} className="step-two-csv" alt="csv-screenshot" />
       <p className="step-two-msg-2">
