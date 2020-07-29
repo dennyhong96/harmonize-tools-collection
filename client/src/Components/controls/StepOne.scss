@@ -8,8 +8,6 @@
   .step-one-progress-text {
     font-size: 0.8rem;
     font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.26;
     letter-spacing: 0.29px;
     color: $dark-text;
@@ -89,21 +87,12 @@
   .step-one-heading {
     font-size: 2.5rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $dark-text;
     margin-bottom: 2.2rem;
   }
 
   .step-one-msg {
     font-size: 1.4rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $dark-text;
     margin-bottom: 2.2rem;
 
@@ -128,10 +117,6 @@
     background-color: $check-mark-white;
     font-size: 1.15rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $main-color;
     margin-bottom: 4rem;
     outline: none;
@@ -155,10 +140,6 @@
   .step-one-continue {
     font-size: 1.1rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $check-mark-white;
     background-color: $main-color;
     border: none;

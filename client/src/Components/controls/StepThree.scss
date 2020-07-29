@@ -9,8 +9,6 @@
   .step-three-progress-text {
     font-size: 0.8rem;
     font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.26;
     letter-spacing: 0.29px;
     color: $dark-text;
@@ -90,21 +88,12 @@
   .step-three-heading {
     font-size: 2.5rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $dark-text;
     margin-bottom: 2.2rem;
   }
 
   .step-three-msg {
     font-size: 1.4rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: $dark-text;
     margin-bottom: 2.2rem;
 
@@ -146,10 +135,7 @@
       .drop-file-name {
         font-size: 0.94rem;
         font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
         line-height: 1.87;
-        letter-spacing: normal;
         color: #7a7a7a;
 
         .delete-file {
@@ -179,10 +165,6 @@
         width: 14.3rem;
         height: 2.625rem;
         font-size: 0.8rem;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        letter-spacing: normal;
         color: $main-color;
         border: none;
         font-family: inherit;
@@ -197,11 +179,6 @@
   .response {
     text-align: center;
     font-size: 1.25rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     margin-bottom: 2.2rem;
 
     &-success {
@@ -217,11 +194,6 @@
     &-submit {
       @extend .response;
       font-size: 1.25rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $dark-text;
     }
   }
@@ -239,10 +211,6 @@
     .step-three-action {
       font-size: 1.1rem;
       font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $check-mark-white;
       background-color: $main-color;
       border: none;

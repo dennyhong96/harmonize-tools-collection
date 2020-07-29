@@ -20,11 +20,7 @@
   .employee-info {
     margin-bottom: 0;
     font-size: 1rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.96;
-    letter-spacing: normal;
     color: $dark-text;
 
     strong {
@@ -34,14 +30,15 @@
       border-bottom: 1.5px solid $main-color;
     }
 
+    span {
+      font-size: 0.82rem;
+      color: black;
+      letter-spacing: 0;
+    }
+
     p.none-selected {
       text-align: center;
       font-size: 1.3rem;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $main-color;
     }
   }

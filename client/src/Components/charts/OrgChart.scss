@@ -1,7 +1,10 @@
 @import "../../Custom.scss";
 
 .orgchart-container {
-  min-height: 70vh;
+  // 100vh - control panel - topbar - margins
+  height: calc(100vh - 10rem - 4.7rem - 2rem - 1rem);
+  overflow: hidden;
+
   border: 1px solid rgba($light-grey-text-body, 0.15);
   overflow: hidden;
   box-shadow: 0 3px 5px rgba($light-grey-text-body, 0.2);

@@ -17,7 +17,7 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
   };
 
   return (
-    <div className="topbar">
+    <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
       <div
         className={`toggler-btn ${sideDrawer ? "opened" : ""}`}
         onClick={toggleSideDrawer}

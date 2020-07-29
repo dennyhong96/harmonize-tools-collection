@@ -10,9 +10,9 @@ const SelectedEmployeeInfo = ({ selectedNode, sideDrawer }) => {
       <h6>SELECTED EMPLOYEE</h6>
       <div className="employee-info">
         {selectedNode ? (
-          <Row>
+          <Row noGutters>
             <Col xs={{ span: 5 }}>
-              <Row>
+              <Row noGutters>
                 <Col xs={{ span: 3 }}>
                   <strong>NAME: </strong>
                 </Col>
@@ -20,7 +20,7 @@ const SelectedEmployeeInfo = ({ selectedNode, sideDrawer }) => {
                   <span>{selectedNode.name}</span>
                 </Col>
               </Row>
-              <Row>
+              <Row noGutters>
                 <Col xs={{ span: 3 }}>
                   <strong>TITLE: </strong>
                 </Col>
@@ -30,7 +30,7 @@ const SelectedEmployeeInfo = ({ selectedNode, sideDrawer }) => {
               </Row>
             </Col>
             <Col xs={{ span: 7 }}>
-              <Row>
+              <Row noGutters>
                 <Col xs={{ span: 3 }}>
                   <strong>EMAIL: </strong>
                 </Col>
@@ -38,7 +38,7 @@ const SelectedEmployeeInfo = ({ selectedNode, sideDrawer }) => {
                   <span>{selectedNode.email}</span>
                 </Col>
               </Row>
-              <Row>
+              <Row noGutters>
                 <Col xs={{ span: 3 }}>
                   <strong>MANAGER: </strong>
                 </Col>

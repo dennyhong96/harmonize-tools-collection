@@ -9,10 +9,6 @@
     .modal-title {
       font-size: 1.2rem;
       font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $dark-text;
     }
   }
@@ -74,10 +70,6 @@
       outline: none;
       font-size: 0.8rem;
       font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $check-mark-white;
 
       &:focus {
@@ -94,10 +86,6 @@
       background-color: $progress-circle-light-blue-bg;
       font-size: 0.8rem;
       font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       color: $main-color;
       outline: none;
       border: none;
