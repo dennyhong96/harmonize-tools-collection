@@ -9,9 +9,7 @@ const Features = () => {
     <section className="landing-features text-center">
       <Container>
         <h2>Features</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, hic.
-        </p>
+        <p>Modern HR problems require modern solutions</p>
         <Row>
           <Col md={{ span: 6 }}>
             <div className="mt-3 text-muted border py-5">
@@ -20,20 +18,19 @@ const Features = () => {
           </Col>
           <Col md={{ span: 6 }}>
             <div className="feature-card">
-              <h3 className="feature-title">CSV to Org Chart</h3>
+              <h3 className="feature-title">Import your data</h3>
               <p className="feature-text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
-                similique repellat molestias fuga fugit esse, vitae ad nesciunt.
+                Create your org chart in minutes. Just download our template and
+                upload your employee data, or start building from scratch.
               </p>
             </div>
           </Col>
           <Col md={{ span: 6 }}>
             <div className="feature-card">
-              <h3 className="feature-title">Re-arrange Hierarchy</h3>
+              <h3 className="feature-title">Customize your organization</h3>
               <p className="feature-text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-                quidem qui aliquam laudantium dolore quaerat quibusdam ullam
-                eveniet soluta exercitationem!
+                Simply drag and drop employees to move them around, and edit
+                their profiles to add relevant information.
               </p>
             </div>
           </Col>
@@ -50,21 +47,19 @@ const Features = () => {
           </Col>
           <Col md={{ span: 6 }}>
             <div className="feature-card">
-              <h3 className="feature-title">Add / Remove Employees</h3>
+              <h3 className="feature-title">Add & Remove Employees</h3>
               <p className="feature-text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
-                ipsa quis quia qui? Quae adipisci soluta sapiente voluptatum,
-                quasi inventore.
+                Dynamically update your chart to accurately reflect your growing
+                organization.
               </p>
             </div>
           </Col>
           <Col md={{ span: 6 }}>
             <div className="feature-card">
-              <h3 className="feature-title">One-click Export</h3>
+              <h3 className="feature-title">Share your chart</h3>
               <p className="feature-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Quisquam tenetur soluta totam doloremque, modi ipsa vitae nihil
-                illum.
+                Automatically download your org chart as a jpg image or pdf with
+                a single click.
               </p>
             </div>
           </Col>
@@ -82,8 +77,8 @@ const Features = () => {
             <div className="feature-card">
               <h3 className="feature-title">Free to Use!</h3>
               <p className="feature-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                alias dolorem consequuntur? Quaerat, corporis dolorum!
+                Completely free to use - no credit card info required & no sign
+                up necessary.
               </p>
               <Link to="/app" className="feature-btn">
                 Try Now
