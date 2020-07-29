@@ -1,15 +1,26 @@
 import React from "react";
-import "./OrgChartNode.scss";
+import { Dropdown } from "react-bootstrap";
 
+import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
 const OrgChartNode = ({ nodeData }) => {
   return (
     <div>
       <div className="oc-inner">
-        <div className="more-options">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
+        <Dropdown className="more-options-dropdown">
+          <Dropdown.Toggle
+            id="dropdown-basic"
+            className="more-options-dropdown-btn"
+          >
+            <i class="fas fa-ellipsis-h"></i>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu className="more-options-dropdown-menu">
+            <Dropdown.Item as="button">Edit employee</Dropdown.Item>
+            <Dropdown.Item as="button">Delete employee</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <div className="user">
           {/* <i class="far fa-user"></i> */}
           <img className="far" src={userIcon} alt="user icon" />
