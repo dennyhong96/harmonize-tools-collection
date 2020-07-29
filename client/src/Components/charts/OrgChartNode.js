@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import { connect } from "react-redux";
 
+import EditEmployeeModal from "./EditEmployeeModal";
+import ConfirmDeletePopup from "./ConfirmDeletePopup";
+import { deleteNode } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
-const OrgChartNode = ({ nodeData }) => {
+const OrgChartNode = ({ nodeData, deleteNode }) => {
+  const [editModalShow, setEditModalShow] = useState(false);
+  const [deletePopupShow, setDeletePopupShow] = useState(false);
+
+  const handleDelete = () => {
+    deleteNode(nodeData);
+    setDeletePopupShow(false);
+  };
+
   return (
     <div>
       <div className="oc-inner">
@@ -15,10 +27,13 @@ const OrgChartNode = ({ nodeData }) => {
           >
             <i class="fas fa-ellipsis-h"></i>
           </Dropdown.Toggle>
-
           <Dropdown.Menu className="more-options-dropdown-menu">
-            <Dropdown.Item as="button">Edit employee</Dropdown.Item>
-            <Dropdown.Item as="button">Delete employee</Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
+              Edit employee
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => setDeletePopupShow(true)}>
+              Delete employee
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <div className="user">
@@ -32,8 +47,20 @@ const OrgChartNode = ({ nodeData }) => {
         <div className="manager">Manager</div>
         <div className="manager-name">{nodeData.manager}</div>
       </div>
+      <EditEmployeeModal
+        selectedNode={nodeData}
+        show={editModalShow}
+        setEditModalShow={setEditModalShow}
+        onHide={() => setEditModalShow(false)}
+      />
+      <ConfirmDeletePopup
+        deletePopupShow={deletePopupShow}
+        handleDelete={handleDelete}
+        onHide={() => setDeletePopupShow(false)}
+        selectedNode={nodeData}
+      />
     </div>
   );
 };
 
-export default OrgChartNode;
+export default connect(null, { deleteNode })(OrgChartNode);
