@@ -19,8 +19,9 @@ const Header = () => {
               <div>
                 <h1>Meet the easiest org chart software on the planet</h1>
                 <p>
-                  Built for the modern HR. Our org chart software allows you to
-                  quickly and easily view your organization's structure.
+                  Built for modern HR departments - our org chart software
+                  allows you to quickly and easily view your organization’s
+                  structure.
                 </p>
                 <div className="call-to-action">
                   <Link to="/app">Try for free</Link>
