@@ -18,4 +18,13 @@ router.get(
   }
 );
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.send(req.user);
+});
+
+router.get("/user", (req, res) => {
+  res.send(req.user);
+});
+
 module.exports = router;
