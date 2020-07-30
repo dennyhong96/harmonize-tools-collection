@@ -42,12 +42,14 @@ if (process.env.NODE_ENV === "production") {
 
 // Mount Routers
 app.use("/api/v1/csv", csvRouter);
-app.use("/auth", authRouter);
+app.use("/api/v1/auth", authRouter);
 
 // Catch all
-app.use("*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  app.use("*", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`Server up on port ${port}...`));

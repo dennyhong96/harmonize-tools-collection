@@ -6,9 +6,16 @@ import {
   openSideDrawer,
   closeSideDrawer,
 } from "../../actions/sideDrawerAction";
+import { logout } from "../../actions/userActions";
 import "./Topbar.scss";
 
-const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer, user }) => {
+const topbar = ({
+  sideDrawer,
+  closeSideDrawer,
+  openSideDrawer,
+  user,
+  logout,
+}) => {
   return (
     <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
       {/* <div
@@ -30,7 +37,7 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer, user }) => {
 
       <div className="topbar-actions">
         {user ? (
-          <button>
+          <button onClick={logout}>
             <i class="fas fa-sign-out-alt"></i> logout
           </button>
         ) : (
@@ -46,6 +53,8 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer, user }) => {
 
 const mapStateToProps = ({ sideDrawer }) => ({ sideDrawer });
 
-export default connect(mapStateToProps, { openSideDrawer, closeSideDrawer })(
-  topbar
-);
+export default connect(mapStateToProps, {
+  openSideDrawer,
+  closeSideDrawer,
+  logout,
+})(topbar);
