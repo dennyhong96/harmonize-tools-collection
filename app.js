@@ -1,3 +1,6 @@
+require("dotenv").config({ path: "./config/config.env" });
+const connectDB = require("./config/db");
+const passport = require("./config/passport");
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
@@ -10,6 +13,7 @@ const hpp = require("hpp");
 const csvRouter = require("./routers/csvRouter");
 
 const app = express();
+connectDB();
 
 // Middlewares
 app.use(helmet());
