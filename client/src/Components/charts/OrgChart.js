@@ -39,6 +39,7 @@ const OrgChart = ({ orgData, sideDrawer }) => {
     <Fragment>
       <ZoomControl />
       <PanControl />
+
       <OrganizationChart
         datasource={orgData}
         chartClass="myChart"

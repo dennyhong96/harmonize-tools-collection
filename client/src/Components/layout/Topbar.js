@@ -27,7 +27,12 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
           or by starting from scratch below.
         </p>
       </div>
-      <Link to="/">HOME</Link>
+      <div className="topbar-acions">
+        <a href="http://localhost:5000/api/v1/auth/google">
+          <i class="fab fa-google"></i> sign in with google
+        </a>
+        <Link to="/">HOME</Link>
+      </div>
     </div>
   );
 };
