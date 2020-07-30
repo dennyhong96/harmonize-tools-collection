@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import ReactTooltip from "react-tooltip";
 
 import { getTemplate, resetTemplate } from "../../actions/csvTemplateActions";
 import { uploadOrgData } from "../../actions/orgChartActions";

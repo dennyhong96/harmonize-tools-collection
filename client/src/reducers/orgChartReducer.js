@@ -46,7 +46,13 @@ export default (state = INITIAL_STATE, action) => {
       const commonManagerId = findNode(payload.id, stateAfterColleagueAdded)
         .managerId;
       const commonManager = findNode(commonManagerId, stateAfterColleagueAdded);
-      commonManager.children.push({
+      let selectedIndex = commonManager.children.findIndex(
+        (child) => child.id === payload.id
+      );
+      if (payload.direction === "RIGHT") {
+        selectedIndex += 1;
+      }
+      commonManager.children.splice(selectedIndex, 0, {
         ...payload.formData,
         id: `oc-${uuidv4()}`,
         children: [],

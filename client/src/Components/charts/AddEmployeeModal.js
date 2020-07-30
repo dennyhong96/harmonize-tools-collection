@@ -32,8 +32,10 @@ const AddEmployeeModal = ({
     if (name && title && email) {
       if (addMode === "DIRECT_REPORT") {
         addNode(selectedNode.id, formData);
-      } else if (addMode === "COLLEAGUE") {
-        addColleague(selectedNode.id, formData);
+      } else if (addMode === "COLLEAGUE_LFET") {
+        addColleague(selectedNode.id, formData, "LEFT");
+      } else if (addMode === "COLLEAGUE_RIGHT") {
+        addColleague(selectedNode.id, formData, "RIGHT");
       } else if (addMode === "HEAD") {
         addManager(formData, selectedNode);
       }

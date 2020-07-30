@@ -44,7 +44,7 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
         <div
           className="onclick-add add-left"
           onClick={() => {
-            setAddMode("COLLEAGUE");
+            setAddMode("COLLEAGUE_LFET");
             setAddModalShow(true);
           }}
         >
@@ -53,7 +53,7 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
         <div
           className="onclick-add add-right"
           onClick={() => {
-            setAddMode("COLLEAGUE");
+            setAddMode("COLLEAGUE_RIGHT");
             setAddModalShow(true);
           }}
         >
