@@ -40,6 +40,7 @@ const StepFour = ({ setStep }) => {
         <hr />
       </div>
       <div className="step-four-actions">
+        <hr />
         <button
           className="step-four-action-back"
           onClick={() => {

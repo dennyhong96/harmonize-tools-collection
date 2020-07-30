@@ -102,7 +102,6 @@
 
     &-2 {
       @extend .step-two-msg;
-      margin-bottom: 3rem;
     }
   }
 
@@ -123,7 +122,7 @@
 
   hr {
     border-top: 1px solid lighten($dark-divider-line, 50%);
-    margin: 0 0 4rem 0;
+    margin: 0 0 2rem 0;
   }
 
   & > div {
@@ -131,7 +130,7 @@
     justify-content: space-between;
 
     .step-two-action {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: bold;
       color: $check-mark-white;
       background-color: $main-color;
