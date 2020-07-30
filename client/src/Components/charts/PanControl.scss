@@ -6,9 +6,16 @@
   border-radius: 50px;
   color: #fff;
   background-color: lighten($main-color, 3%);
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > i {
+    font-size: 0.8rem;
+  }
 
   &:hover {
     transform: scale(1.07);
@@ -18,12 +25,11 @@
 
 .pan {
   position: absolute;
-  height: 7.6rem;
-  width: 7.6rem;
-  right: 0;
+  height: 6rem;
+  width: 6rem;
   z-index: 1;
   right: 2rem;
-  top: 11rem;
+  top: 10rem;
   padding: 0.5rem;
   border-radius: 50rem;
   display: flex;
@@ -39,18 +45,22 @@
     margin-bottom: 0.3rem;
   }
 
-  .pan-left {
-    @extend .pan-btn;
-  }
+  & > div {
+    display: flex;
 
-  .reset {
-    @extend .pan-btn;
-    margin-left: 0.3rem;
-  }
+    .pan-left {
+      @extend .pan-btn;
+    }
 
-  .pan-right {
-    @extend .pan-btn;
-    margin-left: 0.3rem;
+    .reset {
+      @extend .pan-btn;
+      margin-left: 0.3rem;
+    }
+
+    .pan-right {
+      @extend .pan-btn;
+      margin-left: 0.3rem;
+    }
   }
 
   .pan-bottom {
