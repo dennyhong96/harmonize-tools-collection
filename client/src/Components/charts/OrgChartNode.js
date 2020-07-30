@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
+import AddEmployeeModal from "./AddEmployeeModal";
 import { deleteNode } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
@@ -11,6 +12,8 @@ import userIcon from "../../assets/user-icon.png";
 const OrgChartNode = ({ nodeData, deleteNode }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
+  const [addModalShow, setAddModalShow] = useState(false);
+  const [addMode, setAddMode] = useState("DIRECT_REPORT");
 
   const handleDelete = () => {
     deleteNode(nodeData);
@@ -20,16 +23,40 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
   return (
     <div>
       <div className="oc-inner">
-        <div className="onclick-add add-top">
+        <div
+          className="onclick-add add-top"
+          onClick={() => {
+            setAddMode("HEAD");
+            setAddModalShow(true);
+          }}
+        >
           <i className="fas fa-plus"></i>
         </div>
-        <div className="onclick-add add-bottom">
+        <div
+          className="onclick-add add-bottom"
+          onClick={() => {
+            setAddMode("DIRECT_REPORT");
+            setAddModalShow(true);
+          }}
+        >
           <i className="fas fa-plus"></i>
         </div>
-        <div className="onclick-add add-left">
+        <div
+          className="onclick-add add-left"
+          onClick={() => {
+            setAddMode("COLLEAGUE");
+            setAddModalShow(true);
+          }}
+        >
           <i className="fas fa-plus"></i>
         </div>
-        <div className="onclick-add add-right">
+        <div
+          className="onclick-add add-right"
+          onClick={() => {
+            setAddMode("COLLEAGUE");
+            setAddModalShow(true);
+          }}
+        >
           <i className="fas fa-plus"></i>
         </div>
         <Dropdown className="more-options-dropdown">
@@ -49,7 +76,6 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
           </Dropdown.Menu>
         </Dropdown>
         <div className="user">
-          {/* <i class="far fa-user"></i> */}
           <img className="far" src={userIcon} alt="user icon" />
         </div>
         <div className="name">{nodeData.name}</div>
@@ -64,6 +90,13 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
         show={editModalShow}
         setEditModalShow={setEditModalShow}
         onHide={() => setEditModalShow(false)}
+      />
+      <AddEmployeeModal
+        selectedNode={nodeData}
+        show={addModalShow}
+        setAddModalShow={setAddModalShow}
+        onHide={() => setAddModalShow(false)}
+        addMode={addMode}
       />
       <ConfirmDeletePopup
         deletePopupShow={deletePopupShow}
