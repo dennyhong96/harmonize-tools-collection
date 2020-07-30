@@ -13,10 +13,18 @@
   justify-content: space-between;
 
   padding-left: calc(15px + 3rem);
-  transition: padding 0.3s ease-out;
+  transition: padding, 0.3s ease-out;
 
   &.sidedrawer-show {
     padding-left: calc(15px + 30rem);
+
+    .heading {
+      font-size: 1.8rem;
+    }
+
+    .sub-heading {
+      font-size: 0.65rem;
+    }
   }
 
   .toggler-btn {
@@ -59,6 +67,7 @@
     letter-spacing: 1px;
     color: $check-mark-white;
     margin-bottom: 0;
+    transition: font-size 0.3s ease-out;
   }
 
   .sub-heading {
