@@ -23,12 +23,16 @@
   background: lighten($profile-cards-role-extra-light-grey, 33%);
   border: 2px dashed transparent;
   border-radius: 10px;
-  padding: 10rem 15rem;
+  padding: 10rem 25rem;
   cursor: move !important;
-  transition: transform 0.1s, border 0.3s ease-out;
+  transition: transform 0.12s, border 0.3s ease-out;
 
   &:hover {
     border: 2px dashed lighten($main-color, 25%);
+  }
+
+  &.with-drawer {
+    padding: 10rem 12rem;
   }
 }
 

@@ -13,19 +13,20 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   const { handleDownload } = useDownload();
 
-  const orgCharatContainerRef = useRef();
+  const orgChartRef = useRef();
+  const orgChartContainer = useRef();
   useEffect(() => {
-    orgCharatContainerRef.current = document.querySelector(
-      ".orgchart-container"
-    );
-    console.log(orgCharatContainerRef.current);
+    orgChartContainer.current = document.querySelector(".orgchart-container");
+    orgChartRef.current = document.querySelector(".myChart");
   }, []);
 
   useEffect(() => {
     if (sideDrawer) {
-      orgCharatContainerRef.current.classList.add("move-right");
+      orgChartRef.current.classList.add("with-drawer");
+      orgChartContainer.current.classList.add("move-right");
     } else {
-      orgCharatContainerRef.current.classList.remove("move-right");
+      orgChartRef.current.classList.remove("with-drawer");
+      orgChartContainer.current.classList.remove("move-right");
     }
   }, [sideDrawer]);
 
@@ -35,8 +36,8 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   return (
     <Fragment>
-      {/* <ZoomControl /> */}
-      {/* <PanControl /> */}
+      <ZoomControl />
+      <PanControl />
       <OrganizationChart
         datasource={orgData}
         chartClass="myChart"
