@@ -41,7 +41,13 @@ const topbar = ({
             <i class="fas fa-sign-out-alt"></i> logout
           </button>
         ) : (
-          <a href="http://localhost:5000/api/v1/auth/google">
+          <a
+            href={
+              process.env.NODE_ENV === "production"
+                ? "/api/v1/auth/google"
+                : "http://localhost:5000/api/v1/auth/google"
+            }
+          >
             <i class="fab fa-google"></i> sign in with google
           </a>
         )}
