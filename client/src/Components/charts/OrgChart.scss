@@ -2,7 +2,7 @@
 
 .orgchart-container {
   // 100vh - control panel - topbar - margins
-  height: calc(100vh - 10rem - 4.7rem - 2rem - 1rem);
+  height: calc(100vh - 5rem - 2rem);
   overflow: hidden;
 
   border: 1px solid rgba($light-grey-text-body, 0.15);
@@ -31,4 +31,53 @@
 .orgchart.myChart > ul > li > ul li .oc-node::before,
 .orgchart.myChart ul li .oc-node:not(:only-child)::after {
   background-color: $main-color;
+}
+
+.download-acitons {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+
+  %btn {
+    transition: translateY, box-shadow, 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+  }
+
+  button {
+    @extend %btn;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 93.3px;
+    box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+    border: 2px solid $main-color;
+    outline: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: $main-color;
+    margin: 0 0 0 1rem;
+    background-color: #fff;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.inactive-btn {
+      background-color: $inactive-button-bg;
+      color: $inactive-button-text;
+    }
+  }
 }
