@@ -35,8 +35,8 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   return (
     <Fragment>
-      <ZoomControl />
-      <PanControl />
+      {/* <ZoomControl /> */}
+      {/* <PanControl /> */}
       <OrganizationChart
         datasource={orgData}
         chartClass="myChart"
@@ -44,7 +44,10 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         draggable={true}
         onClickNode={readSelectedNode}
         collapsible={false}
+        pan={true}
+        zoom={true}
       />
+      <i class="far fa-arrows-alt"></i>
       <div className="download-acitons">
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>
