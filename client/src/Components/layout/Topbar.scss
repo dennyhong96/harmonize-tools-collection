@@ -86,7 +86,7 @@
 
   .topbar-actions {
     align-self: flex-start;
-    margin-top: 0.7rem;
+    margin-right: 0.5rem;
 
     a {
       display: inline-block;
@@ -142,6 +142,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50rem;
+    border: 2px solid lighten($main-color, 10%);
     overflow: hidden;
     img {
       width: 100%;

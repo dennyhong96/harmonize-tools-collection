@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { ListGroup } from "react-bootstrap";
 
 import "./EmployeeInfoPanel.scss";
 
@@ -14,8 +15,22 @@ const EmployeeInfoPanel = ({ sideDrawer, user }) => {
         <i className="fas fa-times"></i>
       </div>
       <div className="selected-employee">
-        {user && <p className="name">{user.name}'s Chart</p>}
+        {user && <p className="name">Welcome, {user.name}</p>}
       </div>
+      <ListGroup className="action-list">
+        <ListGroup.Item className="action-item" as="button" action>
+          <i class="far fa-save"></i> Save your chart
+        </ListGroup.Item>
+        <ListGroup.Item className="action-item" as="button" action>
+          <i class="fas fa-download"></i> Load your chart
+        </ListGroup.Item>
+        <ListGroup.Item className="action-item" as="button" action>
+          <i class="far fa-file-pdf"></i> Export PDF
+        </ListGroup.Item>
+        <ListGroup.Item className="action-item" as="button" action>
+          <i class="far fa-file-image"></i> Export JPG
+        </ListGroup.Item>
+      </ListGroup>
     </div>
   );
 };

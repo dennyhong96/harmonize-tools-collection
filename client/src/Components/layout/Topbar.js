@@ -35,29 +35,31 @@ const topbar = ({
         </p>
       </div>
 
-      <div className="topbar-actions">
-        {user ? (
-          <button onClick={logout}>
-            <i class="fas fa-sign-out-alt"></i> logout
-          </button>
-        ) : (
-          <a
-            href={
-              process.env.NODE_ENV === "production"
-                ? "/api/v1/auth/google"
-                : "http://localhost:5000/api/v1/auth/google"
-            }
-          >
-            <i class="fab fa-google"></i> sign in with google
-          </a>
-        )}
-        <Link to="/">HOME</Link>
-      </div>
-      {user && (
-        <div className="avatar">
-          <img src={user.photo} alt="user photo" />
+      <div className="d-flex">
+        <div className="topbar-actions">
+          {user ? (
+            <button onClick={logout}>
+              <i class="fas fa-sign-out-alt"></i> logout
+            </button>
+          ) : (
+            <a
+              href={
+                process.env.NODE_ENV === "production"
+                  ? "/api/v1/auth/google"
+                  : "http://localhost:5000/api/v1/auth/google"
+              }
+            >
+              <i class="fab fa-google"></i> sign in with google
+            </a>
+          )}
+          <Link to="/">HOME</Link>
         </div>
-      )}
+        {user && (
+          <div className="avatar">
+            <img src={user.photo} alt="user photo" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
