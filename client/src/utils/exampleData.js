@@ -13,6 +13,37 @@ export default {
       manager: "Tamzin Wilkinson",
       id: "oc-c51f9db6-0c94-4f85-b84d-452fb33db5af",
       managerId: "oc-f4b1677f-a13b-40ef-bcae-c435dcdc41ce",
+      children: [],
+    },
+    {
+      email: "tillipyme-2031@yopmail.com",
+      name: "Gregg Giles",
+      title: "Chief technology officer",
+      manager: "Tamzin Wilkinson",
+      id: "oc-b6066803-0c3e-4c84-96aa-159629f8985c",
+      managerId: "oc-f4b1677f-a13b-40ef-bcae-c435dcdc41ce",
+      children: [],
+    },
+  ],
+};
+
+/*
+
+export default {
+  email: "ejay.gharat.79z@gmaiil.us",
+  name: "Tamzin Wilkinson",
+  title: "Chief executive officer",
+  manager: "",
+  id: "oc-f4b1677f-a13b-40ef-bcae-c435dcdc41ce",
+  managerId: "",
+  children: [
+    {
+      email: "lsashiniiddamalgm@lccweb.org",
+      name: "Federico Reyna",
+      title: "Chief operating officer",
+      manager: "Tamzin Wilkinson",
+      id: "oc-c51f9db6-0c94-4f85-b84d-452fb33db5af",
+      managerId: "oc-f4b1677f-a13b-40ef-bcae-c435dcdc41ce",
       children: [
         {
           email: "msraviteja990@bellaserababy.com",
@@ -64,3 +95,6 @@ export default {
     },
   ],
 };
+
+
+*/

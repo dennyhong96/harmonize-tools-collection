@@ -4,7 +4,7 @@ import useChartZoom from "../../hooks/useChartZoom";
 import "./ZoomControl.scss";
 
 const ZoomControl = () => {
-  const { setZoomLevel } = useChartZoom(0.8);
+  const { setZoomLevel } = useChartZoom(1);
 
   const zoomAvailableRef = useRef(true);
   const onKeyZoom = useCallback((evt) => {
