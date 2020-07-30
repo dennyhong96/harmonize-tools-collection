@@ -2,7 +2,7 @@
 @import "../../Custom.scss";
 
 .step-three {
-  padding-top: 5rem;
+  padding-top: 4rem;
   display: flex;
   flex-direction: column;
 
@@ -28,7 +28,7 @@
     height: 3rem;
     position: relative;
     margin-left: 2.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 
     .line {
       margin-top: 0.6rem;
@@ -89,13 +89,13 @@
     font-size: 2.5rem;
     font-weight: bold;
     color: $dark-text;
-    margin-bottom: 2.2rem;
+    margin-bottom: 2rem;
   }
 
   .step-three-msg {
     font-size: 1.4rem;
     color: $dark-text;
-    margin-bottom: 2.2rem;
+    margin-bottom: 2rem;
 
     span {
       font-weight: bold;
@@ -103,7 +103,7 @@
 
     &-2 {
       @extend .step-three-msg;
-      margin-bottom: 4.7rem;
+      margin-bottom: 3rem;
     }
   }
 
@@ -119,7 +119,7 @@
     align-items: center;
     justify-content: center;
     outline: none;
-    margin-bottom: 2.2rem;
+    margin-bottom: 2rem;
 
     .drop-file-inner-box {
       width: 18rem;
@@ -178,8 +178,8 @@
 
   .response {
     text-align: center;
-    font-size: 1.25rem;
-    margin-bottom: 2.2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 
     &-success {
       @extend .response;
@@ -193,20 +193,26 @@
 
     &-submit {
       @extend .response;
-      font-size: 1.25rem;
       color: $dark-text;
     }
   }
+}
+
+.step-three-actions {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   hr {
     border-top: 1px solid lighten($dark-divider-line, 50%);
     margin: 0 0 2.2rem 0;
   }
 
-  .step-three-actions {
+  & > div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
     .step-three-action {
       font-size: 1.1rem;
