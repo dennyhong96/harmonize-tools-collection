@@ -41,24 +41,28 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
         >
           <i className="fas fa-plus"></i>
         </div>
-        <div
-          className="onclick-add add-left"
-          onClick={() => {
-            setAddMode("COLLEAGUE_LFET");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
-        <div
-          className="onclick-add add-right"
-          onClick={() => {
-            setAddMode("COLLEAGUE_RIGHT");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
+        {nodeData.manager && (
+          <div
+            className="onclick-add add-left"
+            onClick={() => {
+              setAddMode("COLLEAGUE_LFET");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
+        {nodeData.manager && (
+          <div
+            className="onclick-add add-right"
+            onClick={() => {
+              setAddMode("COLLEAGUE_RIGHT");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
         <Dropdown className="more-options-dropdown">
           <Dropdown.Toggle
             id="dropdown-basic"

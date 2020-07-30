@@ -20,12 +20,18 @@ const ConfirmDeletePopup = ({
     >
       <Modal.Body>
         {selectedNode &&
-          (selectedNode.manager ? (
+          (selectedNode.manager && selectedNode.children.length ? (
             <p>
               <i className="fas fa-exclamation-circle"></i>{" "}
               <strong className="attention">CAUTION:</strong> Deleting{" "}
               <strong>{selectedNode.name}</strong> will move his/her direct
               reports under <strong>{selectedNode.manager}</strong>
+            </p>
+          ) : selectedNode.manager && !selectedNode.children.length ? (
+            <p>
+              <i className="fas fa-exclamation-circle"></i>{" "}
+              <strong className="attention">CAUTION:</strong> You are about to
+              delete <strong>{selectedNode.name}</strong>
             </p>
           ) : (
             <p>
