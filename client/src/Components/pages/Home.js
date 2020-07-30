@@ -7,13 +7,13 @@ import OrgChart from "../charts/OrgChart";
 
 const Home = () => {
   return (
-    <Fragment>
+    <div className="app-home">
       <Topbar />
       <ControlPanel />
       <Container fluid>
         <OrgChart />
       </Container>
-    </Fragment>
+    </div>
   );
 };
 

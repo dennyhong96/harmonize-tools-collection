@@ -18,12 +18,12 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
 
   return (
     <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
-      <div
+      {/* <div
         className={`toggler-btn ${sideDrawer ? "opened" : ""}`}
         onClick={toggleSideDrawer}
       >
         <i className="fas fa-chevron-right"></i>
-      </div>
+      </div> */}
       <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
       <Link to="/">HOME</Link>
     </div>

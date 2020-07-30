@@ -1,6 +1,6 @@
 import { SIDE_DRAWER_OPENED, SIDE_DRAWER_CLOSED } from "../actions/actionTypes";
 
-const INITIAL_STATE = false;
+const INITIAL_STATE = true;
 
 export default (state = INITIAL_STATE, action) => {
   const { type } = action;

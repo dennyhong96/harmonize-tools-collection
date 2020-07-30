@@ -79,7 +79,6 @@
     }
 
     .onclick-add {
-      z-index: 1;
       opacity: 1;
 
       &.add-top,
@@ -95,18 +94,23 @@
   }
 
   .onclick-add {
-    z-index: 1;
     position: absolute;
-    background-color: lighten($main-color, 5%);
+    background-color: lighten($main-color, 7%);
     color: #fff;
     cursor: pointer;
-    transition: transform, opacity, z-index, 0.2s ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
     opacity: 0;
     font-size: 0.8rem;
+    transition: opacity 0.2s ease-out;
+    z-index: 1;
+    // box-shadow: 0 2px 2px rgba(#000, 0.2);
+
+    &:hover {
+      background-color: $main-color;
+      transform: scale(1.15);
+    }
 
     &.add-top {
       top: -1.2rem;
@@ -114,7 +118,6 @@
       height: 1.2rem;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      transform: translateY(1.2rem);
 
       &::after {
         content: "";
@@ -123,10 +126,6 @@
         left: -15px;
         right: -15px;
         bottom: -10px;
-      }
-
-      &:hover {
-        transform: scale(1.15);
       }
     }
 
@@ -137,7 +136,6 @@
       height: 1.2rem;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      transform: translateY(-1.2rem);
 
       &::after {
         content: "";
@@ -147,10 +145,6 @@
         right: -15px;
         bottom: -20px;
       }
-
-      &:hover {
-        transform: scale(1.15);
-      }
     }
 
     &.add-left {
@@ -159,7 +153,6 @@
       width: 1.2rem;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
-      transform: translateX(1.2rem);
 
       &::after {
         content: "";
@@ -169,10 +162,6 @@
         right: -10px;
         bottom: -15px;
       }
-
-      &:hover {
-        transform: scale(1.15);
-      }
     }
 
     &.add-right {
@@ -181,7 +170,6 @@
       width: 1.2rem;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
-      transform: translateX(-1.2rem);
 
       &::after {
         content: "";
@@ -190,10 +178,6 @@
         left: -10px;
         right: -20px;
         bottom: -15px;
-      }
-
-      &:hover {
-        transform: scale(1.15);
       }
     }
   }

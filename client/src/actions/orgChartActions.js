@@ -76,10 +76,11 @@ export const addNode = (id, formData) => (dispatch) => {
  * @param {string} id - identifier of the node selected
  * @param {object} formData - formData collected from the form
  */
-export const addColleague = (id, formData) => (dispatch) => {
+export const addColleague = (id, formData, direction) => (dispatch) => {
+  console.log(id, formData, direction);
   dispatch({
     type: COLLEAGUE_ADDED,
-    payload: { id, formData },
+    payload: { id, formData, direction },
   });
   dispatchToast(`${formData.name} added!`, "SUCCESS");
 };
