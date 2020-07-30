@@ -3,6 +3,7 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
+import EmployeeInfoPanel from "./EmployeeInfoPanel";
 import useDownload from "../../hooks/useDownload";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
@@ -53,6 +54,10 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>
       </div>
+      <EmployeeInfoPanel
+        selectedNode={selectedNode}
+        setSelectedNode={setSelectedNode}
+      />
     </Fragment>
   );
 };
