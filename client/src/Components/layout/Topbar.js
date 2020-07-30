@@ -8,7 +8,7 @@ import {
 } from "../../actions/sideDrawerAction";
 import "./Topbar.scss";
 
-const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
+const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer, user }) => {
   return (
     <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
       {/* <div
@@ -27,10 +27,17 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
           or by starting from scratch below.
         </p>
       </div>
-      <div className="topbar-acions">
-        <a href="http://localhost:5000/api/v1/auth/google">
-          <i class="fab fa-google"></i> sign in with google
-        </a>
+
+      <div className="topbar-actions">
+        {user ? (
+          <button>
+            <i class="fas fa-sign-out-alt"></i> logout
+          </button>
+        ) : (
+          <a href="http://localhost:5000/api/v1/auth/google">
+            <i class="fab fa-google"></i> sign in with google
+          </a>
+        )}
         <Link to="/">HOME</Link>
       </div>
     </div>

@@ -20,3 +20,4 @@ export const SIDE_DRAWER_OPENED = "SIDE_DRAWER_OPENED";
 // Auth actions
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
+export const USER_LOGOUT = "USER_LOGOUT";

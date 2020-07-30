@@ -53,7 +53,7 @@
   }
 
   .heading {
-    font-size: 2.25rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: 1px;
@@ -62,10 +62,10 @@
   }
 
   .sub-heading {
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin-bottom: 0;
+    font-weight: 300;
     color: #fff;
-    letter-spacing: -0.5px;
     padding: 0 0.1rem;
 
     & > span {
@@ -84,7 +84,7 @@
     }
   }
 
-  .topbar-acions {
+  .topbar-actions {
     align-self: flex-start;
     margin-top: 0.7rem;
 
@@ -107,8 +107,33 @@
         background-color: lighten($main-color, 10%);
       }
 
-      &:not(last-child) {
-        margin-right: 0.3rem;
+      &:last-child {
+        margin-left: 0.5rem;
+      }
+    }
+
+    button {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      background-color: lighten($main-color, 3%);
+      color: #fff;
+      font: inherit;
+      font-weight: 400;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 0.2s ease-out;
+      border: none;
+
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+        background-color: lighten($main-color, 10%);
+      }
+
+      &:focus {
+        outline: none;
       }
     }
   }
