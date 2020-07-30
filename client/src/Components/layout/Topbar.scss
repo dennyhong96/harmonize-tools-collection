@@ -86,18 +86,18 @@
 
   a {
     display: inline-block;
-    padding: 0.3rem 0.7rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 5px;
     background-color: lighten($main-color, 3%);
     color: #fff;
     font: inherit;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: 0.8rem;
     text-transform: uppercase;
     text-decoration: none;
     transition: background-color 0.2s ease-out;
-    align-self: flex-end;
-    margin-bottom: 0.7rem;
+    align-self: flex-start;
+    margin-top: 0.7rem;
 
     &:hover {
       text-decoration: none;
