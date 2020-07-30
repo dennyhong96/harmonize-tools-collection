@@ -16,3 +16,7 @@ export const TEMPLATE_ERROR = "TEMPLATE_ERROR";
 // Side drawer actions
 export const SIDE_DRAWER_CLOSED = "SIDE_DRAWER_CLOSED";
 export const SIDE_DRAWER_OPENED = "SIDE_DRAWER_OPENED";
+
+// Auth actions
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
