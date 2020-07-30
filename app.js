@@ -1,17 +1,18 @@
 require("dotenv").config({ path: "./config/config.env" });
-const connectDB = require("./config/db");
-const passport = require("./config/passport");
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
+const passport = require("passport");
+const cookieSession = require("cookie-session");
 
 const xss = require("xss-clean");
 const helmet = require("helmet");
 const hpp = require("hpp");
 
-const User = require("./model/User");
+const connectDB = require("./config/db");
 const csvRouter = require("./routers/csvRouter");
+const authRouter = require("./routers/authRouter");
 
 const app = express();
 connectDB();
@@ -22,6 +23,14 @@ app.use(express.json());
 app.use(fileUpload());
 app.use(xss());
 app.use(hpp());
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_SECRET],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
@@ -31,22 +40,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client", "build")));
 }
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-  }
-);
-
 // Mount Routers
 app.use("/api/v1/csv", csvRouter);
+app.use("/auth", authRouter);
 
 // Catch all
 app.use("*", (req, res, next) => {
