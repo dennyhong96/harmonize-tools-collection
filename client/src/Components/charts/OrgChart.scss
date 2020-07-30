@@ -28,7 +28,7 @@
   transition: transform 0.12s, border 0.3s ease-out;
 
   &:hover {
-    border: 2px dashed lighten($main-color, 25%);
+    border: 2px dashed lighten($main-color, 28%);
   }
 
   &.with-drawer {
