@@ -21,7 +21,19 @@
 
 .orgchart.myChart {
   background: lighten($profile-cards-role-extra-light-grey, 33%);
-  transition: transform 0.2s ease-in-out;
+  border: 2px dashed transparent;
+  border-radius: 10px;
+  padding: 10rem 25rem;
+  cursor: move !important;
+  transition: transform 0.12s, border 0.3s ease-out;
+
+  &:hover {
+    border: 2px dashed lighten($main-color, 28%);
+  }
+
+  &.with-drawer {
+    padding: 10rem 12rem;
+  }
 }
 
 .orgchart.myChart > ul > li > ul li::before {

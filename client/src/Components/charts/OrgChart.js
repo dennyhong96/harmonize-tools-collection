@@ -3,6 +3,7 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
+import EmployeeInfoPanel from "./EmployeeInfoPanel";
 import useDownload from "../../hooks/useDownload";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
@@ -13,19 +14,20 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   const { handleDownload } = useDownload();
 
-  const orgCharatContainerRef = useRef();
+  const orgChartRef = useRef();
+  const orgChartContainer = useRef();
   useEffect(() => {
-    orgCharatContainerRef.current = document.querySelector(
-      ".orgchart-container"
-    );
-    console.log(orgCharatContainerRef.current);
+    orgChartContainer.current = document.querySelector(".orgchart-container");
+    orgChartRef.current = document.querySelector(".myChart");
   }, []);
 
   useEffect(() => {
     if (sideDrawer) {
-      orgCharatContainerRef.current.classList.add("move-right");
+      orgChartRef.current.classList.add("with-drawer");
+      orgChartContainer.current.classList.add("move-right");
     } else {
-      orgCharatContainerRef.current.classList.remove("move-right");
+      orgChartRef.current.classList.remove("with-drawer");
+      orgChartContainer.current.classList.remove("move-right");
     }
   }, [sideDrawer]);
 
@@ -44,11 +46,18 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         draggable={true}
         onClickNode={readSelectedNode}
         collapsible={false}
+        pan={true}
+        zoom={true}
       />
+      <i class="far fa-arrows-alt"></i>
       <div className="download-acitons">
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>
       </div>
+      <EmployeeInfoPanel
+        selectedNode={selectedNode}
+        setSelectedNode={setSelectedNode}
+      />
     </Fragment>
   );
 };

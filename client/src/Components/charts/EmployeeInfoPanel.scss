@@ -1,0 +1,53 @@
+@import "../../Custom.scss";
+
+.employee-card {
+  width: 15rem;
+  height: 10rem;
+  padding: 1rem;
+  background-color: #fff;
+  position: absolute;
+  top: 7rem;
+  left: 5rem;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(#000, 0.1);
+
+  transform: translateY(-500px);
+  opacity: 0;
+
+  transition: transform, opacity, 0.3s ease-out;
+
+  &-show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .employee-card-close {
+    padding: 0.25rem 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: lighten($dark-text, 35%);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .selected-employee {
+    transition: opacity 0.3s ease-out;
+
+    h6 {
+      font-size: 1rem;
+      color: $dark-text;
+      border-bottom: 2px solid $main-color;
+      display: block;
+      text-align: center;
+      padding: 0 0 0.2rem 0;
+      margin: 0 auto 1rem auto;
+      font-weight: bold;
+    }
+  }
+}

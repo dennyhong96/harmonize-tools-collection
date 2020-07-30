@@ -1,6 +1,7 @@
 @import "../../Custom.scss";
 
 .orgchart.myChart .oc-node .oc-inner {
+  cursor: default;
   width: 11rem;
   border-radius: 4.8px;
   box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);

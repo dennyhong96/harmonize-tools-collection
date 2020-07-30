@@ -87,7 +87,7 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
         <div className="email">{nodeData.email}</div>
         <hr />
         <div className="manager">Manager</div>
-        <div className="manager-name">{nodeData.manager}</div>
+        <div className="manager-name">{nodeData.manager || "-"}</div>
       </div>
       <EditEmployeeModal
         selectedNode={nodeData}
