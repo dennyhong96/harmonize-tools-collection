@@ -4,7 +4,6 @@ import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
 import useDownload from "../../hooks/useDownload";
-import ChartControl from "./ChartControl";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
 import "./OrgChart.scss";
@@ -46,10 +45,6 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         onClickNode={readSelectedNode}
         collapsible={false}
       />
-      {/* <ChartControl
-        selectedNode={selectedNode}
-        setSelectedNode={setSelectedNode}
-      /> */}
       <div className="download-acitons">
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>

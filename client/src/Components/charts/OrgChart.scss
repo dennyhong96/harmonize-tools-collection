@@ -59,14 +59,14 @@
 
   button {
     @extend %btn;
-    width: 8rem;
-    height: 2rem;
+    width: 6.8rem;
+    height: 1.8rem;
     border-radius: 93.3px;
     box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
-    border: 2px solid $main-color;
+    border: 1px solid $main-color;
     outline: none;
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 500;
     color: $main-color;
     margin: 0 0 0 1rem;
     background-color: #fff;
