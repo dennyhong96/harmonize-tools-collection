@@ -9,13 +9,6 @@ import {
 import "./Topbar.scss";
 
 const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
-  const toggleSideDrawer = () => {
-    if (sideDrawer) {
-      return closeSideDrawer();
-    }
-    return openSideDrawer();
-  };
-
   return (
     <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
       {/* <div
@@ -24,7 +17,16 @@ const topbar = ({ sideDrawer, closeSideDrawer, openSideDrawer }) => {
       >
         <i className="fas fa-chevron-right"></i>
       </div> */}
-      <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
+      <div className="">
+        <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
+        <p className="sub-heading">
+          Begin creating your chart by{" "}
+          <span onClick={() => openSideDrawer()}>
+            uploading your employee data
+          </span>{" "}
+          or by starting from scratch below.
+        </p>
+      </div>
       <Link to="/">HOME</Link>
     </div>
   );

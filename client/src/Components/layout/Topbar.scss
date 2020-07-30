@@ -61,6 +61,29 @@
     margin-bottom: 0;
   }
 
+  .sub-heading {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: #fff;
+    letter-spacing: -0.5px;
+    padding: 0 0.1rem;
+
+    & > span {
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;
+      cursor: pointer;
+      transition: background-color, color, 0.2s ease-out;
+    }
+
+    &:hover {
+      & > span {
+        background-color: #fff;
+        color: $main-color;
+        border-radius: 3px;
+      }
+    }
+  }
+
   a {
     display: inline-block;
     padding: 0.3rem 0.7rem;
