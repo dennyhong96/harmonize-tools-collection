@@ -37,8 +37,8 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   return (
     <Fragment>
-      <ZoomControl />
-      <PanControl />
+      {/* <ZoomControl />
+      <PanControl /> */}
 
       <OrganizationChart
         datasource={orgData}
@@ -51,10 +51,10 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         zoom={true}
       />
       <i class="far fa-arrows-alt"></i>
-      <div className="download-acitons">
+      {/* <div className="download-acitons">
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>
-      </div>
+      </div> */}
       <EmployeeInfoPanel
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
