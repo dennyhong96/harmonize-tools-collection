@@ -10,6 +10,7 @@ const xss = require("xss-clean");
 const helmet = require("helmet");
 const hpp = require("hpp");
 
+const User = require("./model/User");
 const csvRouter = require("./routers/csvRouter");
 
 const app = express();
@@ -29,6 +30,20 @@ if (process.env.NODE_ENV !== "production") {
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client", "build")));
 }
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  }
+);
 
 // Mount Routers
 app.use("/api/v1/csv", csvRouter);

@@ -6,15 +6,18 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://www.example.com/auth/google/callback",
+      callbackURL: "/auth/google/callback",
     },
-    function (accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return cb(err, user);
-      // });
-      console.log(accessToken);
+    function (accessToken, refreshToken, profile, done) {
+      const {
+        displayName: name,
+        emails: [{ value: email }],
+        photos: [{ value: photo }],
+      } = profile;
+      console.log(name, email, photo);
+      done();
     }
   )
 );
 
-modules.exports = passport;
+module.exports = passport;
