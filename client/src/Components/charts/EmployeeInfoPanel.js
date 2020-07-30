@@ -3,26 +3,23 @@ import { connect } from "react-redux";
 
 import "./EmployeeInfoPanel.scss";
 
-const EmployeeInfoPanel = ({ selectedNode, setSelectedNode, sideDrawer }) => {
+const EmployeeInfoPanel = ({ sideDrawer, user }) => {
   return (
     <div
       className={`employee-card ${
-        !sideDrawer && selectedNode ? "employee-card-show" : ""
+        !sideDrawer && user ? "employee-card-show" : ""
       }`}
     >
-      <div
-        className="employee-card-close"
-        onClick={() => setSelectedNode(null)}
-      >
+      <div className="employee-card-close">
         <i className="fas fa-times"></i>
       </div>
       <div className="selected-employee">
-        <h6>{selectedNode && selectedNode.name}</h6>
+        {user && <p className="name">{user.name}'s Chart</p>}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ sideDrawer }) => ({ sideDrawer });
+const mapStateToProps = ({ sideDrawer, user }) => ({ sideDrawer, user });
 
 export default connect(mapStateToProps)(EmployeeInfoPanel);

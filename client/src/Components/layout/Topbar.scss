@@ -137,4 +137,14 @@
       }
     }
   }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
 }

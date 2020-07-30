@@ -53,6 +53,11 @@ const topbar = ({
         )}
         <Link to="/">HOME</Link>
       </div>
+      {user && (
+        <div className="avatar">
+          <img src={user.photo} alt="user photo" />
+        </div>
+      )}
     </div>
   );
 };
