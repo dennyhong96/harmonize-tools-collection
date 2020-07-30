@@ -1,17 +1,202 @@
 @import "../../Custom.scss";
 
 .orgchart.myChart .oc-node .oc-inner {
-  width: 12rem;
+  width: 11rem;
   border-radius: 4.8px;
   box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
   border: 1px solid rgba(47, 83, 151, 0.2);
   background-color: $check-mark-white;
-  padding: 1rem 0;
-
+  padding: 0.8rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+
+  .more-options-dropdown {
+    position: absolute;
+    right: 0.6rem;
+    top: 0.6rem;
+
+    .more-options-dropdown-btn {
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 1px solid rgba(#000, 0.1);
+      background-color: #fff !important;
+      color: $main-color;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(#000, 0.1);
+      opacity: 0;
+      transition: opacity, transform, 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .more-options-dropdown-menu {
+      top: 0.2rem !important;
+      left: -1rem !important;
+      padding: 0.5rem;
+      border-radius: 0;
+      border: 1px solid rgba(#000, 0.05);
+      box-shadow: 0 1px 3px rgba(#000, 0.1);
+
+      button {
+        padding: 0.3rem 0;
+        font-size: 0.8rem;
+        color: $dark-text;
+        text-align: center;
+        transition: background-color, 0.2s ease-out;
+
+        &:hover {
+          background-color: lighten($greyed-out-chart-content, 20%);
+        }
+
+        &:focus,
+        &:active {
+          background-color: inherit;
+          outline: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .more-options-dropdown-btn {
+      opacity: 1;
+    }
+
+    .onclick-add {
+      z-index: 1;
+      opacity: 1;
+
+      &.add-top,
+      &.add-bottom {
+        transform: translateY(0);
+      }
+
+      &.add-left,
+      &.add-right {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .onclick-add {
+    z-index: 1;
+    position: absolute;
+    background-color: lighten($main-color, 5%);
+    color: #fff;
+    cursor: pointer;
+    transition: transform, opacity, z-index, 0.2s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    opacity: 0;
+    font-size: 0.8rem;
+
+    &.add-top {
+      top: -1.2rem;
+      width: 2.5rem;
+      height: 1.2rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transform: translateY(1.2rem);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -15px;
+        right: -15px;
+        bottom: -10px;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &.add-bottom {
+      bottom: -1rem;
+      bottom: -1.2rem;
+      width: 2.5rem;
+      height: 1.2rem;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transform: translateY(-1.2rem);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -15px;
+        right: -15px;
+        bottom: -20px;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &.add-left {
+      left: -1.2rem;
+      height: 2.5rem;
+      width: 1.2rem;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      transform: translateX(1.2rem);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: -20px;
+        right: -10px;
+        bottom: -15px;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &.add-right {
+      right: -1.2rem;
+      height: 2.5rem;
+      width: 1.2rem;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transform: translateX(-1.2rem);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        right: -20px;
+        bottom: -15px;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
 
   .user {
     width: 3.5rem;
@@ -33,41 +218,46 @@
   }
 
   .name {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: $dark-text;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .title {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: $dark-text;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
 
   .email {
-    font-size: 0.625rem;
+    font-size: 0.5rem;
     color: $light-grey-text-profile-cards;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
 
   hr {
     width: 7rem;
-    height: 1px;
-    background-color: $dark-text;
+    background-color: lighten($dark-text, 15%);
     margin: 0;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
 
   .manager {
     font-size: 0.5rem;
     font-weight: bold;
     color: $dark-text;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
 
   .manager-name {
     font-size: 0.4rem;
     color: $light-grey-text-profile-cards;
   }
+}
+
+// Disable the yellow border on selected node
+.orgchart ul li .oc-node,
+.orgchart ul li .oc-node:hover {
+  background-color: transparent !important;
 }

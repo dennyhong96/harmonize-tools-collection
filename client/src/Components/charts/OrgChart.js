@@ -41,6 +41,7 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         NodeTemplate={OrgChartNode}
         draggable={true}
         onClickNode={readSelectedNode}
+        collapsible={false}
       />
       <ChartControl
         selectedNode={selectedNode}
