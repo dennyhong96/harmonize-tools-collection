@@ -20,6 +20,18 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
   return (
     <div>
       <div className="oc-inner">
+        <div className="onclick-add add-top">
+          <i className="fas fa-plus"></i>
+        </div>
+        <div className="onclick-add add-bottom">
+          <i className="fas fa-plus"></i>
+        </div>
+        <div className="onclick-add add-left">
+          <i className="fas fa-plus"></i>
+        </div>
+        <div className="onclick-add add-right">
+          <i className="fas fa-plus"></i>
+        </div>
         <Dropdown className="more-options-dropdown">
           <Dropdown.Toggle
             id="dropdown-basic"
