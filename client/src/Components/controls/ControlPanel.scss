@@ -8,6 +8,7 @@
   left: 0;
   // min-height: calc(100vh - 9.4rem);
   top: 0;
+  height: 100%;
   bottom: 0;
   box-shadow: 0 2px 6px 0 rgba(#000, 0.2);
   transition: margin, box-shadow, 0.3s ease-out;
@@ -15,7 +16,8 @@
   border-bottom-right-radius: 20px;
   padding: 0 2rem;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: center;
 
   .toggler-btn {
