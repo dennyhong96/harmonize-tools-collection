@@ -3,19 +3,17 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
-import EmployeeInfoPanel from "./EmployeeInfoPanel";
-import useDownload from "../../hooks/useDownload";
-import ZoomControl from "./ZoomControl";
-import PanControl from "./PanControl";
+import ChartListPanel from "../charts/ChartListPanel";
+import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
 
-const OrgChart = ({ orgData, sideDrawer }) => {
+const OrgChart = ({ chart, sideDrawer, isEditing }) => {
   const [selectedNode, setSelectedNode] = useState(null);
-
-  const { handleDownload } = useDownload();
+  const [chartListShow, setChartListShow] = useState(false);
 
   const orgChartRef = useRef();
   const orgChartContainer = useRef();
+
   useEffect(() => {
     orgChartContainer.current = document.querySelector(".orgchart-container");
     orgChartRef.current = document.querySelector(".myChart");
@@ -37,32 +35,35 @@ const OrgChart = ({ orgData, sideDrawer }) => {
 
   return (
     <Fragment>
-      {/* <ZoomControl />
-      <PanControl /> */}
-
       <OrganizationChart
-        datasource={orgData}
+        datasource={chart.currentChart}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
-        draggable={true}
+        draggable={!!chart.currentChart.id}
         onClickNode={readSelectedNode}
         collapsible={false}
-        pan={true}
+        pan={!isEditing}
         zoom={true}
       />
       <i class="far fa-arrows-alt"></i>
-      {/* <div className="download-acitons">
-        <button onClick={() => handleDownload("JPG")}>Download JPG</button>
-        <button onClick={() => handleDownload("PDF")}>Download PDF</button>
-      </div> */}
-      <EmployeeInfoPanel
+      <ActionsPanel
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
+        setChartListShow={setChartListShow}
+      />
+      <ChartListPanel
+        chartListShow={chartListShow}
+        setChartListShow={setChartListShow}
+        chart={chart}
       />
     </Fragment>
   );
 };
 
-const mapStateToProps = ({ orgData, sideDrawer }) => ({ orgData, sideDrawer });
+const mapStateToProps = ({ chart, sideDrawer, isEditing }) => ({
+  chart,
+  sideDrawer,
+  isEditing,
+});
 
 export default connect(mapStateToProps)(OrgChart);

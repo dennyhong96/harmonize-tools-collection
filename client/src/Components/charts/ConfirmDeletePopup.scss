@@ -2,16 +2,16 @@
 
 .delete-popup {
   .modal-content {
-    border-radius: 1rem !important;
+    border-radius: 10px !important;
     border: none;
 
     .modal-body {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.7rem 0.2rem 0.7rem;
 
       p {
         margin: 0;
+        font-size: 0.8rem;
         color: $dark-text;
-        text-align: center;
 
         .fas,
         .attention {
@@ -21,15 +21,16 @@
     }
 
     .modal-footer {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem;
       border-top: 1px solid lighten($divider-grey, 25%);
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
+      padding: 0.25rem 0.7rem 0.2rem 0.7rem;
 
       %btn {
         transition: translateY, box-shadow, 0.2s ease;
-        width: 6rem;
-        height: 1.8rem;
+        width: 4rem;
+        height: 1.4rem;
         border-radius: 93.3px;
         box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
 

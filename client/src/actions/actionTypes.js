@@ -7,8 +7,11 @@ export const COLLEAGUE_ADDED = "COLLEAGUE_ADDED";
 export const MANAGER_ADDED = "MANAGER_ADDED";
 export const NEW_HEAD_ADDED = "NEW_HEAD_ADDED";
 export const NODE_DELETED = "NODE_DELETED";
-export const CHART_UPDATED = "CHART_UPDATED";
-export const CHART_DOWNLOADED = "CHART_DOWNLOADED";
+export const FIRST_NODE_ADDED = "FIRST_NODE_ADDED";
+export const CHART_SAVED = "CHART_SAVED";
+export const CHARTS_LOADED = "CHARTS_LOADED";
+export const START_NEW_CHART = "START_NEW_CHART";
+export const CHART_SELECTED = "CHART_SELECTED";
 
 // Csv Template actions
 export const TEMPLATE_DOWNLOADED = "TEMPLATE_DOWNLOADED";
@@ -23,3 +26,7 @@ export const SIDE_DRAWER_OPENED = "SIDE_DRAWER_OPENED";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const USER_LOGOUT = "USER_LOGOUT";
+
+// Editng
+export const EDITING_STARTED = "EDITING_STARTED";
+export const EDITING_ENDED = "EDITING_ENDED";

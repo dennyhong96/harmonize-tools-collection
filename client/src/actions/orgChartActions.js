@@ -10,6 +10,11 @@ import {
   NEW_HEAD_ADDED,
   NODE_DELETED,
   MANAGER_ADDED,
+  CHARTS_LOADED,
+  CHART_SAVED,
+  START_NEW_CHART,
+  FIRST_NODE_ADDED,
+  CHART_SELECTED,
 } from "./actionTypes";
 
 /**
@@ -49,10 +54,17 @@ export const uploadOrgData = (file) => async (dispatch) => {
  * @param {object} formData - formData collected from the form
  */
 export const updateNode = (id, formData) => (dispatch) => {
-  dispatch({
-    type: NODE_MODIFIED,
-    payload: { id, formData },
-  });
+  if (!id) {
+    dispatch({
+      type: FIRST_NODE_ADDED,
+      payload: formData,
+    });
+  } else {
+    dispatch({
+      type: NODE_MODIFIED,
+      payload: { id, formData },
+    });
+  }
   dispatchToast(`${formData.name} updated!`, "SUCCESS");
 };
 
@@ -108,19 +120,6 @@ export const addManager = (formData, selectedNode) => (dispatch) => {
   dispatchToast(`${formData.name} added as new manager!`, "SUCCESS");
 };
 
-// /**
-//  * @function addNewHead
-//  * Dispath action to modify state according to formData
-//  * @param {object} formData - formData collected from the form
-//  */
-// export const addNewHead = (formData) => (dispatch) => {
-//   dispatch({
-//     type: NEW_HEAD_ADDED,
-//     payload: formData,
-//   });
-//   dispatchToast(`${formData.name} added as new root!`, "SUCCESS");
-// };
-
 /**
  * @function deleteNode
  * Dispath action to modify state according to formData
@@ -133,4 +132,60 @@ export const deleteNode = (selectedNode) => (dispatch) => {
     payload: selectedNode,
   });
   dispatchToast(`${selectedNode.name} deleted!`, "SUCCESS");
+};
+
+export const createChart = (chartName = "default") => async (
+  dispatch,
+  getState
+) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const {
+      chart: { currentChart: chartData },
+    } = getState();
+    const res = await axios.post(
+      "/api/v1/charts",
+      { chartName, chartData },
+      config
+    );
+    dispatch({
+      type: CHART_SAVED,
+      payload: JSON.parse(res.data.data.chart.chartData),
+    });
+    dispatchToast("Chart saved to cloud!", "SUCCESS");
+  } catch (error) {
+    console.error(error.response);
+  }
+};
+
+export const loadCharts = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/v1/charts");
+    console.log(res.data);
+    dispatch({
+      type: CHARTS_LOADED,
+      payload: res.data.data.charts,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const startNewChart = () => (dispatch) => {
+  dispatch({
+    type: START_NEW_CHART,
+  });
+  dispatchToast("Edit the node to get started!", "INFO");
+};
+
+export const editChart = (chartInfo) => (dispatch) => {
+  dispatch({
+    type: CHART_SELECTED,
+    payload: chartInfo,
+  });
+  dispatchToast(`Now editing chart: ${chartInfo.chartName}`, "INFO");
 };

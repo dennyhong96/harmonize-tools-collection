@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import AddEmployeeModal from "./AddEmployeeModal";
@@ -9,7 +10,7 @@ import { deleteNode } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
-const OrgChartNode = ({ nodeData, deleteNode }) => {
+const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
@@ -20,27 +21,39 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
     setDeletePopupShow(false);
   };
 
+  useEffect(() => {
+    if (editModalShow || addModalShow || deletePopupShow) {
+      startEditing();
+    } else {
+      endEditing();
+    }
+  }, [editModalShow, addModalShow, deletePopupShow]);
+
   return (
     <div>
       <div className="oc-inner">
-        <div
-          className="onclick-add add-top"
-          onClick={() => {
-            setAddMode("HEAD");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
-        <div
-          className="onclick-add add-bottom"
-          onClick={() => {
-            setAddMode("DIRECT_REPORT");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
+        {nodeData.id && (
+          <div
+            className="onclick-add add-top"
+            onClick={() => {
+              setAddMode("HEAD");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
+        {nodeData.id && (
+          <div
+            className="onclick-add add-bottom"
+            onClick={() => {
+              setAddMode("DIRECT_REPORT");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
         {nodeData.manager && (
           <div
             className="onclick-add add-left"
@@ -74,9 +87,14 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
             <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
               Edit employee
             </Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => setDeletePopupShow(true)}>
-              Delete employee
-            </Dropdown.Item>
+            {nodeData.id && (
+              <Dropdown.Item
+                as="button"
+                onClick={() => setDeletePopupShow(true)}
+              >
+                Delete employee
+              </Dropdown.Item>
+            )}
           </Dropdown.Menu>
         </Dropdown>
         <div className="user">
@@ -112,4 +130,6 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
   );
 };
 
-export default connect(null, { deleteNode })(OrgChartNode);
+export default connect(null, { deleteNode, startEditing, endEditing })(
+  OrgChartNode
+);

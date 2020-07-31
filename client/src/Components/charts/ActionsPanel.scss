@@ -2,8 +2,7 @@
 
 .employee-card {
   width: 12rem;
-
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.8rem;
   background-color: #fff;
   position: absolute;
   top: 7rem;
@@ -11,11 +10,9 @@
   z-index: 10;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(#000, 0.2);
-
   transform: translateY(-500px);
   opacity: 0;
-
-  transition: transform, opacity, 0.3s ease-out;
+  transition: transform, opacity, 0.3s ease;
 
   &-show {
     transform: translateY(0);
@@ -60,20 +57,31 @@
     margin-bottom: 0.2rem;
     text-align: center;
     font-weight: 500;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
     border-bottom: 1px solid lighten($main-color, 0.15);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .action-list {
     .action-item {
-      padding: 0.3rem 0;
+      padding: 0.35rem 0;
       font-size: 0.7rem;
       text-align: center;
 
       &:focus {
         outline: none;
       }
+
+      &.disabled-item {
+        cursor: default;
+        background-color: initial;
+        color: lighten($divider-grey, 15%);
+      }
     }
   }
+}
+
+.my-tooltip {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Form } from "react-bootstrap";
+import { Modal, ModalDialog, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import dispatchToast from "../../utils/toast";
@@ -35,16 +35,17 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   return (
     <Modal
       {...otherProps}
-      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       className="chart-control-modal"
+      size="sm"
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           EDIT EMPLOYEE
         </Modal.Title>
       </Modal.Header>
+
       <Modal.Body>
         <Form>
           <Form.Group>
@@ -79,6 +80,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
           </Form.Group>
         </Form>
       </Modal.Body>
+
       <Modal.Footer>
         <button className="close-btn" onClick={otherProps.onHide}>
           Back

@@ -9,30 +9,71 @@ import {
   COLLEAGUE_ADDED,
   NEW_HEAD_ADDED,
   NODE_DELETED,
+  FIRST_NODE_ADDED,
   MANAGER_ADDED,
+  CHART_SAVED,
+  START_NEW_CHART,
+  CHARTS_LOADED,
+  CHART_SELECTED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
-const INITIAL_STATE = exampleData;
+const INITIAL_STATE = {
+  chartList: null,
+  currentChartId: null,
+  currentChart: exampleData,
+};
 
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
+
   switch (type) {
+    case CHART_SAVED:
+      return { ...state, currentChart: { ...payload } };
+
     case ORG_DATA_FETCHED:
-      return payload;
+      return { ...state, currentChart: payload };
+
+    case START_NEW_CHART:
+      return { ...state, currentChart: {} };
+
+    case CHART_SELECTED:
+      return {
+        ...state,
+        currentChartId: payload,
+        currentChart: JSON.parse(payload.chartData),
+      };
+
     case ORG_DATA_ERROR:
       return INITIAL_STATE;
+
+    case FIRST_NODE_ADDED:
+      return {
+        ...state,
+        currentChart: {
+          ...payload,
+          id: `oc-${uuidv4()}`,
+          manager: "",
+          managerId: "",
+          children: [],
+        },
+      };
+
+    case CHARTS_LOADED:
+      return { ...state, chartList: payload };
+
     case NODE_MODIFIED:
       const { name, title, email } = payload.formData;
-      const stateAfterModified = { ...state };
-      const selectedNode = findNode(payload.id, stateAfterModified);
+      const curChartModified = { ...state.currentChart };
+      const selectedNode = findNode(payload.id, curChartModified);
       selectedNode.name = name;
       selectedNode.title = title;
       selectedNode.email = email;
-      return stateAfterModified;
+      return { ...state, currentChart: curChartModified };
+
     case NODE_ADDED:
-      const stateAfterAdded = { ...state };
-      const parentNode = findNode(payload.id, stateAfterAdded);
+      const curChartAdded = { ...state.currentChart };
+      const parentNode = findNode(payload.id, curChartAdded);
       parentNode.children.push({
         ...payload.formData,
         id: `oc-${uuidv4()}`, // html el id must start with letter
@@ -40,12 +81,13 @@ export default (state = INITIAL_STATE, action) => {
         manager: parentNode.name,
         managerId: parentNode.id,
       });
-      return stateAfterAdded;
+      return { ...state, currentChart: curChartAdded };
+
     case COLLEAGUE_ADDED:
-      const stateAfterColleagueAdded = { ...state };
-      const commonManagerId = findNode(payload.id, stateAfterColleagueAdded)
+      const curChartColleagueAdded = { ...state.currentChart };
+      const commonManagerId = findNode(payload.id, curChartColleagueAdded)
         .managerId;
-      const commonManager = findNode(commonManagerId, stateAfterColleagueAdded);
+      const commonManager = findNode(commonManagerId, curChartColleagueAdded);
       let selectedIndex = commonManager.children.findIndex(
         (child) => child.id === payload.id
       );
@@ -59,27 +101,32 @@ export default (state = INITIAL_STATE, action) => {
         manager: commonManager.name,
         managerId: commonManager.id,
       });
-      return stateAfterColleagueAdded;
+      return { ...state, currentChart: curChartColleagueAdded };
+
     case NEW_HEAD_ADDED:
       const newHeadId = `oc-${uuidv4()}`;
-      const oldHead = { ...state };
+      const oldHead = { ...state.currentChart };
       oldHead.manager = payload.name;
       oldHead.managerId = newHeadId;
       return {
-        name: payload.name,
-        title: payload.title,
-        email: payload.email,
-        id: newHeadId,
-        children: [oldHead],
-        manager: "",
-        managerId: "",
+        ...state,
+        currentChart: {
+          name: payload.name,
+          title: payload.title,
+          email: payload.email,
+          id: newHeadId,
+          children: [oldHead],
+          manager: "",
+          managerId: "",
+        },
       };
+
     case MANAGER_ADDED:
       const newMangerId = `oc-${uuidv4()}`;
-      const stateBeforeAddManager = { ...state };
+      const curChartManagerAdded = { ...state.currentChart };
       const oldManager = findNode(
         payload.selectedNode.managerId,
-        stateBeforeAddManager
+        curChartManagerAdded
       );
       oldManager.children = oldManager.children.filter((child) => {
         return child.id !== payload.selectedNode.id;
@@ -93,19 +140,26 @@ export default (state = INITIAL_STATE, action) => {
         managerId: oldManager.id,
         children: [payload.selectedNode],
       });
-      return stateBeforeAddManager;
+      return { ...state, currentChart: curChartManagerAdded };
+
     case NODE_DELETED:
-      const stateAfterDeleted = { ...state };
-      const { managerId } = findNode(payload.id, stateAfterDeleted);
+      const curChartNodeDeleted = { ...state.currentChart };
+      const { managerId } = findNode(payload.id, curChartNodeDeleted);
+      console.log(managerId);
       if (!managerId) {
-        // Deleting the root node
-        return {};
+        // Handle deleting the root node
+        return { ...state, currentChart: {} };
       }
-      let manager = findNode(managerId, stateAfterDeleted);
+      let manager = findNode(managerId, curChartNodeDeleted);
       manager.children = manager.children.filter((ch) => ch.id !== payload.id);
-      // manager.children = manager.children.concat(payload.children);
+      // Asign new manager for deleted nodes'children
+      payload.children.forEach((child) => {
+        child.manager = manager.name;
+        child.managerId = manager.id;
+      });
       manager.children = [...manager.children, ...payload.children];
-      return stateAfterDeleted;
+
+      return { ...state, currentChart: curChartNodeDeleted };
     default:
       return state;
   }
