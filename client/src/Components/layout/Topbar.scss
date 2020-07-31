@@ -84,11 +84,10 @@
       padding-right: 0.1rem;
       cursor: pointer;
       transition: background-color, color, 0.2s ease-out;
-
+      border-radius: 1px;
       &:hover {
         background-color: #fff;
         color: $main-color;
-        border-radius: 3px;
       }
     }
   }
