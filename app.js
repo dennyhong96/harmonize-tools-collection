@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === "production") {
 // Mount Routers
 app.use("/api/v1/csv", csvRouter);
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/chart", chartRouter);
+app.use("/api/v1/charts", chartRouter);
 
 app.use(errorHandler);
 
