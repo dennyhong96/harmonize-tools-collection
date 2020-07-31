@@ -4,7 +4,7 @@ import { ListGroup } from "react-bootstrap";
 
 import {
   createChart,
-  loadChart,
+  loadCharts,
   startNewChart,
 } from "../../actions/orgChartActions";
 import useDownload from "../../hooks/useDownload";
@@ -14,7 +14,7 @@ const EmployeeInfoPanel = ({
   sideDrawer,
   user,
   createChart,
-  loadChart,
+  loadCharts,
   setChartListShow,
   startNewChart,
 }) => {
@@ -28,7 +28,7 @@ const EmployeeInfoPanel = ({
   }, []);
 
   const handleLoadCharts = async () => {
-    await loadChart();
+    await loadCharts();
     setChartListShow(true);
   };
 
@@ -91,6 +91,6 @@ const mapStateToProps = ({ sideDrawer, user }) => ({ sideDrawer, user });
 
 export default connect(mapStateToProps, {
   createChart,
-  loadChart,
+  loadCharts,
   startNewChart,
 })(EmployeeInfoPanel);

@@ -20,11 +20,11 @@ exports.createChart = asyncHandler(async (req, res, next) => {
 });
 
 exports.loadCharts = asyncHandler(async (req, res, next) => {
-  const chart = await Chart.find({ userId: req.user.id }).sort({
+  const charts = await Chart.find({ userId: req.user.id }).sort({
     createdAt: -1,
   });
   res.status(200).json({
     status: "success",
-    data: { chart },
+    data: { charts },
   });
 });

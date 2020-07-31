@@ -64,6 +64,7 @@ const OrgChart = ({ chart, sideDrawer }) => {
       <ChartListPanel
         chartListShow={chartListShow}
         setChartListShow={setChartListShow}
+        charts={chart.chartList}
       />
     </Fragment>
   );

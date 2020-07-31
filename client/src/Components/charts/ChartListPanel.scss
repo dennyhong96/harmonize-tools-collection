@@ -46,7 +46,7 @@
   }
 
   .chart-list-inner {
-    height: 15rem;
+    max-height: 15rem;
 
     overflow: scroll;
     .chart-table {

@@ -13,11 +13,13 @@ import {
   MANAGER_ADDED,
   CHART_SAVED,
   START_NEW_CHART,
+  CHARTS_LOADED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
 const INITIAL_STATE = {
   chartList: null,
+  currentChartId: null,
   currentChart: exampleData,
 };
 
@@ -48,6 +50,9 @@ export default (state = INITIAL_STATE, action) => {
           children: [],
         },
       };
+
+    case CHARTS_LOADED:
+      return { ...state, chartList: payload };
 
     case NODE_MODIFIED:
       const { name, title, email } = payload.formData;

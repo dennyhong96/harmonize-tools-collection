@@ -9,7 +9,7 @@ export const NEW_HEAD_ADDED = "NEW_HEAD_ADDED";
 export const NODE_DELETED = "NODE_DELETED";
 export const FIRST_NODE_ADDED = "FIRST_NODE_ADDED";
 export const CHART_SAVED = "CHART_SAVED";
-export const CHART_LOADED = "CHART_LOADED";
+export const CHARTS_LOADED = "CHARTS_LOADED";
 export const START_NEW_CHART = "START_NEW_CHART";
 
 // Csv Template actions

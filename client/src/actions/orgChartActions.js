@@ -10,7 +10,7 @@ import {
   NEW_HEAD_ADDED,
   NODE_DELETED,
   MANAGER_ADDED,
-  CHART_LOADED,
+  CHARTS_LOADED,
   CHART_SAVED,
   START_NEW_CHART,
   FIRST_NODE_ADDED,
@@ -159,10 +159,14 @@ export const createChart = (chartName = "default") => async (
   }
 };
 
-export const loadChart = () => async (dispatch) => {
+export const loadCharts = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/v1/charts");
     console.log(res.data);
+    dispatch({
+      type: CHARTS_LOADED,
+      payload: res.data.data.charts,
+    });
   } catch (error) {
     console.error(error);
   }
@@ -174,3 +178,5 @@ export const startNewChart = () => (dispatch) => {
   });
   dispatchToast("Edit the node to get started!", "INFO");
 };
+
+export const editChart = () => (dispatch) => {};

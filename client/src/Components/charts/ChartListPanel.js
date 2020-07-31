@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 
 import "./ChartListPanel.scss";
 
-const ChartListPanel = ({ chartListShow, setChartListShow }) => {
+const ChartListPanel = ({ charts, chartListShow, setChartListShow }) => {
   return (
     <div className={`chart-list ${chartListShow ? "chart-list-show" : ""}`}>
       <div className="chart-list-close" onClick={() => setChartListShow(false)}>
@@ -20,42 +20,18 @@ const ChartListPanel = ({ chartListShow, setChartListShow }) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
+            {charts &&
+              charts.map((chart) => (
+                <tr>
+                  <td>{chart.chartName}</td>
+                  <td>{new Date(chart.createdAt).toDateString()}</td>
+                  <td className="load-td">
+                    <button className="load-btn">
+                      <i class="fas fa-cloud-download-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>
