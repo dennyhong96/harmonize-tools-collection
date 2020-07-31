@@ -13,6 +13,7 @@ const hpp = require("hpp");
 const connectDB = require("./config/db");
 const csvRouter = require("./routers/csvRouter");
 const authRouter = require("./routers/authRouter");
+const chartRouter = require("./routers/chartRouter");
 
 const app = express();
 connectDB();
@@ -43,6 +44,7 @@ if (process.env.NODE_ENV === "production") {
 // Mount Routers
 app.use("/api/v1/csv", csvRouter);
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/chart", chartRouter);
 
 // Catch all
 if (process.env.NODE_ENV === "production") {

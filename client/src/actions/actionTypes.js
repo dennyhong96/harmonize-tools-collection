@@ -7,6 +7,8 @@ export const COLLEAGUE_ADDED = "COLLEAGUE_ADDED";
 export const MANAGER_ADDED = "MANAGER_ADDED";
 export const NEW_HEAD_ADDED = "NEW_HEAD_ADDED";
 export const NODE_DELETED = "NODE_DELETED";
+export const CHART_UPDATED = "CHART_UPDATED";
+export const CHART_DOWNLOADED = "CHART_DOWNLOADED";
 
 // Csv Template actions
 export const TEMPLATE_DOWNLOADED = "TEMPLATE_DOWNLOADED";
