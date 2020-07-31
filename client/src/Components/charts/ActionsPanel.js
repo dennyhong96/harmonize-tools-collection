@@ -26,7 +26,7 @@ const EmployeeInfoPanel = ({
   useEffect(() => {
     setTimeout(() => {
       setShowWidget(true);
-    }, 1000);
+    }, 500);
   }, []);
 
   const handleLoadCharts = async () => {

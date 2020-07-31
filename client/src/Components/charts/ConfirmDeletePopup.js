@@ -19,7 +19,7 @@ const ConfirmDeletePopup = ({
       className="delete-popup"
     >
       <Modal.Body>
-        {/* {selectedNode &&
+        {selectedNode &&
           (selectedNode.manager && selectedNode.children.length ? (
             <p>
               <i className="fas fa-exclamation-circle"></i>{" "}
@@ -40,7 +40,7 @@ const ConfirmDeletePopup = ({
               <strong>{selectedNode.name}</strong> will delete the whole chart
               as he/she is the root node
             </p>
-          ))} */}
+          ))}
       </Modal.Body>
       <Modal.Footer>
         <button className="close-btn" onClick={onHide}>

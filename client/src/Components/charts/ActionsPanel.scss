@@ -12,7 +12,7 @@
   box-shadow: 0 2px 4px rgba(#000, 0.2);
   transform: translateY(-500px);
   opacity: 0;
-  transition: transform, opacity, 0.3s ease-in-out;
+  transition: transform, opacity, 0.3s ease;
 
   &-show {
     transform: translateY(0);
