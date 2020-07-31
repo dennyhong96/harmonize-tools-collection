@@ -10,7 +10,7 @@ import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
 import "./OrgChart.scss";
 
-const OrgChart = ({ orgData, sideDrawer }) => {
+const OrgChart = ({ chart, sideDrawer }) => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [chartListShow, setChartListShow] = useState(false);
 
@@ -42,7 +42,7 @@ const OrgChart = ({ orgData, sideDrawer }) => {
       <PanControl /> */}
 
       <OrganizationChart
-        datasource={orgData}
+        datasource={chart.currentChart}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={true}
@@ -69,6 +69,6 @@ const OrgChart = ({ orgData, sideDrawer }) => {
   );
 };
 
-const mapStateToProps = ({ orgData, sideDrawer }) => ({ orgData, sideDrawer });
+const mapStateToProps = ({ chart, sideDrawer }) => ({ chart, sideDrawer });
 
 export default connect(mapStateToProps)(OrgChart);
