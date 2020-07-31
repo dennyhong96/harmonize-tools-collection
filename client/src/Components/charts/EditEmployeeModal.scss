@@ -3,18 +3,19 @@
 .chart-control-modal {
   // !important to overwrite bootstrap default modal style here
   .modal-header {
-    padding: 1rem 2rem 0.7rem 2rem !important;
+    padding: 0.5rem 1rem 0.2rem !important;
     border-bottom: 2px solid $main-color !important;
 
     .modal-title {
-      font-size: 1.2rem;
-      font-weight: bold;
+      font-size: 1rem;
+      font-weight: 500;
       color: $dark-text;
     }
   }
 
   .modal-content {
-    border-radius: 1rem !important;
+    border-radius: 10px !important;
+    border: none;
   }
 
   .close {
@@ -27,9 +28,12 @@
   }
 
   .modal-body {
-    padding: 0.7rem 2rem !important;
+    padding: 0.7rem 1rem !important;
 
     form {
+      .form-group {
+        margin-bottom: 0.5rem;
+      }
       .form-group:last-child {
         margin-bottom: 0;
       }
@@ -38,12 +42,14 @@
         border-radius: 25px;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.7rem;
       }
     }
   }
 
   .modal-footer {
-    padding: 0.7rem 2rem 1rem 0.7rem !important;
+    padding: 0.2rem 1rem 0.5rem !important;
 
     %btn {
       transition: translateY, box-shadow, 0.2s ease;
@@ -61,8 +67,8 @@
 
     .confirm-btn {
       @extend %btn;
-      width: 8rem;
-      height: 2rem;
+      width: 4.2rem;
+      height: 1.4rem;
       border-radius: 93.3px;
       box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
       background-color: $main-color;
@@ -79,8 +85,8 @@
 
     .close-btn {
       @extend %btn;
-      width: 8rem;
-      height: 2rem;
+      width: 4.2rem;
+      height: 1.4rem;
       border-radius: 93.3px;
       box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
       background-color: $progress-circle-light-blue-bg;

@@ -49,7 +49,7 @@ const AddEmployeeModal = ({
   return (
     <Modal
       {...otherProps}
-      size="md"
+      size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       className="chart-control-modal"
