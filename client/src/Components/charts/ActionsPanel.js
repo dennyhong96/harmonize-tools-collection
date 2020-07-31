@@ -7,6 +7,7 @@ import {
   loadCharts,
   startNewChart,
 } from "../../actions/orgChartActions";
+import { openSideDrawer } from "../../actions/sideDrawerAction";
 import useDownload from "../../hooks/useDownload";
 import "./ActionsPanel.scss";
 
@@ -17,6 +18,7 @@ const EmployeeInfoPanel = ({
   loadCharts,
   setChartListShow,
   startNewChart,
+  openSideDrawer,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -34,29 +36,21 @@ const EmployeeInfoPanel = ({
 
   return (
     <div className={`employee-card ${showWidget ? "employee-card-show" : ""}`}>
-      <div className="employee-card-close">
+      {/* <div className="employee-card-close">
         <i className="fas fa-times"></i>
-      </div>
+      </div> */}
       <div className="selected-employee">
         {user && <p className="name">Welcome, {user.name}</p>}
         {!user && <p className="name">Login for more functions</p>}
       </div>
       <ListGroup className="action-list">
         <ListGroup.Item
-          onClick={() => createChart("default")}
-          className={`action-item ${!user ? "disabled" : ""}`}
+          className="action-item"
           as="button"
           action
+          onClick={openSideDrawer}
         >
-          <i class="far fa-save"></i> Save your chart
-        </ListGroup.Item>
-        <ListGroup.Item
-          onClick={handleLoadCharts}
-          className={`action-item ${!user ? "disabled" : ""}`}
-          as="button"
-          action
-        >
-          <i class="fas fa-download"></i> Load your charts
+          <i class="mr-1 fas fa-file-csv"></i> Build from CSV
         </ListGroup.Item>
         <ListGroup.Item
           className="action-item"
@@ -64,15 +58,32 @@ const EmployeeInfoPanel = ({
           action
           onClick={startNewChart}
         >
-          <i class="fas fa-wrench"></i> Build from scratch
+          <i class="mr-1 fas fa-wrench"></i> Build from scratch
         </ListGroup.Item>
+        <ListGroup.Item
+          onClick={handleLoadCharts}
+          className={`action-item ${!user ? "disabled" : ""}`}
+          as="button"
+          action
+        >
+          <i class="mr-1 far fa-window-maximize"></i> Load saved charts
+        </ListGroup.Item>
+        <ListGroup.Item
+          onClick={() => createChart("default")}
+          className={`action-item ${!user ? "disabled" : ""}`}
+          as="button"
+          action
+        >
+          <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
+        </ListGroup.Item>
+
         <ListGroup.Item
           className="action-item"
           as="button"
           action
           onClick={() => handleDownload("PDF")}
         >
-          <i class="far fa-file-pdf"></i> Export PDF
+          <i class="mr-1 far fa-file-pdf"></i> Export to PDF
         </ListGroup.Item>
         <ListGroup.Item
           className="action-item"
@@ -80,7 +91,7 @@ const EmployeeInfoPanel = ({
           action
           onClick={() => handleDownload("JPG")}
         >
-          <i class="far fa-file-image"></i> Export JPG
+          <i class="mr-1 far fa-file-image"></i> Export to JPG
         </ListGroup.Item>
       </ListGroup>
     </div>
@@ -93,4 +104,5 @@ export default connect(mapStateToProps, {
   createChart,
   loadCharts,
   startNewChart,
+  openSideDrawer,
 })(EmployeeInfoPanel);

@@ -2,12 +2,12 @@
 
 .orgchart.myChart .oc-node .oc-inner {
   cursor: default;
-  width: 11rem;
+  width: 10rem;
   border-radius: 4.8px;
   box-shadow: 0 1.6px 6px 0 rgba(47, 83, 151, 0.2);
   border: 1px solid rgba(47, 83, 151, 0.2);
   background-color: $check-mark-white;
-  padding: 0.8rem 0;
+  padding: 0.6rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,8 +186,8 @@
   }
 
   .user {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 4.5rem;
     border: solid 1.5px $main-color;
     background-color: $check-mark-white;
@@ -205,20 +205,21 @@
   }
 
   .name {
-    font-size: 0.7rem;
-    font-weight: bold;
+    font-size: 0.6rem;
+    font-weight: 700;
     color: $dark-text;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0;
   }
 
   .title {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
+    font-weight: 400;
     color: $dark-text;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
   }
 
   .email {
-    font-size: 0.5rem;
+    font-size: 8px;
     color: $light-grey-text-profile-cards;
     margin-bottom: 0.3rem;
   }
@@ -231,14 +232,14 @@
   }
 
   .manager {
-    font-size: 0.5rem;
+    font-size: 8px;
     font-weight: bold;
     color: $dark-text;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
   }
 
   .manager-name {
-    font-size: 0.4rem;
+    font-size: 8px;
     color: $light-grey-text-profile-cards;
   }
 }

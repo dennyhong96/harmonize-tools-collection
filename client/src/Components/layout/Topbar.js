@@ -7,12 +7,14 @@ import {
   closeSideDrawer,
 } from "../../actions/sideDrawerAction";
 import { logout } from "../../actions/userActions";
+import { startNewChart } from "../../actions/orgChartActions";
 import "./Topbar.scss";
 
 const topbar = ({
   sideDrawer,
   closeSideDrawer,
   openSideDrawer,
+  startNewChart,
   user,
   logout,
 }) => {
@@ -28,10 +30,11 @@ const topbar = ({
         <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
         <p className="sub-heading">
           Begin creating your chart by{" "}
-          <span onClick={() => openSideDrawer()}>
+          <span className="upload" onClick={() => openSideDrawer()}>
             uploading your employee data
           </span>{" "}
-          or by starting from scratch below.
+          or by <span onClick={startNewChart}>starting from scratch</span>{" "}
+          below.
         </p>
       </div>
 
@@ -70,4 +73,5 @@ export default connect(mapStateToProps, {
   openSideDrawer,
   closeSideDrawer,
   logout,
+  startNewChart,
 })(topbar);
