@@ -14,6 +14,7 @@ import {
   CHART_SAVED,
   START_NEW_CHART,
   CHARTS_LOADED,
+  CHART_SELECTED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -35,6 +36,13 @@ export default (state = INITIAL_STATE, action) => {
 
     case START_NEW_CHART:
       return { ...state, currentChart: {} };
+
+    case CHART_SELECTED:
+      return {
+        ...state,
+        currentChartId: payload,
+        currentChart: JSON.parse(payload.chartData),
+      };
 
     case ORG_DATA_ERROR:
       return INITIAL_STATE;

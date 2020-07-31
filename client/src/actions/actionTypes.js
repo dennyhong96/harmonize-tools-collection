@@ -11,6 +11,7 @@ export const FIRST_NODE_ADDED = "FIRST_NODE_ADDED";
 export const CHART_SAVED = "CHART_SAVED";
 export const CHARTS_LOADED = "CHARTS_LOADED";
 export const START_NEW_CHART = "START_NEW_CHART";
+export const CHART_SELECTED = "CHART_SELECTED";
 
 // Csv Template actions
 export const TEMPLATE_DOWNLOADED = "TEMPLATE_DOWNLOADED";

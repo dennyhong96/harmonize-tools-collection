@@ -14,6 +14,7 @@ import {
   CHART_SAVED,
   START_NEW_CHART,
   FIRST_NODE_ADDED,
+  CHART_SELECTED,
 } from "./actionTypes";
 
 /**
@@ -143,7 +144,9 @@ export const createChart = (chartName = "default") => async (
     },
   };
   try {
-    const { orgData: chartData } = getState();
+    const {
+      chart: { currentChart: chartData },
+    } = getState();
     const res = await axios.post(
       "/api/v1/charts",
       { chartName, chartData },
@@ -155,7 +158,7 @@ export const createChart = (chartName = "default") => async (
     });
     dispatchToast("Chart saved to cloud!", "SUCCESS");
   } catch (error) {
-    console.error(error);
+    console.error(error.response);
   }
 };
 
@@ -179,4 +182,10 @@ export const startNewChart = () => (dispatch) => {
   dispatchToast("Edit the node to get started!", "INFO");
 };
 
-export const editChart = () => (dispatch) => {};
+export const editChart = (chartInfo) => (dispatch) => {
+  dispatch({
+    type: CHART_SELECTED,
+    payload: chartInfo,
+  });
+  dispatchToast(`Now editing chart: ${chartInfo.chartName}`, "INFO");
+};

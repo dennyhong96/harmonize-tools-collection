@@ -1,9 +1,21 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import { connect } from "react-redux";
 
+import { editChart } from "../../actions/orgChartActions";
 import "./ChartListPanel.scss";
 
-const ChartListPanel = ({ charts, chartListShow, setChartListShow }) => {
+const ChartListPanel = ({
+  chart,
+  editChart,
+  chartListShow,
+  setChartListShow,
+}) => {
+  const handleSelectChart = (chart) => {
+    editChart(chart);
+    setChartListShow(false);
+  };
+
   return (
     <div className={`chart-list ${chartListShow ? "chart-list-show" : ""}`}>
       <div className="chart-list-close" onClick={() => setChartListShow(false)}>
@@ -20,13 +32,16 @@ const ChartListPanel = ({ charts, chartListShow, setChartListShow }) => {
             </tr>
           </thead>
           <tbody>
-            {charts &&
-              charts.map((chart) => (
+            {chart.chartList &&
+              chart.chartList.map((chart) => (
                 <tr>
                   <td>{chart.chartName}</td>
                   <td>{new Date(chart.createdAt).toDateString()}</td>
                   <td className="load-td">
-                    <button className="load-btn">
+                    <button
+                      className="load-btn"
+                      onClick={() => handleSelectChart(chart)}
+                    >
                       <i class="fas fa-cloud-download-alt"></i>
                     </button>
                   </td>
@@ -39,4 +54,4 @@ const ChartListPanel = ({ charts, chartListShow, setChartListShow }) => {
   );
 };
 
-export default ChartListPanel;
+export default connect(null, { editChart })(ChartListPanel);

@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 
 import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
-import useDownload from "../../hooks/useDownload";
-import ZoomControl from "./ZoomControl";
-import PanControl from "./PanControl";
 import "./OrgChart.scss";
 
 const OrgChart = ({ chart, sideDrawer }) => {
@@ -38,9 +35,6 @@ const OrgChart = ({ chart, sideDrawer }) => {
 
   return (
     <Fragment>
-      {/* <ZoomControl />
-      <PanControl /> */}
-
       <OrganizationChart
         datasource={chart.currentChart}
         chartClass="myChart"
@@ -52,10 +46,6 @@ const OrgChart = ({ chart, sideDrawer }) => {
         zoom={true}
       />
       <i class="far fa-arrows-alt"></i>
-      {/* <div className="download-acitons">
-        <button onClick={() => handleDownload("JPG")}>Download JPG</button>
-        <button onClick={() => handleDownload("PDF")}>Download PDF</button>
-      </div> */}
       <ActionsPanel
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
@@ -64,7 +54,7 @@ const OrgChart = ({ chart, sideDrawer }) => {
       <ChartListPanel
         chartListShow={chartListShow}
         setChartListShow={setChartListShow}
-        charts={chart.chartList}
+        chart={chart}
       />
     </Fragment>
   );
