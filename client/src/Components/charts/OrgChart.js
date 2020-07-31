@@ -45,7 +45,7 @@ const OrgChart = ({ chart, sideDrawer }) => {
         datasource={chart.currentChart}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
-        draggable={true}
+        draggable={!!chart.currentChart.id}
         onClickNode={readSelectedNode}
         collapsible={false}
         pan={true}

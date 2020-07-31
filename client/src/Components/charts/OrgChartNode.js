@@ -23,24 +23,28 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
   return (
     <div>
       <div className="oc-inner">
-        <div
-          className="onclick-add add-top"
-          onClick={() => {
-            setAddMode("HEAD");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
-        <div
-          className="onclick-add add-bottom"
-          onClick={() => {
-            setAddMode("DIRECT_REPORT");
-            setAddModalShow(true);
-          }}
-        >
-          <i className="fas fa-plus"></i>
-        </div>
+        {nodeData.id && (
+          <div
+            className="onclick-add add-top"
+            onClick={() => {
+              setAddMode("HEAD");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
+        {nodeData.id && (
+          <div
+            className="onclick-add add-bottom"
+            onClick={() => {
+              setAddMode("DIRECT_REPORT");
+              setAddModalShow(true);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </div>
+        )}
         {nodeData.manager && (
           <div
             className="onclick-add add-left"
@@ -74,9 +78,14 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
             <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
               Edit employee
             </Dropdown.Item>
-            <Dropdown.Item as="button" onClick={() => setDeletePopupShow(true)}>
-              Delete employee
-            </Dropdown.Item>
+            {nodeData.id && (
+              <Dropdown.Item
+                as="button"
+                onClick={() => setDeletePopupShow(true)}
+              >
+                Delete employee
+              </Dropdown.Item>
+            )}
           </Dropdown.Menu>
         </Dropdown>
         <div className="user">
