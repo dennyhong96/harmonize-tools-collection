@@ -1,10 +1,15 @@
 const express = require("express");
 
-const { createChart, loadCharts } = require("../controllers/chartController");
+const {
+  createChart,
+  loadCharts,
+  updateChart,
+} = require("../controllers/chartController");
 const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
 router.route("/").get(auth, loadCharts).post(auth, createChart);
+router.route("/:id").put(auth, updateChart);
 
 module.exports = router;

@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
     case CHART_SELECTED:
       return {
         ...state,
-        currentChartId: payload,
+        currentChartId: payload._id,
         currentChart: JSON.parse(payload.chartData),
       };
 

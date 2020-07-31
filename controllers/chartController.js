@@ -28,3 +28,28 @@ exports.loadCharts = asyncHandler(async (req, res, next) => {
     data: { charts },
   });
 });
+
+exports.updateChart = asyncHandler(async (req, res, next) => {
+  let chart = await Chart.findById(req.params.id);
+
+  if (!chart) {
+    return next(new AppError("Chart not found.", 404));
+  }
+
+  if (chart.userId !== req.user._id) {
+    return next(new AppError("User not authorized", 401));
+  }
+
+  const { chartData } = req.body;
+
+  chart = await Chart.findByIdAndUpdate(
+    req.params.id,
+    { chartData },
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json({
+    status: "success",
+    data: { chart },
+  });
+});

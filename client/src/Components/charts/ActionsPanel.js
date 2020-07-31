@@ -90,7 +90,7 @@ const EmployeeInfoPanel = ({
               <ListGroup.Item
                 className="action-item disabled-item"
                 as="button"
-                data-tip="Log in to use cloud functions"
+                data-tip="Sign in to use cloud functions"
                 action
               >
                 <i class="mr-1 far fa-window-maximize"></i> Load saved charts
@@ -98,7 +98,7 @@ const EmployeeInfoPanel = ({
               <ListGroup.Item
                 className="action-item disabled-item"
                 as="button"
-                data-tip="Log in to use cloud functions"
+                data-tip="Sign in to use cloud functions"
                 action
               >
                 <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
