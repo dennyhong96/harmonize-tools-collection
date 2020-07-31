@@ -5,12 +5,12 @@ const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-
 const xss = require("xss-clean");
 const helmet = require("helmet");
 const hpp = require("hpp");
 
 const connectDB = require("./config/db");
+const errorHandler = require("./controllers/errorController");
 const csvRouter = require("./routers/csvRouter");
 const authRouter = require("./routers/authRouter");
 const chartRouter = require("./routers/chartRouter");
@@ -32,7 +32,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
@@ -45,6 +45,8 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api/v1/csv", csvRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/chart", chartRouter);
+
+app.use(errorHandler);
 
 // Catch all
 if (process.env.NODE_ENV === "production") {
