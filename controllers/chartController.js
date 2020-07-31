@@ -32,16 +32,22 @@ exports.loadCharts = asyncHandler(async (req, res, next) => {
 exports.updateChart = asyncHandler(async (req, res, next) => {
   let chart = await Chart.findById(req.params.id);
 
+  console.log(req.body);
+
   if (!chart) {
     return next(new AppError("Chart not found.", 404));
   }
 
-  if (chart.userId !== req.user._id) {
+  if (chart.userId.toString() !== req.user._id.toString()) {
     return next(new AppError("User not authorized", 401));
   }
 
-  const { chartData } = req.body;
+  let { chartData } = req.body;
+  if (!chartData) {
+    return next(new AppError("Missing chart data", 400));
+  }
 
+  chartData = JSON.stringify(chartData);
   chart = await Chart.findByIdAndUpdate(
     req.params.id,
     { chartData },

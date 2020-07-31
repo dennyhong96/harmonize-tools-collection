@@ -10,6 +10,6 @@ const auth = require("../middlewares/auth");
 const router = express.Router();
 
 router.route("/").get(auth, loadCharts).post(auth, createChart);
-router.route("/:id").put(auth, updateChart);
+router.route("/:id").patch(auth, updateChart);
 
 module.exports = router;
