@@ -10,6 +10,7 @@ import {
   NEW_HEAD_ADDED,
   NODE_DELETED,
   MANAGER_ADDED,
+  CHART_SAVED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -18,6 +19,8 @@ const INITIAL_STATE = exampleData;
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
+    case CHART_SAVED:
+      return { ...payload };
     case ORG_DATA_FETCHED:
       return payload;
     case ORG_DATA_ERROR:

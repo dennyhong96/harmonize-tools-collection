@@ -3,7 +3,7 @@ const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/AppError");
 
 exports.createChart = asyncHandler(async (req, res, next) => {
-  const chartData = req.body;
+  const { chartData } = req.body;
   if (!chartData) {
     return next(new AppError("Chart data is required.", 400));
   }
@@ -19,8 +19,10 @@ exports.createChart = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.loadChart = asyncHandler(async (req, res, next) => {
-  const chart = await Chart.findOne({ userId: req.user.id });
+exports.loadCharts = asyncHandler(async (req, res, next) => {
+  const chart = await Chart.find({ userId: req.user.id }).sort({
+    createdAt: -1,
+  });
   res.status(200).json({
     status: "success",
     data: { chart },

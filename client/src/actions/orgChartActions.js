@@ -140,12 +140,20 @@ export const createChart = (chartName = "default") => async (
       { chartName, chartData },
       config
     );
-    console.log(res.data);
-
     dispatch({
       type: CHART_SAVED,
-      paylod: res.data.data.chart,
+      payload: JSON.parse(res.data.data.chart.chartData),
     });
+    dispatchToast("Chart saved to cloud!", "SUCCESS");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const loadChart = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/v1/charts");
+    console.log(res.data);
   } catch (error) {
     console.error(error);
   }
