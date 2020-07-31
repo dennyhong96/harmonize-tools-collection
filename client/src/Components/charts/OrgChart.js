@@ -3,12 +3,13 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
+import { extractLocalChart } from "../../actions/orgChartActions";
 import ChartIndicator from "./ChartIndicator";
 import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
 
-const OrgChart = ({ chart, sideDrawer, isEditing }) => {
+const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [chartListShow, setChartListShow] = useState(false);
 
@@ -18,6 +19,7 @@ const OrgChart = ({ chart, sideDrawer, isEditing }) => {
   useEffect(() => {
     orgChartContainer.current = document.querySelector(".orgchart-container");
     orgChartRef.current = document.querySelector(".myChart");
+    extractLocalChart();
   }, []);
 
   useEffect(() => {
@@ -68,4 +70,4 @@ const mapStateToProps = ({ chart, sideDrawer, isEditing }) => ({
   isEditing,
 });
 
-export default connect(mapStateToProps)(OrgChart);
+export default connect(mapStateToProps, { extractLocalChart })(OrgChart);

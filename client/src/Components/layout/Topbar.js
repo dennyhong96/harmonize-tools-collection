@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import {
   openSideDrawer,
   closeSideDrawer,
 } from "../../actions/sideDrawerAction";
-import { logout } from "../../actions/userActions";
+import { logout, login } from "../../actions/userActions";
 import { startNewChart } from "../../actions/orgChartActions";
 import "./Topbar.scss";
 
@@ -17,6 +17,8 @@ const topbar = ({
   startNewChart,
   user,
   logout,
+  history,
+  login,
 }) => {
   return (
     <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
@@ -45,15 +47,9 @@ const topbar = ({
               <i class="fas fa-sign-out-alt"></i> logout
             </button>
           ) : (
-            <a
-              href={
-                process.env.NODE_ENV === "production"
-                  ? "/api/v1/auth/google"
-                  : "http://localhost:5000/api/v1/auth/google"
-              }
-            >
+            <button onClick={login}>
               <i class="fab fa-google"></i> sign in with google
-            </a>
+            </button>
           )}
           <Link to="/">HOME</Link>
         </div>
@@ -74,4 +70,17 @@ export default connect(mapStateToProps, {
   closeSideDrawer,
   logout,
   startNewChart,
-})(topbar);
+  login,
+})(withRouter(topbar));
+
+{
+  /* <a
+              href={
+                process.env.NODE_ENV === "production"
+                  ? "/api/v1/auth/google"
+                  : "http://localhost:5000/api/v1/auth/google"
+              }
+            >
+              <i class="fab fa-google"></i> sign in with google
+            </a> */
+}

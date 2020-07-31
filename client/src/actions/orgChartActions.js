@@ -16,6 +16,7 @@ import {
   FIRST_NODE_ADDED,
   CHART_SELECTED,
   CHART_UPDATED,
+  LOCAL_CHART_LOADED,
 } from "./actionTypes";
 
 /**
@@ -221,5 +222,15 @@ export const updateChart = (chartId) => async (dispatch, getState) => {
     console.log(res.data);
   } catch (error) {
     console.error(error.response);
+  }
+};
+
+export const extractLocalChart = () => (dispatch) => {
+  if (localStorage.getItem("chart")) {
+    dispatch({
+      type: LOCAL_CHART_LOADED,
+      payload: localStorage.getItem("chart"),
+    });
+    localStorage.removeItem("chart");
   }
 };

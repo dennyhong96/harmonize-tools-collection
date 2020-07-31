@@ -16,6 +16,7 @@ import {
   CHARTS_LOADED,
   CHART_SELECTED,
   CHART_UPDATED,
+  LOCAL_CHART_LOADED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -52,6 +53,13 @@ export default (state = INITIAL_STATE, action) => {
         chartList: state.chartList.map((chart) =>
           chart._id === payload._id ? payload : chart
         ),
+      };
+
+    case LOCAL_CHART_LOADED:
+      console.log(payload);
+      return {
+        ...state,
+        currentChart: JSON.parse(payload),
       };
 
     case ORG_DATA_ERROR:
