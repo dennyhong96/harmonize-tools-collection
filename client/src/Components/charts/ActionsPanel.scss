@@ -2,7 +2,7 @@
 
 .employee-card {
   width: 12rem;
-  padding: 0.6rem 0.8rem;
+  padding: 0.8rem 0.8rem;
   background-color: #fff;
   position: absolute;
   top: 7rem;
@@ -71,6 +71,17 @@
       &:focus {
         outline: none;
       }
+
+      &.disabled-item {
+        cursor: default;
+        background-color: initial;
+        color: lighten($divider-grey, 15%);
+      }
     }
   }
+}
+
+.my-tooltip {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
 }
