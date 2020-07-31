@@ -106,7 +106,6 @@ export default (state = INITIAL_STATE, action) => {
       }
       let manager = findNode(managerId, stateAfterDeleted);
       manager.children = manager.children.filter((ch) => ch.id !== payload.id);
-      // manager.children = manager.children.concat(payload.children);
       manager.children = [...manager.children, ...payload.children];
       return stateAfterDeleted;
     default:

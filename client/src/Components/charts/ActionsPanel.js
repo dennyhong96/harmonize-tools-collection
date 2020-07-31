@@ -6,7 +6,13 @@ import { createChart, loadChart } from "../../actions/orgChartActions";
 import useDownload from "../../hooks/useDownload";
 import "./ActionsPanel.scss";
 
-const EmployeeInfoPanel = ({ sideDrawer, user, createChart, loadChart }) => {
+const EmployeeInfoPanel = ({
+  sideDrawer,
+  user,
+  createChart,
+  loadChart,
+  setChartListShow,
+}) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
 
@@ -15,6 +21,11 @@ const EmployeeInfoPanel = ({ sideDrawer, user, createChart, loadChart }) => {
       setShowWidget(true);
     }, 1000);
   }, []);
+
+  const handleLoadCharts = async () => {
+    await loadChart();
+    setChartListShow(true);
+  };
 
   return (
     <div className={`employee-card ${showWidget ? "employee-card-show" : ""}`}>
@@ -35,7 +46,7 @@ const EmployeeInfoPanel = ({ sideDrawer, user, createChart, loadChart }) => {
           <i class="far fa-save"></i> Save your chart
         </ListGroup.Item>
         <ListGroup.Item
-          onClick={() => loadChart()}
+          onClick={handleLoadCharts}
           className={`action-item ${!user ? "disabled" : ""}`}
           as="button"
           action

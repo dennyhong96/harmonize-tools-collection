@@ -59,6 +59,7 @@ const OrgChart = ({ orgData, sideDrawer }) => {
       <ActionsPanel
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
+        setChartListShow={setChartListShow}
       />
       <ChartListPanel
         chartListShow={chartListShow}

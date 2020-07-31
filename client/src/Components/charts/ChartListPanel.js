@@ -56,60 +56,6 @@ const ChartListPanel = ({ chartListShow, setChartListShow }) => {
                 </button>
               </td>
             </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td className="load-td">
-                <button className="load-btn">
-                  <i class="fas fa-cloud-download-alt"></i>
-                </button>
-              </td>
-            </tr>
           </tbody>
         </Table>
       </div>
