@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { ListGroup } from "react-bootstrap";
 
-import { createChart, loadChart } from "../../actions/orgChartActions";
+import {
+  createChart,
+  loadChart,
+  startNewChart,
+} from "../../actions/orgChartActions";
 import useDownload from "../../hooks/useDownload";
 import "./ActionsPanel.scss";
 
@@ -12,6 +16,7 @@ const EmployeeInfoPanel = ({
   createChart,
   loadChart,
   setChartListShow,
+  startNewChart,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -51,7 +56,15 @@ const EmployeeInfoPanel = ({
           as="button"
           action
         >
-          <i class="fas fa-download"></i> Load your chart
+          <i class="fas fa-download"></i> Load your charts
+        </ListGroup.Item>
+        <ListGroup.Item
+          className="action-item"
+          as="button"
+          action
+          onClick={startNewChart}
+        >
+          <i class="fas fa-wrench"></i> Build from scratch
         </ListGroup.Item>
         <ListGroup.Item
           className="action-item"
@@ -76,6 +89,8 @@ const EmployeeInfoPanel = ({
 
 const mapStateToProps = ({ sideDrawer, user }) => ({ sideDrawer, user });
 
-export default connect(mapStateToProps, { createChart, loadChart })(
-  EmployeeInfoPanel
-);
+export default connect(mapStateToProps, {
+  createChart,
+  loadChart,
+  startNewChart,
+})(EmployeeInfoPanel);

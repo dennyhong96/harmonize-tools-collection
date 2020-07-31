@@ -12,6 +12,8 @@ import {
   MANAGER_ADDED,
   CHART_LOADED,
   CHART_SAVED,
+  START_NEW_CHART,
+  FIRST_NODE_ADDED,
 } from "./actionTypes";
 
 /**
@@ -51,10 +53,17 @@ export const uploadOrgData = (file) => async (dispatch) => {
  * @param {object} formData - formData collected from the form
  */
 export const updateNode = (id, formData) => (dispatch) => {
-  dispatch({
-    type: NODE_MODIFIED,
-    payload: { id, formData },
-  });
+  if (!id) {
+    dispatch({
+      type: FIRST_NODE_ADDED,
+      payload: formData,
+    });
+  } else {
+    dispatch({
+      type: NODE_MODIFIED,
+      payload: { id, formData },
+    });
+  }
   dispatchToast(`${formData.name} updated!`, "SUCCESS");
 };
 
@@ -157,4 +166,11 @@ export const loadChart = () => async (dispatch) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const startNewChart = () => (dispatch) => {
+  dispatch({
+    type: START_NEW_CHART,
+  });
+  dispatchToast("Edit the node to get started!", "INFO");
 };

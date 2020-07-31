@@ -9,8 +9,10 @@ import {
   COLLEAGUE_ADDED,
   NEW_HEAD_ADDED,
   NODE_DELETED,
+  FIRST_NODE_ADDED,
   MANAGER_ADDED,
   CHART_SAVED,
+  START_NEW_CHART,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -29,8 +31,23 @@ export default (state = INITIAL_STATE, action) => {
     case ORG_DATA_FETCHED:
       return { ...state, currentChart: payload };
 
+    case START_NEW_CHART:
+      return { ...state, currentChart: {} };
+
     case ORG_DATA_ERROR:
       return INITIAL_STATE;
+
+    case FIRST_NODE_ADDED:
+      return {
+        ...state,
+        currentChart: {
+          ...payload,
+          id: `oc-${uuidv4()}`,
+          manager: "",
+          managerId: "",
+          children: [],
+        },
+      };
 
     case NODE_MODIFIED:
       const { name, title, email } = payload.formData;
