@@ -119,6 +119,13 @@
   }
 }
 
+.header-img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 992px) {
   .landing-header {
     .text-box {
