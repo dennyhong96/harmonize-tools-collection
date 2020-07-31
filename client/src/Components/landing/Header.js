@@ -1,7 +1,8 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import HeaderImg from "../../assets/jumbo.svg";
 import "./Header.scss";
 
 const Header = () => {
@@ -10,8 +11,8 @@ const Header = () => {
       <Container>
         <Row>
           <Col className="d-none d-md-block">
-            <div className="py-5 border text-center mt-5">
-              NEED AN ILLUSTRATION HERE
+            <div className="">
+              <img src={HeaderImg} className="header-img" alt="meet the team" />
             </div>
           </Col>
           <Col>
