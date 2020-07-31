@@ -3,6 +3,7 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
+import ChartIndicator from "./ChartIndicator";
 import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
@@ -35,6 +36,7 @@ const OrgChart = ({ chart, sideDrawer, isEditing }) => {
 
   return (
     <Fragment>
+      <ChartIndicator chart={chart} sideDrawer={sideDrawer} />
       <OrganizationChart
         datasource={chart.currentChart}
         chartClass="myChart"

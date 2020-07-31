@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, currentChart: payload };
 
     case START_NEW_CHART:
-      return { ...state, currentChart: {} };
+      return { ...state, currentChart: {}, currentChartId: null };
 
     case CHART_SELECTED:
       return {
