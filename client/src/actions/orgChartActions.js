@@ -26,13 +26,13 @@ export const uploadOrgData = (file) => async (dispatch) => {
   const formData = new FormData();
   formData.append("csv", file);
   try {
-    const res = await axios.post("/api/v1/csv", formData, config);
-
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     };
+
+    const res = await axios.post("/api/v1/csv", formData, config);
 
     dispatch({
       type: ORG_DATA_FETCHED,
