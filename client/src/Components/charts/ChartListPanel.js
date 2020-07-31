@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { connect } from "react-redux";
 
@@ -11,8 +11,14 @@ const ChartListPanel = ({
   chartListShow,
   setChartListShow,
 }) => {
+  const orgChartRef = useRef();
+
+  useEffect(() => {
+    orgChartRef.current = document.querySelector(".myChart");
+  }, []);
+
   const handleSelectChart = (chart) => {
-    editChart(chart);
+    editChart(chart, orgChartRef);
     setChartListShow(false);
   };
 

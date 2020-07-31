@@ -186,11 +186,12 @@ export const startNewChart = () => (dispatch) => {
   dispatchToast("Edit the node to get started!", "INFO");
 };
 
-export const editChart = (chartInfo) => (dispatch) => {
+export const editChart = (chartInfo, orgChartRef) => (dispatch) => {
   dispatch({
     type: CHART_SELECTED,
     payload: chartInfo,
   });
+  orgChartRef.current.style.transform = "initial";
   dispatchToast(`Now editing chart: ${chartInfo.chartName}`, "INFO");
 };
 
