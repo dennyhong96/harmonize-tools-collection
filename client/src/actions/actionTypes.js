@@ -26,3 +26,7 @@ export const SIDE_DRAWER_OPENED = "SIDE_DRAWER_OPENED";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const USER_LOGOUT = "USER_LOGOUT";
+
+// Editng
+export const EDITING_STARTED = "EDITING_STARTED";
+export const EDITING_ENDED = "EDITING_ENDED";

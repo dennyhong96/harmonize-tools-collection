@@ -7,7 +7,7 @@ import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
 
-const OrgChart = ({ chart, sideDrawer }) => {
+const OrgChart = ({ chart, sideDrawer, isEditing }) => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [chartListShow, setChartListShow] = useState(false);
 
@@ -42,7 +42,7 @@ const OrgChart = ({ chart, sideDrawer }) => {
         draggable={!!chart.currentChart.id}
         onClickNode={readSelectedNode}
         collapsible={false}
-        pan={true}
+        pan={!isEditing}
         zoom={true}
       />
       <i class="far fa-arrows-alt"></i>
@@ -60,6 +60,10 @@ const OrgChart = ({ chart, sideDrawer }) => {
   );
 };
 
-const mapStateToProps = ({ chart, sideDrawer }) => ({ chart, sideDrawer });
+const mapStateToProps = ({ chart, sideDrawer, isEditing }) => ({
+  chart,
+  sideDrawer,
+  isEditing,
+});
 
 export default connect(mapStateToProps)(OrgChart);

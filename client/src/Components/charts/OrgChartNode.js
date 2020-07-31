@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import AddEmployeeModal from "./AddEmployeeModal";
@@ -9,7 +10,7 @@ import { deleteNode } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
-const OrgChartNode = ({ nodeData, deleteNode }) => {
+const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
@@ -19,6 +20,14 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
     deleteNode(nodeData);
     setDeletePopupShow(false);
   };
+
+  useEffect(() => {
+    if (editModalShow || addModalShow || deletePopupShow) {
+      startEditing();
+    } else {
+      endEditing();
+    }
+  }, [editModalShow, addModalShow, deletePopupShow]);
 
   return (
     <div>
@@ -121,4 +130,6 @@ const OrgChartNode = ({ nodeData, deleteNode }) => {
   );
 };
 
-export default connect(null, { deleteNode })(OrgChartNode);
+export default connect(null, { deleteNode, startEditing, endEditing })(
+  OrgChartNode
+);
