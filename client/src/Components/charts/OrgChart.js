@@ -3,7 +3,8 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import OrgChartNode from "./OrgChartNode";
 import { connect } from "react-redux";
 
-import EmployeeInfoPanel from "./EmployeeInfoPanel";
+import ChartListPanel from "../charts/ChartListPanel";
+import ActionsPanel from "./ActionsPanel";
 import useDownload from "../../hooks/useDownload";
 import ZoomControl from "./ZoomControl";
 import PanControl from "./PanControl";
@@ -11,11 +12,11 @@ import "./OrgChart.scss";
 
 const OrgChart = ({ orgData, sideDrawer }) => {
   const [selectedNode, setSelectedNode] = useState(null);
-
-  const { handleDownload } = useDownload();
+  const [chartListShow, setChartListShow] = useState(false);
 
   const orgChartRef = useRef();
   const orgChartContainer = useRef();
+
   useEffect(() => {
     orgChartContainer.current = document.querySelector(".orgchart-container");
     orgChartRef.current = document.querySelector(".myChart");
@@ -55,9 +56,13 @@ const OrgChart = ({ orgData, sideDrawer }) => {
         <button onClick={() => handleDownload("JPG")}>Download JPG</button>
         <button onClick={() => handleDownload("PDF")}>Download PDF</button>
       </div> */}
-      <EmployeeInfoPanel
+      <ActionsPanel
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
+      />
+      <ChartListPanel
+        chartListShow={chartListShow}
+        setChartListShow={setChartListShow}
       />
     </Fragment>
   );

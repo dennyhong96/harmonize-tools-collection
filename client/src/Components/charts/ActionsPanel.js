@@ -4,7 +4,7 @@ import { ListGroup } from "react-bootstrap";
 
 import { createChart, loadChart } from "../../actions/orgChartActions";
 import useDownload from "../../hooks/useDownload";
-import "./EmployeeInfoPanel.scss";
+import "./ActionsPanel.scss";
 
 const EmployeeInfoPanel = ({ sideDrawer, user, createChart, loadChart }) => {
   const { handleDownload } = useDownload();
