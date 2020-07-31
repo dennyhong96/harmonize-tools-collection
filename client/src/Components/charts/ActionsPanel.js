@@ -7,6 +7,7 @@ import {
   createChart,
   loadCharts,
   startNewChart,
+  updateChart,
 } from "../../actions/orgChartActions";
 
 import { openSideDrawer } from "../../actions/sideDrawerAction";
@@ -19,9 +20,11 @@ const EmployeeInfoPanel = ({
   user,
   createChart,
   loadCharts,
+  updateChart,
   setChartListShow,
   startNewChart,
   openSideDrawer,
+  currentChartId,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -36,6 +39,14 @@ const EmployeeInfoPanel = ({
   const handleLoadCharts = async () => {
     await loadCharts();
     setChartListShow(true);
+  };
+
+  const handleSave = () => {
+    if (currentChartId) {
+      updateChart(currentChartId);
+    } else {
+      setSavePopupShow(true);
+    }
   };
 
   return (
@@ -77,7 +88,7 @@ const EmployeeInfoPanel = ({
                 <i class="mr-1 far fa-window-maximize"></i> Load saved charts
               </ListGroup.Item>
               <ListGroup.Item
-                onClick={() => setSavePopupShow(true)}
+                onClick={handleSave}
                 className="action-item"
                 as="button"
                 action
@@ -134,11 +145,16 @@ const EmployeeInfoPanel = ({
   );
 };
 
-const mapStateToProps = ({ sideDrawer, user }) => ({ sideDrawer, user });
+const mapStateToProps = ({ sideDrawer, user, chart: { currentChartId } }) => ({
+  sideDrawer,
+  user,
+  currentChartId,
+});
 
 export default connect(mapStateToProps, {
   createChart,
   loadCharts,
   startNewChart,
   openSideDrawer,
+  updateChart,
 })(EmployeeInfoPanel);

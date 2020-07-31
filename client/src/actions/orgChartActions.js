@@ -15,6 +15,7 @@ import {
   START_NEW_CHART,
   FIRST_NODE_ADDED,
   CHART_SELECTED,
+  CHART_UPDATED,
 } from "./actionTypes";
 
 /**
@@ -22,15 +23,17 @@ import {
  * Uploads user modified csv file to server
  */
 export const uploadOrgData = (file) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  };
   const formData = new FormData();
   formData.append("csv", file);
   try {
     const res = await axios.post("/api/v1/csv", formData, config);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
     dispatch({
       type: ORG_DATA_FETCHED,
       payload: res.data.data,
@@ -188,4 +191,35 @@ export const editChart = (chartInfo) => (dispatch) => {
     payload: chartInfo,
   });
   dispatchToast(`Now editing chart: ${chartInfo.chartName}`, "INFO");
+};
+
+export const updateChart = (chartId) => async (dispatch, getState) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const {
+      chart: { currentChart: chartData },
+    } = getState();
+
+    console.log(chartData);
+
+    const res = await axios.patch(
+      `/api/v1/charts/${chartId}`,
+      { chartData },
+      config
+    );
+
+    dispatch({
+      type: CHART_UPDATED,
+      payload: res.data.data.chart,
+    });
+    dispatchToast(`Updates are saved to the cloud!`, "SUCCESS");
+
+    console.log(res.data);
+  } catch (error) {
+    console.error(error.response);
+  }
 };

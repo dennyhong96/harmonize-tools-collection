@@ -15,6 +15,7 @@ import {
   START_NEW_CHART,
   CHARTS_LOADED,
   CHART_SELECTED,
+  CHART_UPDATED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -42,6 +43,15 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         currentChartId: payload._id,
         currentChart: JSON.parse(payload.chartData),
+      };
+
+    case CHART_UPDATED:
+      return {
+        ...state,
+        currentChart: JSON.parse(payload.chartData),
+        chartList: state.chartList.map((chart) =>
+          chart._id === payload._id ? payload : chart
+        ),
       };
 
     case ORG_DATA_ERROR:
