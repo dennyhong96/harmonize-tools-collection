@@ -60,7 +60,7 @@ const OrgChartNode = ({
           .includes(nodeData.id) ? (
           <button onClick={expandNode}>Expand</button>
         ) : null}
-        {nodeData.id && (
+        {!chart.isCollapsed && nodeData.id && (
           <div
             className="onclick-add add-top"
             onClick={() => {
@@ -71,7 +71,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.id && (
+        {!chart.isCollapsed && nodeData.id && (
           <div
             className="onclick-add add-bottom"
             onClick={() => {
@@ -82,7 +82,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.manager && (
+        {!chart.isCollapsed && nodeData.manager && (
           <div
             className="onclick-add add-left"
             onClick={() => {
@@ -93,7 +93,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.manager && (
+        {!chart.isCollapsed && nodeData.manager && (
           <div
             className="onclick-add add-right"
             onClick={() => {
