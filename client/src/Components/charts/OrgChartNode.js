@@ -6,16 +6,22 @@ import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import AddEmployeeModal from "./AddEmployeeModal";
-import { deleteNode, collapseNode } from "../../actions/orgChartActions";
+import {
+  deleteNode,
+  collapseNode,
+  expandNode,
+} from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
 const OrgChartNode = ({
+  chart,
   nodeData,
   deleteNode,
   collapseNode,
   startEditing,
   endEditing,
+  expandNode,
 }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
@@ -39,7 +45,20 @@ const OrgChartNode = ({
     <div>
       <div className="oc-inner">
         {nodeData.children.length ? (
-          <button onClick={() => collapseNode(nodeData.id)}>collapse</button>
+          <button
+            onClick={() => {
+              console.log(nodeData);
+              collapseNode(nodeData.id);
+            }}
+          >
+            collapse
+          </button>
+        ) : null}
+        {chart.isCollapsed &&
+        chart.collapsedCharts
+          .map((chart) => chart.collapsedNodeId)
+          .includes(nodeData.id) ? (
+          <button onClick={expandNode}>Expand</button>
         ) : null}
         {nodeData.id && (
           <div
@@ -139,9 +158,12 @@ const OrgChartNode = ({
   );
 };
 
-export default connect(null, {
+const mapStateToProps = ({ chart }) => ({ chart });
+
+export default connect(mapStateToProps, {
   deleteNode,
   collapseNode,
+  expandNode,
   startEditing,
   endEditing,
 })(OrgChartNode);

@@ -41,7 +41,9 @@ const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
       <ChartIndicator chart={chart} sideDrawer={sideDrawer} />
       <OrganizationChart
         datasource={
-          chart.isCollapsed ? chart.collapsedChart : chart.currentChart
+          chart.isCollapsed
+            ? chart.collapsedCharts[chart.collapsedCharts.length - 1]
+            : chart.currentChart
         }
         chartClass="myChart"
         NodeTemplate={OrgChartNode}

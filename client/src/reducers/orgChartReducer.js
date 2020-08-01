@@ -18,6 +18,7 @@ import {
   CHART_UPDATED,
   LOCAL_CHART_LOADED,
   CHART_COLLAPSED,
+  CHART_EXPANDED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -26,7 +27,7 @@ const INITIAL_STATE = {
   currentChartId: null,
   currentChart: exampleData,
   isCollapsed: false,
-  collapsedChart: null,
+  collapsedCharts: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -50,11 +51,24 @@ export default (state = INITIAL_STATE, action) => {
       };
 
     case CHART_COLLAPSED:
-      const collapsedChart = { ...state.currentChart };
+      const collapsedChart = JSON.parse(JSON.stringify(state)).currentChart;
       const nodeCollapsed = findNode(payload, collapsedChart);
       nodeCollapsed.children = [];
       collapsedChart.collapsedNodeId = payload;
-      return { ...state, isCollapsed: true, collapsedChart };
+      return {
+        ...state,
+        isCollapsed: true,
+        collapsedCharts: [...state.collapsedCharts, collapsedChart],
+      };
+
+    case CHART_EXPANDED:
+      const oldCollapsedCharts = { ...state }.collapsedCharts;
+      if (oldCollapsedCharts.length <= 1) {
+        return { ...state, isCollapsed: false, collapsedCharts: [] };
+      } else {
+        oldCollapsedCharts.pop();
+        return { ...state, collapsedChart: oldCollapsedCharts };
+      }
 
     case CHART_UPDATED:
       return {
@@ -66,7 +80,6 @@ export default (state = INITIAL_STATE, action) => {
       };
 
     case LOCAL_CHART_LOADED:
-      console.log(payload);
       return {
         ...state,
         currentChart: JSON.parse(payload),
@@ -173,7 +186,6 @@ export default (state = INITIAL_STATE, action) => {
     case NODE_DELETED:
       const curChartNodeDeleted = { ...state.currentChart };
       const { managerId } = findNode(payload.id, curChartNodeDeleted);
-      console.log(managerId);
       if (!managerId) {
         // Handle deleting the root node
         return { ...state, currentChart: {} };
