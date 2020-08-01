@@ -19,6 +19,7 @@ import {
   LOCAL_CHART_LOADED,
   CHART_COLLAPSED,
   CHART_EXPANDED,
+  CHART_EXPAND_ALL,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -67,8 +68,11 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, isCollapsed: false, collapsedCharts: [] };
       } else {
         oldCollapsedCharts.pop();
-        return { ...state, collapsedChart: oldCollapsedCharts };
+        return { ...state, collapsedCharts: oldCollapsedCharts };
       }
+
+    case CHART_EXPAND_ALL:
+      return { ...state, isCollapsed: false, collapsedCharts: [] };
 
     case CHART_UPDATED:
       return {

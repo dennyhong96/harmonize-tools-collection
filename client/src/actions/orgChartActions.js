@@ -19,6 +19,7 @@ import {
   LOCAL_CHART_LOADED,
   CHART_COLLAPSED,
   CHART_EXPANDED,
+  CHART_EXPAND_ALL,
 } from "./actionTypes";
 
 /**
@@ -248,5 +249,11 @@ export const collapseNode = (id) => (dispatch) => {
 export const expandNode = (id) => (dispatch) => {
   dispatch({
     type: CHART_EXPANDED,
+  });
+};
+
+export const expandAllNode = (id) => (dispatch) => {
+  dispatch({
+    type: CHART_EXPAND_ALL,
   });
 };
