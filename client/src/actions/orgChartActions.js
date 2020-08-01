@@ -17,6 +17,7 @@ import {
   CHART_SELECTED,
   CHART_UPDATED,
   LOCAL_CHART_LOADED,
+  CHART_COLLAPSED,
 } from "./actionTypes";
 
 /**
@@ -234,4 +235,11 @@ export const extractLocalChart = () => (dispatch) => {
     });
     localStorage.removeItem("chart");
   }
+};
+
+export const collapseNode = (id) => (dispatch) => {
+  dispatch({
+    type: CHART_COLLAPSED,
+    payload: id,
+  });
 };

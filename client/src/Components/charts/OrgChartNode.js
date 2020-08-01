@@ -6,11 +6,17 @@ import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import AddEmployeeModal from "./AddEmployeeModal";
-import { deleteNode } from "../../actions/orgChartActions";
+import { deleteNode, collapseNode } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
 
-const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
+const OrgChartNode = ({
+  nodeData,
+  deleteNode,
+  collapseNode,
+  startEditing,
+  endEditing,
+}) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
@@ -32,6 +38,9 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   return (
     <div>
       <div className="oc-inner">
+        {nodeData.children.length ? (
+          <button onClick={() => collapseNode(nodeData.id)}>collapse</button>
+        ) : null}
         {nodeData.id && (
           <div
             className="onclick-add add-top"
@@ -130,6 +139,9 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   );
 };
 
-export default connect(null, { deleteNode, startEditing, endEditing })(
-  OrgChartNode
-);
+export default connect(null, {
+  deleteNode,
+  collapseNode,
+  startEditing,
+  endEditing,
+})(OrgChartNode);

@@ -17,6 +17,7 @@ import {
   CHART_SELECTED,
   CHART_UPDATED,
   LOCAL_CHART_LOADED,
+  CHART_COLLAPSED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -24,6 +25,8 @@ const INITIAL_STATE = {
   chartList: null,
   currentChartId: null,
   currentChart: exampleData,
+  isCollapsed: false,
+  collapsedChart: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -45,6 +48,13 @@ export default (state = INITIAL_STATE, action) => {
         currentChartId: payload._id,
         currentChart: JSON.parse(payload.chartData),
       };
+
+    case CHART_COLLAPSED:
+      const collapsedChart = { ...state.currentChart };
+      const nodeCollapsed = findNode(payload, collapsedChart);
+      nodeCollapsed.children = [];
+      collapsedChart.collapsedNodeId = payload;
+      return { ...state, isCollapsed: true, collapsedChart };
 
     case CHART_UPDATED:
       return {
