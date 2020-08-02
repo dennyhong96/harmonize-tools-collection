@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import ToolTip from "../widgets/ToolTip";
 import "./StepFour.scss";
-import finishLine from "../../assets/finishline.png";
+import finishLine from "../../assets/finishline.svg";
 
 const StepFour = ({ setStep }) => {
   return (
