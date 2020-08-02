@@ -53,10 +53,11 @@
 
     %btn {
       transition: translateY, box-shadow, 0.2s ease;
+      box-shadow: 0 2px 4.7px 0 rgba($greyed-out-chart-content, 0.7);
 
       &:hover {
         transform: translateY(-1px);
-        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.5);
       }
 
       &:active {
@@ -70,13 +71,13 @@
       width: 4.5rem;
       height: 1.4rem;
       border-radius: 93.3px;
-      box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
       background-color: $main-color;
       border: none;
       outline: none;
       font-size: 0.8rem;
       font-weight: 500;
       color: $check-mark-white;
+      margin-left: 0.5rem;
 
       &:focus {
         outline: none;
@@ -88,7 +89,6 @@
       width: 4.5rem;
       height: 1.4rem;
       border-radius: 93.3px;
-      box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
       background-color: $progress-circle-light-blue-bg;
       font-size: 0.8rem;
       font-weight: 500;
