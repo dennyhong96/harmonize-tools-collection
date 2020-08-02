@@ -1,7 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
-import { ListGroup } from "react-bootstrap";
-import ReactTooltip from "react-tooltip";
+import { ListGroup, Dropdown, DropdownButton } from "react-bootstrap";
 
 import {
   createChart,
@@ -10,6 +9,7 @@ import {
   updateChart,
 } from "../../actions/orgChartActions";
 
+import ToolTip from "../widgets/ToolTip";
 import { openSideDrawer } from "../../actions/sideDrawerAction";
 import SaveChartPopup from "./SaveChartPopup";
 import useDownload from "../../hooks/useDownload";
@@ -67,7 +67,7 @@ const EmployeeInfoPanel = ({
             action
             onClick={openSideDrawer}
           >
-            <i class="mr-1 fas fa-file-csv"></i> Build from CSV
+            <i class="mr-1 fas fa-file-csv"></i> Import data from CSV
           </ListGroup.Item>
           <ListGroup.Item
             className="action-item"
@@ -75,7 +75,7 @@ const EmployeeInfoPanel = ({
             action
             onClick={startNewChart}
           >
-            <i class="mr-1 fas fa-wrench"></i> Build from scratch
+            <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
           {user ? (
             <Fragment>
@@ -87,6 +87,7 @@ const EmployeeInfoPanel = ({
               >
                 <i class="mr-1 far fa-window-maximize"></i> Load saved charts
               </ListGroup.Item>
+
               <ListGroup.Item
                 onClick={handleSave}
                 className="action-item"
@@ -98,22 +99,33 @@ const EmployeeInfoPanel = ({
             </Fragment>
           ) : (
             <Fragment>
-              <ListGroup.Item
-                className="action-item disabled-item"
-                as="button"
-                data-tip="Sign in to use cloud functions"
-                action
+              <ToolTip
+                message="Sign in to use cloud features"
+                delay={{ show: 200, hide: 50 }}
+                placement="left"
               >
-                <i class="mr-1 far fa-window-maximize"></i> Load saved charts
-              </ListGroup.Item>
-              <ListGroup.Item
-                className="action-item disabled-item"
-                as="button"
-                data-tip="Sign in to use cloud functions"
-                action
+                <ListGroup.Item
+                  className="action-item disabled-item"
+                  as="button"
+                  action
+                >
+                  <i class="mr-1 far fa-window-maximize"></i> Load saved charts
+                </ListGroup.Item>
+              </ToolTip>
+
+              <ToolTip
+                message="Sign in to use cloud features"
+                delay={{ show: 200, hide: 50 }}
+                placement="left"
               >
-                <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
-              </ListGroup.Item>
+                <ListGroup.Item
+                  className="action-item disabled-item"
+                  as="button"
+                  action
+                >
+                  <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
+                </ListGroup.Item>
+              </ToolTip>
             </Fragment>
           )}
 
@@ -140,7 +152,6 @@ const EmployeeInfoPanel = ({
         onHide={() => setSavePopupShow(false)}
         setSavePopupShow={setSavePopupShow}
       />
-      <ReactTooltip className="my-tooltip" />
     </Fragment>
   );
 };
