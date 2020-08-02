@@ -25,19 +25,19 @@
 
     button {
       margin-left: 0.2rem;
-
+      display: inline-block;
       border: none;
-      border-radius: 5px;
-      color: lighten($main-color, 5%);
-      background-color: $progress-circle-light-blue-bg;
+      border-radius: 5rem;
+      color: #fff;
+      background-color: $main-color;
       font-weight: 500;
       padding: 0.1rem 0.6rem 0.15rem;
-      // box-shadow: 0 2px 3px rgba(#000, 0.15);
-      transition: transform 0.2s ease;
+      box-shadow: 0 2px 3px rgba(#000, 0.15);
+      transition: transform 0.1s ease;
 
       &:hover {
         transform: scale(1.03);
-        // box-shadow: 0 3px 5px rgba(#000, 0.15);
+        box-shadow: 0 3px 5px rgba(#000, 0.15);
       }
 
       &:focus {
