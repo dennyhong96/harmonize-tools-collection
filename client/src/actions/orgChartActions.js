@@ -1,5 +1,6 @@
 import axios from "axios";
 import dispatchToast from "../utils/toast";
+import fileDownload from "js-file-download";
 
 import {
   ORG_DATA_FETCHED,
@@ -21,6 +22,7 @@ import {
   CHART_EXPANDED,
   CHART_EXPAND_ALL,
 } from "./actionTypes";
+import ObjectToCSV from "../utils/ObjectToCSV";
 
 /**
  * @param {object} file - csv file to be uploaded to server
@@ -254,4 +256,11 @@ export const expandAllNode = (id) => (dispatch) => {
   dispatch({
     type: CHART_EXPAND_ALL,
   });
+};
+
+const ObjectsToCsv = require("objects-to-csv");
+
+export const toCSV = () => async (dispatch, getState) => {
+  const csv = new ObjectsToCsv(ObjectToCSV(getState().chart.currentChart));
+  fileDownload(await csv.toString(), "orgchartToCSV.csv");
 };

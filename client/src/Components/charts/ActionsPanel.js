@@ -7,6 +7,7 @@ import {
   loadCharts,
   startNewChart,
   updateChart,
+  toCSV,
 } from "../../actions/orgChartActions";
 
 import ConfirmNewChartPopup from "./ConfirmNewChartPopup";
@@ -26,6 +27,7 @@ const EmployeeInfoPanel = ({
   startNewChart,
   openSideDrawer,
   currentChartId,
+  toCSV,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -148,6 +150,14 @@ const EmployeeInfoPanel = ({
           >
             <i class="mr-1 far fa-file-image"></i> Export to JPG
           </ListGroup.Item>
+          <ListGroup.Item
+            className="action-item"
+            as="button"
+            action
+            onClick={toCSV}
+          >
+            <i class="mr-1 far fa-file-image"></i> Export to CSV
+          </ListGroup.Item>
         </ListGroup>
       </div>
       <SaveChartPopup
@@ -177,4 +187,5 @@ export default connect(mapStateToProps, {
   startNewChart,
   openSideDrawer,
   updateChart,
+  toCSV,
 })(EmployeeInfoPanel);
