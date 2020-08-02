@@ -64,9 +64,14 @@
 
   .action-list {
     .action-item {
-      padding: 0.35rem 0;
+      padding: 0;
       font-size: 0.7rem;
       text-align: center;
+      text-align: left;
+      padding-left: 1rem;
+      position: relative;
+      height: 2rem;
+      display: block;
 
       &:focus {
         outline: none;

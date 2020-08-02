@@ -46,7 +46,7 @@ const OrgChartNode = ({
   return (
     <div>
       <div className="oc-inner">
-        {nodeData.children.length ? (
+        {nodeData.children && nodeData.children.length ? (
           <ToolTip message="Collapse" delay={{ show: 150, hide: 250 }}>
             <button
               className="collapse-expand"

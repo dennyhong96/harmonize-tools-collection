@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Dropdown, DropdownButton } from "react-bootstrap";
 
 import {
   createChart,
@@ -67,7 +67,7 @@ const EmployeeInfoPanel = ({
             action
             onClick={openSideDrawer}
           >
-            <i class="mr-1 fas fa-file-csv"></i> Build from CSV
+            <i class="mr-1 fas fa-file-csv"></i> Import data from CSV
           </ListGroup.Item>
           <ListGroup.Item
             className="action-item"
@@ -75,7 +75,7 @@ const EmployeeInfoPanel = ({
             action
             onClick={startNewChart}
           >
-            <i class="mr-1 fas fa-wrench"></i> Build from scratch
+            <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
           {user ? (
             <Fragment>
@@ -101,7 +101,8 @@ const EmployeeInfoPanel = ({
             <Fragment>
               <ToolTip
                 message="Sign in to use cloud features"
-                delay={{ show: 50, hide: 100 }}
+                delay={{ show: 200, hide: 50 }}
+                placement="left"
               >
                 <ListGroup.Item
                   className="action-item disabled-item"
@@ -114,7 +115,8 @@ const EmployeeInfoPanel = ({
 
               <ToolTip
                 message="Sign in to use cloud features"
-                delay={{ show: 50, hide: 100 }}
+                delay={{ show: 200, hide: 50 }}
+                placement="left"
               >
                 <ListGroup.Item
                   className="action-item disabled-item"
