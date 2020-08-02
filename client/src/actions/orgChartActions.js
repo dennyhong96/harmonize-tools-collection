@@ -96,7 +96,6 @@ export const addNode = (id, formData) => (dispatch) => {
  * @param {object} formData - formData collected from the form
  */
 export const addColleague = (id, formData, direction) => (dispatch) => {
-  console.log(id, formData, direction);
   dispatch({
     type: COLLEAGUE_ADDED,
     payload: { id, formData, direction },
@@ -172,7 +171,6 @@ export const createChart = (chartName = "default") => async (
 export const loadCharts = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/v1/charts");
-    console.log(res.data);
     dispatch({
       type: CHARTS_LOADED,
       payload: res.data.data.charts,
@@ -208,9 +206,6 @@ export const updateChart = (chartId) => async (dispatch, getState) => {
     const {
       chart: { currentChart: chartData },
     } = getState();
-
-    console.log(chartData);
-
     const res = await axios.patch(
       `/api/v1/charts/${chartId}`,
       { chartData },
@@ -222,8 +217,6 @@ export const updateChart = (chartId) => async (dispatch, getState) => {
       payload: res.data.data.chart,
     });
     dispatchToast(`Updates are saved to the cloud!`, "SUCCESS");
-
-    console.log(res.data);
   } catch (error) {
     console.error(error.response);
   }

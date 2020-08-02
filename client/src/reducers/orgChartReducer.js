@@ -244,8 +244,8 @@ export default (state = INITIAL_STATE, action) => {
         child.managerId = manager.id;
       });
       manager.children = [...manager.children, ...payload.children];
-
       return { ...state, currentChart: curChartNodeDeleted };
+
     default:
       return state;
   }

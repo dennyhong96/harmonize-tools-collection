@@ -83,7 +83,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
 
       <Modal.Footer>
         <button className="close-btn" onClick={otherProps.onHide}>
-          Back
+          Cancel
         </button>
         <button className="confirm-btn" onClick={handleSubmit}>
           Confirm

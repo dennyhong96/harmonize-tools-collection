@@ -67,7 +67,7 @@
 
     .confirm-btn {
       @extend %btn;
-      width: 4.2rem;
+      width: 4.5rem;
       height: 1.4rem;
       border-radius: 93.3px;
       box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
@@ -75,7 +75,7 @@
       border: none;
       outline: none;
       font-size: 0.8rem;
-      font-weight: bold;
+      font-weight: 500;
       color: $check-mark-white;
 
       &:focus {
@@ -85,13 +85,13 @@
 
     .close-btn {
       @extend %btn;
-      width: 4.2rem;
+      width: 4.5rem;
       height: 1.4rem;
       border-radius: 93.3px;
       box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
       background-color: $progress-circle-light-blue-bg;
       font-size: 0.8rem;
-      font-weight: bold;
+      font-weight: 500;
       color: $main-color;
       outline: none;
       border: none;
