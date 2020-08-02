@@ -17,13 +17,20 @@ import {
   CHART_SELECTED,
   CHART_UPDATED,
   LOCAL_CHART_LOADED,
+  CHART_COLLAPSED,
+  CHART_EXPANDED,
+  CHART_EXPAND_ALL,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
+
+const deepCopyObj = (object) => JSON.parse(JSON.stringify(object));
 
 const INITIAL_STATE = {
   chartList: null,
   currentChartId: null,
   currentChart: exampleData,
+  collapsedChart: null,
+  collapsedCharts: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -46,6 +53,51 @@ export default (state = INITIAL_STATE, action) => {
         currentChart: JSON.parse(payload.chartData),
       };
 
+    case CHART_COLLAPSED:
+      const oldState = deepCopyObj(state);
+      let chartBeforeCollapse;
+      if (oldState.collapsedCharts.length) {
+        chartBeforeCollapse = deepCopyObj(oldState).collapsedCharts.pop()
+          .chartAfterCollapse;
+      } else {
+        chartBeforeCollapse = deepCopyObj(oldState).currentChart;
+      }
+      const chartAfterCollapse = deepCopyObj(chartBeforeCollapse);
+      const nodeCollapsed = findNode(payload, chartAfterCollapse);
+      nodeCollapsed.children = [];
+      return {
+        ...oldState,
+        collapsedChart: chartAfterCollapse,
+        collapsedCharts: [
+          ...oldState.collapsedCharts,
+          { collapsedNodeId: payload, chartBeforeCollapse, chartAfterCollapse },
+        ],
+      };
+
+    case CHART_EXPANDED:
+      const stateCopy = deepCopyObj(state);
+      if (state.collapsedCharts.length <= 1) {
+        return {
+          ...state,
+          collapsedCharts: [],
+          collapsedChart: null,
+        };
+      } else {
+        const oldChart = stateCopy.collapsedCharts.find(
+          (chart) => chart.collapsedNodeId === payload
+        ).chartBeforeCollapse;
+        return {
+          ...state,
+          collapsedChart: oldChart,
+          collapsedCharts: stateCopy.collapsedCharts.filter(
+            (chart) => chart.collapsedNodeId !== payload
+          ),
+        };
+      }
+
+    case CHART_EXPAND_ALL:
+      return { ...state, isCollapsed: false, collapsedCharts: [] };
+
     case CHART_UPDATED:
       return {
         ...state,
@@ -56,7 +108,6 @@ export default (state = INITIAL_STATE, action) => {
       };
 
     case LOCAL_CHART_LOADED:
-      console.log(payload);
       return {
         ...state,
         currentChart: JSON.parse(payload),
@@ -163,7 +214,6 @@ export default (state = INITIAL_STATE, action) => {
     case NODE_DELETED:
       const curChartNodeDeleted = { ...state.currentChart };
       const { managerId } = findNode(payload.id, curChartNodeDeleted);
-      console.log(managerId);
       if (!managerId) {
         // Handle deleting the root node
         return { ...state, currentChart: {} };

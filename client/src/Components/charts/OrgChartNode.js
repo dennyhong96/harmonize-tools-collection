@@ -6,11 +6,24 @@ import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import AddEmployeeModal from "./AddEmployeeModal";
-import { deleteNode } from "../../actions/orgChartActions";
+import {
+  deleteNode,
+  collapseNode,
+  expandNode,
+} from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
+import findNode from "../../utils/findNode";
 
-const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
+const OrgChartNode = ({
+  chart,
+  nodeData,
+  deleteNode,
+  collapseNode,
+  startEditing,
+  endEditing,
+  expandNode,
+}) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
   const [addModalShow, setAddModalShow] = useState(false);
@@ -32,7 +45,16 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   return (
     <div>
       <div className="oc-inner">
-        {nodeData.id && (
+        {nodeData.children.length ? (
+          <button onClick={() => collapseNode(nodeData.id)}>collapse</button>
+        ) : null}
+        {chart.collapsedChart &&
+        chart.collapsedCharts.find(
+          (chart) => chart.collapsedNodeId === nodeData.id
+        ) ? (
+          <button onClick={() => expandNode(nodeData.id)}>Expand</button>
+        ) : null}
+        {!chart.collapsedChart && nodeData.id && (
           <div
             className="onclick-add add-top"
             onClick={() => {
@@ -43,7 +65,7 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.id && (
+        {!chart.collapsedChart && nodeData.id && (
           <div
             className="onclick-add add-bottom"
             onClick={() => {
@@ -54,7 +76,7 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.manager && (
+        {!chart.collapsedChart && nodeData.manager && (
           <div
             className="onclick-add add-left"
             onClick={() => {
@@ -65,7 +87,7 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {nodeData.manager && (
+        {!chart.collapsedChart && nodeData.manager && (
           <div
             className="onclick-add add-right"
             onClick={() => {
@@ -130,6 +152,12 @@ const OrgChartNode = ({ nodeData, deleteNode, startEditing, endEditing }) => {
   );
 };
 
-export default connect(null, { deleteNode, startEditing, endEditing })(
-  OrgChartNode
-);
+const mapStateToProps = ({ chart }) => ({ chart });
+
+export default connect(mapStateToProps, {
+  deleteNode,
+  collapseNode,
+  expandNode,
+  startEditing,
+  endEditing,
+})(OrgChartNode);

@@ -17,6 +17,9 @@ import {
   CHART_SELECTED,
   CHART_UPDATED,
   LOCAL_CHART_LOADED,
+  CHART_COLLAPSED,
+  CHART_EXPANDED,
+  CHART_EXPAND_ALL,
 } from "./actionTypes";
 
 /**
@@ -234,4 +237,24 @@ export const extractLocalChart = () => (dispatch) => {
     });
     localStorage.removeItem("chart");
   }
+};
+
+export const collapseNode = (id) => (dispatch) => {
+  dispatch({
+    type: CHART_COLLAPSED,
+    payload: id,
+  });
+};
+
+export const expandNode = (id) => (dispatch) => {
+  dispatch({
+    type: CHART_EXPANDED,
+    payload: id,
+  });
+};
+
+export const expandAllNode = (id) => (dispatch) => {
+  dispatch({
+    type: CHART_EXPAND_ALL,
+  });
 };
