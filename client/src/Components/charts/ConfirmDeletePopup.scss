@@ -73,6 +73,20 @@
           outline: none;
         }
       }
+
+      .export-btn {
+        @extend %btn;
+        background-color: $main-color;
+        font-size: 0.8rem;
+
+        color: #fff;
+        outline: none;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ import {
   toCSV,
 } from "../../actions/orgChartActions";
 
+import ExportPopup from "../charts/ExportPopup";
 import ConfirmNewChartPopup from "./ConfirmNewChartPopup";
 import ToolTip from "../widgets/ToolTip";
 import { openSideDrawer } from "../../actions/sideDrawerAction";
@@ -33,6 +34,7 @@ const EmployeeInfoPanel = ({
   const [showWidget, setShowWidget] = useState(false);
   const [savePopupShow, setSavePopupShow] = useState(false);
   const [newChartPopupShow, setNewChartPopupShow] = useState(false);
+  const [exportPopupShow, setExportPopupShow] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -80,6 +82,15 @@ const EmployeeInfoPanel = ({
             onClick={() => setNewChartPopupShow(true)}
           >
             <i class="mr-1 fas fa-wrench"></i> New chart
+          </ListGroup.Item>
+
+          <ListGroup.Item
+            className="action-item"
+            as="button"
+            action
+            onClick={() => setExportPopupShow(true)}
+          >
+            <i class="fas fa-file-export"></i> Export
           </ListGroup.Item>
           {user ? (
             <Fragment>
@@ -133,7 +144,7 @@ const EmployeeInfoPanel = ({
             </Fragment>
           )}
 
-          <ListGroup.Item
+          {/* <ListGroup.Item
             className="action-item"
             as="button"
             action
@@ -157,7 +168,7 @@ const EmployeeInfoPanel = ({
             onClick={toCSV}
           >
             <i class="mr-1 far fa-file-image"></i> Export to CSV
-          </ListGroup.Item>
+          </ListGroup.Item> */}
         </ListGroup>
       </div>
       <SaveChartPopup
@@ -170,6 +181,12 @@ const EmployeeInfoPanel = ({
         onHide={() => setNewChartPopupShow(false)}
         setNewChartPopupShow={setNewChartPopupShow}
         startNewChart={startNewChart}
+      />
+      <ExportPopup
+        show={exportPopupShow}
+        onHide={() => setExportPopupShow(false)}
+        setExportPopupShow={setExportPopupShow}
+        toCSV={toCSV}
       />
     </Fragment>
   );
