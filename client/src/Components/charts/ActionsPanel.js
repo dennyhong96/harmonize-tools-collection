@@ -84,14 +84,20 @@ const EmployeeInfoPanel = ({
             <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
 
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={() => setExportPopupShow(true)}
+          <ToolTip
+            message="Export as JPG, PDF, or CSV"
+            placement="left"
+            delay={{ show: 200, hide: 50 }}
           >
-            <i class="fas fa-file-export"></i> Export
-          </ListGroup.Item>
+            <ListGroup.Item
+              className="action-item"
+              as="button"
+              action
+              onClick={() => setExportPopupShow(true)}
+            >
+              <i class="fas fa-file-export"></i> Export
+            </ListGroup.Item>
+          </ToolTip>
           {user ? (
             <Fragment>
               <ListGroup.Item
