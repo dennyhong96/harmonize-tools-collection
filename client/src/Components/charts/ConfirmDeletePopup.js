@@ -44,7 +44,7 @@ const ConfirmDeletePopup = ({
       </Modal.Body>
       <Modal.Footer>
         <button className="close-btn" onClick={onHide}>
-          Back
+          Cancel
         </button>
         <button className="confirm-btn" onClick={handleDelete}>
           Delete

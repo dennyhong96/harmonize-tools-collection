@@ -9,6 +9,7 @@ import {
   updateChart,
 } from "../../actions/orgChartActions";
 
+import ConfirmNewChartPopup from "./ConfirmNewChartPopup";
 import ToolTip from "../widgets/ToolTip";
 import { openSideDrawer } from "../../actions/sideDrawerAction";
 import SaveChartPopup from "./SaveChartPopup";
@@ -29,6 +30,7 @@ const EmployeeInfoPanel = ({
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
   const [savePopupShow, setSavePopupShow] = useState(false);
+  const [newChartPopupShow, setNewChartPopupShow] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -73,7 +75,7 @@ const EmployeeInfoPanel = ({
             className="action-item"
             as="button"
             action
-            onClick={startNewChart}
+            onClick={() => setNewChartPopupShow(true)}
           >
             <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
@@ -137,6 +139,7 @@ const EmployeeInfoPanel = ({
           >
             <i class="mr-1 far fa-file-pdf"></i> Export to PDF
           </ListGroup.Item>
+
           <ListGroup.Item
             className="action-item"
             as="button"
@@ -151,6 +154,12 @@ const EmployeeInfoPanel = ({
         show={savePopupShow}
         onHide={() => setSavePopupShow(false)}
         setSavePopupShow={setSavePopupShow}
+      />
+      <ConfirmNewChartPopup
+        show={newChartPopupShow}
+        onHide={() => setNewChartPopupShow(false)}
+        setNewChartPopupShow={setNewChartPopupShow}
+        startNewChart={startNewChart}
       />
     </Fragment>
   );

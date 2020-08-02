@@ -29,10 +29,11 @@
 
       %btn {
         transition: translateY, box-shadow, 0.2s ease;
-        width: 4rem;
+        width: 4.7rem;
         height: 1.4rem;
         border-radius: 93.3px;
         box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
+        font-weight: 500;
 
         &:hover {
           transform: translateY(-1px);
@@ -51,7 +52,7 @@
         border: none;
         outline: none;
         font-size: 0.8rem;
-        font-weight: bold;
+
         color: $check-mark-white;
 
         &:focus {
@@ -63,7 +64,7 @@
         @extend %btn;
         background-color: $progress-circle-light-blue-bg;
         font-size: 0.8rem;
-        font-weight: bold;
+
         color: $main-color;
         outline: none;
         border: none;
