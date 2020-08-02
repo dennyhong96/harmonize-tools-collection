@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import { extractLocalChart } from "../../actions/orgChartActions";
 import ChartIndicator from "./ChartIndicator";
+import CollapseWarning from "./CollapseWarning";
 import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
@@ -39,6 +40,7 @@ const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
   return (
     <Fragment>
       <ChartIndicator chart={chart} sideDrawer={sideDrawer} />
+      <CollapseWarning chart={chart} sideDrawer={sideDrawer} />
       <OrganizationChart
         datasource={chart.collapsedChart || chart.currentChart}
         chartClass="myChart"

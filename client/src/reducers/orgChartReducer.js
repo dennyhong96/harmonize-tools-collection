@@ -38,19 +38,35 @@ export default (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case CHART_SAVED:
-      return { ...state, currentChart: { ...payload } };
+      return {
+        ...state,
+        currentChart: { ...payload },
+      };
 
     case ORG_DATA_FETCHED:
-      return { ...state, currentChart: payload };
+      return {
+        ...state,
+        currentChart: payload,
+        collapsedChart: null,
+        collapsedCharts: [],
+      };
 
     case START_NEW_CHART:
-      return { ...state, currentChart: {}, currentChartId: null };
+      return {
+        ...state,
+        currentChart: {},
+        currentChartId: null,
+        collapsedChart: null,
+        collapsedCharts: [],
+      };
 
     case CHART_SELECTED:
       return {
         ...state,
         currentChartId: payload._id,
         currentChart: JSON.parse(payload.chartData),
+        collapsedChart: null,
+        collapsedCharts: [],
       };
 
     case CHART_COLLAPSED:
@@ -96,7 +112,7 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case CHART_EXPAND_ALL:
-      return { ...state, isCollapsed: false, collapsedCharts: [] };
+      return { ...state, collapsedChart: null, collapsedCharts: [] };
 
     case CHART_UPDATED:
       return {
@@ -111,6 +127,8 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentChart: JSON.parse(payload),
+        collapsedChart: null,
+        collapsedCharts: [],
       };
 
     case ORG_DATA_ERROR:
@@ -226,8 +244,8 @@ export default (state = INITIAL_STATE, action) => {
         child.managerId = manager.id;
       });
       manager.children = [...manager.children, ...payload.children];
-
       return { ...state, currentChart: curChartNodeDeleted };
+
     default:
       return state;
   }

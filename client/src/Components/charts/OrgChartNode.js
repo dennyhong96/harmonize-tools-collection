@@ -46,13 +46,23 @@ const OrgChartNode = ({
     <div>
       <div className="oc-inner">
         {nodeData.children.length ? (
-          <button onClick={() => collapseNode(nodeData.id)}>collapse</button>
+          <button
+            className="collapse-expand"
+            onClick={() => collapseNode(nodeData.id)}
+          >
+            <i class="fas fa-chevron-up"></i>
+          </button>
         ) : null}
         {chart.collapsedChart &&
         chart.collapsedCharts.find(
           (chart) => chart.collapsedNodeId === nodeData.id
         ) ? (
-          <button onClick={() => expandNode(nodeData.id)}>Expand</button>
+          <button
+            className="collapse-expand"
+            onClick={() => expandNode(nodeData.id)}
+          >
+            <i class="fas fa-chevron-down"></i>
+          </button>
         ) : null}
         {!chart.collapsedChart && nodeData.id && (
           <div
@@ -98,27 +108,29 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        <Dropdown className="more-options-dropdown">
-          <Dropdown.Toggle
-            id="dropdown-basic"
-            className="more-options-dropdown-btn"
-          >
-            <i class="fas fa-ellipsis-h"></i>
-          </Dropdown.Toggle>
-          <Dropdown.Menu className="more-options-dropdown-menu">
-            <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
-              Edit employee
-            </Dropdown.Item>
-            {nodeData.id && (
-              <Dropdown.Item
-                as="button"
-                onClick={() => setDeletePopupShow(true)}
-              >
-                Delete employee
+        {!chart.collapsedChart && (
+          <Dropdown className="more-options-dropdown">
+            <Dropdown.Toggle
+              id="dropdown-basic"
+              className="more-options-dropdown-btn"
+            >
+              <i class="fas fa-ellipsis-h"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="more-options-dropdown-menu">
+              <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
+                Edit employee
               </Dropdown.Item>
-            )}
-          </Dropdown.Menu>
-        </Dropdown>
+              {nodeData.id && (
+                <Dropdown.Item
+                  as="button"
+                  onClick={() => setDeletePopupShow(true)}
+                >
+                  Delete employee
+                </Dropdown.Item>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
         <div className="user">
           <img className="far" src={userIcon} alt="user icon" />
         </div>
