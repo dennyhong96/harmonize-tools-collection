@@ -40,11 +40,7 @@ const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
     <Fragment>
       <ChartIndicator chart={chart} sideDrawer={sideDrawer} />
       <OrganizationChart
-        datasource={
-          chart.isCollapsed
-            ? chart.collapsedCharts[chart.collapsedCharts.length - 1]
-            : chart.currentChart
-        }
+        datasource={chart.collapsedChart || chart.currentChart}
         chartClass="myChart"
         NodeTemplate={OrgChartNode}
         draggable={!!chart.currentChart.id}

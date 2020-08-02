@@ -13,6 +13,7 @@ import {
 } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
+import findNode from "../../utils/findNode";
 
 const OrgChartNode = ({
   chart,
@@ -45,22 +46,15 @@ const OrgChartNode = ({
     <div>
       <div className="oc-inner">
         {nodeData.children.length ? (
-          <button
-            onClick={() => {
-              console.log(nodeData);
-              collapseNode(nodeData.id);
-            }}
-          >
-            collapse
-          </button>
+          <button onClick={() => collapseNode(nodeData.id)}>collapse</button>
         ) : null}
-        {chart.isCollapsed &&
-        chart.collapsedCharts
-          .map((chart) => chart.collapsedNodeId)
-          .includes(nodeData.id) ? (
-          <button onClick={expandNode}>Expand</button>
+        {chart.collapsedChart &&
+        chart.collapsedCharts.find(
+          (chart) => chart.collapsedNodeId === nodeData.id
+        ) ? (
+          <button onClick={() => expandNode(nodeData.id)}>Expand</button>
         ) : null}
-        {!chart.isCollapsed && nodeData.id && (
+        {!chart.collapsedChart && nodeData.id && (
           <div
             className="onclick-add add-top"
             onClick={() => {
@@ -71,7 +65,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {!chart.isCollapsed && nodeData.id && (
+        {!chart.collapsedChart && nodeData.id && (
           <div
             className="onclick-add add-bottom"
             onClick={() => {
@@ -82,7 +76,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {!chart.isCollapsed && nodeData.manager && (
+        {!chart.collapsedChart && nodeData.manager && (
           <div
             className="onclick-add add-left"
             onClick={() => {
@@ -93,7 +87,7 @@ const OrgChartNode = ({
             <i className="fas fa-plus"></i>
           </div>
         )}
-        {!chart.isCollapsed && nodeData.manager && (
+        {!chart.collapsedChart && nodeData.manager && (
           <div
             className="onclick-add add-right"
             onClick={() => {

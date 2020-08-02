@@ -249,6 +249,7 @@ export const collapseNode = (id) => (dispatch) => {
 export const expandNode = (id) => (dispatch) => {
   dispatch({
     type: CHART_EXPANDED,
+    payload: id,
   });
 };
 

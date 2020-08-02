@@ -23,11 +23,13 @@ import {
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
+const deepCopyObj = (object) => JSON.parse(JSON.stringify(object));
+
 const INITIAL_STATE = {
   chartList: null,
   currentChartId: null,
   currentChart: exampleData,
-  isCollapsed: false,
+  collapsedChart: null,
   collapsedCharts: [],
 };
 
@@ -52,23 +54,45 @@ export default (state = INITIAL_STATE, action) => {
       };
 
     case CHART_COLLAPSED:
-      const collapsedChart = JSON.parse(JSON.stringify(state)).currentChart;
-      const nodeCollapsed = findNode(payload, collapsedChart);
+      const oldState = deepCopyObj(state);
+      let chartBeforeCollapse;
+      if (oldState.collapsedCharts.length) {
+        chartBeforeCollapse = deepCopyObj(oldState).collapsedCharts.pop()
+          .chartAfterCollapse;
+      } else {
+        chartBeforeCollapse = deepCopyObj(oldState).currentChart;
+      }
+      const chartAfterCollapse = deepCopyObj(chartBeforeCollapse);
+      const nodeCollapsed = findNode(payload, chartAfterCollapse);
       nodeCollapsed.children = [];
-      collapsedChart.collapsedNodeId = payload;
       return {
-        ...state,
-        isCollapsed: true,
-        collapsedCharts: [...state.collapsedCharts, collapsedChart],
+        ...oldState,
+        collapsedChart: chartAfterCollapse,
+        collapsedCharts: [
+          ...oldState.collapsedCharts,
+          { collapsedNodeId: payload, chartBeforeCollapse, chartAfterCollapse },
+        ],
       };
 
     case CHART_EXPANDED:
-      const oldCollapsedCharts = { ...state }.collapsedCharts;
-      if (oldCollapsedCharts.length <= 1) {
-        return { ...state, isCollapsed: false, collapsedCharts: [] };
+      const stateCopy = deepCopyObj(state);
+      if (state.collapsedCharts.length <= 1) {
+        return {
+          ...state,
+          collapsedCharts: [],
+          collapsedChart: null,
+        };
       } else {
-        oldCollapsedCharts.pop();
-        return { ...state, collapsedCharts: oldCollapsedCharts };
+        const oldChart = stateCopy.collapsedCharts.find(
+          (chart) => chart.collapsedNodeId === payload
+        ).chartBeforeCollapse;
+        return {
+          ...state,
+          collapsedChart: oldChart,
+          collapsedCharts: stateCopy.collapsedCharts.filter(
+            (chart) => chart.collapsedNodeId !== payload
+          ),
+        };
       }
 
     case CHART_EXPAND_ALL:
