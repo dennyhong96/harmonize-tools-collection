@@ -6,7 +6,7 @@ const dispatchToast = (msg, type = "ERROR") => {
       toast.error(msg, {
         position: "top-right",
         autoClose: 5000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -16,7 +16,7 @@ const dispatchToast = (msg, type = "ERROR") => {
       toast.success(msg, {
         position: "top-right",
         autoClose: 2500,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -26,7 +26,7 @@ const dispatchToast = (msg, type = "ERROR") => {
       toast.info(msg, {
         position: "top-right",
         autoClose: 3500,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,

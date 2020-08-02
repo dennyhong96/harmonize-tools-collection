@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import ToolTip from "../widgets/ToolTip";
 import { startEditing, endEditing } from "../../actions/editingActions";
 import EditEmployeeModal from "./EditEmployeeModal";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
@@ -46,23 +47,27 @@ const OrgChartNode = ({
     <div>
       <div className="oc-inner">
         {nodeData.children.length ? (
-          <button
-            className="collapse-expand"
-            onClick={() => collapseNode(nodeData.id)}
-          >
-            <i class="fas fa-chevron-up"></i>
-          </button>
+          <ToolTip message="Collapse" delay={{ show: 150, hide: 250 }}>
+            <button
+              className="collapse-expand"
+              onClick={() => collapseNode(nodeData.id)}
+            >
+              <i class="fas fa-chevron-up"></i>
+            </button>
+          </ToolTip>
         ) : null}
         {chart.collapsedChart &&
         chart.collapsedCharts.find(
           (chart) => chart.collapsedNodeId === nodeData.id
         ) ? (
-          <button
-            className="collapse-expand"
-            onClick={() => expandNode(nodeData.id)}
-          >
-            <i class="fas fa-chevron-down"></i>
-          </button>
+          <ToolTip message="Expand" delay={{ show: 150, hide: 250 }}>
+            <button
+              className="collapse-expand"
+              onClick={() => expandNode(nodeData.id)}
+            >
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </ToolTip>
         ) : null}
         {!chart.collapsedChart && nodeData.id && (
           <div
