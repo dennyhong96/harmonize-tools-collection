@@ -149,32 +149,6 @@ const EmployeeInfoPanel = ({
               </ToolTip>
             </Fragment>
           )}
-
-          {/* <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={() => handleDownload("PDF")}
-          >
-            <i class="mr-1 far fa-file-pdf"></i> Export to PDF
-          </ListGroup.Item>
-
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={() => handleDownload("JPG")}
-          >
-            <i class="mr-1 far fa-file-image"></i> Export to JPG
-          </ListGroup.Item>
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={toCSV}
-          >
-            <i class="mr-1 far fa-file-image"></i> Export to CSV
-          </ListGroup.Item> */}
         </ListGroup>
       </div>
       <SaveChartPopup
