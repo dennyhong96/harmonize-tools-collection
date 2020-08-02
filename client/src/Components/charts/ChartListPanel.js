@@ -10,6 +10,7 @@ const ChartListPanel = ({
   editChart,
   chartListShow,
   setChartListShow,
+  user,
 }) => {
   const orgChartRef = useRef();
 
@@ -23,7 +24,9 @@ const ChartListPanel = ({
   };
 
   return (
-    <div className={`chart-list ${chartListShow ? "chart-list-show" : ""}`}>
+    <div
+      className={`chart-list ${chartListShow && user ? "chart-list-show" : ""}`}
+    >
       <div className="chart-list-close" onClick={() => setChartListShow(false)}>
         <i className="fas fa-times"></i>
       </div>

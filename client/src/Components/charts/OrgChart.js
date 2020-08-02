@@ -10,7 +10,13 @@ import ChartListPanel from "../charts/ChartListPanel";
 import ActionsPanel from "./ActionsPanel";
 import "./OrgChart.scss";
 
-const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
+const OrgChart = ({
+  chart,
+  sideDrawer,
+  isEditing,
+  extractLocalChart,
+  user,
+}) => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [chartListShow, setChartListShow] = useState(false);
 
@@ -61,15 +67,17 @@ const OrgChart = ({ chart, sideDrawer, isEditing, extractLocalChart }) => {
         chartListShow={chartListShow}
         setChartListShow={setChartListShow}
         chart={chart}
+        user={user}
       />
     </Fragment>
   );
 };
 
-const mapStateToProps = ({ chart, sideDrawer, isEditing }) => ({
+const mapStateToProps = ({ chart, sideDrawer, isEditing, user }) => ({
   chart,
   sideDrawer,
   isEditing,
+  user,
 });
 
 export default connect(mapStateToProps, { extractLocalChart })(OrgChart);
