@@ -90,6 +90,37 @@
         color: $main-color;
       }
     }
+
+    .import-btn {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 5px;
+      margin-left: 0.5rem;
+
+      background-color: #fff;
+      color: lighten($dark-text, 15%);
+      font: inherit;
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 0.2s ease-out;
+      box-shadow: 0 2px 3px rgba(#000, 0.1);
+      transition: transform, box-shadow, 0.2s ease;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 3px 4px rgba(#000, 0.1);
+      }
+    }
   }
 
   .topbar-actions {
