@@ -155,6 +155,7 @@ const EmployeeInfoPanel = ({
         show={savePopupShow}
         onHide={() => setSavePopupShow(false)}
         setSavePopupShow={setSavePopupShow}
+        createChart={createChart}
       />
       <ConfirmNewChartPopup
         show={newChartPopupShow}

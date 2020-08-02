@@ -38,9 +38,13 @@ export default (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case CHART_SAVED:
+      console.log(payload);
       return {
         ...state,
-        currentChart: { ...payload },
+        currentChart: JSON.parse(payload.chartData),
+        chartList: state.chartList
+          ? [{ ...payload }, ...state.chartList]
+          : [{ ...payload }],
       };
 
     case ORG_DATA_FETCHED:

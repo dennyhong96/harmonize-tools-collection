@@ -1,6 +1,7 @@
 import axios from "axios";
 import dispatchToast from "../utils/toast";
 import fileDownload from "js-file-download";
+import ObjectsToCsv from "objects-to-csv";
 
 import {
   ORG_DATA_FETCHED,
@@ -164,13 +165,14 @@ export const createChart = (chartName = "default") => async (
       { chartName, chartData },
       config
     );
+    console.log(res.data.data.chart);
     dispatch({
       type: CHART_SAVED,
-      payload: JSON.parse(res.data.data.chart.chartData),
+      payload: res.data.data.chart,
     });
     dispatchToast("Chart saved to cloud!", "SUCCESS");
   } catch (error) {
-    console.error(error.response);
+    console.error(error);
   }
 };
 
@@ -257,8 +259,6 @@ export const expandAllNode = (id) => (dispatch) => {
     type: CHART_EXPAND_ALL,
   });
 };
-
-const ObjectsToCsv = require("objects-to-csv");
 
 export const toCSV = () => async (dispatch, getState) => {
   const csv = new ObjectsToCsv(ObjectToCSV(getState().chart.currentChart));

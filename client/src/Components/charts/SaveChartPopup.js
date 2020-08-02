@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { createChart } from "../../actions/orgChartActions";
 import "./EditEmployeeModal.scss";
 
 const SaveChartPopup = ({ createChart, setSavePopupShow, ...otherProps }) => {
@@ -55,4 +54,4 @@ const SaveChartPopup = ({ createChart, setSavePopupShow, ...otherProps }) => {
   );
 };
 
-export default connect(null, { createChart })(SaveChartPopup);
+export default connect(null)(SaveChartPopup);
