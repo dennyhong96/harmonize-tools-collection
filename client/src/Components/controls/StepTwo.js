@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+import ToolTip from "../widgets/ToolTip";
 import "./StepTwo.scss";
 import csv from "../../assets/csv.png";
 
@@ -11,13 +12,18 @@ const StepTwo = ({ setStep }) => {
           <span className="st-1 text-center">
             1. Download <br /> <span>Template</span>
           </span>
-          <span className="st-2 ">2. Edit & Save</span>
+          <span className="st-2">2. Edit & Save</span>
           <span className="st-3">3. Upload File</span>
           <span className="st-4">4. Generate Chart</span>
         </div>
         <div className="step-two-progress">
           <div className="line"></div>
-          <div className="milestone finished ms-1"></div>
+          <ToolTip message="Back to step 1" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-1"
+              onClick={() => setStep(1)}
+            ></div>
+          </ToolTip>
           <div className="milestone active ms-2"></div>
           <div className="milestone ms-3"></div>
           <div className="milestone ms-4"></div>

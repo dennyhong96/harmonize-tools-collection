@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 
 import StepThreeDropFile from "./StepThreeDropFile";
 import "./StepThree.scss";
+import ToolTip from "../widgets/ToolTip";
 
 const StepThree = ({ setStep, uploadOrgData }) => {
   const [file, setFile] = useState("");
@@ -37,8 +38,18 @@ const StepThree = ({ setStep, uploadOrgData }) => {
         </div>
         <div className="step-three-progress">
           <div className="line"></div>
-          <div className="milestone finished ms-1"></div>
-          <div className="milestone finished ms-2"></div>
+          <ToolTip message="Back to step 1" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-1"
+              onClick={() => setStep(1)}
+            ></div>
+          </ToolTip>
+          <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-2"
+              onClick={() => setStep(2)}
+            ></div>
+          </ToolTip>
           <div className="milestone active ms-3"></div>
           <div className="milestone ms-4"></div>
         </div>

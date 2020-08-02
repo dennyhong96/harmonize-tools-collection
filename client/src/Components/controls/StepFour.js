@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+import ToolTip from "../widgets/ToolTip";
 import "./StepFour.scss";
 import finishLine from "../../assets/finishline.png";
 
@@ -17,9 +18,25 @@ const StepFour = ({ setStep }) => {
         </div>
         <div className="step-four-progress">
           <div className="line"></div>
-          <div className="milestone finished ms-1"></div>
-          <div className="milestone finished ms-2"></div>
-          <div className="milestone finished ms-3"></div>
+          <ToolTip message="Back to step 1" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-1"
+              onClick={() => setStep(1)}
+            ></div>
+          </ToolTip>
+          <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-2"
+              onClick={() => setStep(2)}
+            ></div>
+          </ToolTip>
+          <ToolTip message="Back to step 3" delay={{ show: 150, hide: 100 }}>
+            <div
+              className="milestone finished ms-3"
+              onClick={() => setStep(3)}
+            ></div>
+          </ToolTip>
+
           <div className="milestone checked ms-4">
             <i class="fas fa-check"></i>
           </div>
