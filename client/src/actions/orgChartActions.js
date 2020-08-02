@@ -38,9 +38,11 @@ export const uploadOrgData = (file) => async (dispatch) => {
 
     const res = await axios.post("/api/v1/csv", formData, config);
 
+    console.log(res.data);
+
     dispatch({
       type: ORG_DATA_FETCHED,
-      payload: res.data.data,
+      payload: res.data.data.hierarchicalData,
     });
     dispatchToast("Chart rendered!", "SUCCESS");
     return true;
@@ -49,7 +51,11 @@ export const uploadOrgData = (file) => async (dispatch) => {
     dispatch({
       type: ORG_DATA_ERROR,
     });
-    dispatchToast("Something went wrong...");
+    if (error.response) {
+      dispatchToast(error.response.data.message);
+    } else {
+      dispatchToast("Something went wrong...");
+    }
     return false;
   }
 };

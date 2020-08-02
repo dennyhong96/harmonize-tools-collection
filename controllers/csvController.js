@@ -22,8 +22,17 @@ exports.uploadCsvTemplate = async (req, res, next) => {
 
     // Parse hierarchical data from flat csv
     const hierarchicalData = await parseCsv(filePath);
-    res.status(200).json({ data: hierarchicalData });
+    if (!hierarchicalData) {
+      throw { code: "CSV_FORMAT_ERROR" };
+    }
+    res.status(200).json({ status: "success", data: { hierarchicalData } });
   } catch (error) {
     console.error(error);
+    if (error.code === "CSV_FORMAT_ERROR") {
+      res.status(400).json({
+        status: "failed",
+        message: "Please make sure your CSV file is valid.",
+      });
+    }
   }
 };
