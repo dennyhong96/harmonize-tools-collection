@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 const dispatchToast = (msg, type = "ERROR") => {
   switch (type) {
     case "ERROR":
-      toast.error(`✘ ${msg}`, {
+      toast.error(msg, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -13,7 +13,7 @@ const dispatchToast = (msg, type = "ERROR") => {
       });
       break;
     case "SUCCESS":
-      toast.success(`✔︎ ${msg}`, {
+      toast.success(msg, {
         position: "top-right",
         autoClose: 2500,
         hideProgressBar: false,
@@ -23,7 +23,7 @@ const dispatchToast = (msg, type = "ERROR") => {
       });
       break;
     case "INFO":
-      toast.info(`❕${msg}`, {
+      toast.info(msg, {
         position: "top-right",
         autoClose: 3500,
         hideProgressBar: false,

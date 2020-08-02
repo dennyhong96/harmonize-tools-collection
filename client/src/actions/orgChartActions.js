@@ -38,8 +38,6 @@ export const uploadOrgData = (file) => async (dispatch) => {
 
     const res = await axios.post("/api/v1/csv", formData, config);
 
-    console.log(res.data);
-
     dispatch({
       type: ORG_DATA_FETCHED,
       payload: res.data.data.hierarchicalData,
@@ -190,7 +188,7 @@ export const startNewChart = () => (dispatch) => {
   dispatch({
     type: START_NEW_CHART,
   });
-  dispatchToast("Edit the node to get started!", "INFO");
+  dispatchToast("Edit the empty card to get started!", "INFO");
 };
 
 export const editChart = (chartInfo, orgChartRef) => (dispatch) => {
