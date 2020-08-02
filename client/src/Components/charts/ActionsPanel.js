@@ -7,8 +7,10 @@ import {
   loadCharts,
   startNewChart,
   updateChart,
+  toCSV,
 } from "../../actions/orgChartActions";
 
+import ExportPopup from "../charts/ExportPopup";
 import ConfirmNewChartPopup from "./ConfirmNewChartPopup";
 import ToolTip from "../widgets/ToolTip";
 import { openSideDrawer } from "../../actions/sideDrawerAction";
@@ -26,11 +28,13 @@ const EmployeeInfoPanel = ({
   startNewChart,
   openSideDrawer,
   currentChartId,
+  toCSV,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
   const [savePopupShow, setSavePopupShow] = useState(false);
   const [newChartPopupShow, setNewChartPopupShow] = useState(false);
+  const [exportPopupShow, setExportPopupShow] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -79,6 +83,21 @@ const EmployeeInfoPanel = ({
           >
             <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
+
+          <ToolTip
+            message="Export as JPG, PDF, or CSV"
+            placement="left"
+            delay={{ show: 200, hide: 50 }}
+          >
+            <ListGroup.Item
+              className="action-item"
+              as="button"
+              action
+              onClick={() => setExportPopupShow(true)}
+            >
+              <i class="fas fa-file-export"></i> Export
+            </ListGroup.Item>
+          </ToolTip>
           {user ? (
             <Fragment>
               <ListGroup.Item
@@ -130,24 +149,6 @@ const EmployeeInfoPanel = ({
               </ToolTip>
             </Fragment>
           )}
-
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={() => handleDownload("PDF")}
-          >
-            <i class="mr-1 far fa-file-pdf"></i> Export to PDF
-          </ListGroup.Item>
-
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={() => handleDownload("JPG")}
-          >
-            <i class="mr-1 far fa-file-image"></i> Export to JPG
-          </ListGroup.Item>
         </ListGroup>
       </div>
       <SaveChartPopup
@@ -160,6 +161,12 @@ const EmployeeInfoPanel = ({
         onHide={() => setNewChartPopupShow(false)}
         setNewChartPopupShow={setNewChartPopupShow}
         startNewChart={startNewChart}
+      />
+      <ExportPopup
+        show={exportPopupShow}
+        onHide={() => setExportPopupShow(false)}
+        setExportPopupShow={setExportPopupShow}
+        toCSV={toCSV}
       />
     </Fragment>
   );
@@ -177,4 +184,5 @@ export default connect(mapStateToProps, {
   startNewChart,
   openSideDrawer,
   updateChart,
+  toCSV,
 })(EmployeeInfoPanel);

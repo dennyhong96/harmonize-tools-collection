@@ -1,4 +1,4 @@
-const toCsv = (node, result = []) => {
+const ObjectToCSV = (node, result = []) => {
   if (node) {
     result.push({
       email: node.email,
@@ -6,7 +6,9 @@ const toCsv = (node, result = []) => {
       title: node.title,
       manager: node.manager || "",
     });
-    node.children.forEach((child) => toCsv(child, result));
+    node.children.forEach((child) => ObjectToCSV(child, result));
     return result;
   }
 };
+
+export default ObjectToCSV;
