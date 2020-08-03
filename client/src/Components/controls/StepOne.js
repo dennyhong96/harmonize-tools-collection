@@ -3,9 +3,8 @@ import React, { Fragment } from "react";
 import csvEmpty from "../../assets/csv-empty.png";
 import "./StepOne.scss";
 
-const StepOne = ({ template, getTemplate, resetTemplate, setStep }) => {
+const StepOne = ({ template, getTemplate, setStep }) => {
   const handleNextStep = () => {
-    resetTemplate();
     setStep(2);
   };
 
