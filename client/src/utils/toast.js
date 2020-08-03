@@ -9,6 +9,7 @@ const dispatchToast = (msg, type = "ERROR") => {
     pauseOnHover: true,
     draggable: true,
   });
+
   // switch (type) {
   //   case "ERROR":
   //     toast.error(msg, {
