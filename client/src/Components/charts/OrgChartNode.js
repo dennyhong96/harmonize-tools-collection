@@ -61,6 +61,7 @@ const OrgChartNode = ({
           <ToolTip message="Collapse" delay={{ show: 150, hide: 250 }}>
             <button
               className="collapse-expand"
+              data-html2canvas-ignore="true"
               onClick={() => collapseNode(nodeData.id)}
             >
               <i class="fas fa-chevron-up"></i>
@@ -73,6 +74,7 @@ const OrgChartNode = ({
         ) ? (
           <ToolTip message="Expand" delay={{ show: 150, hide: 250 }}>
             <button
+              data-html2canvas-ignore="true"
               className="collapse-expand"
               onClick={() => expandNode(nodeData.id)}
             >
@@ -82,6 +84,7 @@ const OrgChartNode = ({
         ) : null}
         {!chart.collapsedChart && nodeData.id && (
           <div
+            data-html2canvas-ignore="true"
             className="onclick-add add-top"
             onClick={() => {
               setAddMode("HEAD");
@@ -93,6 +96,7 @@ const OrgChartNode = ({
         )}
         {!chart.collapsedChart && nodeData.id && (
           <div
+            data-html2canvas-ignore="true"
             className="onclick-add add-bottom"
             onClick={() => {
               setAddMode("DIRECT_REPORT");
@@ -104,6 +108,7 @@ const OrgChartNode = ({
         )}
         {!chart.collapsedChart && nodeData.manager && (
           <div
+            data-html2canvas-ignore="true"
             className="onclick-add add-left"
             onClick={() => {
               setAddMode("COLLEAGUE_LFET");
@@ -115,6 +120,7 @@ const OrgChartNode = ({
         )}
         {!chart.collapsedChart && nodeData.manager && (
           <div
+            data-html2canvas-ignore="true"
             className="onclick-add add-right"
             onClick={() => {
               setAddMode("COLLEAGUE_RIGHT");
