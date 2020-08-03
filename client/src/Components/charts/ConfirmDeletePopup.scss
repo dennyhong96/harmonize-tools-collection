@@ -6,7 +6,7 @@
     border: none;
 
     .modal-body {
-      padding: 0.5rem 0.7rem 0.2rem 0.7rem;
+      padding: 0.7rem 1rem 0.7rem 1rem;
 
       p {
         margin: 0;
@@ -25,7 +25,7 @@
       border-top: 1px solid lighten($divider-grey, 25%);
       display: flex;
       justify-content: flex-end;
-      padding: 0.25rem 0.7rem 0.2rem 0.7rem;
+      padding: 0.5rem 1rem 0.5rem 1rem;
 
       %btn {
         transition: translateY, box-shadow, 0.2s ease;
