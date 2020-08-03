@@ -131,7 +131,10 @@ const OrgChartNode = ({
           </div>
         )}
         {!chart.collapsedChart && (
-          <Dropdown className="more-options-dropdown">
+          <Dropdown
+            className="more-options-dropdown"
+            data-html2canvas-ignore="true"
+          >
             <ManualToggleToolTip show={toolTipShow} message="Edit info here">
               <Dropdown.Toggle
                 id="dropdown-basic"

@@ -66,8 +66,9 @@
     line-height: 1.15;
     letter-spacing: 1px;
     color: $check-mark-white;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     transition: font-size 0.3s ease-out;
+    // margin-bottom: 2rem;
   }
 
   .sub-heading {
