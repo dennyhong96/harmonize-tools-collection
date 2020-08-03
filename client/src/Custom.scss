@@ -44,6 +44,8 @@ body {
     margin: 0;
     margin-left: 1rem;
   }
+  color: $dark-text;
+  box-shadow: 0 5px 7px rgba(#000, 0.15);
 }
 .Toastify__toast--rtl {
 }
@@ -52,14 +54,10 @@ body {
 .Toastify__toast--default {
 }
 .Toastify__toast--info {
-  background-color: darken($main-color, 5%);
-  box-shadow: 0 5px 7px rgba(#000, 0.2);
 }
 .Toastify__toast--success {
-  background-color: lighten($office-green, 10%);
 }
 .Toastify__toast--warning {
 }
 .Toastify__toast--error {
-  background-color: light($delete-red, 5%);
 }
