@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 
@@ -12,6 +12,8 @@ import {
   deleteNode,
   collapseNode,
   expandNode,
+  dragNode,
+  dropNode,
 } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
 import userIcon from "../../assets/user-icon.png";
@@ -24,6 +26,8 @@ const OrgChartNode = ({
   startEditing,
   endEditing,
   expandNode,
+  dragNode,
+  dropNode,
 }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
@@ -31,13 +35,27 @@ const OrgChartNode = ({
   const [addMode, setAddMode] = useState("DIRECT_REPORT");
   const [toolTipShow, setToolTipShow] = useState(false);
 
+  const nodeRef = useRef();
+  useEffect(() => {
+    nodeRef.current = document.querySelector(`#${nodeData.id}`);
+    // nodeRef.current.setAttribute("draggable", true);
+    nodeRef.current.addEventListener("dragend", function () {
+      console.log("drag ended", this);
+      dragNode(nodeData.id);
+    });
+
+    nodeRef.current.addEventListener("drop", function () {
+      console.log("dropped", this);
+      dropNode(nodeData.id);
+    });
+  }, []);
+
   const handleDelete = () => {
     deleteNode(nodeData);
     setDeletePopupShow(false);
   };
 
   useEffect(() => {
-    console.log(nodeData.id);
     if (!nodeData.id) {
       setToolTipShow(true);
       setTimeout(() => {
@@ -199,4 +217,6 @@ export default connect(mapStateToProps, {
   expandNode,
   startEditing,
   endEditing,
+  dragNode,
+  dropNode,
 })(OrgChartNode);

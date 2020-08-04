@@ -20,6 +20,8 @@ import {
   CHART_COLLAPSED,
   CHART_EXPANDED,
   CHART_EXPAND_ALL,
+  NODE_DRAGGED,
+  NODE_DROPPED,
 } from "../actions/actionTypes";
 import exampleData from "../utils/exampleData";
 
@@ -31,6 +33,7 @@ const INITIAL_STATE = {
   currentChart: exampleData,
   collapsedChart: null,
   collapsedCharts: [],
+  droppedOnId: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -137,6 +140,24 @@ export default (state = INITIAL_STATE, action) => {
 
     case ORG_DATA_ERROR:
       return INITIAL_STATE;
+
+    case NODE_DROPPED:
+      return { ...state, droppedOnId: payload };
+
+    case NODE_DRAGGED:
+      if (state.droppedOnId) {
+        const stateAfterDrop = deepCopyObj(state);
+        const draggedNode = findNode(payload, stateAfterDrop.currentChart);
+        const droppedOnNode = findNode(
+          stateAfterDrop.droppedOnId,
+          stateAfterDrop.currentChart
+        );
+        draggedNode.manager = droppedOnNode.name;
+        draggedNode.managerId = droppedOnNode.id;
+        return { ...stateAfterDrop, droppedOnId: null };
+      } else {
+        return { ...state };
+      }
 
     case FIRST_NODE_ADDED:
       return {

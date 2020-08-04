@@ -22,6 +22,8 @@ import {
   CHART_COLLAPSED,
   CHART_EXPANDED,
   CHART_EXPAND_ALL,
+  NODE_DRAGGED,
+  NODE_DROPPED,
 } from "./actionTypes";
 import ObjectToCSV from "../utils/ObjectToCSV";
 
@@ -263,4 +265,18 @@ export const expandAllNode = (id) => (dispatch) => {
 export const toCSV = () => async (dispatch, getState) => {
   const csv = new ObjectsToCsv(ObjectToCSV(getState().chart.currentChart));
   fileDownload(await csv.toString(), "orgchartToCSV.csv");
+};
+
+export const dragNode = (id) => (dispatch) => {
+  dispatch({
+    type: NODE_DRAGGED,
+    payload: id,
+  });
+};
+
+export const dropNode = (id) => (dispatch) => {
+  dispatch({
+    type: NODE_DROPPED,
+    payload: id,
+  });
 };
