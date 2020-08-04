@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Modal, Form } from "react-bootstrap";
+import React, { useState, useRef, useEffect } from "react";
+import { Modal, Form, Spinner } from "react-bootstrap";
 
 import useDownload from "../../hooks/useDownload";
 import "./ConfirmDeletePopup.scss";
@@ -7,8 +7,10 @@ import "./ConfirmDeletePopup.scss";
 const ConfirmNewChartPopup = ({ onHide, show, setExportPopupShow, toCSV }) => {
   const [format, setFormat] = useState("JPG");
   const { handleDownload } = useDownload();
+  const [loading, setLoading] = useState(false);
 
-  const handleExport = () => {
+  const handleExport = async () => {
+    setLoading(true);
     if (format === "JPG") {
       handleDownload("JPG");
     } else if (format === "PDF") {
@@ -16,8 +18,15 @@ const ConfirmNewChartPopup = ({ onHide, show, setExportPopupShow, toCSV }) => {
     } else if (format === "CSV") {
       toCSV();
     }
-    setFormat("JPG");
-    setExportPopupShow(false);
+    const timeout = (ms) =>
+      new Promise((resolve) =>
+        setTimeout(() => {
+          setLoading(false);
+          setFormat("JPG");
+          setExportPopupShow(false);
+        }, ms)
+      );
+    await timeout(500);
   };
 
   return (
@@ -27,8 +36,11 @@ const ConfirmNewChartPopup = ({ onHide, show, setExportPopupShow, toCSV }) => {
       size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      className="delete-popup"
+      className={`delete-popup export-popup ${loading ? "loading" : ""}`}
     >
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
       <Modal.Body>
         <Form>
           <Form.Group>
