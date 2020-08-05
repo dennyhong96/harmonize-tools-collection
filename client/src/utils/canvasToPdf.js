@@ -8,8 +8,8 @@ import jsPDF from "jspdf";
 const canvasToPdf = (canvas) => {
   const pdf = new jsPDF({
     orientation: "landscape",
-    unit: "px",
-    format: [canvas.width, canvas.height],
+    // unit: "px",
+    format: [canvas.width * 0.75, canvas.height * 0.75],
   });
   pdf.addImage(canvas.toDataURL("image/jpeg"), "jpeg", 0, 0);
   pdf.save("orgchart.pdf");
