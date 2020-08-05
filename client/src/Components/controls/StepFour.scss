@@ -6,6 +6,15 @@
   flex-direction: column;
   margin-bottom: -2rem;
 
+  .heading-import {
+    font-size: 1.4rem;
+    border-bottom: 1px solid $main-color;
+    transform: translateY(-1.8rem);
+    padding-bottom: 0.3rem;
+    width: 47%;
+    text-align: center;
+  }
+
   .step-four-progress-text {
     font-size: 0.8rem;
     font-weight: 500;
@@ -95,18 +104,18 @@
     font-size: 3rem;
     font-weight: bold;
     color: $main-color;
-    margin-bottom: 1rem;
   }
 
   .finishline {
     width: 80%;
     align-self: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .step-four-msg {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: $dark-text;
+    margin-bottom: 0.5rem;
 
     text-align: center;
     width: 80%;
@@ -114,7 +123,7 @@
   }
 
   .harmonize-link {
-    font-size: 1.43rem;
+    font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.17;
     letter-spacing: normal;

@@ -31,6 +31,7 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
   return (
     <Fragment>
       <div className="step-three">
+        <h1 className="heading-import">Import Members</h1>
         <div className="step-three-progress-text">
           <span className="st-1 text-center">
             1. Download <br /> <span>Template</span>

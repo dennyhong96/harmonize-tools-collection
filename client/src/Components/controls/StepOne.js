@@ -11,6 +11,7 @@ const StepOne = ({ template, getTemplate, setStep }) => {
   return (
     <Fragment>
       <div className="step-one">
+        <h1 className="heading-import">Import Members</h1>
         <div className="step-one-progress-text">
           <span className="st-1 text-center">
             1. Download <br /> <span>Template</span>

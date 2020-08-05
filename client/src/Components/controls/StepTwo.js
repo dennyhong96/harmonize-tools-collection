@@ -8,6 +8,7 @@ const StepTwo = ({ setStep }) => {
   return (
     <Fragment>
       <div className="step-two">
+        <h1 className="heading-import">Import Members</h1>
         <div className="step-two-progress-text">
           <span className="st-1 text-center">
             1. Download <br /> <span>Template</span>

@@ -17,9 +17,45 @@
       box-shadow: 0 3px 5px rgba(#000, 0.3);
       border-radius: 5px;
       transition: transform 0.5s ease-in-out;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.01);
+      }
+    }
+
+    .call-to-action {
+      a {
+        font: inherit;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        width: 10rem;
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: $check-mark-white;
+        border: none;
+        outline: none;
+        padding: 0.8rem 0rem;
+        border-radius: 93.3px;
+        text-decoration: none;
+        transition: transform, background-color, box-shadow, 0.2s;
+        box-shadow: 0 3px 5px rgba(#000, 0.15);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 7px rgba(#000, 0.1);
+        }
+
+        &:first-child {
+          background-color: #b347ef;
+          margin-right: 1.5rem;
+
+          &:hover {
+            background-color: $main-color;
+          }
+        }
       }
     }
 

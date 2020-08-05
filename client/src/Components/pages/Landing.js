@@ -7,12 +7,12 @@ import Footer from "../landing/Footer";
 import Navbar from "../layout/Navbar";
 import "./Landing.scss";
 
-const Landing = () => {
+const Landing = ({ history }) => {
   return (
     <section className="landing">
       <Navbar />
       <Header />
-      <Showcase />
+      <Showcase history={history} />
       <Features />
       <Footer />
     </section>
