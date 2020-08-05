@@ -24,6 +24,8 @@ import {
   CHART_EXPAND_ALL,
   NODE_DRAGGED,
   NODE_DROPPED,
+  TEMPLATE_ERROR,
+  TEMPLATE_ERROR_CLEARED,
 } from "./actionTypes";
 import ObjectToCSV from "../utils/ObjectToCSV";
 
@@ -56,6 +58,10 @@ export const uploadOrgData = (file) => async (dispatch) => {
     });
     if (error.response) {
       dispatchToast(error.response.data.message);
+      dispatch({
+        type: TEMPLATE_ERROR,
+        payload: error.response.data.message,
+      });
     } else {
       dispatchToast("Something went wrong...");
     }

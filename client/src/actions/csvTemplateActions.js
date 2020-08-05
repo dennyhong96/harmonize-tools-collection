@@ -5,6 +5,7 @@ import {
   TEMPLATE_DOWNLOADED,
   TEMPLATE_ERROR,
   RESET_TEMPLATE,
+  TEMPLATE_ERROR_CLEARED,
 } from "./actionTypes";
 
 /**
@@ -35,5 +36,11 @@ export const getTemplate = () => async (dispatch) => {
 export const resetTemplate = () => (dispatch) => {
   dispatch({
     type: RESET_TEMPLATE,
+  });
+};
+
+export const clearCsvError = () => (dispatch) => {
+  dispatch({
+    type: TEMPLATE_ERROR_CLEARED,
   });
 };

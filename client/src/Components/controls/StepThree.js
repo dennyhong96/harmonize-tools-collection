@@ -1,11 +1,13 @@
 import React, { useState, Fragment } from "react";
 import { useDropzone } from "react-dropzone";
+import { connect } from "react-redux";
 
 import StepThreeDropFile from "./StepThreeDropFile";
 import "./StepThree.scss";
 import ToolTip from "../widgets/ToolTip";
+import { clearCsvError } from "../../actions/csvTemplateActions";
 
-const StepThree = ({ setStep, uploadOrgData }) => {
+const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
   const [file, setFile] = useState("");
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -22,6 +24,7 @@ const StepThree = ({ setStep, uploadOrgData }) => {
 
   const handleDeleteFile = (evt) => {
     evt.stopPropagation();
+    clearCsvError();
     setFile("");
   };
 
@@ -54,9 +57,11 @@ const StepThree = ({ setStep, uploadOrgData }) => {
           <div className="milestone ms-4"></div>
         </div>
         <h2 className="step-three-heading">STEP 3</h2>
+
         <p className="step-three-msg">
           Upload your .CSV file below to populate your organizational chart.
         </p>
+
         <StepThreeDropFile
           getInputProps={getInputProps}
           getRootProps={getRootProps}
@@ -70,20 +75,32 @@ const StepThree = ({ setStep, uploadOrgData }) => {
             </p>
           ) : (
             <Fragment>
-              <p className="response-success">
-                Your data was uploaded successfully!
-              </p>
-              <p className="response-submit">
-                Click <strong>'Submit'</strong> below to view your organization
-                chart.
-              </p>
+              {!template.csvErrorMsg ? (
+                <Fragment>
+                  <p className="response-success">
+                    Your data is ready for submission.
+                  </p>
+                  <p className="response-submit">
+                    Click <strong>'Submit'</strong> below to view your
+                    organization chart.
+                  </p>
+                </Fragment>
+              ) : (
+                <p className="response-failed">{template.csvErrorMsg}</p>
+              )}
             </Fragment>
           ))}
       </div>
       <div className="step-three-actions">
         <hr />
         <div className="">
-          <button className="step-three-action-back" onClick={() => setStep(2)}>
+          <button
+            className="step-three-action-back"
+            onClick={() => {
+              clearCsvError();
+              setStep(2);
+            }}
+          >
             Back
           </button>
           {file && file.type === "text/csv" ? (
@@ -104,4 +121,6 @@ const StepThree = ({ setStep, uploadOrgData }) => {
   );
 };
 
-export default StepThree;
+const mapStateToProps = ({ template }) => ({ template });
+
+export default connect(mapStateToProps, { clearCsvError })(StepThree);

@@ -41,7 +41,7 @@ const StepOne = ({ template, getTemplate, setStep }) => {
       </div>
       <div className="stepone-actions">
         <hr />
-        {template ? (
+        {template.isDownloaded ? (
           <button className="step-one-continue" onClick={handleNextStep}>
             Continue
           </button>
