@@ -121,7 +121,7 @@ const EmployeeInfoPanel = ({
           ) : (
             <Fragment>
               <ToolTip
-                message="Sign in to use cloud features"
+                message="Sign in to load your saved charts"
                 delay={{ show: 200, hide: 50 }}
                 placement="left"
               >
@@ -135,7 +135,7 @@ const EmployeeInfoPanel = ({
               </ToolTip>
 
               <ToolTip
-                message="Sign in to use cloud features"
+                message="Sign in to save your chart"
                 delay={{ show: 200, hide: 50 }}
                 placement="left"
               >
