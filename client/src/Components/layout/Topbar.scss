@@ -19,7 +19,8 @@
     padding-left: calc(15px + 30rem);
 
     .heading {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
+      letter-spacing: 0;
     }
 
     .sub-heading {
@@ -67,7 +68,7 @@
     letter-spacing: 1px;
     color: $check-mark-white;
     margin-bottom: 0.5rem;
-    transition: font-size 0.3s ease-out;
+    transition: font 0.3s ease-out;
     // margin-bottom: 2rem;
   }
 
