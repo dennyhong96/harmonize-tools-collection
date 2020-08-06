@@ -41,7 +41,6 @@ export default (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case CHART_SAVED:
-      console.log(payload);
       return {
         ...state,
         currentChart: JSON.parse(payload.chartData),
@@ -145,7 +144,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, droppedOnId: payload };
 
     case NODE_DRAGGED:
-      if (state.droppedOnId) {
+      if (state.droppedOnId && state.droppedOnId !== payload) {
         const stateAfterDrop = deepCopyObj(state);
         const draggedNode = findNode(payload, stateAfterDrop.currentChart);
         const droppedOnNode = findNode(

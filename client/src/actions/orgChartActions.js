@@ -173,7 +173,6 @@ export const createChart = (chartName = "default") => async (
       { chartName, chartData },
       config
     );
-    console.log(res.data.data.chart);
     dispatch({
       type: CHART_SAVED,
       payload: res.data.data.chart,

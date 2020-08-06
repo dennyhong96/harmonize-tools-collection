@@ -32,8 +32,6 @@ exports.loadCharts = asyncHandler(async (req, res, next) => {
 exports.updateChart = asyncHandler(async (req, res, next) => {
   let chart = await Chart.findById(req.params.id);
 
-  console.log(req.body);
-
   if (!chart) {
     return next(new AppError("Chart not found.", 404));
   }

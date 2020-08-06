@@ -3,7 +3,6 @@ import React from "react";
 import "./ChartIndicator.scss";
 
 const ChartIndicator = ({ chart, sideDrawer }) => {
-  console.log(chart);
   return (
     <div className={`chart-indicator ${sideDrawer ? "with-drawer" : ""}`}>
       <h3>

@@ -40,12 +40,10 @@ const OrgChartNode = ({
     nodeRef.current = document.querySelector(`#${nodeData.id}`);
     // nodeRef.current.setAttribute("draggable", true);
     nodeRef.current.addEventListener("dragend", function () {
-      console.log("drag ended", this);
       dragNode(nodeData.id);
     });
 
     nodeRef.current.addEventListener("drop", function () {
-      console.log("dropped", this);
       dropNode(nodeData.id);
     });
   }, []);
