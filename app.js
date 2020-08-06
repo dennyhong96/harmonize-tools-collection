@@ -49,11 +49,14 @@ app.use("/api/v1/charts", chartRouter);
 app.use(errorHandler);
 
 // Catch all
-if (process.env.NODE_ENV === "production") {
-  app.use("*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use("*", (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+//   });
+// }
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`Server up on port ${port}...`));
