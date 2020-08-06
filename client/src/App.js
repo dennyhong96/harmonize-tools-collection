@@ -12,7 +12,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/app" component={Home} />
+        <Route exact path="/app" component={Home} />
       </Switch>
       <ToastContainer />
     </BrowserRouter>
