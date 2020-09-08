@@ -1,0 +1,85 @@
+@import "../../Custom.scss";
+
+.control-panel {
+  position: absolute;
+  z-index: 1;
+  background-color: lighten($profile-cards-role-extra-light-grey, 45%);
+  width: 30rem;
+  left: 0;
+  // min-height: calc(100vh - 9.4rem);
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  box-shadow: 0 2px 6px 0 rgba(#000, 0.2);
+  transition: margin, box-shadow, 0.3s ease-out;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  .toggler-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lighten($divider-grey, 33%);
+    transition: background, scale, 0.2s ease-out;
+
+    &:hover {
+      background-color: lighten($divider-grey, 28%);
+      transform: scale(1.05);
+    }
+
+    .fas {
+      font-size: 1.5rem;
+      color: $check-mark-white;
+      margin-left: -2px;
+    }
+  }
+
+  &.side-drawer-close {
+    margin-left: -27rem;
+    // background-color: $progress-circle-light-blue-bg;
+    // box-shadow: 0 3px 6px 0 rgba(#000, 0.3);
+
+    .open-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      font-size: 1.8rem;
+      transform: translateY(-50%);
+      right: 0.25rem;
+      border-radius: 50rem;
+      color: darken($main-color, 5%);
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: lighten($progress-circle-light-blue-bg, 4%);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      .fas {
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        background-color: lighten($progress-circle-light-blue-bg, 2%);
+
+        .fas {
+          transform: translateX(1.5px);
+        }
+      }
+    }
+  }
+}

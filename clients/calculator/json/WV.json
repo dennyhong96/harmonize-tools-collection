@@ -1,0 +1,23 @@
+{
+    "StateName":"West Virgina",
+
+    "StateTaxInputLabels":[
+        "Number of Allowances",
+        "Additional Withholdings",
+        "Does your employee receive a single income and wish to have their tax withheld at a lower rate?"
+    ],
+
+    "StateTaxInputTypes":[
+        "Integer",
+        "DollarAmount",
+        "Radio"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

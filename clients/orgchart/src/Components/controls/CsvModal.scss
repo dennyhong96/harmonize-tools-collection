@@ -1,0 +1,40 @@
+@import "../../App.scss";
+
+.csv-modal {
+  .modal-content {
+    border: none;
+    border-radius: 3px;
+
+    img {
+      border-radius: 5px;
+    }
+
+    .step-one-continue {
+      font-size: 1rem;
+      font-weight: bold;
+      color: $check-mark-white;
+      background-color: $main-color;
+      border: none;
+      padding: 0.5rem 2rem;
+      border-radius: 3rem;
+      box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
+      align-self: flex-end;
+      outline: none;
+      transition: translateY, box-shadow, 0.2s ease-out;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+      }
+
+      &:disabled {
+        background-color: $inactive-button-bg;
+      }
+    }
+  }
+}

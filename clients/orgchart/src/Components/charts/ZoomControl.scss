@@ -1,0 +1,49 @@
+@import "../../Custom.scss";
+
+// Custom Zoom Control
+.zoom {
+  position: absolute;
+  right: 2rem;
+  top: 7rem;
+  z-index: 1;
+  padding: 0.3rem 0.7rem;
+  background-color: lighten($inactive-button-bg, 15%);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(#000, 0.15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.zoom-btn {
+  background-color: lighten($main-color, 3%);
+  color: #fff;
+  border: none;
+  outline: none;
+
+  transition: transform, background-color, 0.2s;
+  border-radius: 3px;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > i {
+    font-size: 0.8rem;
+    display: inline-block;
+  }
+
+  &:not(:first-child) {
+    margin-left: 0.5rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: scale(1.07);
+    background-color: $main-color;
+  }
+}

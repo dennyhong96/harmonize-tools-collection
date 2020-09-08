@@ -1,0 +1,23 @@
+{
+    "StateName":"District of Columbia",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "District of Columbia Tax"
+    ],
+
+    "OutputLabels":[
+      "District of Columbia Tax"
+    ]
+}

@@ -1,0 +1,799 @@
+/* set default settings on html and body  so that width and height can be set
+in percentages */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+/* user a background image for header  */
+.header {
+  display: flex;
+  flex-direction: row;
+
+  background-image: url("../../headerBackground.png");
+  /* assign width to span website and fixed height so doesn't get too big on
+    large screens */
+  background-size: 100% 400px;
+  width: 100%;
+  height: 20%;
+  min-height: 400px;
+  text-align: center;
+  justify-content: center;
+  min-width: 1400px;
+  background-repeat: no-repeat;
+}
+
+/* STATE Paycheck Calculator formatting */
+#state-tax-title {
+  width: 300px;
+  height: 41.3%;
+  margin-top: 63px;
+  font-family: "Noto Sans Tamil", Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: #ffffff;
+  font-size: 35px;
+  margin-right: 7%;
+  font-weight: bold;
+}
+
+/* formatting for bullet points */
+.website_subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  color: #ffffff;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 10px;
+  margin-top: 102px;
+  margin-left: 200px;
+}
+
+/* these boxes each contain the label and dropdown for state and pay type */
+#state_label_dropdown,
+#paytype_entire {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+/* shift the title over so its inline with state name  */
+#state-label {
+  margin-right: 70px;
+}
+
+/* custom formatting for paytype so that dropdown text is visible */
+#paytype-dropdown {
+  margin-left: 19px;
+}
+
+/* this class containers heading and input box and is assigned
+to input fields for state taxes */
+.label-input {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 190px;
+  white-space: pre-wrap;
+  height: 70px;
+  margin-right: 10px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+/* format the heading and helptip as a flexbox so items are forced to be adjacent  */
+.heading-and-helptip {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* This contains all input and output info */
+/* format as a flexbox so that the two columns are side by side  */
+.enterringinfo_seeingnumbers {
+  display: flex;
+  flex-direction: row;
+}
+/* this contains the four main sections of user input */
+.enterring_information {
+  /* default text color is gray */
+  color: #767676;
+  min-width: 725px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* this box contains the state dropdown */
+.state_paytype {
+  display: flex;
+  background: linear-gradient(
+    91.83deg,
+    rgba(50, 153, 219, 0.1) 8.12%,
+    rgba(147, 86, 224, 0.1) 101.16%
+  );
+  border-radius: 25px;
+  width: 35%;
+  display: flex;
+  flex-grow: 3;
+  margin-left: auto;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #767676;
+  margin-top: 1%;
+  height: 83px;
+}
+
+/* entire section for pay information */
+.payinfosection {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+}
+
+/* pay info section to the right of the purple title circle */
+.pay-info-enter-info {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* this is the grayish colored box containing annual salary and pay frequency inputs*/
+.pay-info-inputs {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    93.66deg,
+    rgba(50, 153, 219, 0.05) 8.12%,
+    rgba(147, 86, 224, 0.05) 101.16%
+  );
+  border-radius: 25px;
+  margin-left: auto;
+  width: 65%;
+  margin-bottom: 12px;
+  justify-content: flex-end;
+}
+
+/* input box for salary */
+.salaryinput {
+  margin-right: 6.5%;
+}
+/* pay frequency input box */
+.payfreqinput {
+  margin-left: -15%;
+}
+
+/* fed information section */
+.fedinfosection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/* blue square encompassing fed tax info */
+.fed-info-inputs {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(
+    93.66deg,
+    rgba(50, 153, 219, 0.05) 8.12%,
+    rgba(147, 86, 224, 0.05) 101.16%
+  );
+  border-radius: 25px;
+  margin-left: auto;
+  width: 80%;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: visible;
+  justify-content: space-between;
+}
+/* These are all the input fields (right side of the gray input box */
+.fedtax_enterinfo {
+  width: 400px; /*width ensures alignment*/
+}
+/* info about fed tax */
+.fed_extrainfo {
+  width: 20%;
+  white-space: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6.5%;
+  margin-right: 2%;
+}
+
+/* First two inputs (top row of inputs)*/
+.filingstatus_multijobs {
+  display: flex;
+  flex-direction: row;
+  margin-top: 7px;
+  margin-bottom: 14px;
+}
+
+/* TODO: fix slight misalignment issue on refresh */
+.depamount_otherincome {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 14px;
+  justify-content: space-between;
+  width: 395px;
+}
+
+/* each block contain helptip, title, and input box */
+.other-income-block {
+  width: 195px; /* this ensures vertical alignment */
+}
+.deductions_addwithholdings {
+  display: flex;
+  flex-direction: row;
+}
+.deductions-block {
+  width: 200px;
+}
+.additional-withholdings-block {
+  width: 200px;
+}
+
+/*  state information section */
+#stateinfosection {
+  display: flex;
+  flex-direction: row;
+}
+/* gray box for state information  */
+.state-info-inputs {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(
+    93.66deg,
+    rgba(50, 153, 219, 0.05) 8.12%,
+    rgba(147, 86, 224, 0.05) 101.16%
+  );
+  border-radius: 25px;
+  margin-left: auto;
+  width: 85%;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+/* Info about state filings */
+.state_extrainfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  white-space: normal;
+  margin-left: 6.5%;
+  margin-right: 2%;
+}
+/* Input boxes for state filing */
+.statetax_enterinfo {
+  width: 400px;
+}
+
+/* set width for filing_status block to preserve alignment in federal tax information */
+.filingstatus-block {
+  width: 200px;
+}
+
+/* additional information section */
+.benefitsdedexempsection {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+}
+/* info about additional information */
+.other_extrainfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  white-space: normal;
+  margin-left: 6.5%;
+  margin-right: 2%;
+}
+
+/* gray area encompassing additional information */
+.other-info-inputs {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(
+    93.66deg,
+    rgba(50, 153, 219, 0.05) 8.12%,
+    rgba(147, 86, 224, 0.05) 101.16%
+  );
+  border-radius: 25px;
+  margin-left: auto;
+  width: 80%;
+  white-space: nowrap;
+  justify-content: space-between; /*Note: looks weird because space-between, not space-evenly */
+  min-height: 400px; /*arbitrary min height so everything fits and has good spacing */
+}
+/* input fields for additional information. Ensures alignment with state and fed info */
+.other_enterinfo {
+  width: 400px;
+}
+
+/* format row with button, helptip, and title as a flexbox to force adjacency  */
+.helptip-title-buttons {
+  display: flex;
+}
+/* contains duplicate/delete buttons */
+.button {
+  padding-left: 5px;
+}
+
+.deduction-and-amount {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 17px;
+  justify-content: flex-start;
+}
+.dropdown-with-space {
+  width: 200px;
+}
+
+/* calculated fields section */
+.paycheck-estimation {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  flex-grow: 1;
+
+  padding-left: 2.3%;
+
+  vertical-align: top;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+/* format flex row for the right side of the website so
+the feedback button is adjacent to the tax section */
+.Seeing_Numbers {
+  display: flex;
+  flex-direction: row;
+  min-width: 650px;
+  max-width: 2000px;
+  width: 40%;
+  padding-left: 53px;
+}
+
+/* user clicks on this to submit feedback  */
+.feedback-button {
+  margin-top: 250px;
+  margin-right: 50px;
+  flex-grow: 1;
+}
+
+/* paycheck estimation section header */
+#seeing_numbers_heading {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 32px;
+  margin-top: 20px;
+  color: #2d9cdb;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* the tax payments section of seeing_numbers  */
+.tax-payments {
+  background: linear-gradient(
+    162.71deg,
+    rgba(152, 83, 224, 0.05) 0%,
+    rgba(47, 155, 219, 0.05) 100%
+  );
+  border-radius: 20px;
+  margin-bottom: 6px;
+
+  justify-content: center;
+  min-width: 400px;
+}
+
+/* Format each row of numbers in tax section*/
+.disp_container {
+  display: flex;
+  flex-direction: row;
+}
+/*align numbers on the right of the flexbox with padding  */
+.disp_number,
+#total-state-taxes {
+  margin-left: auto;
+  margin-right: 10%;
+  color: #767676;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+/* Format labels for numbers*/
+.disp_title {
+  font-size: 16px;
+  line-height: 23px;
+  padding-left: 10%;
+  white-space: nowrap;
+
+  color: #767676;
+}
+
+/* style some numbers differently than disp_number */
+#gross-pay {
+  margin-top: 5%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 29px;
+  margin-right: 0%;
+  margin-right: 10%;
+  color: #2d9cdb;
+}
+#pretaxdeductions,
+#federaltaxes,
+#state-tax-header,
+#posttaxdeductions,
+#total-state-taxes {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2d9cdb;
+}
+#SS,
+#Medicare {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+
+  color: #767676;
+}
+
+/* Style some titles differently than disp_title */
+#gross_pay_label {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 29px;
+  white-space: nowrap;
+  margin-top: 5%;
+
+  color: #2d9cdb;
+}
+
+#gross_pay_label em {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: #767676;
+  white-space: nowrap;
+}
+#pretaxdedlabel,
+#fedtaxeslabel,
+#calitaxheader,
+#posttaxdedlabel {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: #2d9cdb;
+}
+#posttaxdedlabel {
+  margin-bottom: 5%; /*padding between text and bottom of box */
+}
+#sslabel,
+#medicarelabel {
+  margin-left: 5%;
+  font-size: 14px;
+  line-height: 20px;
+}
+#takehomepaylabel {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 32px;
+  color: #f245f5;
+}
+#takehomepaylabel em {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #767676;
+}
+/* Style the take home pay number */
+#takehomepay {
+  display: flex;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 32px;
+  text-align: left;
+  margin-right: 5%;
+  color: #f245f5;
+} /* Style take home pay border */
+.net-payment-outer {
+  width: 100%;
+  display: flex;
+  background: linear-gradient(
+    90deg,
+    rgba(47, 155, 219, 0.3) 0%,
+    rgba(152, 83, 224, 0.3) 100%
+  );
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  height: 116px;
+}
+/* style take home pay box */
+.net-payment {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  display: flex;
+  height: 80%;
+  width: 90%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* stylystic formatting */
+
+/* Format circles that title each section (pay information), (federla infomation), etc.*/
+.payinfoheading {
+  display: flex;
+  margin-left: 26.6%;
+  background-image: linear-gradient(to top, #3696db, #9b51e0);
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+
+  text-align: center;
+  color: #ffffff;
+}
+.fedinfoLabel {
+  display: flex;
+  margin-left: 13.1%;
+  background-image: linear-gradient(to top, #3696db, #9b51e0);
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  color: #ffffff;
+}
+.state-info-heading {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  background-image: linear-gradient(to top, #3696db, #9b51e0);
+  margin-left: 7.5%;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.otherHeading {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  background-image: linear-gradient(to top, #3696db, #9b51e0);
+  margin-left: 13.1%;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* format drop-downs inputs and checkboxes*/
+.dropdown,
+.Pretax_Deduction_Name,
+.Posttax_Deduction_Name {
+  border: 1px solid #009ebf;
+  box-sizing: border-box;
+  border-radius: 18.5px;
+  width: 175px;
+  height: 25px;
+  font-size: 15px;
+
+  padding-right: 30px;
+
+  text-indent: 25%;
+  background: linear-gradient(90deg, #ffffff 83.4%, #2d9cdb 16.6%);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: flex;
+}
+
+/*Text-align is different for these dropdowns than for others */
+.Pretax_Deduction_Name,
+.Posttax_Deduction_Name {
+  text-indent: 10%;
+}
+
+/* increase width of dropdown select so that arrow is clickable */
+
+/* add the arrow to dropdowns */
+.dropdown:after {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ffffff;
+  position: absolute;
+  top: 10px; /*define in pixels so that it doesn't wobble when screen size changes */
+  right: 4%;
+  content: "";
+  z-index: 98;
+  pointer-events: none;
+}
+/* format the size of the dropdown menu */
+.dropdown select {
+  width: 175px;
+  border: 0;
+  position: relative;
+  z-index: 99;
+  background: none;
+}
+
+/* format the paytype dropdown */
+/* #PayType_DropDown{
+    text-indent: 73%;
+    margin-right: 0px;
+} */
+
+/* format input boxes */
+.input,
+.pretax-deduction-amount,
+.posttax-deduction-amount {
+  border: 1px solid #009ebf;
+  padding-left: 50px;
+  box-sizing: border-box;
+  border-radius: 18.5px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 129px;
+  width: 18.1%;
+  height: 25px;
+  font-size: 15px;
+  vertical-align: center;
+  text-align: left;
+  background-image: linear-gradient(90deg, #2d9cdb 26.4%, #ffffff 26.4%);
+}
+.pretax-deduction-amount,
+.posttax-deduction-amount {
+  padding-left: 50px;
+}
+.deduction-amount-container {
+  padding-left: 20px;
+}
+/* add the # sign to number input boxes */
+.number-input::before {
+  content: "#";
+  z-index: 100;
+  position: absolute;
+  color: #ffffff;
+  margin-left: 14px;
+  margin-top: 2px;
+}
+/* add the $ sign to dollar input boxes  */
+.dollar-input::before {
+  content: "$";
+  z-index: 100;
+  position: absolute;
+  color: #ffffff;
+  margin-left: 14px;
+  margin-top: 2px;
+}
+
+/*Remove blue outline when selected */
+.input:focus,
+.pretax-deduction-amount:focus,
+.dropdown:focus,
+.Pretax_Deduction_Name:focus,
+.Posttax_Deduction_Name:focus,
+.posttax-deduction-amount,
+.posttax-deduction-amount:focus {
+  outline: none;
+  outline: none;
+}
+
+input[type="checkbox"]:focus {
+  outline: 0;
+}
+
+input[type="dropdown"]:focus {
+  outline: 0;
+}
+
+/* format checkbox  */
+.checkbox {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #2d9cdb;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 25%;
+  border-color: #2d9cdb;
+  background: #ffffff;
+}
+
+/* add background color when checked */
+.checkbox:checked {
+  background: #2d9cdb;
+}
+
+/* Format view-box size for pre-tax and post-tax buttons*/
+svg {
+  padding-right: 1px;
+}
+
+/* POPUPS */
+
+.popup {
+  visibility: hidden;
+  border: double 0.1em transparent;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, #2d9cdb, #9b51e0);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  margin-left: -200px;
+  margin-right: -100px;
+  margin-bottom: -50px;
+  margin-top: -50px;
+  overflow: inherit;
+  text-overflow: inherit;
+  white-space: normal;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 25px;
+  font-size: 10px;
+}
+
+/* format the hyperlink color in the subheader */
+a,
+a:active {
+  color: pink;
+  text-decoration: underline;
+}

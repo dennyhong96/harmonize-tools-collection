@@ -1,0 +1,21 @@
+{
+    "StateName":"Nebraska",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings",
+        "Has your company had more than 24 employees this year?"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount",
+        "Radio"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

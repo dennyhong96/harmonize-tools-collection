@@ -1,0 +1,197 @@
+@import "../../Custom.scss";
+
+.step-four {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -2rem;
+
+  .heading-import {
+    font-size: 1.4rem;
+    border-bottom: 1px solid $main-color;
+    transform: translateY(-1.8rem);
+    padding-bottom: 0.3rem;
+    width: 47%;
+    text-align: center;
+  }
+
+  .step-four-progress-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.26;
+    letter-spacing: 0.29px;
+    color: $dark-text;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
+
+    .st-1 {
+      span {
+        margin-left: 0.6rem;
+      }
+    }
+
+    .st-2 {
+      margin-left: 2.5rem;
+    }
+  }
+
+  .step-four-progress {
+    height: 3rem;
+    position: relative;
+    margin-left: 2.25rem;
+
+    .line {
+      margin-top: 0.6rem;
+      width: 21rem;
+      height: 1px;
+      border: 1px solid $progress-circle-light-blue-bg;
+    }
+
+    .milestone {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 4.25rem;
+      background-color: $progress-circle-light-blue-bg;
+      position: absolute;
+      top: 0;
+
+      &.active {
+        border: solid 3px $main-color;
+        background-color: $progress-circle-light-blue-bg;
+      }
+
+      &.finished {
+        border-radius: 4.3rem;
+        background-color: $main-color;
+
+        transition: transform 0.2s ease;
+        &:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+      }
+
+      &.checked {
+        background-color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .fas {
+          color: #fff;
+          font-size: 0.7rem;
+        }
+      }
+
+      &.ms-1 {
+        left: 0;
+      }
+
+      // &.ms-2 {
+      //   left: 6.4rem;
+      // }
+
+      &.ms-3 {
+        left: 10rem;
+      }
+
+      &.ms-4 {
+        left: 19.8rem;
+      }
+    }
+  }
+
+  .step-four-heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: $main-color;
+  }
+
+  .finishline {
+    width: 80%;
+    align-self: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-four-msg {
+    font-size: 1rem;
+    color: $dark-text;
+    margin-bottom: 0.5rem;
+
+    text-align: center;
+    width: 80%;
+    align-self: center;
+  }
+
+  .harmonize-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: $main-color;
+    align-self: center;
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+    transition: background-color, color, 0.2s ease-out;
+
+    &:hover {
+      background-color: $main-color;
+      color: #fff;
+    }
+  }
+}
+
+.step-four-actions {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  hr {
+    border-top: 1px solid lighten($dark-divider-line, 50%);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .step-four-action {
+    font-size: 1rem;
+    font-weight: bold;
+    color: $check-mark-white;
+    background-color: $main-color;
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 3rem;
+    box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
+    align-self: flex-end;
+    outline: none;
+    transition: translateY, box-shadow, 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+    }
+
+    &:disabled {
+      background-color: $inactive-button-bg;
+    }
+
+    &-back {
+      @extend .step-four-action;
+      background-color: $progress-circle-light-blue-bg;
+      color: $main-color;
+      padding: 0.5rem 3rem;
+    }
+
+    &-continue {
+      @extend .step-four-action;
+    }
+  }
+}

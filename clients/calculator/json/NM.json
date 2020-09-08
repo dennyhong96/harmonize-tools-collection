@@ -1,0 +1,25 @@
+{
+    "StateName":"New Mexico",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "Workers' Compensation"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "Workers' Compensation"
+    ]
+}

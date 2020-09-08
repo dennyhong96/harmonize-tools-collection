@@ -1,0 +1,21 @@
+{
+    "StateName":"Arkansas",
+
+    "StateTaxInputLabels":[
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

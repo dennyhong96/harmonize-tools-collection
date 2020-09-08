@@ -1,0 +1,23 @@
+{
+    "StateName":"Indiana",
+
+    "StateTaxInputLabels":[
+        "Number of Allowances",
+        "Does your employee have any additional dependent exemptions?",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Integer",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

@@ -1,0 +1,28 @@
+.title-container {
+    /* min-width:1000px; */
+    /* margin-left: 530px; */
+    margin-top: 38.7px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+.title-h1 {
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  /* border-bottom: 2px solid #e07c00; */
+}
+
+.title-link{
+  font-family: "Poppins";
+  font-size: 12px;
+  color: #49208d;
+  text-decoration-line: underline;
+  border-width: 0 0 2px;
+  text-underline-position: under;
+}
+
+.title-link:hover{
+  color: #49208d;
+}

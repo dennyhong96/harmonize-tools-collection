@@ -1,0 +1,11 @@
+{
+  "StateName":"Alaska",
+
+  "Exemptions":[
+    "SUI"
+  ],
+
+  "OutputLabels":[
+    "SUI"
+  ]
+}

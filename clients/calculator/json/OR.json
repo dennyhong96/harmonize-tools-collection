@@ -1,0 +1,27 @@
+{
+    "StateName":"Oregon",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "Transit Tax",
+        "Workers' Compensation"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "Transit Tax",
+      "Workers' Compensation"
+    ]
+}

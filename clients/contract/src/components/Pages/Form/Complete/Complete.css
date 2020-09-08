@@ -1,0 +1,23 @@
+.external-link{
+    color: #E07C00;
+    text-decoration-line: underline;
+    border-width: 0 0 1px;
+    text-underline-position: under;
+    font-size: 0.9 rem;
+}
+.external-link:hover{
+    color: #E07C00;
+    font-size: 1 rem;
+    font-weight: 400;
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.sub-headings{
+    font-family: Nunito;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.complete-container{
+    margin-left: 4rem;
+}

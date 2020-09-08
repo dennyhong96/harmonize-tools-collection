@@ -1,0 +1,15 @@
+.ant-select-single {
+  &.SelectState {
+    &.ant-select-show-arrow {
+      // Text
+      .ant-select-selection-item {
+        transform: translateY(3.5px);
+        font-weight: 400;
+      }
+      // Arrow icon
+      .ant-select-arrow {
+        transform: translateY(3.5px);
+      }
+    }
+  }
+}

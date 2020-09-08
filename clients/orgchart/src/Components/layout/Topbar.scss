@@ -1,0 +1,197 @@
+@import "../../Custom.scss";
+
+.topbar {
+  // height: 9.4rem;
+  height: 5rem;
+  background-color: $main-color;
+  display: flex;
+
+  // padding: 1rem 2.4rem;
+  box-shadow: 0 3px 7px rgba(#000, 0.3);
+  padding: 0 15px;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: calc(15px + 3rem);
+  transition: padding, 0.3s ease-out;
+
+  .home-link {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    background-color: lighten($main-color, 3%);
+    color: #fff;
+    font: inherit;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+      background-color: lighten($main-color, 10%);
+    }
+
+    &:last-child {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &.sidedrawer-show {
+    padding-left: calc(15px + 30rem);
+
+    .heading {
+      font-size: 1.7rem;
+      letter-spacing: 0;
+    }
+
+    .sub-heading {
+      font-size: 0.65rem;
+    }
+  }
+
+  .toggler-btn {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    cursor: pointer;
+    height: 2.8rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lighten($main-color, 2%);
+    transition: background, scale, 0.2s ease-out;
+
+    &.opened {
+      .fas {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: lighten($main-color, 5%);
+    }
+
+    .fas {
+      font-size: 1.5rem;
+      color: $check-mark-white;
+      transition: transform 0.2s ease-out;
+      margin-left: -2.5px;
+    }
+  }
+
+  .heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    color: $check-mark-white;
+    margin-bottom: 0.5rem;
+    transition: font 0.3s ease-out;
+    margin-bottom: 0;
+  }
+
+  .sub-heading {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: #fff;
+    padding: 0 0.1rem;
+
+    & > span {
+      padding-bottom: 1px;
+      border-bottom: 1px solid #fff;
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;
+      cursor: pointer;
+      transition: background-color, color, 0.2s ease-out;
+      border-radius: 1px;
+      &:hover {
+        background-color: #fff;
+        color: $main-color;
+      }
+    }
+
+    .topbar-actions {
+      align-self: flex-start;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50rem;
+    border: 2px solid lighten($main-color, 10%);
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+a.signup-btn {
+  background-color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    color: #000;
+    transform: translateY(-1px) !important;
+  }
+}
+
+button.signup-btn {
+  border: none;
+  background-color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    color: #000;
+    transform: translateY(-1px) !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+a.signin-btn {
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  display: inline-block;
+  margin-left: 0.5rem;
+
+  &:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+  }
+}

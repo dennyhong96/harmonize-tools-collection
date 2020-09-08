@@ -1,0 +1,25 @@
+{
+    "StateName":"Rhode Island",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "State Disability Insurance"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "State Disability Insurance"
+    ]
+}

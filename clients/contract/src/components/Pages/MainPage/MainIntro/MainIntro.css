@@ -1,0 +1,10 @@
+.main-introduction{
+    min-height:32rem;
+    position: relative;
+    background-color:#F9F2FC;
+}
+
+.main-introduction .container{
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}

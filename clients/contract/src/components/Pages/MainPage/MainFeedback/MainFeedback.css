@@ -1,0 +1,16 @@
+.feadback-section .call-to-action{
+    width: 200px;
+    height: 52.3px;
+}
+
+.feadback-section h2{
+    font-family: Poppins;
+    font-size: 2rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.feadback-section .container{
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}

@@ -1,0 +1,136 @@
+@import "../../App.scss";
+
+.loading-screen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 5000;
+}
+
+.loading-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 616px;
+  height: 623px;
+  z-index: 5001;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%) translateY(-200%);
+  transition: transform 0.3s ease-in;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &.loading {
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .top-part {
+    height: 270px;
+    background-color: #371c74;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .loading {
+      margin-top: 25px;
+      width: 220px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+
+      .brand-img {
+        width: 30px;
+      }
+
+      h4 {
+        margin: 0;
+        margin-left: 9px;
+        font-size: 11.7px;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        color: #fff;
+      }
+    }
+  }
+
+  .bottom-part {
+    h2 {
+      text-align: center;
+      margin-top: 42px;
+      font-size: 30px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      color: #272727;
+      margin-bottom: 11px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 1.56;
+      color: #371c74;
+    }
+
+    p {
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.51;
+      color: #272727;
+      width: 65%;
+      margin: 0 auto;
+    }
+
+    .action-box {
+      width: 60%;
+      margin: 60px auto 0;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        border: none;
+        border-radius: 50rem;
+        font: inherit;
+        width: 162px;
+        height: 41px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-1px);
+        }
+
+        &:focus,
+        &:active {
+          outline: none;
+        }
+
+        &.start {
+          background-color: lighten($main-color, 15);
+        }
+
+        &.skip {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+}

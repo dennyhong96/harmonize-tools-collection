@@ -1,0 +1,23 @@
+.comingsoon-section .container{
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}
+.comingsoon-section{
+    min-height:8rem;
+    position: relative;
+    background-color:#F9F2FC;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+.comingsoon-section h2{
+    font-family: Lora;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.comingsoon-section p{
+    font-family: Poppins;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,63 @@
+/* .container{
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+} */
+
+.main-header{
+    padding-top: 9rem;
+    height:45rem;
+    position: relative;
+    background-color:white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.main-header .text-box h3{
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 37px;
+    color:#4F1391;
+}    
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+.main-header .text-box h1{
+    font-family: Lora;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.5;
+}    
+.text-box h2{
+    font-family: Lora;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 3;
+}
+.text-box p {
+    font-family: Poppins;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.call-to-action {
+    background-color:#4E1390;
+    cursor: pointer;
+    border: none;
+    border-radius: 40.5px;
+    width: 120px;
+    height: 52.3px;
+    margin-top: 25px;
+}
+
+.call-to-action a{
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none !important;
+}
+
+.call-to-action a:hover{
+    color: #ffffff;
+}
+
+.call-to-action:hover{
+    background-color:#5e10b8;
+}

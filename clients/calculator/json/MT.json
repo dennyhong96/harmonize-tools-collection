@@ -1,0 +1,19 @@
+{
+    "StateName":"Montana",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

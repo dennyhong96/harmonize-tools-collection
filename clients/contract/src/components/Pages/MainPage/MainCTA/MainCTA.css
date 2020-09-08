@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+.cta-section h2{
+    font-family: Lora;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.cta-section{
+    position: relative;
+    background-color:#F9F2FC;
+}
+
+.cta-section .container{
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}

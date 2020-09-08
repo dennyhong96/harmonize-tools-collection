@@ -1,0 +1,23 @@
+{
+    "StateName":"Kentucky",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Additional Withholdings",
+        "Is your employee ordained?"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "DollarAmount",
+        "Radio"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

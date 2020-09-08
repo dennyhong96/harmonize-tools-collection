@@ -1,0 +1,21 @@
+{
+    "StateName":"Pennsylvania",
+
+    "StateTaxInputLabels":[
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "SUI"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "SUI"
+    ]
+}

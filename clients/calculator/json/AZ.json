@@ -1,0 +1,21 @@
+{
+    "StateName":"Arizona",
+
+    "StateTaxInputLabels":[
+        "Employee's Withholding Rate",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

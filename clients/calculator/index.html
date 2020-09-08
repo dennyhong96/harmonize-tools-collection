@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Bootstrap formatting-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171520680-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-171520680-1');
+    </script>
+    <meta
+       name="description"
+       content="Don’t drown yourself in complex calculations! Use our easy to understand paycheck calculator to know your employees’ take-home pay."
+    />
+    <title>
+        Salary Paycheck Calculator | Harmonize
+    </title>
+
+    <!-- TODO: update link by state -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Custon style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/css/layout.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Hotjar Tracking Code for http://hrtoolsharmonize.s3-website-us-east-1.amazo -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1922104,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <!-- website title  -->
+        <div id="state-tax-title">
+            <h1>Paycheck Calculator</h1>
+        </div>
+        <!-- website subtitle -->
+        <div class="website_subtitle">
+            <ul>
+                <li>
+                    Federal tax calculations as per
+                    <a href="https://www.irs.gov/pub/irs-pdf/p15t.pdf">2020 W-4</a>
+                    guidelines.
+                </li>
+                <br>
+                <li>
+                    Use employee's W-4 form to enter federal tax information.
+                </li>
+                <br>
+                <li id="instructions">
+                    Use employee's Form
+                    <a href="https://www.edd.ca.gov/pdf_pub_ctr/de4.pdf">DE 4 </a>
+                    to enter the California state tax <br><br> information (if they have filed it).<br>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- div that encompasses everything underneath the header image  -->
+    <div class="enterringinfo_seeingnumbers">
+
+        <!-- the left side of the web page: user input sections  -->
+        <div class="enterring_information">
+
+            <!-- the top row of the input section: user inputs state and payment type  -->
+            <div class="state_paytype">
+                <div id="state_label_dropdown">
+                    <label id="state-label">State</label>
+
+                    <div class="dropdown">
+                        <select id="state-dropdown" class="dropdown">
+                            <!-- add blank space. hacky solution to get the dropdown to work when user clicks the arrow -->
+                            <option width="10000px" value="CA" selected="selected">California&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="NY" >New York </option>
+                            <option value="TX">Texas</option>
+                            <option value="WA">Washington</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- TODO: fix text covered up -->
+                <!-- <div id="paytype_entire">
+                    <label id="paytype">Pay Type</label>
+                    <div class="dropdown">
+                        <select id="paytype-dropdown" class="dropdown">
+                            <option value="Salary">Salary</option>
+
+                        </select>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- user inputs pay information  -->
+            <div class="payinfosection">
+
+                <div class="payinfoheading">Pay Information</div>
+
+                <div class="pay-info-inputs">
+                    <div class="pay-info-enter-info">
+                        <div class="salaryinput">
+                            <!-- popup is hidden until user presses the helptip -->
+                            <div id="salary-popup" class="popup">What is the total amount of money earned by an employee in 1 year before removing any taxes and/or deductions?</div>
+                            <!-- this contains the helptip and the header for an input box  -->
+                            <div class="heading-and-helptip">
+                                <svg width="1em" margin-left="10px" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('salary-popup')">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                    <circle cx="8" cy="4.5" r="1"/>
+
+                                </svg>
+
+                                <label id="salarylabel">Annual Salary</label>
+
+                            </div>
+                            <!-- dollar-input and input classify this box for formatting -->
+                            <div class="dollar-input"></div>
+                            <input type="number" class="input" id="salary-input" min="0" placeholder="0.00">
+                            <br>
+
+                        </div>
+
+                        <!-- pay frequency determines the time period considered for take-home pay -->
+                        <div class="payfreqinput">
+                            <div id="payfrequency-popup" class="popup">How often does the employee get paid?</div>
+                            <div class="heading-and-helptip">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('payfrequency-popup')">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                    <circle cx="8" cy="4.5" r="1"/>
+                                </svg>
+                                <label id="payfreqlabel">Pay Frequency</label>
+                            </div>
+                            <div class="dropdown">
+                                <select id="freq" class="dropdown">
+                                    <!-- hacky solution to get the width of the dropdown box big enough for the user to open dropdown by clicking on the arrow -->
+                                    <option value="Weekly">Weekly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                    <option value="Bi-weekly">Bi-weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Semi-Monthly">Semi-Monthly</option>
+                                    <option value="Annually">Annually</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- federal information is used to calculate federal taxes  -->
+            <div class="fedinfosection">
+                <!-- fedinfoLabel is the purple circle with the title to the left of the input boxes  -->
+                <div class="fedinfoLabel">Federal Tax Information</div>
+
+                <!-- this section is the light blue box containing inputs  -->
+                <div class="fed-info-inputs">
+
+                    <!-- this explains fed tax info and is to the left of input fields  -->
+                    <div class="fed_extrainfo">Please enter federal tax filing and withholding status.
+                        Find this information in the W-4.
+                    </div>
+
+                    <!-- input fields  -->
+                    <div class="fedtax_enterinfo">
+                        <!-- first row of fed tax information  -->
+                        <div class="filingstatus_multijobs">
+                            <!-- this encompasses poopup, helptip, title, and input for filing status -->
+                            <div class="filingstatus-block">
+                                <div id="fedfilingstatus-popup" class="popup">What is the marital status? Is the employee married and filing together? Is the employee the head of a household?</div>
+                                <div >
+                                    <div class="heading-and-helptip">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('fedfilingstatus-popup')">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                            <circle cx="8" cy="4.5" r="1"/>
+                                        </svg>
+                                        <label id="fedfilingStatusLabel"> Filing Status </label>
+                                    </div>
+
+                                    <div class="dropdown">
+                                        <select id="fed-filing-status" class="dropdown"><i class="fa fa-angle-down"></i>
+                                            <option value="Married">Married </option>
+                                            <option value="Single">Single / Married Filing Separately</option>
+                                            <option value="Head of Household">Head of Household</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- this encompasses poopup, helptip, title, and input for multijob -->
+                            <div>
+                                <div class="multijob-box">
+                                    <div id="fedmultiplejobs-popup" class="popup">Check this box if the employee and his/her spouse have a total of 2 jobs (step 2(c) in W-4)</div>
+                                    <div class="heading-and-helptip">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('fedmultiplejobs-popup')">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                            <circle cx="8" cy="4.5" r="1"/>
+                                        </svg>
+                                        <label> Multiple jobs?</label> <br>
+                                    </div>
+                                        <input type="checkbox" id="fed-multi-jobs" value="multijob" class="checkbox">
+                                        <label for="fed-multi-jobs"></label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="depamount_otherincome">
+
+                            <div >
+                                <div id="feddependentamount-popup" class="popup">If Total Annual Salary <= $200K (or <=$400K if married and filing jointly), enter: ($2000* Number of employee’s children below 17 yrs of age + $500 * Number of employee’s other dependents). (Step 3 in W-4)</div>
+                                <div class="heading-and-helptip">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('feddependentamount-popup')">
+                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                        <circle cx="8" cy="4.5" r="1"/>
+                                    </svg>
+                                    <label>Dependent's Amount</label>
+                                </div>
+                                <div class="dollar-input">
+                                    <input type="number" class="input" id="fed-dependent-amount" min="0"
+                                        placeholder=0.00>
+                                </div>
+                            </div>
+
+                            <div >
+                                <div class="other-income-block">
+                                    <div id="fedotherincome-popup" class="popup">Enter the amount from interest, dividends, and retirement income, if the employee wants tax withheld for these other incomes. (Step 4(a) in W-4)</div>
+                                    <div class="heading-and-helptip">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('fedotherincome-popup')">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                            <circle cx="8" cy="4.5" r="1"/>
+                                        </svg>
+                                        <label>Other Income</label>
+                                    </div>
+                                    <div class="dollar-input">
+                                        <input type="number" class="input" id="fed-other-income" min="0"
+                                            placeholder=0.00>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="deductions_addwithholdings">
+
+                            <div >
+                                <div class="deductions-block">
+                                    <div id="feddeductions-popup" class="popup">Enter the deduction amount (other than the standard deduction) that employee wants to claim to reduce his/her withholdings. (Step 4(b) in W-4)</div>
+                                    <div class="heading-and-helptip">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('feddeductions-popup')">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                            <circle cx="8" cy="4.5" r="1"/>
+                                        </svg>
+                                        <label>Deductions</label>
+                                    </div>
+                                    <div class="dollar-input">
+                                        <input type="number" class="input" id="fed-deductions" min="0" placeholder=0.00>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div >
+                                <div class="additional-withholdings-block">
+                                    <div id="fedadditionalwithholdings-popup" class="popup">Enter additional tax that the employee wants to be withheld each pay period. (Step 4(c) in W-4)</div>
+                                    <div class="heading-and-helptip">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('fedadditionalwithholdings-popup')">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                            <circle cx="8" cy="4.5" r="1"/>
+                                        </svg>
+                                        <label>Additional Withholdings</label>
+                                    </div>
+                                    <div class="dollar-input">
+                                        <input type="number" class="input" id="fed-Additional Withholdings" min="0"
+                                            placeholder=0.00>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- add space after the bottom row before the end of the box -->
+                        <br>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- this section is populated by javascript depending on state selected  -->
+            <div id="stateinfosection">
+                <!-- this is the purple circle to the left of input fields -->
+                <div class="state-info-heading"> State Tax Information </div>
+                <!-- this div contains the blue box with explanation and inputs -->
+                <div class="state-info-inputs">
+                    <!-- this div explains state info and sits to the left of inputs  -->
+                    <div class="state_extrainfo">
+                        <!-- extra div so flexbox properties don't apply to text -->
+                        <div>
+                            Details about state tax filing status and withholding status
+                            will differ from federal tax filing and withholding status
+                            if the employee has filed a
+                            <a id="state-tax-form-link" href="https://www.edd.ca.gov/pdf_pub_ctr/de4.pdf">DE 4</a>
+                        </div>
+
+                    </div>
+                    <!-- this div contains user input boxes  -->
+                    <div class="statetax_enterinfo">
+                        <form name="State Info" id="state-info"></form>
+                        <!-- some states have city information that populates -->
+                        <form name="State Info" id="city-info"></form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- contains additional information  -->
+            <div class="benefitsdedexempsection">
+                <!-- purple circle title  -->
+                <div class="otherHeading">Additional Information</div>
+
+                <!-- blue box containing inputs  -->
+                <div class="other-info-inputs">
+                    <div class="other_extrainfo">Employee benefits and additional information can affect how the
+                        paycheck is calculated. Please add any deductions applicable to your employee.</div>
+
+                    <!-- user-enterred inputs  -->
+                    <div class="other_enterinfo">
+                        <br>
+                        <!-- form contains all user inputs  -->
+                        <form>
+                            <!-- popup for pre-tax deductions  -->
+                            <div class="popup" id="pretaxdeductions-popup" > Enter the amount that the employee contributes each pay period towards the benefit selected in the drop-down.</div>
+                            <!-- row that contains title, helptip, and button -->
+                            <div class="helptip-title-buttons">
+                                <!-- helptip for pretax deductions  -->
+                                <div class="heading-and-helptip">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('pretaxdeductions-popup')">
+                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                        <circle cx="8" cy="4.5" r="1"/>
+                                    </svg>
+
+                                    <label for="pretax">(a) Pre-Tax Deductions</label>
+                                </div>
+
+                                <!-- button to add another deduction  -->
+                                <div class="button">
+                                    <svg overflow="visible" class="duplication-deletion-button" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="#2D9CDB"
+                                        xmlns="http://www.w3.org/2000/svg" onclick="duplicatepretax();">
+                                        <path fill-rule="evenodd"
+                                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                </div>
+
+                                <!-- button to remove a deduction  -->
+                                <div class="button">
+                                    <svg width="1em" height="1em" id="pretaxMinusButton" viewBox="0 0 16 16"
+                                        class="bi bi-dash-circle-fill" fill="#2D9CDB" xmlns="http://www.w3.org/2000/svg"
+                                        onclick="deletepretax();">
+                                        <path fill-rule="evenodd"
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4 7.5a.5.5 0 0 0 0 1h8a.5.5 0 0 0 0-1H4z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                            <div id="pretax">
+                                <!-- deduction-and-amount isthe row containing deduction name and amount input boxes -->
+                                <!-- this div is duplicated when the plus button is clicked or deleted when minus button pressed -->
+                                <div class="deduction-and-amount">
+                                    <div class="dropdown-with-space">
+                                        <div class="dropdown">
+
+                                            <select class="Pretax_Deduction_Name">
+                                                <option value="start" selected disabled> Deduction Name </option>
+                                                <option value="" disabled> Medical Benefits: </option>
+                                                <option value=""> Health Insurance </option>
+                                                <option value=""> Dental Insurance </option>
+                                                <option value=""> Vision Insurance </option>
+                                                <option value=""> Individual HSA </option>
+                                                <option value=""> Family HSA </option>
+                                                <option value=""> FSA </option>
+                                                <option value=""> Dependent Care FSA </option>
+                                                <option value="" disabled> Retirement Benefits: </option>
+                                                <option value=""> 401(k) </option>
+                                                <option value=""> Roth 401(k) </option>
+                                                <option value=""> 403(b) </option>
+                                                <option value=""> Roth 403(b) </option>
+                                                <option value=""> SER IPA </option>
+                                                <option value=""> SARSEP </option>
+                                                <option value=""> SIMPLE IRA </option>
+                                                <option value="" disabled> Commuter Benefits: </option>
+                                                <option value=""> Commuter Benefits </option>
+                                                <option value=""> Commuter Parking </option>
+                                                <option value=""> Commuter Transit </option>
+                                                <option value=""> Disability Insurance: </option>
+                                                <option value=""> Short-Term Disability Insurance </option>
+                                                <option value=""> Long-Term Disability Insurance </option>
+                                                <option value=""> Commuter Transit </option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="deduction-amount-container">
+                                        <div class="dollar-input">
+                                            <input type="number" class="pretax-deduction-amount" min="0" placeholder=Amount>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!-- post-tax deductions section: same as pre-tax deductions section -->
+                            <div class="popup" id="posttaxdeductions-popup" > Enter the amount that the employee contributes each pay period towards the benefit selected in the drop-down.</div>
+                            <!-- row that contains helptip, title, and button -->
+                            <div class="helptip-title-buttons">
+                                <div class="heading-and-helptip">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('posttaxdeductions-popup')">
+                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                        <circle cx="8" cy="4.5" r="1"/>
+                                    </svg>
+                                    <label for="posttax">(b) Post-Tax Deductions</label>
+                                </div>
+
+                                <div class="button">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="#2D9CDB"
+                                        xmlns="http://www.w3.org/2000/svg" onclick="duplicateposttax();">
+                                        <path fill-rule="evenodd"
+                                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd"
+                                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                </div>
+
+
+                                <div class="button">
+                                    <svg width="1em" height="1em" id="posttaxMinusButton" viewBox="0 0 16 16"
+                                        class="bi bi-dash-circle-fill" fill="#2D9CDB" xmlns="http://www.w3.org/2000/svg"
+                                        onclick="deleteposttax();">
+                                        <path fill-rule="evenodd"
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4 7.5a.5.5 0 0 0 0 1h8a.5.5 0 0 0 0-1H4z" />
+                                    </svg>
+                                </div>
+
+                            </div>
+
+
+                            <div id="posttax">
+                                <div class="deduction-and-amount">
+                                    <div class="dropdown-with-space">
+                                        <div class="dropdown">
+                                            <select class="Posttax_Deduction_Name">
+                                                <option value="" selected disabled> Deduction Name </option>
+                                                <option value="" disabled> Medical Benefits: </option>
+                                                <option value=""> Health Insurance </option>
+                                                <option value=""> Dental Insurance </option>
+                                                <option value=""> Vision Insurance </option>
+                                                <option value=""> Individual HSA </option>
+                                                <option value=""> Family HSA </option>
+                                                <option value=""> FSA </option>
+                                                <option value=""> Dependent Care FSA </option>
+                                                <option value="" disabled> Retirement Benefits: </option>
+                                                <option value=""> 401(k) </option>
+                                                <option value=""> Roth 401(k) </option>
+                                                <option value=""> 403(b) </option>
+                                                <option value=""> Roth 403(b) </option>
+                                                <option value=""> SER IPA </option>
+                                                <option value=""> SARSEP </option>
+                                                <option value=""> SIMPLE IRA </option>
+                                                <option value="" disabled> Commuter Benefits: </option>
+                                                <option value=""> Commuter Benefits </option>
+                                                <option value=""> Commuter Parking </option>
+                                                <option value=""> Commuter Transit </option>
+                                                <option value="" disabled> Disability Insurance: </option>
+                                                <option value=""> Short-Term Disability Insurance </option>
+                                                <option value=""> Long-Term Disability Insurance </option>
+                                                <option value=""> Commuter Transit </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="deduction-amount-container">
+                                        <div class="dollar-input">
+                                            <input type="number" class="posttax-deduction-amount" min="0"
+                                                placeholder=Amount>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!-- special exemptions indicate taxes user doesn't have to pay.  -->
+                            <div class="popup" id="specialexemptions-popup" > Select the taxes (if any) from which the employee has been exempted by the IRS.</div>
+                            <div class="heading-and-helptip">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onclick="togglePopUp('specialexemptions-popup')">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                    <circle cx="8" cy="4.5" r="1"/>
+                                </svg>
+                                <label id="special_exemptions_label">(c) Special Exemptions</label>
+                            </div>
+
+                            <div>
+                                <div class="checkbox-row">
+                                    <input type="checkbox" class="checkbox" id="ss-checkbox">
+                                    <label class="checkbox-label"> Social Security</label>
+                                </div>
+                                <div class="checkbox-row">
+                                    <input type="checkbox" class="checkbox" id="fedincometax-checkbox">
+                                    <label class="checkbox-label"> Federal Income Tax</label>
+
+                                </div>
+                                <div class="checkbox-row">
+                                    <input type="checkbox" class="checkbox" id="medicare-checkbox">
+                                    <label class="checkbox-label"> Medicare</label>
+                                </div>
+                            </div>
+                            <!-- State Exemptions: these populate with javascript depending on the state selected -->
+                            <div id="state-exemptions"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- this is the right side of the site: shows how much users pay in taxes shows the feedback buttom -->
+        <div class="Seeing_Numbers">
+            <!-- this section shows what users pay in taxes  -->
+            <div class="paycheck-estimation">
+
+                <span id="seeing_numbers_heading">Paycheck Estimation</span>
+                <!-- this div is the blue box containing all the tax payments  -->
+                <div class="tax-payments">
+
+                    <!-- disp_container is a row that contains the tax amount and type of tax  -->
+                    <!-- disp_number and disp_title are assigned for formatting -->
+                    <div class="disp_container">
+
+                        <span id="gross_pay_label" class="disp_title">Gross Pay </span>
+
+                        <span id="gross-pay" class="disp_number"></span>
+
+
+                    </div>
+                    <br>
+                    <div class="disp_container">
+
+                        <span id="pretaxdedlabel" class="disp_title">Pre-Tax Deductions</span>
+
+                        <span id="pretaxdeductions" class="disp_number"></span>
+
+
+                    </div>
+                    <br>
+
+                    <div class="disp_container">
+
+                        <span id="fedtaxeslabel" class="disp_title">Federal Taxes</span>
+
+                        <span id="federaltaxes" class="disp_number"></span>
+
+                    </div>
+
+                    <div class="disp_container">
+
+                        <span id="incometaxlabel" class="disp_title">Income Tax</span>
+
+                        <span id="incometax" class="disp_number"></span>
+
+                    </div>
+
+                    <div class="disp_container">
+
+                        <span id="FICALabel" class="disp_title">FICA Taxes</span>
+
+                        <span id="FICA" class="disp_number"></span>
+
+                    </div>
+
+                    <div class="disp_container">
+
+                        <span id="sslabel" class="disp_title">Social Security</span>
+
+                        <span id="SS" class="disp_number"></span>
+
+                    </div>
+
+                    <div class="disp_container">
+
+                        <span id="medicarelabel" class="disp_title">Medicare</span>
+
+                        <span id="Medicare" class="disp_number"></span>
+
+                    </div>
+                    <br>
+
+                    <div class="disp_container">
+
+                        <div id="state-tax-header" class="disp_title"></div>
+
+                        <span id="total-state-taxes"></span>
+
+                    </div>
+
+
+                    <div id="state-tax-output"></div>
+                    <div id="city-tax-output"></div>
+                    <br>
+
+                    <div class="disp_container">
+                        <span id="posttaxdedlabel" class="disp_title">Post-Tax Deductions</span>
+                        <span id="posttaxdeductions" class="disp_number"></span>
+                    </div>
+
+                </div>
+                <!-- this is the separate net pay box -->
+                <div class="disp_container">
+
+                    <!-- outer and inner boxes are used for the border -->
+                    <div class="net-payment-outer">
+
+                        <div class="net-payment">
+                            <span id="takehomepaylabel" class="disp_title">Net Pay </span>
+                            <span id="takehomepay" class="disp_number"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- feedback-button uses bootstrap and custom svg element -->
+            <div class="feedback-button">
+                <svg width="150px" height="150px" viewBox="-10 -50 100 100" class="bi bi-chat-left-dots" xmlns="http://www.w3.org/2000/svg" onclick="displayFeedback()">
+                    <defs>
+                        <linearGradient id="MyGradient">
+                          <stop offset="0%" stop-color="#329ADC" />
+                          <stop offset="100%" stop-color="#9756E0" />
+                        </linearGradient>
+                      </defs>
+
+                    <path fill="url(#MyGradient)" fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path fill="url(#MyGradient)" d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    <circle cx="8" cy="8" r="15" stroke="url(#MyGradient)" stroke-width="2" fill="none" />
+
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- call javascript code  -->
+    <script src="js/app.js"></script>
+
+
+
+</body>
+
+
+</html>

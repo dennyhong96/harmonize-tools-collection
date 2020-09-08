@@ -1,0 +1,70 @@
+@import "../../Custom.scss";
+
+.pan-btn {
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color: lighten($main-color, 3%);
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > i {
+    font-size: 0.8rem;
+  }
+
+  &:hover {
+    transform: scale(1.07);
+    background-color: $main-color;
+  }
+}
+
+.pan {
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  z-index: 1;
+  right: 2rem;
+  top: 10rem;
+  padding: 0.5rem;
+  border-radius: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lighten($inactive-button-bg, 15%);
+
+  box-shadow: 0 2px 4px rgba(#000, 0.15);
+
+  .pan-up {
+    @extend .pan-btn;
+    margin-bottom: 0.3rem;
+  }
+
+  & > div {
+    display: flex;
+
+    .pan-left {
+      @extend .pan-btn;
+    }
+
+    .reset {
+      @extend .pan-btn;
+      margin-left: 0.3rem;
+    }
+
+    .pan-right {
+      @extend .pan-btn;
+      margin-left: 0.3rem;
+    }
+  }
+
+  .pan-bottom {
+    @extend .pan-btn;
+    margin-top: 0.3rem;
+  }
+}

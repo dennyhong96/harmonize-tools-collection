@@ -1,0 +1,11 @@
+{
+    "StateName":"Washington",
+
+    "Exemptions":[
+        "Paid Family & Medical Leave"
+    ],
+
+    "OutputLabels":[
+      "Paid Family & Medical Leave"
+    ]
+}

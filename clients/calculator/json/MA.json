@@ -1,0 +1,29 @@
+{
+    "StateName":"Massachusetts",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional Withholdings",
+        "Is your employee blind?",
+        "Is your employee’s spouse blind and not subject to withholding?"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount",
+        "Radio",
+        "Radio"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "Paid Family and Medical Leave - Employee"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "Paid Family and Medical Leave - Employee"
+    ]
+}

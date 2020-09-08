@@ -1,0 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+.footer-text{
+    font-family: Nunito !important;;
+    font-size: 15px !important;
+    font-weight: normal !important;
+    color: #000000 !important;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-bottom: 3rem !important;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

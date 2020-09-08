@@ -1,0 +1,67 @@
+{
+    "StateName":"California",
+
+    "Married":{
+        "SD": 9074.00,
+        "A": [0,17618,41766,65920,91506,115648,590746],
+        "B": [17618 ,41766, 65920, 91506, 115658, 590746, 708890, 1000000, 181484,0 ],
+        "C": [0,193.8,725.06,1787.84,3476.52,5601.02,54203.55,67589.27,103774.24,128329.03],
+        "D": [0.011,0.022,0.044,0.066,0.088,0.1023,0.1133,0.1243,0.1353,0.1463]
+    },
+
+    "Single":{
+        "SD": 4537.00,
+        "A": [0,8809,20883,32960,45753,57824,295373,354445,590742,1000000],
+        "B": [8809,20883,32960,45753,57824,295373,354445,590742,1000000,0],
+        "C": [0,96.6,362.53,893.92,1738.26,2800.51,27101.77,33794.63,63166.35,118538.96],
+        "D": [0.011,0.022,0.044,0.066,0.088,0.1023,0.1133,0.1243,0.1353,0.1463]
+    },
+
+    "HeadHousehold":{
+        "SD": 9074.00,
+        "A":[0,17629,41768,53843,66636,78710,401705,482047,803410,1000000],
+        "B":[17629,41769,53843,66636,78710,401705,482047,803410,1000000,111852.32],
+        "C":[0,193.92,724.98,1256.28,2100.62,3163.13,36205.52,45308.27,85253.69,0],
+        "D":[0.011,0.022,0.044,0.066,0.088,0.1023,0.1133,0.1243,0.1353,0.1463]
+    },
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Allowances",
+        "Additional State Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "State Disability Insurance"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "State Disability Insurance"
+    ],
+
+    "StateFilingStatus":[
+        "Single",
+        "Married/Registered Domestic Partnership (RDP) filing jointly",
+        "Married/RDP filing separately",
+        "Head of household"
+    ],
+
+    "PopUpText":[
+        "As mentioned on form DE 4.",
+        "Enter number of allowances. (Refer Form DE 4)",
+        "Enter the number of additional state allowances. (Refer Form DE 4)",
+        "Additional amount that the employee wants to be withheld per period in state taxes. (Refer Form DE 4)"
+    ]
+
+
+}

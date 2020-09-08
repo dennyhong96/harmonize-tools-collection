@@ -1,0 +1,23 @@
+{
+    "StateName":"Illinois",
+
+    "StateTaxInputLabels":[
+        "Number of Allowances",
+        "Additional State Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Integer",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}

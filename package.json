@@ -1,47 +1,14 @@
 {
-  "name": "org-chart-explore",
+  "name": "harmonize_tools",
   "version": "1.0.0",
-  "description": "explore app for org-chart product",
-  "main": "app.js",
+  "description": "HARMONIZE TOOLS",
+  "main": "server/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "server": "nodemon app.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "prepare-backend": "npm install",
-    "prepare-frontend": "npm install --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "install": "npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage && npm install --prefix clients/contract",
+    "build": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage && npm run build --prefix clients/contract",
+    "start": "NODE_ENV=production node server/app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hyhong-code/org-chart-demo.git"
-  },
-  "keywords": [],
-  "author": "Haiyang Hong",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hyhong-code/org-chart-demo/issues"
-  },
-  "homepage": "https://github.com/hyhong-code/org-chart-demo#readme",
-  "dependencies": {
-    "cookie-session": "^1.4.0",
-    "csvtojson": "^2.0.10",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.1.7-alpha.4",
-    "helmet": "^3.23.3",
-    "hpp": "^0.2.3",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.26",
-    "morgan": "^1.10.0",
-    "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0",
-    "uuid": "^8.2.0",
-    "xss-clean": "^0.1.1"
-  },
-  "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
-  }
+  "dependencies": {}
 }

@@ -1,0 +1,292 @@
+// Inherits main scss
+@import "../../Custom.scss";
+
+.step-three {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+
+  .heading-import {
+    font-size: 1.4rem;
+    border-bottom: 1px solid $main-color;
+    transform: translateY(-1.8rem);
+    padding-bottom: 0.3rem;
+    width: 47%;
+    text-align: center;
+  }
+
+  .step-three-progress-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.26;
+    letter-spacing: 0.29px;
+    color: $dark-text;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
+    .st-1 {
+      span {
+        margin-left: 0.6rem;
+      }
+    }
+
+    .st-2 {
+      margin-left: 2.5rem;
+    }
+  }
+
+  .step-three-progress {
+    height: 3rem;
+    position: relative;
+    margin-left: 2.25rem;
+
+    .line {
+      margin-top: 0.6rem;
+      width: 21rem;
+      height: 1px;
+      border: 1px solid $progress-circle-light-blue-bg;
+    }
+
+    .milestone {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 4.25rem;
+      background-color: $progress-circle-light-blue-bg;
+      position: absolute;
+      top: 0;
+
+      &.active {
+        border: solid 3px $main-color;
+        background-color: $progress-circle-light-blue-bg;
+      }
+
+      &.finished {
+        border-radius: 4.3rem;
+        background-color: $main-color;
+
+        transition: transform 0.2s ease;
+        &:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+      }
+
+      &.checked {
+        background-color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .fas {
+          color: #fff;
+          font-size: 0.7rem;
+        }
+      }
+
+      &.ms-1 {
+        left: 0;
+      }
+
+      // &.ms-2 {
+      //   left: 6.4rem;
+      // }
+
+      &.ms-3 {
+        left: 10rem;
+      }
+
+      &.ms-4 {
+        left: 19.8rem;
+      }
+    }
+  }
+
+  .step-three-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-three-msg {
+    font-size: 1rem;
+    color: $dark-text;
+    margin-bottom: 0;
+
+    span {
+      font-weight: bold;
+    }
+
+    &-2 {
+      @extend .step-three-msg;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .info-icon {
+    text-align: center;
+    margin-bottom: 0.5rem;
+
+    .fas {
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      color: $main-color;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // For react-dropzone
+  .drop-file-box {
+    width: 21rem;
+    height: 13.25rem;
+    border-radius: 3.3px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.09);
+    background-color: $check-mark-white;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    margin-bottom: 0.5rem;
+
+    .drop-file-inner-box {
+      width: 18rem;
+      height: 11rem;
+      border-radius: 3.3px;
+      border: dashed 1px $profile-cards-role-extra-light-grey;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      .drop-file-name {
+        font-size: 0.94rem;
+        font-weight: 500;
+        line-height: 1.87;
+        color: #7a7a7a;
+
+        .delete-file {
+          cursor: pointer;
+          display: inline-block;
+          transition: color, scale, 0.2s ease-out;
+
+          &:hover {
+            color: $delete-red;
+            transform: scale(1.2);
+            transform-origin: center;
+          }
+        }
+      }
+
+      .csv-icon {
+        font-size: 3.5rem;
+        color: $office-green;
+
+        &.error {
+          color: $delete-red;
+        }
+      }
+
+      button {
+        outline: none;
+        width: 14.3rem;
+        height: 2.625rem;
+        font-size: 0.8rem;
+        color: $main-color;
+        border: none;
+        font-family: inherit;
+        border: 1px solid $main-color;
+        border-radius: 0.75rem;
+        background-color: #fff;
+        transition: background-color, color, 0.3s ease-out;
+      }
+    }
+  }
+
+  .response {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+
+    &-success {
+      @extend .response;
+      font-size: 1.2rem;
+      color: $main-color;
+    }
+
+    &-failed {
+      @extend .response;
+      color: $delete-red;
+    }
+
+    &-submit {
+      @extend .response;
+      color: lighten($dark-text, 15%);
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.step-three-actions {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  hr {
+    border-top: 1px solid lighten($dark-divider-line, 50%);
+    margin: 0 0 1.5rem 0;
+  }
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+
+    .step-three-action {
+      font-size: 1rem;
+      font-weight: bold;
+      color: $check-mark-white;
+      background-color: $main-color;
+      border: none;
+      padding: 0.5rem 2.2rem;
+      border-radius: 3rem;
+      box-shadow: 0 2.4px 5.6px 0 $greyed-out-chart-content;
+      align-self: flex-end;
+      outline: none;
+      transition: translateY, box-shadow, 0.2s ease-out;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px 0 rgba($greyed-out-chart-content, 0.8);
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 3px 0 rgba(#000, 0.4);
+      }
+
+      &:disabled {
+        background-color: $inactive-button-bg;
+      }
+
+      &-back {
+        @extend .step-three-action;
+        background-color: $progress-circle-light-blue-bg;
+        color: $main-color;
+        padding: 0.5rem 3rem;
+      }
+
+      &-submit {
+        @extend .step-three-action;
+      }
+    }
+  }
+}

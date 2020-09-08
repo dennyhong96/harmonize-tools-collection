@@ -1,0 +1,31 @@
+{
+    "StateName":"New Jersey",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Employee's rate code",
+        "Number of Allowances",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax",
+        "Family Leave Insurance",
+        "State Disability Insurance",
+        "SUI"
+    ],
+
+    "OutputLabels":[
+      "State Tax",
+      "Family Leave Insurance",
+      "State Disability Insurance",
+      "SUI"
+    ]
+}

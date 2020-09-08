@@ -1,0 +1,23 @@
+{
+    "StateName":"Alabama",
+
+    "StateTaxInputLabels":[
+        "Filing Status",
+        "Number of Dependents",
+        "Additional Withholdings"
+    ],
+
+    "StateTaxInputTypes":[
+        "Drop-down",
+        "Integer",
+        "DollarAmount"
+    ],
+
+    "Exemptions":[
+        "State Tax"
+    ],
+
+    "OutputLabels":[
+      "State Tax"
+    ]
+}
