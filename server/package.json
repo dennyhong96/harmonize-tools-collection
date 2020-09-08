@@ -14,7 +14,7 @@
     "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.7-alpha.4",
+    "express-fileupload": "^1.1.10",
     "helmet": "^3.23.3",
     "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
