@@ -217,7 +217,7 @@ const Signup = () => {
               fontSize: "0.7rem",
             }}
           >
-            Have an account? <Link to="/login">Sign in &rarr;</Link>
+            Have an account? <Link to={path("/login")}>Sign in &rarr;</Link>
           </Typography>
         </Paper>
       </Box>

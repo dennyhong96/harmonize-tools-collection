@@ -12,6 +12,8 @@ export const REDIRECT_MAP = {
   "/downloadTo": "/contract/downloadTo",
   "/pdf": "/contract/pdf",
   "/complete": "/contract/complete",
+  "/login": "/contract/login",
+  "/signup": "/contract/signup",
 };
 
 /**

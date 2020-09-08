@@ -81,9 +81,9 @@ const EmployeeInfoPanel = ({
       <div
         className={`employee-card ${showWidget ? "employee-card-show" : ""}`}
       >
-        <div className="selected-employee">
+        {/* <div className="selected-employee">
           {user && <p className="name">Welcome, {user.name}</p>}
-        </div>
+        </div> */}
         <List style={{ border: "1px solid #ddd", borderRadius: 10 }}>
           <ListItem
             button

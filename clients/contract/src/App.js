@@ -10,6 +10,8 @@ import useRedirect from "./hooks/useRedirect";
 import useLoginSignup from "./hooks/useLoginSignup";
 import useAuth from "./hooks/useAuth";
 
+import "./App.css";
+
 import UserContext from "./contexts/User";
 
 import LandingPage from "./components/Pages/LandingPage/LandingPage";
