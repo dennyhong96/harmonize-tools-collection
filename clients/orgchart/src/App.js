@@ -14,7 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/orgchart" component={Landing} />
         <Route exact path="/orgchart/app" component={Home} />
-        <Redirect from="/*" to="/orgchart" />
+        <Route component={Landing} />
       </Switch>
       <ToastContainer />
     </BrowserRouter>

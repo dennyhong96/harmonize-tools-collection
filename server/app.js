@@ -41,6 +41,7 @@ if (process.env.NODE_ENV === "development") {
 // Serve built front end in production
 if (process.env.NODE_ENV === "production") {
   app.use(
+    "/",
     express.static(path.join(__dirname, "../clients", "mainpage", "build"))
   );
   app.use(
@@ -81,7 +82,7 @@ if (process.env.NODE_ENV === "production") {
       path.join(__dirname, "../clients", "contract", "build", "index.html")
     );
   });
-  app.use("*", (req, res, next) => {
+  app.use("/*", (req, res, next) => {
     res.sendFile(
       path.join(__dirname, "../clients", "mainpage", "build", "index.html")
     );
