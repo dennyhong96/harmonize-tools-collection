@@ -9,6 +9,7 @@ Harmonize tools collection is a collection of web apps that assist with daily mu
 At root directory, use npm / yarn:
 
 ```bash
+git checkout -b <your-branch-name>
 npm run install # install dependencies for nodejs server and 3 react apps
 npm run build # build static files for the two react apps
 npm start # start up development server - http://localhost:5000
@@ -19,6 +20,7 @@ npm start # start up development server - http://localhost:5000
 At root directory, use npm / yarn:
 
 ```bash
+git checkout -b <your-branch-name>
 cd server && nodemon app.js # Start up server (if working on / with api)
 # Open another terminal
 npm start --prefix clients/<your-client-name> # Work on your react app - http://localhost:3000
