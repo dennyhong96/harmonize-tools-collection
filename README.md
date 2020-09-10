@@ -26,9 +26,11 @@ npm start --prefix clients/<your-client-name> # Work on your react app - http://
 
 ## Project Architecture
 
+<img src="./architecture.png" width="100%" alt="project architecture">
+
 ## Team Contribution \*\*\*
 
-#### Master branch is for production, it's connected to AWS CodePipeline & Elastic Beanstalk for CI/CD. Never push to master without testing your new feature / changes. Work on your feature branch, make a pull request and assign a reviewer.
+Master branch is for production, it's connected to AWS CodePipeline & Elastic Beanstalk for CI/CD. Never push to master without testing your new feature / changes. Work on your feature branch, make a pull request and assign a reviewer.
 
 ## License
 
