@@ -1,13 +1,14 @@
+# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 
 phases:
-  install:
+  pre_build:
     commands:
-      # Install pip
-      - sudo apt-get install python-pip
-      # Upgrade AWS CLI
-      - pip install --upgrade awscli
-  pre-build:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
     commands:
-      # Install dependencies
-      - npm install --prefix server
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
