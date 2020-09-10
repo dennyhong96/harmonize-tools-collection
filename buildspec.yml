@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install dependencies
+      - npm install
+
+      # Upgrade AWS CLI
+      - pip install --upgrade awscli
