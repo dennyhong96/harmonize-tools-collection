@@ -6,7 +6,7 @@
   "scripts": {
     "install": "npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage && npm install --prefix clients/contract",
     "build": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage && npm run build --prefix clients/contract",
-    "start": "NODE_ENV=production node server/app.js"
+    "start": "node server/app.js"
   },
   "author": "",
   "license": "ISC",

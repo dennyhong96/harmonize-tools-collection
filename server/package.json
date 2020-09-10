@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "explore app for org-chart product",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
   "keywords": [],
   "author": "Haiyang Hong",
   "license": "ISC",

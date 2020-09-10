@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       # Install dependencies
-      - npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage && npm install --prefix clients/contract
+      - npm install --prefix server
 
       # Upgrade AWS CLI
       - pip install --upgrade awscli
