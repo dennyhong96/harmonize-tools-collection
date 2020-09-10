@@ -7,7 +7,14 @@ import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../../UI/Title/Title";
-import './DownloadTo.css'
+import "./DownloadTo.css";
+
+import { savePdf } from "../../../../updateAction";
+
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+import docDefinition from "../../../../utils/docDev";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const DownloadTo = (props) => {
   const { push } = useHistory();
@@ -16,10 +23,21 @@ const DownloadTo = (props) => {
     defaultValues: state.formDetails,
   });
 
-  const onNextStep = (data) => {
+  const DownloadPDF = () => {
+    const pdf = pdfMake
+      .createPdf(docDefinition(state))
+      .download("Non-Disclosure Agreement(NDA).pdf");
+    return pdf;
+  };
+
+  const onNextStep = async (data) => {
     action(data);
-    push("/pdf");
-    console.log(data);
+    DownloadPDF();
+
+    // Save
+    await savePdf();
+
+    push("/complete");
   };
 
   const onBackStep = (e) => {
@@ -30,74 +48,79 @@ const DownloadTo = (props) => {
   return (
     <Container>
       <Row>
-        <Col xs={3}><Navigation /></Col>
+        <Col xs={3}>
+          <Navigation />
+        </Col>
 
-      <Col>
-      <form onSubmit={handleSubmit(onNextStep)}>
-        <Title />
-        <div className="form-container">
-          {/*********  Parties Relationship *********/}
-          <div style={{ marginBottom: "40px" }}>
-            <h2 className="save-changes-h1" style={{ marginBottom: "40px" }}>
-              Save Changes
-            </h2>
-            <h2 className="form-question">Form Name</h2>
-            {errors.downloadCompnay && (
-              <p className="required">This is required.</p>
-            )}
-            <Controller
-              as={
-                <TextField
-                  label="Ex. My Non-Disclosure Agreement"
-                  style={{ width: "80%" }}
-                  bordered={false}
-                  InputLabelProps={{style: {fontSize: 13}}} // font size of input label
-                  InputProps={{style: {fontSize: 14}}} 
-                  size='small'
+        <Col>
+          <form onSubmit={handleSubmit(onNextStep)}>
+            <Title />
+            <div className="form-container">
+              {/*********  Parties Relationship *********/}
+              <div style={{ marginBottom: "40px" }}>
+                <h2
+                  className="save-changes-h1"
+                  style={{ marginBottom: "40px" }}
+                >
+                  Save Changes
+                </h2>
+                <h2 className="form-question">Form Name</h2>
+                {errors.downloadCompnay && (
+                  <p className="required">This is required.</p>
+                )}
+                <Controller
+                  as={
+                    <TextField
+                      label="Ex. My Non-Disclosure Agreement"
+                      style={{ width: "80%" }}
+                      bordered={false}
+                      InputLabelProps={{ style: { fontSize: 13 } }} // font size of input label
+                      InputProps={{ style: { fontSize: 14 } }}
+                      size="small"
+                    />
+                  }
+                  control={control}
+                  rules={{ required: true }}
+                  name="downloadCompnay"
                 />
-              }
-              control={control}
-              rules={{ required: true }}
-              name="downloadCompnay"
-            />
-          </div>
+              </div>
 
-          <h2 className="form-question">Add Notes</h2>
-          {errors.downloadEmail && (
-            <p className="required">This is required.</p>
-          )}
-          <Controller
-            as={
-              <TextField
-                label="Ex. Created in 2020 to match new company guidelines"
-                style={{ width: "80%" }}
-                bordered={false}
-                InputLabelProps={{style: {fontSize: 13}}} // font size of input label
-                InputProps={{style: {fontSize: 14}}} 
-                size='small'
+              <h2 className="form-question">Add Notes</h2>
+              {errors.downloadEmail && (
+                <p className="required">This is required.</p>
+              )}
+              <Controller
+                as={
+                  <TextField
+                    label="Ex. Created in 2020 to match new company guidelines"
+                    style={{ width: "80%" }}
+                    bordered={false}
+                    InputLabelProps={{ style: { fontSize: 13 } }} // font size of input label
+                    InputProps={{ style: { fontSize: 14 } }}
+                    size="small"
+                  />
+                }
+                control={control}
+                rules={{ required: true }}
+                name="downloadEmail"
               />
-            }
-            control={control}
-            rules={{ required: true }}
-            name="downloadEmail"
-          />
 
-          {/*********  Steps  *********/}
-          <div style={{ marginTop: "100px" }}>
-            <div className="step-container" >
-              <button className="Back-Button" onClick={onBackStep}>
-                Save as
-              </button>
-              <span className="btn">
-                <button className="Button" type="submit">
-                  Save
-                </button>
-              </span>
+              {/*********  Steps  *********/}
+              <div style={{ marginTop: "100px" }}>
+                <div className="step-container">
+                  <button className="Back-Button" onClick={onBackStep}>
+                    Save as
+                  </button>
+                  <span className="btn">
+                    <button className="Button" type="submit">
+                      Save
+                    </button>
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </form>
-      </Col>
+          </form>
+        </Col>
       </Row>
     </Container>
   );

@@ -28,7 +28,7 @@ const TimePeriod = (props) => {
   };
   const onNextStep = (data) => {
     action(data);
-    push("/downloadTo");
+    push("/pdf");
     console.log(data);
   };
 
@@ -180,7 +180,7 @@ const TimePeriod = (props) => {
 
               {/*********  Steps  *********/}
               <div>
-                <div className="step-container" >
+                <div className="step-container">
                   <button className="Back-Button" onClick={onBackStep}>
                     Back
                   </button>
