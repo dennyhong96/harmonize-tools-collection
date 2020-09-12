@@ -1,5 +1,5 @@
 import React from "react";
-import updateAction from "../../../../updateAction";
+import updateAction, { savePdf } from "../../../../updateAction";
 import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
@@ -8,8 +8,6 @@ import Navigation from "../../../Navigation/Navigation";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../../UI/Title/Title";
 import "./DownloadTo.css";
-
-import { savePdf } from "../../../../updateAction";
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -35,7 +33,7 @@ const DownloadTo = (props) => {
     DownloadPDF();
 
     // Save
-    await savePdf();
+    await savePdf(state);
 
     push("/complete");
   };
@@ -65,9 +63,7 @@ const DownloadTo = (props) => {
                   Save Changes
                 </h2>
                 <h2 className="form-question">Form Name</h2>
-                {errors.downloadCompnay && (
-                  <p className="required">This is required.</p>
-                )}
+                {errors.name && <p className="required">This is required.</p>}
                 <Controller
                   as={
                     <TextField
@@ -81,14 +77,12 @@ const DownloadTo = (props) => {
                   }
                   control={control}
                   rules={{ required: true }}
-                  name="downloadCompnay"
+                  name="name"
                 />
               </div>
 
               <h2 className="form-question">Add Notes</h2>
-              {errors.downloadEmail && (
-                <p className="required">This is required.</p>
-              )}
+              {errors.notes && <p className="required">This is required.</p>}
               <Controller
                 as={
                   <TextField
@@ -102,7 +96,7 @@ const DownloadTo = (props) => {
                 }
                 control={control}
                 rules={{ required: true }}
-                name="downloadEmail"
+                name="notes"
               />
 
               {/*********  Steps  *********/}

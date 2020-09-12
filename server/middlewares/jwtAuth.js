@@ -3,6 +3,11 @@ const User = require("../model/User");
 
 module.exports = async (req, res, next) => {
   try {
+    console.log(req.user);
+    if (req.user) {
+      return next();
+    }
+
     let token;
     if (
       req.headers.authorization &&
