@@ -6,10 +6,11 @@ import "./Guide.scss";
 
 const Guide = () => {
   const tooltip = useSelector(({ tooltip }) => tooltip);
+  const sideDrawer = useSelector(({ sideDrawer }) => sideDrawer);
   const dispatch = useDispatch();
 
   return (
-    <div className={`tour-guide ${tooltip.open ? "show" : ""}`}>
+    <div className={`tour-guide ${tooltip.open && !sideDrawer ? "show" : ""}`}>
       {tooltip.step === 1 && (
         <div className="content">
           <h4>Import your data</h4>

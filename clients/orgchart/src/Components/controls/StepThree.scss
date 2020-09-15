@@ -143,9 +143,9 @@
 
   // For react-dropzone
   .drop-file-box {
-    width: 21rem;
-    height: 13.25rem;
-    border-radius: 3.3px;
+    width: 18rem;
+    height: 10rem;
+    border-radius: 10px;
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.09);
     background-color: $check-mark-white;
     align-self: center;
@@ -156,21 +156,22 @@
     margin-bottom: 0.5rem;
 
     .drop-file-inner-box {
-      width: 18rem;
-      height: 11rem;
-      border-radius: 3.3px;
+      width: 16rem;
+      height: 8rem;
+      border-radius: 7.5px;
       border: dashed 1px $profile-cards-role-extra-light-grey;
-      padding: 1rem 0;
+      padding: 1rem 0.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
 
       .drop-file-name {
-        font-size: 0.94rem;
+        font-size: 0.8rem;
         font-weight: 500;
         line-height: 1.87;
         color: #7a7a7a;
+        padding: 0 0.25rem;
 
         .delete-file {
           cursor: pointer;
@@ -186,7 +187,7 @@
       }
 
       .csv-icon {
-        font-size: 3.5rem;
+        font-size: 2.25rem;
         color: $office-green;
 
         &.error {
@@ -217,7 +218,7 @@
 
     &-success {
       @extend .response;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: $main-color;
     }
 
