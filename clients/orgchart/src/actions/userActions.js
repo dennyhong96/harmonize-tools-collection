@@ -9,6 +9,7 @@ export const loadUser = () => async (dispatch) => {
       type: USER_LOADED,
       payload: res.data.user,
     });
+    console.log(res.data);
   } catch (error) {
     console.error(error);
   }

@@ -134,9 +134,7 @@ const EmployeeInfoPanel = ({
               paddingTop: 5,
               paddingBottom: 5,
               backgroundColor:
-                tooltip.open && (tooltip.step === 2 || tooltip.step === 3)
-                  ? "#f1ecfb"
-                  : undefined,
+                tooltip.open && tooltip.step === 2 ? "#f1ecfb" : undefined,
             }}
             onClick={() => setNewChartPopupShow(true)}
           >

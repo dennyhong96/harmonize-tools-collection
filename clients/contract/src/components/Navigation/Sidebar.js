@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import "./Sidebar.scss";
 
 const Sidebar = () => {
@@ -9,9 +11,9 @@ const Sidebar = () => {
         <a href="#!" className="sidebar__icons-box">
           <i className="sidebar__icons-icon far fa-sticky-note"></i>
         </a>
-        <a href="#!" className="sidebar__icons-box">
+        <Link to="/dashboard" className="sidebar__icons-box">
           <i className="sidebar__icons-icon far fa-user-circle"></i>
-        </a>
+        </Link>
       </div>
     </nav>
   );

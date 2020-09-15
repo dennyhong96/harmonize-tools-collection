@@ -15,6 +15,7 @@ const errorHandler = require("./controllers/errorController");
 const csvRouter = require("./routers/csvRouter");
 const authRouter = require("./routers/authRouter");
 const chartRouter = require("./routers/chartRouter");
+const formRouter = require("./routers/formRouter");
 
 const app = express();
 connectDB();
@@ -62,6 +63,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api/v1/csv", csvRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/charts", chartRouter);
+app.use("/api/v1/form", formRouter);
 
 app.use(errorHandler);
 

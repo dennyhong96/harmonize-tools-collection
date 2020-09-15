@@ -1,0 +1,41 @@
+$color-dark: #333333;
+
+.card {
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba($color-dark, 0.02);
+  background-color: #fff;
+  margin: 3rem 1rem;
+  flex: 5;
+
+  &__header {
+    display: flex;
+    border-bottom: 1px solid $color-dark;
+
+    $alts: 1, 2, 3, 4;
+    @each $alt in $alts {
+      &__#{$alt} {
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 2.5;
+        color: $color-dark;
+      }
+    }
+
+    &__1 {
+      flex: 5;
+    }
+
+    &__2 {
+      flex: 2;
+    }
+
+    &__3 {
+      flex: 3;
+    }
+
+    &__4 {
+      flex: 1;
+    }
+  }
+}
