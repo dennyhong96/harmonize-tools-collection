@@ -3,6 +3,11 @@ import axios from "axios";
 import { useStateMachine } from "little-state-machine";
 import { getUserForms } from "../../../updateAction";
 
+import styles from "./Dashboard.module.scss";
+
+import Card from "./Card/Card";
+import Aside from "./Aside/Aside";
+
 const Dashboard = () => {
   const { state, action } = useStateMachine(getUserForms);
 
@@ -15,7 +20,12 @@ const Dashboard = () => {
     })();
   }, []);
 
-  return <h1>Dashboard</h1>;
+  return (
+    <div className={styles["dashboard"]}>
+      <Card />
+      <Aside />
+    </div>
+  );
 };
 
 export default Dashboard;

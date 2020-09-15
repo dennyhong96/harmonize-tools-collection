@@ -1,0 +1,84 @@
+.aside {
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(#000, 0.02);
+  background-color: #fff;
+  margin: 3rem 1rem;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__avatar {
+    position: relative;
+    margin-bottom: 2rem;
+
+    & :first-child {
+      font-size: 6rem;
+      color: rgba(73, 32, 141, 0.44);
+    }
+
+    & :last-child {
+      position: absolute;
+      font-size: 1.5rem;
+      color: #371c74;
+      bottom: 0.25rem;
+      right: 0;
+    }
+  }
+
+  &__employee {
+    width: 100%;
+    input {
+      height: 29px;
+      border-radius: 4px;
+      border: solid 1px #cccccc;
+      padding-left: 0.5rem;
+      display: block;
+      width: 75%;
+      margin: 0 auto 1rem;
+      outline: none;
+    }
+  }
+
+  &__formCtl {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+
+    & :first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 10px;
+
+      i {
+        font-size: 1.2rem;
+        background-color: #f9f2fc;
+      }
+    }
+
+    & > :last-child {
+      border: solid 1px #cccccc;
+      margin-left: 0.5rem;
+      border-radius: 5px;
+      resize: none;
+      padding-left: 0.5rem;
+      outline: none;
+    }
+  }
+
+  &__notes {
+    height: 66.2px;
+    border-radius: 15px;
+    background-color: #f9f2fc;
+    border: none;
+    resize: none;
+    width: 85%;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    outline: none;
+  }
+}
