@@ -10,7 +10,7 @@ export default function DashboardButton(props) {
 
   return (
     <div>
-      <button style={{ marginLeft: "900px", marginBottom: '20px' }} className="Button" onClick={onClick}>
+      <button style={{ marginLeft: "850px", marginBottom: '20px', width: '150px' }} className="Button" onClick={onClick}>
         {props.name}
       </button>
     </div>

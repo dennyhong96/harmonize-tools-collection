@@ -27,6 +27,7 @@ import path from "./utils/path";
 import Login from "./components/Pages/LoginSignup/Login";
 import Signup from "./components/Pages/LoginSignup/Signup";
 import Dashboard from "./components/Pages/Dashboard/Dashboard";
+import Peoplebaord from "./components/Pages/Dashboard/Peopleboard";
 
 import Sidebar from "./components/Navigation/Sidebar";
 import MainPage from "./components/Pages/MainPage/MainPage";
@@ -77,6 +78,7 @@ function App() {
           <Route exact path={path("/login")} component={Login} />
           <Route exact path={path("/signup")} component={Signup} />
           <Route exact path={path("/dashboard")} component={Dashboard} />
+          <Route exact path={path("/people")} component={Peoplebaord} />
           {process.env.NODE_ENV === "production" && (
             <Redirect from="/contract/*" to="/contract" />
           )}
