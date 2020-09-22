@@ -16,17 +16,17 @@ import Navigation from "../../../Navigation/Navigation";
 
 const { Option } = Select;
 
-const tip1 = (
-  <span style={{ color: "black", fontSize: "14px" }}>
-    <b>How is the form created?</b> <br />
-    Your response to each question determines what goes into your customized
-    contract. Make sure to fill out all fields so we can help you put everything
-    together!
-    <br /> <br />
-    You can find out the additional information throughout by hovering over{" "}
-    <b>"i"</b> icon. <Tooltip />
-  </span>
-);
+// const tip1 = (
+//   <span style={{ color: "black", fontSize: "14px" }}>
+//     <b>How is the form created?</b> <br />
+//     Your response to each question determines what goes into your customized
+//     contract. Make sure to fill out all fields so we can help you put everything
+//     together!
+//     <br /> <br />
+//     You can find out the additional information throughout by hovering over{" "}
+//     <b>"i"</b> icon. <Tooltip />
+//   </span>
+// );
 
 const tip2 = (
   <span style={{ color: "black", fontSize: "14px" }}>

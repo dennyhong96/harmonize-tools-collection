@@ -10,14 +10,14 @@ import './Dashboard.scss'
 export default function Peopleboard() {
   const { state, action } = useStateMachine(getUserForms);
 
-//   useEffect(() => {
-//     (async () => {
-//       // Fetch user's forms
-//       const res = await axios.get("/api/v1/form/nda");
-//       console.log("forms!!!!", res.data.data.userForms);
-//       action(res.data.data.userForms);
-//     })();
-//   }, []);
+  useEffect(() => {
+    (async () => {
+      // Fetch user's forms
+      const res = await axios.get("/api/v1/form/nda");
+      console.log("forms!!!!", res.data.data.userForms);
+      action(res.data.data.userForms);
+    })();
+  }, []);
 
   // Test 
   const formLists = ["Name", "Position", "Start Date", "Form Status", "Action"];

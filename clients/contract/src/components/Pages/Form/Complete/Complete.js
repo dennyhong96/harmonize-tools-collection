@@ -10,9 +10,9 @@ import path from "../../../../utils/path";
 
 const Complete = (props) => {
   const { state } = useStateMachine(updateAction);
-  const { reset } = useForm({
-    defaultValues: state.formDetails,
-  });
+  // const { reset } = useForm({
+  //   defaultValues: state.formDetails,
+  // });
 
   return (
     <Container>
@@ -45,7 +45,6 @@ const Complete = (props) => {
                     paddingTop: "0.55rem",
                   }}
                   type="reset"
-                  className="Button"
                 >
                   Create another form
                 </a>
@@ -53,8 +52,8 @@ const Complete = (props) => {
               <a
                 className="external-link"
                 href="https://www.harmonizehq.com"
-                rel="noopener noreferrer"
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={(e) => {
                   e.preventDefault();
                   window.STATE_MACHINE_RESET();
