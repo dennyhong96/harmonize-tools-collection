@@ -22,7 +22,7 @@ export default function FormList(props) {
             listItem={[
               form.name,
               form.createdAt,
-              form.note,
+              form.notes,
               <ActionButton list={actionList} />,
             ]}
           />
